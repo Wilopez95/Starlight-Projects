@@ -1,0 +1,1894 @@
+{
+  "info": {
+    "_postman_id": "18618d40-c9d5-4a60-9e28-13d315427500",
+    "name": "Starlight Billing Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "get order' payments history",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/payments/history/:orderId",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "payments",
+                "history",
+                ":orderId"
+              ],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get orders by id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  order(id: 1) {\r\n    id\r\n    grandTotal\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "QB Configuration",
+      "item": [
+        {
+          "name": "get configurations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/qb-configuration",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get qwc-file",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/qb-configuration/qwc-file",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration",
+                "qwc-file"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get excel configuration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/qb-configuration/excel-file",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration",
+                "excel-file"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create configuration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"password\": \"test\",\n    \"lastSuccessfulIntegration\": \"2021-04-01\",\n    \"dateToAdjustment\": 2,\n    \"integrationBuList\": [1, 2]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/qb-configuration",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "save excel configuration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "excelFile",
+                  "type": "file",
+                  "src": "/home/vitalii.pavlenko/Documents/qbIntegration.xlsx"
+                }
+              ],
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/qb-configuration/parse-excel-file",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration",
+                "parse-excel-file"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update configuration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"password\": \"test\",\n    \"lastSuccessfulIntegration\": \"2021-04-01\",\n    \"dateToAdjustment\": 2,\n    \"integrationBuList\": [1, 2]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/qb-configuration/",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "QB Integration Log",
+      "item": [
+        {
+          "name": "get integration logs",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/qb-integration-log",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-integration-log"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "warn",
+                  "disabled": true
+                },
+                {
+                  "key": "configurationId",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "integrationBuList",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "createdFrom",
+                  "value": "2021-05-21",
+                  "disabled": true
+                },
+                {
+                  "key": "createdTo",
+                  "value": "2021-05-22",
+                  "disabled": true
+                },
+                {
+                  "key": "rangeFrom",
+                  "value": "2021-05-20",
+                  "disabled": true
+                },
+                {
+                  "key": "rangeTo",
+                  "value": "2021-05-20",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "item": [
+        {
+          "name": "Credit Cards",
+          "item": [
+            {
+              "name": "get credit card by id",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query {\r\n  creditCard(id: 1) {\r\n    id\r\n    active\r\n    cardNickname\r\n    cardType\r\n    cardNumberLastDigits\r\n    customer { id, name }\r\n    jobSites { id, addressLine1 }\r\n\r\n    nameOnCard\r\n    expirationDate\r\n    addressLine1\r\n    addressLine2\r\n    city\r\n    state\r\n    zip\r\n    expDate\r\n    expiredLabel\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get credit cards",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query {\r\n  creditCards(\r\n      customerId: 1,\r\n      activeOnly: true\r\n    #   jobSiteId: 1\r\n    #   relevantOnly: true\r\n    ) {\r\n    id\r\n    active\r\n    cardNickname\r\n    cardType\r\n    cardNumberLastDigits\r\n    jobSites { id }\r\n\r\n    nameOnCard\r\n    expirationDate\r\n    addressLine1\r\n    addressLine2\r\n    city\r\n    state\r\n    zip\r\n    expDate\r\n    expiredLabel\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "add new credit card",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\r\n  addCreditCard(\r\n      customerId: 1, \r\n      data: {\r\n          active: true\r\n          cardNickName: \"my card 1\"\r\n\r\n          nameOnCard: \"TEST USER1\",\r\n          expirationDate: \"0325\",\r\n          addressLine1: \"69774 Jada Drive\",\r\n          addressLine2: \"231b\",\r\n          city: \"Lake Mary\",\r\n          state: \"CO\",\r\n          zip: \"47712\",\r\n          cardNumber: \"4111111111111111\"\r\n          cvv: \"112\"\r\n\r\n          jobSites: [1]\r\n      }\r\n  ) {\r\n      id\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "udpate credit card",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\r\n  updateCreditCard(\r\n      id: 1, \r\n      data: {\r\n          active: true\r\n          cardNickName: \"my card 2\"\r\n\r\n          nameOnCard: \"TEST USER2\",\r\n          expirationDate: \"0325\",\r\n          addressLine1: \"69774 Jada Drive\",\r\n          addressLine2: \"231b\",\r\n          city: \"Lake Mary\",\r\n          state: \"CO\",\r\n          zip: \"47712\",\r\n\r\n          jobSites: [2]\r\n      }\r\n  ) {\r\n      id\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete inactive credit card",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\r\n  deleteCreditCard(id: 1)\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get non-invoiced orders totals",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  nonInvoicedOrdersTotals(customerId: 1) {\r\n    prepaidTotal\r\n    prepaidOnAccount,\r\n    total\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get balances",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  customerBalances(customerId: 1) {\r\n    availableCredit\r\n    balance\r\n    creditLimit\r\n    nonInvoicedTotal\r\n    prepaidOnAccount\r\n    prepaidDeposits\r\n    paymentDue\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Deferred",
+          "item": [
+            {
+              "name": "charge deferred payment",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\r\n  chargeDeferredPayment(paymentId: 1) {\r\n    id\r\n    status\r\n    date\r\n    deferredUntil\r\n    amount\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get deferred payments",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query {\r\n  deferredPayments(\r\n    offset: 0, limit: 25,\r\n    failedOnly: false,\r\n    sortBy: DEFERRED_UNTIL,\r\n    sortOrder: DESC\r\n  ) {\r\n    id\r\n    status\r\n    date\r\n    deferredUntil\r\n    amount\r\n    checkNumber\r\n    isAch\r\n    \r\n    creditCard { cardNickname, cardType, cardNumberLastDigits }\r\n    customer { name }\r\n    orders { id, serviceDate, grandTotal }\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "charge multiple deferred payments",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\r\n  chargeDeferredPayments(paymentIds: [1,2]) {\r\n    id\r\n    status\r\n    date\r\n    deferredUntil\r\n    amount\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Unapplied",
+          "item": [
+            {
+              "name": "create unapplied payment (cash)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\n  createUnappliedPayment(\n      customerId: 1, \n      data: {\n          businessUnitId: 1\n          paymentType: CASH\n          amount: 10.10\n          applications: []\n          date: \"Mon, 16 Nov 2020 17:00:39 GMT\"\n      }\n  ) {\n    id\n  }\n}",
+                    "variables": ""
+                  },
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "create unapplied payment (cc)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\n  createUnappliedPayment(\n      customerId: 1, \n      data: {\n          businessUnitId: 1\n          paymentType: CREDIT_CARD\n          creditCardId: 1\n          amount: 5.5\n          applications: []\n          date: \"Mon, 17 Nov 2020 17:23:23 GMT\"\n      }\n  ) {\n    id\n  }\n}",
+                    "variables": ""
+                  },
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Credit Memo",
+          "item": [
+            {
+              "name": "edit credit memo",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\n  editCreditMemo(\n      id: 1, \n      data: {\n          amount: 10.10\n          date: \"Mon, 16 Nov 2020 17:00:39 GMT\"\n          memoNote: \"test\"\n      }\n  ) {\n    id\n  }\n}",
+                    "variables": ""
+                  },
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete credit memo",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{at_b}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\n  deleteCreditMemo(id: 1)\n}",
+                    "variables": ""
+                  },
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host_b}}/api/billing/graphql",
+                  "host": [
+                    "{{host_b}}"
+                  ],
+                  "path": [
+                    "api",
+                    "billing",
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "place order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"creditCard\": {\r\n        \"ccAccountId\": 3,\r\n        \"ccAccountToken\": \"9556457599460004\",\r\n        \"cardNickname\": \"Main CC 1\",\r\n        \"cardType\": \"MC\",\r\n        \"cardNumberLastDigits\": \"0004\",\r\n        \"id\": 56\r\n    },\r\n    \"customer\": {\r\n        \"email\": \"mail@mail.com\",\r\n        \"businessName\": null,\r\n        \"firstName\": \"Martha\",\r\n        \"lastName\": \"Stewart\",\r\n        \"invoicesEmail\": \"mail2@mail.com\",\r\n        \"invoiceConstruction\": \"byAddress\",\r\n        \"onAccount\": false,\r\n        \"creditLimit\": 0,\r\n        \"billingCycle\": \"daily\",\r\n        \"paymentTerms\": \"cod\",\r\n        \"addFinanceCharges\": false,\r\n        \"aprType\": \"standard\",\r\n        \"financeCharge\": 0,\r\n        \"ccProfileId\": \"17595229821159032823\",\r\n            \"mailingAddressLine1\": \"841 Quebec Street\",\r\n            \"mailingAddressLine2\": null,\r\n            \"mailingCity\": \"Denver\",\r\n            \"mailingState\": \"CO\",\r\n            \"mailingZip\": \"80220\",\r\n            \"billingAddressLine1\": \"841 Quebec Street\",\r\n            \"billingAddressLine2\": null,\r\n            \"billingCity\": \"Denver\",\r\n            \"billingState\": \"CO\",\r\n            \"billingZip\": \"80220\",\r\n        \"id\": 143,\r\n        \"originalId\": 17,\r\n        \"balance\": 0\r\n    },\r\n    \"jobSite\": {\r\n        \"id\": 165,\r\n        \"originalId\": 43,\r\n        \"addressLine1\": \"Los Altos St\",\r\n        \"addressLine2\": null,\r\n        \"city\": \"Colorado Springs\",\r\n        \"state\": \"CO\",\r\n        \"zip\": \"12333\"\r\n    },\r\n    \"order\": {\r\n        \"id\": 225,\r\n        \"woNumber\": 17745,\r\n        \"beforeTaxesTotal\": 193.5,\r\n        \"grandTotal\": 193.5,\r\n        \"serviceDate\": \"2020-08-07\"\r\n    },\r\n    \"orderLineItems\": [\r\n        {\r\n            \"isService\": true,\r\n            \"description\": \"10YD Dump&Return\",\r\n            \"price\": 44.5,\r\n            \"quantity\": 1,\r\n            \"total\": 44.5,\r\n            \"billableServiceHistoricalId\": 61,\r\n            \"lineItemId\": null\r\n        },\r\n        {\r\n            \"isService\": false,\r\n            \"description\": \"Trip Charge11\",\r\n            \"price\": 74.5,\r\n            \"quantity\": 2,\r\n            \"total\": 149,\r\n            \"billableLineItemHistoricalId\": 43\r\n        }\r\n    ],\r\n    \"sendReceipt\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/payments/place-order",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "payments",
+                "place-order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get payment by id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  payment(id: 1) {\r\n    id\r\n    status\r\n    invoicedStatus\r\n    date\r\n    paymentType\r\n    amount\r\n    sendReceipt\r\n    checkNumber\r\n    isAch\r\n    prevBalance\r\n    newBalance\r\n    appliedAmount\r\n    unappliedAmount\r\n    deferredUntil\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get payments",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  payments(\r\n      offset: 0, limit: 25,\r\n      customerId: 1,\r\n      sortBy: DATE\r\n      sortOrder: DESC\r\n    ) {\r\n    id\r\n    status\r\n    invoicedStatus\r\n    date\r\n    paymentType\r\n    amount\r\n    sendReceipt\r\n    checkNumber\r\n    isAch\r\n    prevBalance\r\n    newBalance\r\n    appliedAmount\r\n    unappliedAmount\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get prepaid payment by order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  prepaidPayment(orderId: 1) {\r\n    id\r\n    status\r\n    date\r\n    deferredUntil\r\n    amount\r\n    checkNumber\r\n    isAch\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create multi-orders payment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n  newMultiOrderPayment(\n      customerId: 1, \n      data: {\n          businessUnitId: 1\n          paymentType: CASH\n          amount: 10.10\n          date: \"Mon, 16 Nov 2020 17:00:39 GMT\"\n          orderIds: [1]\n          sendReceipt: false\n      }\n  ) {\n    id\n  }\n}",
+                "variables": ""
+              },
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payouts",
+      "item": [
+        {
+          "name": "get payouts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  payouts(offset: 0, limit: 25, sortBy: DATE, sortOrder: DESC) {\r\n    id\r\n    date\r\n    paymentType\r\n    amount\r\n    checkNumber\r\n    isAch\r\n    prevBalance\r\n    newBalance\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create payout (cash)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n  createPayout(\n      customerId: 1, \n      data: {\n          paymentType: CASH\n          date: \"Mon, 16 Nov 2020 17:00:39 GMT\"\n          paymentIds: [1]\n      }\n  ) {\n    id\n  }\n}",
+                "variables": ""
+              },
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get unapplied payments only",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  payments(offset: 0, limit: 25, unappliedOnly: true) {\r\n    id\r\n    status\r\n    invoicedStatus\r\n    paymentType\r\n    amount\r\n    appliedAmount\r\n    unappliedAmount\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Refunds",
+      "item": [
+        {
+          "name": "refund unapplied payment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  refundUnappliedPayment(paymentId: 1, amount: 10) {\r\n    id\r\n    unappliedAmount\r\n    refundedAmount\r\n  }\r\n}",
+                "variables": "{\r\n    \"paymentId\": 10,\r\n    \"refundedAmount\": 50\r\n}"
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get prepaid payment by order id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  prepaidPayment(orderId: 1) {\r\n    id\r\n    status\r\n    invoicedStatus\r\n    paymentType\r\n    amount\r\n    refundedAmount\r\n    appliedAmount\r\n    unappliedAmount\r\n    lastRefundDate\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refund prepaid order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  refundPrepaidOrder(orderId: 20, amount: 2, refundType: CREDIT_CARD)\r\n}",
+                "variables": "{\r\n    \"paymentId\": 10,\r\n    \"refundedAmount\": 50\r\n}"
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Invoices",
+      "item": [
+        {
+          "name": "get invoices by order ids",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"orderIds\": [1,2]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/v1/invoices/by-orders",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "invoices",
+                "by-orders"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bank Deposits",
+      "item": [
+        {
+          "name": "get bank deposits",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  bankDeposits(\r\n      offset: 0, limit: 25,\r\n      businessUnitId: 1\r\n    ) {\r\n    id\r\n    businessUnit\r\n    merchantId\r\n    date\r\n    depositType\r\n    status\r\n    synced\r\n    total\r\n    count\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "lock new bank deposit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n  lockBankDeposit(\n      businessUnitId: 1\n  ) {\n    id\n    businessUnit\n    merchantId\n    date\n    depositType\n    status\n    synced\n    total\n    count\n  }\n}",
+                "variables": ""
+              },
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "unlock bank deposit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n  unlockBankDeposit(id: 1)\n}",
+                "variables": ""
+              },
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete bank deposit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n  deleteBankDeposit(id: 1)\n}",
+                "variables": ""
+              },
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host_b}}/api/billing/graphql",
+              "host": [
+                "{{host_b}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "QBConfiguration",
+      "item": [
+        {
+          "name": "list configurations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLmhhdWxpbmdAc3RhcmxpZ2h0cHJvLm5ldCIsInJvbGUiOiJhZG1pbiIsInRlbmFudElkIjpudWxsLCJzdWJzY3JpYmVyTmFtZSI6bnVsbCwic3Vic2NyaWJlckxlZ2FsTmFtZSI6bnVsbCwiaWF0IjoxNTk0MzA2MTUwLCJleHAiOjE1OTQzMjQxNTB9.0qLHUS9tEc87Y-eTkqlVkuymYI-NzksIqg5_rBUMmyE",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{host}}/api/billing/v1/qb-configuration",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get qwc file",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "Zk1X9WC1MF8uSupV4wOm7",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLmhhdWxpbmdAc3RhcmxpZ2h0cHJvLm5ldCIsInJvbGUiOiJhZG1pbiIsInRlbmFudElkIjpudWxsLCJzdWJzY3JpYmVyTmFtZSI6bnVsbCwic3Vic2NyaWJlckxlZ2FsTmFtZSI6bnVsbCwiaWF0IjoxNTk0MzA2MTUwLCJleHAiOjE1OTQzMjQxNTB9.0qLHUS9tEc87Y-eTkqlVkuymYI-NzksIqg5_rBUMmyE",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{host}}/api/billing/v1/qb-configuration/qwc-file?tenantId=1",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration",
+                "qwc-file"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get excel file",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLmhhdWxpbmdAc3RhcmxpZ2h0cHJvLm5ldCIsInJvbGUiOiJhZG1pbiIsInRlbmFudElkIjpudWxsLCJzdWJzY3JpYmVyTmFtZSI6bnVsbCwic3Vic2NyaWJlckxlZ2FsTmFtZSI6bnVsbCwiaWF0IjoxNTk0MzA2MTUwLCJleHAiOjE1OTQzMjQxNTB9.0qLHUS9tEc87Y-eTkqlVkuymYI-NzksIqg5_rBUMmyE",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{host}}/api/billing/v1/qb-configuration/excel-file?tenantId=1",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration",
+                "excel-file"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "parse excel file",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLmhhdWxpbmdAc3RhcmxpZ2h0cHJvLm5ldCIsInJvbGUiOiJhZG1pbiIsInRlbmFudElkIjpudWxsLCJzdWJzY3JpYmVyTmFtZSI6bnVsbCwic3Vic2NyaWJlckxlZ2FsTmFtZSI6bnVsbCwiaWF0IjoxNTk0MzA2MTUwLCJleHAiOjE1OTQzMjQxNTB9.0qLHUS9tEc87Y-eTkqlVkuymYI-NzksIqg5_rBUMmyE",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "qwcintegrationfile.xlsx",
+                  "type": "file",
+                  "src": "/home/vitalii.pavlenko/Downloads/qwcIntegration (2).xlsx"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{host}}/api/billing/v1/qb-configuration/parse-excel-file?tenantId=1",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration",
+                "parse-excel-file"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete configuration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{host}}/api/billing/qbintegration/:tenantId",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "qbintegration",
+                ":tenantId"
+              ],
+              "variable": [
+                {
+                  "key": "tenantId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create configuration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{at_b}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"lastSuccessfulIntegration\": \"2021-01-21\",\n    \"password\": \"test\",\n    \"tenantId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/api/billing/v1/qb-configuration",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "billing",
+                "v1",
+                "qb-configuration"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

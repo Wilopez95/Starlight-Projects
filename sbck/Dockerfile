@@ -1,0 +1,66 @@
+FROM node:16-buster
+
+# https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker
+RUN apt-get update \
+    && apt-get install -y \
+    ca-certificates \
+    fonts-liberation \
+    libappindicator3-1 \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgbm1 \
+    libgcc1 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    lsb-release \
+    wget \
+    xdg-utils \
+    # Important to specify exact version
+    chromium-common=89.0.4389.114-1~deb10u1 \
+    chromium=89.0.4389.114-1~deb10u1 \
+    --no-install-recommends \
+    # Necessary on Debian because puppeteer always looks for /usr/bin/chromium-browser
+    && ln -s /usr/bin/chromium /usr/bin/chromium-browser \
+    && mkdir /app
+
+WORKDIR /app
+
+COPY package.json yarn.lock .yarnrc /app/
+# Run corepack enable
+ARG NPM_TOKEN
+ENV NPM_TOKEN=$NPM_TOKEN
+RUN test -n "$NPM_TOKEN" && echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" > .npmrc
+RUN echo "@starlightpro:registry=https://npm.pkg.github.com" >> .npmrc
+RUN yarn install --production
+
+
+COPY . /app/
+
+EXPOSE 3000
+
+CMD node server.js

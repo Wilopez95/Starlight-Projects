@@ -1,0 +1,1 @@
+{"version":3,"file":"1660258294514-testMigration.js","sourceRoot":"","sources":["../../../../src/database/migration/1660258294514-testMigration.ts"],"names":[],"mappings":";;;;;;;;;;;;AAYA,MAAa,0BAA0B;IACxB,EAAE,CAAC,WAAwB;;YACtC,MAAM,WAAW,CAAC,KAAK,CAAC,oCAAoC,CAAC,CAAC;QAChE,CAAC;KAAA;IAEY,IAAI,CAAC,WAAwB;8DAAkB,CAAC;KAAA;CAC9D;AAND,gEAMC"}

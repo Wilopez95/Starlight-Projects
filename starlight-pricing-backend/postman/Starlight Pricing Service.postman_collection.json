@@ -1,0 +1,3888 @@
+{
+  "info": {
+    "_postman_id": "ac904718-156f-45c3-a09a-f0c51da871e8",
+    "name": "Starlight Pricing Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Price Groups",
+      "item": [
+        {
+          "name": "Create price group",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"isGeneral\": true,\n    \"description\": \"testing 4\",\n    \"businessUnitId\": 1,\n    \"businessLineId\": 1,\n    \"serviceAreaIds\": [1,2,5],\n    \"customerGroupId\":1,\n    \"customerId\":1,\n    \"customerJobSiteId\":1,\n    \"active\": true,\n    \"validDays\": [0, 1, 3, 4, 5],\n    \"overweightSetting\": \"material\",\n    \"usageDaysSetting\": \"global\",\n    \"demurrageSetting\": \"material\",\n    \"dumpSetting\":\"material\",\n    \"loadSetting\":\"material\",\n    \"startDate\": \"2022-03-30T20:54:45.074Z\",\n    \"endDate\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/priceGroup"
+          },
+          "response": []
+        },
+        {
+          "name": "Update price group",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"serviceAreaIds\": [3,4]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/priceGroup?id=3",
+              "host": ["{{localhost}}"],
+              "path": ["priceGroup"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete price group",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/priceGroup?id=3",
+              "host": ["{{localhost}}"],
+              "path": ["priceGroup"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"is_global\":true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/priceGroup/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/priceGroup"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Thresholds",
+      "item": [
+        {
+          "name": "Create price group",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"thresholdId\": 1,",
+                  "    \"limit\": 1,",
+                  "    \"businessUnitId\": 1,",
+                  "    \"businessLineId\": 1,",
+                  "    \"equipmentItemId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"customRatesGroupId\": 1,",
+                  "    \"price\": 1,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupThresholds"
+          },
+          "response": []
+        },
+        {
+          "name": "Update price group",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"limit\": 10,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/customRatesGroupThresholds?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["customRatesGroupThresholds"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Surcharges",
+      "item": [
+        {
+          "name": "Create price group",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"surchargeId\": 1,",
+                  "    \"businessUnitId\": 1,",
+                  "    \"businessLineId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"customRatesGroupId\": 1,",
+                  "    \"price\": 1,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupSurcharges"
+          },
+          "response": []
+        },
+        {
+          "name": "Update price group",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 10,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/customRatesGroupSurcharges?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["customRatesGroupSurcharges"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Groups",
+      "item": [
+        {
+          "name": "Create price group",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"testing 4\",\n    \"businessUnitId\": 1,\n    \"businessLineId\": 1,\n    \"customerGroupId\":1,\n    \"customerId\":1,\n    \"customerJobSiteId\":1,\n    \"active\": true,\n    \"validDays\": [0, 1, 3, 4, 5],\n    \"overweightSetting\": \"material\",\n    \"usageDaysSetting\": \"global\",\n    \"demurrageSetting\": \"material\",\n    \"dumpSetting\":\"material\",\n    \"loadSetting\":\"material\",\n    \"startDate\": \"2022-03-30T20:54:45.074Z\",\n    \"endDate\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroups"
+          },
+          "response": []
+        },
+        {
+          "name": "Update price group",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\"active\": true,\n\"businessLineId\": 1,\n\"businessUnitId\": 1,\n\"createdAt\": \"2022-05-26T10:49:12Z\",\n\"customerGroupId\": 3,\n\"customerSpecificationString\": null,\n\"demurrageSetting\": \"global\",\n\"description\": \"prueba duplicate\",\n\"dumpSetting\": \"material\",\n\"endDate\": \"2022-06-30T00:00:00Z\",\n\"groupSpecification\": \"customerGroup\",\n\"id\": 35,\n\"loadSetting\": \"material\",\n\"nonServiceHours\": false,\n\"overweightSetting\": \"global\",\n\"spUsed\": false,\n\"startDate\": \"2022-06-02T00:00:00Z\",\n\"updatedAt\": \"2022-05-31T09:33:57Z\",\n\"usageDaysSetting\": \"global\",\n\"validDays\": [0, 1, 2, 3, 4, 5, 6]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroups/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Custom Rates Group Duplicate",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"active\": true,",
+                  "\"businessLineId\": 1,",
+                  "\"businessUnitId\": 1,",
+                  "\"createdAt\": \"2022-05-26T10:49:12Z\",",
+                  "\"customerGroupId\": 3,",
+                  "\"customerSpecificationString\": null,",
+                  "\"demurrageSetting\": \"global\",",
+                  "\"description\": \"prueba duplicate\",",
+                  "\"dumpSetting\": \"material\",",
+                  "\"endDate\": \"2022-06-30T00:00:00Z\",",
+                  "\"groupSpecification\": \"customerGroup\",",
+                  "\"id\": 35,",
+                  "\"loadSetting\": \"material\",",
+                  "\"nonServiceHours\": false,",
+                  "\"overweightSetting\": \"global\",",
+                  "\"spUsed\": false,",
+                  "\"startDate\": \"2022-06-02T00:00:00Z\",",
+                  "\"updatedAt\": \"2022-05-31T09:33:57Z\",",
+                  "\"usageDaysSetting\": \"global\",",
+                  "\"validDays\": [0, 1, 2, 3, 4, 5, 6]",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroups/35/duplicate"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Price Groups Historical",
+      "item": [
+        {
+          "name": "Get By",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"is_global\":true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/priceGroupHistorical/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/priceGroupHistorical"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Prices",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"priceGroupId\": 1,",
+                  "  \"entityType\": \"ONE_TIME_SERVICE\",",
+                  "  \"billableServiceId\": 1,",
+                  "  \"billableLineItemId\": 1,",
+                  "  \"materialId\": 1,",
+                  "  \"thresholdId\": 1,",
+                  "  \"surchargeId\": 1,",
+                  "  \"billingCycle\": \"daily\",",
+                  "  \"frequencyId\": 1,",
+                  "  \"price\": 1000,",
+                  "  //\"nextPrice\": Joi.number().optional(),",
+                  "  //\"limit\": Joi.number().optional(),",
+                  "  \"userId\": \"system\",",
+                  "  //\"createdAt\": Joi.date().optional(),",
+                  "  \"traceId\": \"system\",",
+                  "  \"startAt\": new Date().toISOString()",
+                  "  //\"endAt\": Joi.date().optional(),",
+                  "",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/price"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"materialId\": 3,",
+                  "  \"thresholdId\": 2,",
+                  "  \"surchargeId\": 4,",
+                  "  \"billingCycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/price?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["price"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/price?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["price"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/price/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/price"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"businessUnitId\": 1,",
+                  "      \"businessLineId\": 1,",
+                  "      \"orderRequestId\": 1,",
+                  "      \"draft\": false,",
+                  "      \"isRollOff\": false,",
+                  "      \"contractorId\":  1,",
+                  "      \"status\": \"inProgress\",",
+                  "      \"serviceAreaId\": 1,",
+                  "      \"customRatesGroupId\": 1,",
+                  "      \"jobSiteId\": 1,",
+                  "      \"jobSite2Id\": 1,",
+                  "      \"customerId\": 1,",
+                  "      \"customerJobSiteId\": 1,",
+                  "      \"projectId\": 1,",
+                  "      \"billableServiceId\": 1,",
+                  "      \"materialId\": 1,",
+                  "      \"equipmentItemId\": 1,",
+                  "      \"thirdPartyHaulerId\": 1,",
+                  "      \"promoId\": 1,",
+                  "      \"materialProfileId\": 1,",
+                  "      \"globalRatesServicesId\": 1,",
+                  "      \"customRatesGroupServicesId\": 1,",
+                  "      \"billableServicePrice\": 1,",
+                  "      \"billableServiceTotal\": 1,",
+                  "      \"billableLineItemsTotal\": 1,",
+                  "      \"thresholdsTotal\": 1,",
+                  "      \"beforeTaxesTotal\": 1,",
+                  "      \"onAccountTotal\": 1,",
+                  "      \"initialGrandTotal\": 1,",
+                  "      \"grandTotal\": 1,",
+                  "      \"serviceDate\":  new Date().toISOString(),",
+                  "      \"jobSiteContactId\": 1,",
+                  "      \"jobSiteNote\": \"test\",",
+                  "      \"callOnWayPhoneNumber\": \"test\",",
+                  "      \"textOnWayPhoneNumber\": \"test\",",
+                  "      \"callOnWayPhoneNumberId\": 1,",
+                  "      \"textOnWayPhoneNumberId\": 1,",
+                  "      \"driverInstructions\": \"test\",",
+                  "      \"permitId\": 1,",
+                  "      \"bestTimeToComeFrom\": \"test\",",
+                  "      \"bestTimeToComeTo\": \"test\",",
+                  "      \"someoneOnSite\": false,",
+                  "      \"toRoll\": false,",
+                  "      \"highPriority\": false,",
+                  "      \"earlyPick\": false,",
+                  "      \"alleyPlacement\": false,",
+                  "      \"cabOver\": false,",
+                  "      \"orderContactId\": 1,",
+                  "      \"disposalSiteId\": 1,",
+                  "      \"workOrderId\": 1,",
+                  "      \"invoiceNotes\": \"test\",",
+                  "      \"cancellationReasonType\": \"customerCanceled\",",
+                  "      \"cancellationComment\": \"test\",",
+                  "      \"unapprovedComment\": \"test\",",
+                  "      \"unfinalizedComment\": \"test\",",
+                  "      \"rescheduleComment\": \"test\",",
+                  "      \"droppedEquipmentItem\": \"test\",",
+                  "      \"csrEmail\": \"test\",",
+                  "      \"paymentMethod\": \"onAccount\",",
+                  "      \"invoiceDate\":  new Date().toISOString(),",
+                  "      \"notifyDayBefore\": \"byEmail\",",
+                  "      \"overrideCreditLimit\": false,",
+                  "      \"createdBy\": \"system\",",
+                  "      \"mixedPaymentMethods\": \"test\",",
+                  "      \"applySurcharges\": false,",
+                  "      \"commercialTaxesUsed\": false,",
+                  "      \"purchaseOrderId\": 1,",
+                  "      \"independentWorkOrderId\": 1,",
+                  "      \"priceId\": 1,",
+                  "      \"overrideServicePrice\": false,",
+                  "      \"overriddenServicePrice\": 1,",
+                  "      \"serviceTotal\": 1,",
+                  "      \"invoicedAt\":  new Date().toISOString(),",
+                  "      \"paidAt\":  new Date().toISOString(),",
+                  "      \"createdAt\":  new Date().toISOString(),",
+                  "      \"updatedAt\":  new Date().toISOString(),",
+                  "      \"surchargesTotal\": 1,",
+                  "      \"originDistrictId\": 1,",
+                  "      \"csrName\": \"test\"",
+                  "    }",
+                  "    pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/orders"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"materialId\": 3,",
+                  "  \"thresholdId\": 2,",
+                  "  \"surchargeId\": 4,",
+                  "  \"billingCycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/orders?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/orders?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/orders/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Update status",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    ids:[1],",
+                  "    status: \"invoiced\"",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/orders/update/state",
+              "host": ["{{localhost}}"],
+              "path": ["orders", "update", "state"],
+              "query": [
+                {
+                  "key": "customerId",
+                  "value": "13",
+                  "disabled": true
+                },
+                {
+                  "key": "businessUnitId",
+                  "value": "2",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invoiced Copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    businessUnitId: 2,",
+                  "    customerId: 30",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/orders/invoiced",
+              "host": ["{{localhost}}"],
+              "path": ["orders", "invoiced"],
+              "query": [
+                {
+                  "key": "customerId",
+                  "value": "13",
+                  "disabled": true
+                },
+                {
+                  "key": "businessUnitId",
+                  "value": "2",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"CustomerId\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/orders?businessUnitId=2&id=2",
+              "host": ["{{localhost}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "businessUnitId",
+                  "value": "2"
+                },
+                {
+                  "key": "id",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Line Item",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"orderId\": 2,",
+                  "  \"billableLineItemId\": 1,",
+                  "  \"materialId\": 1,",
+                  "  \"globalRatesLineItemsId\": 1,",
+                  "  \"customRatesGroupLineItemsId\": 1,",
+                  "  \"price\": 1,",
+                  "  \"quantity\": 1,",
+                  "  \"manifestNumber\": \"test\",",
+                  "  \"landfillOperation\": false,",
+                  "  \"priceId\": 1,",
+                  "  \"overridePrice\": false,",
+                  "  \"overriddenPrice\": 1,",
+                  "  \"invoicedAt\": new Date().toISOString(),",
+                  "  \"paidAt\": new Date().toISOString(),",
+                  "  \"createdAt\": new Date().toISOString(),",
+                  "  \"updatedAt\": new Date().toISOString(),",
+                  "  \"applySurcharges\": false,",
+                  "  }",
+                  "  pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/lineItems"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"materialId\": 3,",
+                  "  \"thresholdId\": 2,",
+                  "  \"surchargeId\": 4,",
+                  "  \"billingCycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/lineItems?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["lineItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/lineItems?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["lineItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/lineItems/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/lineItems"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order Request",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"customerId\": 1, ",
+                  "    \"contractorId\": 1,",
+                  "    \"status\": \"requested\",",
+                  "    \"jobSiteId\": 1,",
+                  "    //\"jobSite2Id\": id.optional(),",
+                  "    \"billableServiceId\": 1,",
+                  "    \"equipmentItemId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"serviceDate\": new Date().toISOString(),",
+                  "    \"billableServicePrice\": 200,",
+                  "    \"billableServiceQuantity\": 3,",
+                  "    \"billableServiceTotal\": 600,",
+                  "    \"initialGrandTotal\": 600,",
+                  "    \"grandTotal\": 600,",
+                  "    //\"mediaUrls\": Joi.string().optional(),",
+                  "    //\"driverInstructions\": Joi.string().optional(),",
+                  "    \"alleyPlacement\": false,",
+                  "    \"someoneOnSite\": true,",
+                  "    \"sendReceipt\": true,",
+                  "    //\"paymentMethod\": Joi.string().optional(),",
+                  "    //\"creditCardId\": id.optional(),",
+                  "    //\"purchaseOrderId\": id.optional(),",
+                  "    //\"serviceAreaId\": id.optional(),",
+                  "    //\"createdAt\": Joi.date().optional(),",
+                  "    //\"updatedAt\": Joi.date().optional(),",
+                  "  }",
+                  "  pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/orderRequest"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"materialId\": 3,",
+                  "  \"thresholdId\": 2,",
+                  "  \"surchargeId\": 4,",
+                  "  \"billingCycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/orderRequest?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["orderRequest"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/orderRequest?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["orderRequest"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/orderRequest/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/orderRequest"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Recurrent Order Template",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"businessLineId\": 1,",
+                  "      \"businessUnitId\": 1,",
+                  "      \"status\": \"active\",",
+                  "      \"serviceAreaId\": 1,",
+                  "      \"jobSiteId\": 1,",
+                  "      \"customerId\": 1,",
+                  "      \"customerJobSiteId\": 1,",
+                  "      \"projectId\": 1,",
+                  "      \"thirdPartyHaulerId\": 1,",
+                  "      \"promoId\": 1,",
+                  "      \"materialProfileId\": 1,",
+                  "      \"jobSiteContactId\": 1,",
+                  "      \"orderContactId\": 1,",
+                  "      \"permitId\": 1,",
+                  "      \"disposalSiteId\": 1,",
+                  "      \"customRatesGroupId\": 1,",
+                  "      \"globalRatesServicesId\": 1,",
+                  "      \"customRatesGroupServicesId\": 1,",
+                  "      \"billableServiceId\": 1,",
+                  "      \"materialId\": 1,",
+                  "      \"equipmentItemId\": 1,",
+                  "      \"billableServicePrice\": 1,",
+                  "      \"billableServiceQuantity\": 1,",
+                  "      \"billableServiceTotal\": 1,",
+                  "      \"billableLineItemsTotal\": 1,",
+                  "      \"thresholdsTotal\": 1,",
+                  "      \"frequencyType\": \"custom\",",
+                  "      \"frequencyPeriod\": 1,",
+                  "      \"customFrequencyType\": \"daily\",",
+                  "      \"frequencyDays\": 1,",
+                  "      \"syncDate\": new Date().toISOString(),",
+                  "      \"nextServiceDate\": new Date().toISOString(),",
+                  "      \"unlockOverrides\": false,",
+                  "      \"beforeTaxesTotal\": 1,",
+                  "      \"grandTotal\": 1,",
+                  "      \"startDate\": new Date().toISOString(),",
+                  "      \"endDate\": new Date().toISOString(),",
+                  "      \"jobSiteNote\": \"test\",",
+                  "      \"callOnWayPhoneNumber\": \"test\",",
+                  "      \"textOnWayPhoneNumber\": \"test\",",
+                  "      \"callOnWayPhoneNumberId\": 1,",
+                  "      \"textOnWayPhoneNumberId\": 1,",
+                  "      \"driverInstructions\": \"test\",",
+                  "      \"bestTimeToComeFrom\": \"test\",",
+                  "      \"bestTimeToComeTo\": \"test\",",
+                  "      \"someoneOnSite\": false,",
+                  "      \"toRoll\": false,",
+                  "      \"highPriority\": false,",
+                  "      \"earlyPick\": false,",
+                  "      \"invoiceNotes\": \"test\",",
+                  "      \"csrEmail\": \"test\",",
+                  "      \"alleyPlacement\": false,",
+                  "      \"cabOver\": false,",
+                  "      \"signatureRequired\": false,",
+                  "      \"paymentMethod\": \"onAccount\",",
+                  "      \"notifyDayBefore\": \"byEmail\",",
+                  "      \"applySurcharges\": false,",
+                  "      \"billableServiceApplySurcharges\": false,",
+                  "      \"surchargesTotal\": 1,",
+                  "      \"commercialTaxesUsed\": false,",
+                  "      \"purchaseOrderId\": 1,",
+                  "      \"onHoldEmailSent\": false,",
+                  "      \"onHoldNotifySalesRep\": false,",
+                  "      \"onHoldNotifyMainContact\": false,",
+                  "  ",
+                  "      // refactor starts here",
+                  "        \"priceGroupId\": 1,",
+                  "        \"priceId\": 1,",
+                  "      //   \"refactoredBillableServicePrice\": 1,",
+                  "      //   \"refactoredBillableServiceTotal\": 1,",
+                  "      //   \"refactoredBillableLineItemsTotal\": 1,",
+                  "      //   \"refactoredThresholdsTotal\": 1,",
+                  "      //   \"refactoredBeforeTaxesTotal\": 1,",
+                  "      //   \"refactoredGrandTotal\": 1,",
+                  "      //   \"refactoredSurchargesTotal\": 1,",
+                  "  ",
+                  "      \"lastFailureDate\": new Date().toISOString(),",
+                  "      \"createdAt\": new Date().toISOString(),",
+                  "      \"updatedAt\": new Date().toISOString(),",
+                  "  }",
+                  "  pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/recurrentOrderTemplate"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"status\": \"onHold\",",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/recurrentOrderTemplate?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["recurrentOrderTemplate"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/recurrentOrderTemplate?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["recurrentOrderTemplate"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/recurrentOrderTemplate/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/recurrentOrderTemplate"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Recurrent Order Template Historical",
+      "item": [
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/recurrentOrderTemplateHistorical/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/recurrentOrderTemplateHistorical"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Recurrent Order Template Line Items",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"recurrentOrderTemplateId\": 1,",
+                  "    \"billableLineItemId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"globalRatesLineItemsId\": 1,",
+                  "    \"customRatesGroupLineItemsId\": 1,",
+                  "    \"price\": 1,",
+                  "    \"quantity\": 1,",
+                  "    \"applySurcharges\": false,",
+                  "    // refactor starts here",
+                  "    \"priceId\": 1,",
+                  "    // \"refactored_price\": 1,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/recurrentOrderTemplateLineItems"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 1,",
+                  "    \"quantity\": 1,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/recurrentOrderTemplateLineItems?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["recurrentOrderTemplateLineItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/recurrentOrderTemplateLineItems?id=4",
+              "host": ["{{localhost}}"],
+              "path": ["recurrentOrderTemplateLineItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/recurrentOrderTemplateLineItems/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/recurrentOrderTemplateLineItems"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Recurrent Order Template Line Items Historical",
+      "item": [
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "  \"material_id\": 3,",
+                  "  \"threshold_id\": 2,",
+                  "  \"surcharge_id\": 4,",
+                  "  \"billing_cycle\": \"weekly\",",
+                  "  \"price\": 10000,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/recurrentOrderTemplateLineItemsHistorical/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/recurrentOrderTemplateLineItemsHistorical"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Subscriptions Periods",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"subscriptionId\": 1,",
+                  "    \"priceGroupHistoricalId\": 2,",
+                  "    \"status\": \"active\",",
+                  "    \"billingCycle\": \"daily\",",
+                  "    \"billingType\": \"inAdvance\",",
+                  "    \"overrideProration\": false,",
+                  "    \"recurringServicesAmount\": 1,",
+                  "    \"recurringServicesProratedAmount\": 1,",
+                  "    \"recurringServicesOverriddenProratedAmount\": 1,",
+                  "    \"recurringServicesTotal\": 1,",
+                  "    \"recurringLineItemsAmount\": 1,",
+                  "    \"recurringLineItemsOverriddenAmount\": 1,",
+                  "    \"recurringLineItemsTotal\": 1,",
+                  "    \"recurringLineItemsOverriddenTotal\": 1,",
+                  "    \"recurringAmount\": 1,",
+                  "    \"recurringOverriddenAmount\": 1,",
+                  "    \"recurringTotal\": 1,",
+                  "    \"recurringOverriddenTotal\": 1,",
+                  "    \"oneTimeAmount\": 1,",
+                  "    \"oneTimeOverriddenAmount\": 1,",
+                  "    \"oneTimeTotal\": 1,",
+                  "    \"oneTimeOverriddenTotal\": 1,",
+                  "    \"beforeTaxesGrandTotal\": 1,",
+                  "    \"beforeTaxesOverriddenGrandTotal\": 1,",
+                  "    \"grandTotal\": 1,",
+                  "    \"overriddenGrandTotal\": 1,",
+                  "    \"nextGrandTotal\": 1,",
+                  "    \"startAt\": new Date().toISOString(),",
+                  "    \"endAt\": new Date().toISOString(),",
+                  "    \"invoicedAt\": new Date().toISOString(),",
+                  "    \"paidAt\": new Date().toISOString(),",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/subscriptionsPeriods"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"billing_cycle\": \"weekly\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/subscriptionsPeriods?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionsPeriods"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/subscriptionsPeriods?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionsPeriods"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionsPeriods/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionsPeriods"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Subscription Service Items Schedule",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"subscriptionId\": 1,",
+                  "    \"subscriptionServiceItemId\": 1,",
+                  "    \"billableServiceId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"priceId\":2,",
+                  "    \"billingCycle\": \"daily\",",
+                  "    \"frequencyId\": 1,",
+                  "    \"serviceDaysOfWeek\": {},",
+                  "    \"quantity\": 1,",
+                  "    \"overridePrice\": false,",
+                  "    \"overrideProration\": false,",
+                  "    \"price\": 1,",
+                  "    \"overriddenPrice\": 1,",
+                  "    \"nextPrice\": 1,",
+                  "    \"amount\": 1,",
+                  "    \"proratedAmount\": 1,",
+                  "    \"overriddenProratedAmount\": 1,",
+                  "    \"total\": 1,",
+                  "    \"startAt\": new Date().toISOString(),",
+                  "    \"endAt\": new Date().toISOString(),",
+                  "    \"invoicedAt\": new Date().toISOString(),",
+                  "    \"paidAt\": new Date().toISOString(),",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/subscriptionServiceItemsSchedule"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"price\": 1,\n    \"amount\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/subscriptionServiceItemsSchedule?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionServiceItemsSchedule"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/subscriptionServiceItemsSchedule?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionServiceItemsSchedule"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionServiceItemsSchedule/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionServiceItemsSchedule"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Subscription Recurring Line Items Schedule",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"subscriptionId\": 1,",
+                  "    \"subscriptionRecurringLineItemId\": 1,",
+                  "    \"billableLineItemId\": 1,",
+                  "    \"priceId\": 2,",
+                  "    \"billingCycle\": \"daily\",",
+                  "    \"quantity\": 1,",
+                  "    \"overridePrice\": false,",
+                  "    \"overrideProration\": false,",
+                  "    \"price\": 1,",
+                  "    \"overriddenPrice\": 1,",
+                  "    \"nextPrice\": 1,",
+                  "    \"amount\": 1,",
+                  "    \"proratedAmount\": 1,",
+                  "    \"overriddenProratedAmount\": 1,",
+                  "    \"total\": 1,",
+                  "    \"startAt\": new Date().toISOString(),",
+                  "    \"endAt\": new Date().toISOString(),",
+                  "    \"invoicedAt\": new Date().toISOString(),",
+                  "    \"paidAt\": new Date().toISOString(),",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/subscriptionRecurringLineItemsSchedule"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"price\": 1,\n    \"amount\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/subscriptionRecurringLineItemsSchedule?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionRecurringLineItemsSchedule"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/subscriptionRecurringLineItemsSchedule?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionRecurringLineItemsSchedule"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionRecurringLineItemsSchedule/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionRecurringLineItemsSchedule"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Subscription Orders Line Items",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"subscriptionWorkOrderId\": 1,",
+                  "    \"billableLineItemId\": 1,",
+                  "    \"globalRatesLineItemsId\": 1,",
+                  "    \"customRatesGroupLineItemsId\": 3,",
+                  "    \"price\": 1,",
+                  "    \"quantity\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"workOrderLineItemId\": 1,",
+                  "    \"unlockOverrides\": false,",
+                  "    // \"refactored_price\": 1,",
+                  "    \"invoicedAt\": new Date().toISOString(),",
+                  "    \"paidAt\": new Date().toISOString(),",
+                  "    \"priceId\": 1,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "    \"subscriptionOrderId\": 3,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/subscriptionOrderLineItems"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"price\": 1,\n    \"quantity\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/subscriptionOrderLineItems?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionOrderLineItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/subscriptionOrderLineItems?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionOrderLineItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionOrderLineItems/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionOrderLineItems"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Subscription Orders",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"billedAt\": new Date().toISOString(),",
+                  "    \"included\": false,",
+                  "    \"addTripCharge\": false,",
+                  "    \"cancellationReason\": \"test\",",
+                  "    \"jobSiteContactId\": 1,",
+                  "    \"permitId\": 1,",
+                  "    \"promoId\": 1,",
+                  "    \"thirdPartyHaulerId\": 1,",
+                  "    \"earlyPick\": false,",
+                  "    \"unlockOverrides\": false,",
+                  "    \"workOrdersCount\": 1,",
+                  "    \"status\": \"SCHEDULED\",",
+                  "    \"callOnWayPhoneNumber\": \"test\",",
+                  "    \"textOnWayPhoneNumber\": \"test\",",
+                  "    \"alleyPlacement\": false,",
+                  "    \"toRoll\": false,",
+                  "    \"subscriptionContactId\": 1,",
+                  "    \"signatureRequired\": false,",
+                  "    \"canReschedule\": false,",
+                  "    \"oneTime\": false,",
+                  "    \"instructionsForDriver\": \"test\",",
+                  "    \"jobSiteNote\": \"test\",",
+                  "    \"onejobSiteContactTextOnlytime\": false,",
+                  "    \"bestTimeToComeFrom\": \"test\",",
+                  "    \"bestTimeToComeTo\": \"test\",",
+                  "    \"someoneOnSite\": false,",
+                  "    \"highPriority\": false,",
+                  "    \"hasComments\": false,",
+                  "    \"hasAssignedRoutes\": false,",
+                  "    \"startedAt\": new Date().toISOString(),",
+                  "    \"canceledAt\": new Date().toISOString(),",
+                  "    \"completedAt\": new Date().toISOString(),",
+                  "    \"poRequired\": false,",
+                  "    \"permitRequired\": false,",
+                  "    \"subscriptionServiceItemId\": 1,",
+                  "    \"billableServiceId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"globalRatesServicesId\": 1,",
+                  "    \"customRatesGroupServicesId\": 1,",
+                  "    \"serviceDate\": new Date().toISOString(),",
+                  "    \"price\": 1,",
+                  "    \"quantity\": 1,",
+                  "    \"grandTotal\": 1,",
+                  "    \"serviceDayOfWeekRequiredByCustomer\": false,",
+                  "    \"assignedRoute\": \"test\",",
+                  "    \"billableLineItemsTotal\": 1,",
+                  "    \"cancellationComment\": \"test\",",
+                  "    \"overrideCreditLimit\": false,",
+                  "    \"invoicedDate\": new Date().toISOString(),",
+                  "    \"arrivedAt\": new Date().toISOString(),",
+                  "    \"deletedAt\": new Date().toISOString(),",
+                  "    \"customRatesGroupId\": 1,",
+                  "    \"destinationJobSiteId\": 1,",
+                  "    \"subscriptionId\": 1,",
+                  "    \"sequenceId\": \"test\",",
+                  "    \"purchaseOrderId\": 1,",
+                  "    \"applySurcharges\": false,",
+                  "    \"isFinalForService\": false,",
+                  "    \"surchargesTotal\": 1,",
+                  "    \"beforeTaxesTotal\": 1,",
+                  "    \"invoicedAt\": new Date().toISOString(),",
+                  "    \"paidAt\": new Date().toISOString(),",
+                  "    \"priceId\": 1,",
+                  "    \"priceGroupHistoricalId\": 1,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "    \"invoiceNotes\": \"test\",",
+                  "    \"uncompletedComment\": \"test\",",
+                  "    \"unapprovedComment\": \"test\",",
+                  "    \"unfinalizedComment\": \"test\",",
+                  "    \"droppedEquipmentItem\": \"test\",",
+                  "    \"pickedUpEquipmentItem\": \"test\",",
+                  "    \"weight\": 1,",
+                  "    \"finishWorkOrderDate\": new Date().toISOString(),",
+                  "    \"weightUnit\": \"yards\",",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/subscriptionOrders"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"price\": 1,\n    \"quantity\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/subscriptionOrders?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionOrders"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/subscriptionOrders?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["subscriptionOrders"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionOrders/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/subscriptionOrders"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Surcharge Items",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"orderId\": 6,",
+                  "    \"surchargeId\": 1,",
+                  "    \"billableLineItemId\": 1,",
+                  "    \"billableServiceId\": 1,",
+                  "    \"thresholdId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"globalRatesSurchargesId\": 1,",
+                  "    \"customRatesGroupSurchargesId\": 1,",
+                  "    \"amount\": 1,",
+                  "    \"quantity\": 1,",
+                  "    \"priceId\": 2,",
+                  "    \"invoicedAt\": new Date().toISOString(),",
+                  "    \"paidAt\": new Date().toISOString(),",
+                  "    // \"amount_to_display\": 1,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "    \"lineItemId\": 4,",
+                  "    \"thresholdItemId\": 5",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/surchargeItems"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\": 100000,\n    \"quantity\": 1,\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/surchargeItems?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["surchargeItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/surchargeItems?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["surchargeItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/surchargeItems/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/surchargeItems"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Threshold Items",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"orderId\": 6,",
+                  "    \"thresholdId\": 1,",
+                  "    \"globalRatesThresholdsId\": 1,",
+                  "    \"price\": 1,",
+                  "    \"quantity\": 1,",
+                  "    \"priceId\": 2,",
+                  "    \"invoicedAt\": new Date().toISOString(),",
+                  "    \"paidAt\": new Date().toISOString(),",
+                  "    // \"priceToDisplay\": 1,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "    \"applySurcharges\": false,",
+                  "    \"customRatesGroupThresholdsId\": 1",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/thresholdItems"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": \"100\",",
+                  "    \"quantity\": \"15\"",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/thresholdItems?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["thresholdItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/thresholdItems?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["thresholdItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/thresholdItems/by"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{token}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{localhost}}/thresholdItems"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "GraphQL",
+      "item": [
+        {
+          "name": "orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  orders {\n        id,\n        price_id,\n\t}\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{localhost}}/graphql"
+          },
+          "response": []
+        },
+        {
+          "name": "thresholdItems",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  thresholdItems {\n        id,\n        price_to_display\n        order_id,\n            orderId{\n            status\n        }\n        price_id,\n        priceId{\n        start_at,\n        billing_cycle\n        }\n\t}\n}",
+                "variables": ""
+              }
+            },
+            "url": "http://localhost:3010/graphql"
+          },
+          "response": []
+        },
+        {
+          "name": "subscriptionOrder",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  subscriptionOrder {\n    id\n    quantity\n    created_at\n    price_group_historical_id\n    priceGroupHistoricalId {\n      description\n    }\n    price_id\n    priceId {\n      start_at\n      billing_cycle\n    }\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": "http://localhost:3010/graphql"
+          },
+          "response": []
+        },
+        {
+          "name": "subscriptionOrdersLineItems",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  subscriptionOrdersLineItems {\n    id\n    quantity\n    created_at\n    subscription_order_id\n    subscriptionOrderId {\n      cancellation_reason,\n      add_trip_charge\n    }\n    price_id\n    priceId {\n      start_at\n      billing_cycle\n    }\n  }\n}\n",
+                "variables": ""
+              }
+            },
+            "url": "http://localhost:3010/graphql"
+          },
+          "response": []
+        },
+        {
+          "name": "lineItems",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  lineItems {\n        id,\n        quantity,\n        created_at,\n        order_id,\n            orderId{\n            status\n        }\n        price_id,\n        priceId{\n        start_at,\n        billing_cycle\n        }\n    }\n}",
+                "variables": ""
+              }
+            },
+            "url": "http://localhost:3010/graphql"
+          },
+          "response": []
+        },
+        {
+          "name": "surchargeItem",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  orders {\n  \tid,\n    business_unit_id,\n    business_line_id,\n    order_request_id\n\t} \n}",
+                "variables": ""
+              }
+            },
+            "url": "http://localhost:3010/graphql"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Line Items",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"businessUnitId\": 1,",
+                  "    \"businessLineId\": 1,",
+                  "    \"oneTime\": true,",
+                  "    \"customRatesGroupId\": 1,",
+                  "    \"lineItemId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"price\": 250,",
+                  "    \"effectiveDate\": new Date().toISOString(),",
+                  "    \"nextPrice\": 150,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupLineItems"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 300,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/customRatesGroupLineItems?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["customRatesGroupLineItems"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupLineItems"
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 250,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupLineItems/by"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Line Items Historical",
+      "item": [
+        {
+          "name": "Get All",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupLineItemsHistorical"
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 250,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupLineItemsHistorical/by"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Recurring Line Items Billing Cycle",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"billableLineItemBillingCycleId\": 1,",
+                  "    \"customRatesGroupRecurringLineItemId\": 1,",
+                  "    \"price\": 250,",
+                  "    \"effectiveDate\": new Date().toISOString(),",
+                  "    \"nextPrice\": 150,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringLineItemBillingCycle"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 300,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/customRatesGroupRecurringLineItemBillingCycle?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["customRatesGroupRecurringLineItemBillingCycle"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringLineItemBillingCycle"
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 250,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringLineItemBillingCycle/by"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Recurring Line Items Billing Cycle Historical",
+      "item": [
+        {
+          "name": "Get All",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringLineItemBillingCycleHistorical"
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 250,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringLineItemBillingCycleHistorical/by"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Recurring Service Frecuency",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"billableServiceFrequencyId\": 1,",
+                  "    \"customRatesGroupRecurringServiceId\": 1,",
+                  "    \"billingCycle\": \"daily\",",
+                  "    \"price\": 250,",
+                  "    \"effectiveDate\": new Date().toISOString(),",
+                  "    \"nextPrice\": 150,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringServiceFrecuency"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 300,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/customRatesGroupRecurringServiceFrecuency?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["customRatesGroupRecurringServiceFrecuency"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringServiceFrecuency"
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 250,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringServiceFrecuency/by"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Recurring Service Frecuency Historical",
+      "item": [
+        {
+          "name": "Get All",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringServiceFrecuencyHistorical"
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 250,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupRecurringServiceFrecuencyHistorical/by"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Custom Rates Group Services",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"businessUnitId\": 1,",
+                  "    \"businessLineId\": 1,",
+                  "    \"customRatesGroupId\": 1,",
+                  "    \"billableServiceId\": 1,",
+                  "    \"materialId\": 1,",
+                  "    \"equipmentItemId\": 1,",
+                  "    \"price\": 250,",
+                  "    \"effectiveDate\": new Date().toISOString(),",
+                  "    \"nextPrice\": 150,",
+                  "    \"createdAt\": new Date().toISOString(),",
+                  "    \"updatedAt\": new Date().toISOString(),",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupServices"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 300,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/customRatesGroupServices?id=1",
+              "host": ["{{localhost}}"],
+              "path": ["customRatesGroupServices"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupServices"
+          },
+          "response": []
+        },
+        {
+          "name": "Get By",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "object = {",
+                  "    \"price\": 250,",
+                  "}",
+                  "pm.environment.set(\"object\", JSON.stringify(object));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{{object}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{localhost}}/customRatesGroupServices/by"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "localhost",
+      "value": "http://localhost:3010"
+    }
+  ]
+}

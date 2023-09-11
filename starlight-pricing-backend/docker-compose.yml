@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  redis:
+    image: redis:alpine
+  db:
+    hostname: base_db
+    container_name: base_db
+    image: postgres:14
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '${DB_PORT:-5432}:5432'
+    environment:
+      POSTGRES_USER: '${DB_USER}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
+      POSTGRES_DB: '${DB_DATABASE}'
+    volumes:
+      - base_db_volume:/var/lib/postgresql/data
+    networks:
+      - local-backend
+    labels:
+      app: 'base'
+      env: '${ENV:-local}'
+      project: 'starlight'
+      service: 'db'
+networks:
+  local-backend:
+    name: base-network
+volumes:
+  base_db_volume:
+    labels:
+      app: 'base'
+      env: '${ENV:-local}'
+      project: 'starlight'
+      service: 'db'

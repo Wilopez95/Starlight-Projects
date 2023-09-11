@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.imageContainer {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 10px;
+  margin-left: 10px;
+  transition: transform 300ms ease-in-out;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.beforeIcon {
+  margin-right: 10px;
+}
+
+.absolute {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+
+.barContainer {
+  position: relative;
+
+  &.hidden {
+    overflow: hidden;
+  }
+}

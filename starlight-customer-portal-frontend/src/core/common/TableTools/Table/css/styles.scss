@@ -1,0 +1,10 @@
+.table {
+  width: 100%;
+  table-layout: auto;
+  border-spacing: 0;
+  overflow-x: auto;
+
+  & tr {
+    box-shadow: unset !important;
+  }
+}

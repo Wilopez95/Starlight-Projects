@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="77" height="77" viewBox="0 0 77 77">
+    <defs>
+        <circle id="prefix__a" cx="38.5" cy="38.5" r="38.5"/>
+        <mask id="prefix__b" width="77" height="77" x="0" y="0" fill="#fff" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox">
+            <use xlink:href="#prefix__a"/>
+        </mask>
+    </defs>
+    <use fill="none" fill-rule="evenodd" stroke="#FFF" stroke-dasharray="12" stroke-width="4" mask="url(#prefix__b)" xlink:href="#prefix__a"/>
+</svg>

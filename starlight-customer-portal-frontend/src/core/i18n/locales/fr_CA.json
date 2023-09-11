@@ -1,0 +1,570 @@
+{
+  "Text": {
+    "__Empty": "",
+    "Pending": "",
+    "Cancel": "",
+    "All": "",
+    "Close": "",
+    "Thanks": "",
+    "None": "",
+    "SaveChanges": "",
+    "Delete": "",
+    "Material": "",
+    "Materials": "",
+    "Active": "",
+    "Action": "",
+    "Status": "",
+    "Description": "",
+    "Inactive": "",
+    "Expired": "",
+    "Daily": "",
+    "Weekly": "",
+    "28 Days": "",
+    "Monthly": "",
+    "Quarterly": "",
+    "Yearly": "",
+    "Servicing": "",
+    "Gallon": "",
+    "Minute": "",
+    "Dump & Return": "",
+    "Equipment": "",
+    "Recurring": "",
+    "OneTime": "",
+    "Units": "",
+    "ImportCodes": "",
+    "ShortDescription": "",
+    "Length": "",
+    "Size": "",
+    "Width": "",
+    "Height": "",
+    "Tons": "",
+    "Feet": "",
+    "UploadNew": "",
+    "ExpirationDate": "",
+    "DisposalSite": "",
+    "Recycle": "",
+    "Includes": "",
+    "Name": "",
+    "Type": "",
+    "Create": "",
+    "Email": "",
+    "Domain": "",
+    "Save": "",
+    "Billing": "",
+    "Address": "",
+    "Users": "",
+    "Duplicate": "",
+    "DoNotSave": "",
+    "COE": "",
+    "Send": "",
+    "Download": "",
+    "OnHold": "",
+    "Edit": ""
+  },
+  "Errors": {
+    "Payment": {
+      "AmountMustBeNumeric": "",
+      "AmountMustBePositive": "",
+      "AmountIsRequired": "",
+      "CreditCardIsRequired": "",
+      "AdressLine": "",
+      "MaxChars100": "",
+      "MaxChars50": "",
+      "CityReq": "",
+      "StateReq": "",
+      "ZipReq": "",
+      "CvvReq": "",
+      "CvvLength": "",
+      "CVV": "",
+      "InvalidCvv": "",
+      "ValidCard": "",
+      "NameReq": "",
+      "InvalidMonth": ""
+    }
+  },
+  "Titles": {
+    "Lobby": "",
+    "Subscriptions": "",
+    "CreditCards": "",
+    "Invoices": "",
+    "Statements": "",
+    "Reports": "",
+    "Profile": "",
+    "Users": "",
+    "Login": ""
+  },
+  "formats": {
+    "date": "",
+    "decimal": "",
+    "uppercase": ""
+  },
+  "pages": {
+    "Profile": {
+      "title": "",
+      "MainContactSection": {
+        "title": "",
+        "name": "",
+        "email": "",
+        "phone": ""
+      },
+      "BalanceSection": {
+        "title": "",
+        "name": "",
+        "creditLimit": "",
+        "prepaidOnAccount": "",
+        "availableCredit": "",
+        "nonInvoicedTotal": "",
+        "prepaidDeposits": "",
+        "paymentDue": ""
+      },
+      "GeneralInformationSection": {
+        "title": "",
+        "email": "",
+        "name": "",
+        "phone": "",
+        "billingAddress": "",
+        "mailingAddress": ""
+      },
+      "EditDetails": ""
+    },
+    "ReportsPage": {
+      "Today": "",
+      "Yesterday": "",
+      "LastSevenDays": "",
+      "LastThirtyDays": "",
+      "LastNinetyDays": "",
+      "LastWeek": "",
+      "LastMonth": "",
+      "LastQuarter": "",
+      "LastYear": "",
+      "CustomDateRange": "",
+      "SystemReports": "",
+      "CreateReport": "",
+      "DateRange": "",
+      "SelectDateRange": "",
+      "StartDate": "",
+      "EndDate": "",
+      "ReportName": "",
+      "Type": "",
+      "SystemReport": "",
+      "CustomReport": "",
+      "RunReport": "",
+      "Download": "",
+      "Report": ""
+    },
+    "UserContacts": {
+      "title": "",
+      "addUser": "",
+      "UsersGrid": {
+        "status": "",
+        "name": "",
+        "title": "",
+        "phone": "",
+        "email": ""
+      },
+      "UserQuickViewUpdate": {
+        "statusCheckbox": "",
+        "firstName": "",
+        "lastName": "",
+        "jobTitle": "",
+        "email": "",
+        "assignMainContact": "",
+        "addPhoneNumber": "",
+        "permissions": {
+          "title": "",
+          "allowContractApp": ""
+        }
+      },
+      "UserQuickViewAdd": {
+        "title": "",
+        "statusCheckbox": "",
+        "firstName": "",
+        "lastName": "",
+        "jobTitle": "",
+        "email": "",
+        "assignMainContact": "",
+        "addPhoneNumber": "",
+        "permissions": {
+          "title": "",
+          "allowContractApp": ""
+        }
+      }
+    },
+    "customerCreditCards": {
+      "creditCards": "",
+      "showInactive": "",
+      "addCreditCard": "",
+      "status": "",
+      "cardNickname": "",
+      "cardType": "",
+      "cardNumber": "",
+      "expirationDate": "",
+      "validFor": ""
+    },
+    "Statements": {
+      "title": "",
+      "downloadButtonText": "",
+      "StatementsGrid": {
+        "created": "",
+        "statementDate": "",
+        "endDate": "",
+        "numberOfInvoices": "",
+        "balance": ""
+      }
+    },
+    "Invoices": {
+      "Title": "",
+      "ShowOpenOnly": "",
+      "Download": "",
+      "Payment": "",
+      "ShownResults": "",
+      "InvoicesSelected": ""
+    },
+    "Login": {
+      "Text": {
+        "Login": "",
+        "Application": ""
+      }
+    }
+  },
+  "quickViews": {
+    "creditCardQuickView": {
+      "newCreditCard": "",
+      "cardInformation": "",
+      "assignToJobSite": "",
+      "cancel": "",
+      "back": ""
+    },
+    "ProfileQuickView": {
+      "GeneralInfo": "",
+      "Phone": "",
+      "Email": "",
+      "MailingAddress": "",
+      "SearchAddress": "",
+      "EnterAddress": "",
+      "AddressLine1": "",
+      "AddressLine2": "",
+      "City": "",
+      "State": "",
+      "ZIP": "",
+      "BillingAddress": ""
+    }
+  },
+  "components": {
+    "PageHeader": {
+      "Text": {
+        "Hi": "",
+        "LogOut": "",
+        "EditProfile": ""
+      }
+    },
+    "PageLayouts": {
+      "CustomerLayout": {
+        "CustomerNavigation": {
+          "Text": {
+            "Profile": "",
+            "Subscriptions": "",
+            "JobSites": "",
+            "Contacts": "",
+            "CreditCards": "",
+            "Invoices": "",
+            "PaymentsAndStatements": "",
+            "FinancialHistory": "",
+            "CustomerRates": "",
+            "Users": "",
+            "Statements": "",
+            "Reports": ""
+          }
+        }
+      },
+      "InvoiceLayout": {
+        "InvoiceNavigation": {
+          "Text": {
+            "Orders": "",
+            "Subscriptions": "",
+            "Placeholder": ""
+          }
+        }
+      }
+    },
+    "PhoneNumber": {
+      "Form": {
+        "SelectPhoneType": ""
+      },
+      "Text": {
+        "PhoneType": "",
+        "PhoneNumber": "",
+        "Extension": "",
+        "TextMessagesOnly": ""
+      }
+    },
+    "LobbyMenu": {
+      "title": ""
+    },
+    "GeneralInformationName": {
+      "BusinessName": "",
+      "FirstName": "",
+      "LastName": ""
+    },
+    "SubscriptionsGrid": {
+      "Subscriptions": "",
+      "LoadingSubscriptions": ""
+    },
+    "SubscriptionQuickView": {
+      "LineOfBusiness": "",
+      "ServiceArea": "",
+      "Created": "",
+      "CSR": "",
+      "Customer": "",
+      "JobSite": "",
+      "StartDate": "",
+      "EndDate": "",
+      "PricePerBillingCycle": "",
+      "BillingCycle": "",
+      "BillingType": "",
+      "NextBillingDate": "",
+      "NextServiceDate": "",
+      "Note": "",
+      "SubscriptionDetails": "",
+      "EditSubscription": "",
+      "Frequency": "",
+      "Service": "",
+      "RecurrentLineItems": "",
+      "Quantity": ""
+    }
+  },
+  "helpers": {
+    "getCustomerNavigationTabs": {
+      "Text": {
+        "All Customers": "",
+        "Contractor": "",
+        "Residential": ""
+      }
+    }
+  },
+  "modules": {
+    "finance": {
+      "components": {
+        "Invoice": {
+          "Placeholder": "",
+          "LoadMore": ""
+        },
+        "InvoiceTableHeader": {
+          "Created": "",
+          "InvoiceID": "",
+          "Status": "",
+          "DueDate": "",
+          "Preview": "",
+          "Total": "",
+          "RemainingBalance": "",
+          "LineOfBusiness": ""
+        },
+        "InvoicePaymentQuickView": {
+          "PaymentDetails": "",
+          "Cancel": "",
+          "CreatePayment": "",
+          "Date": "",
+          "Status": "",
+          "TotalAmount": "",
+          "AmountDue": "",
+          "Applied": "",
+          "NewBalance": "",
+          "PaymentType": "",
+          "CreditCard": "",
+          "Amount": "",
+          "ApplyToInvoice": "",
+          "CreditCardDetails": "",
+          "NewCreditCard": "",
+          "NewPayment": "",
+          "PreviousAccBalance": "",
+          "PaymentAmount": ""
+        }
+      },
+      "quickviews": {
+        "InvoiceDetails": {
+          "Text": {
+            "Subscriptions": "",
+            "Orders": "",
+            "Payments": ""
+          },
+          "PaymentsTab": {
+            "PaymentDate": "",
+            "Type": "",
+            "PaymentID": "",
+            "PaymentForm": "",
+            "AppliedAmount": "",
+            "Payment": ""
+          },
+          "OrdersTab": {
+            "ServiceDate": "",
+            "Order#": "",
+            "Service": "",
+            "Amount": ""
+          },
+          "LeftPanel": {
+            "Invoice#": "",
+            "InvoiceID": "",
+            "DueDate": "",
+            "CSR": "",
+            "OnAccount": "",
+            "Prepaid": "",
+            "OrdersIncluded": "",
+            "SubscriptionsIncluded": "",
+            "PaymentsApplied": "",
+            "InvoiceTotal": "",
+            "RemainingBalance": ""
+          },
+          "Subscriptions": {
+            "BillingPeriod": "",
+            "Service": "",
+            "Amount": "",
+            "Subscription": "",
+            "Service#": "",
+            "LineItems": "",
+            "SubscriptionOrder#": "",
+            "NonServiceOrder#": "",
+            "NotAService": ""
+          }
+        }
+      },
+      "hooks": {
+        "useInvoiceTabConfig": {
+          "Orders": "",
+          "Payments": ""
+        }
+      }
+    },
+    "customer": {
+      "forms": {
+        "EditCustomer": {
+          "Validation": {
+            "CustomerInfoShape": {
+              "Email": {
+                "format": ""
+              },
+              "PhoneNumbers": {
+                "format": "",
+                "extension": ""
+              }
+            },
+            "GeneralInformationCommercialShape": {
+              "BusinessName": {
+                "required": "",
+                "max": ""
+              }
+            },
+            "GeneralInformationNonCommercialShape": {
+              "FirstName": {
+                "required": "",
+                "max": ""
+              },
+              "LastName": {
+                "required": "",
+                "max": ""
+              }
+            },
+            "AddressTabShape": {
+              "AddressLine1": {
+                "required": "",
+                "max": ""
+              },
+              "City": {
+                "required": "",
+                "max": ""
+              },
+              "State": {
+                "required": "",
+                "max": ""
+              },
+              "Zip": {
+                "required": ""
+              }
+            }
+          }
+        }
+      },
+      "components": {
+        "CustomerInfoBlock": {
+          "Balance": "",
+          "OrdersTotal": "",
+          "AvailableCredit": ""
+        }
+      }
+    }
+  },
+  "hooks": {
+    "ordersAndSubscriptions": {
+      "useSubscriptionCells": {
+        "StartDate": "",
+        "LineOfBusiness": "",
+        "Service": "",
+        "ServiceFrequency": "",
+        "NextServiceDate": "",
+        "Payment": "",
+        "PricePerBillingCycle": "",
+        "BillingCycle": ""
+      }
+    }
+  },
+  "common": {
+    "TableTools": {
+      "TableData": {
+        "FormatService": {
+          "Text": {
+            "EveryDay": "",
+            "EveryXDays": "",
+            "Monthly": "",
+            "OnCall": "",
+            "XPerWeek": "",
+            "Multiple": ""
+          }
+        }
+      },
+      "TableQuickView": {
+        "UnsavedChanges": {
+          "Text": {
+            "YouHaveUnsavedChanges": ""
+          }
+        }
+      },
+      "TableFilter": {
+        "TableFilter": {
+          "Text": {
+            "Filters": "",
+            "AddFilter": ""
+          }
+        },
+        "Filters": {
+          "DateRangeFilter": {
+            "Text": {
+              "from": "",
+              "to": ""
+            }
+          },
+          "NumberRangeFilter": {
+            "Text": {
+              "from": "",
+              "to": ""
+            }
+          }
+        }
+      }
+    },
+    "FilePreview": {
+      "FilePreviewModal": {
+        "Text": {
+          "Preview": ""
+        }
+      },
+      "FilePreviewMetaSection": {
+        "Text": {
+          "AttachedByAuthor": "",
+          "TimeUnknown": "",
+          "Remove": "",
+          "Download": "",
+          "SendToEmail": ""
+        }
+      }
+    }
+  }
+}

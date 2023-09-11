@@ -1,0 +1,29 @@
+.input {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  margin: 0 24px 0 24px;
+  border-radius: 0;
+  border-bottom: 2px solid var(--primary-gray-dark);
+  width: calc(100% - 48px);
+
+  & .searchContainer {
+    border: unset;
+    border-radius: 0;
+    box-shadow: unset;
+
+    & svg {
+      fill: var(--dark-60);
+      flex-shrink: 0;
+    }
+
+    & input::placeholder,
+    & input {
+      color: var(--dark-60);
+    }
+
+    &:focus-within {
+      border: unset;
+    }
+  }
+}

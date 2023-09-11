@@ -1,0 +1,576 @@
+{
+  "Text": {
+    "__Empty": "",
+    "Pending": "Pending",
+    "Cancel": "Cancel",
+    "All": "All",
+    "Close": "Close",
+    "Thanks": "Thanks",
+    "None": "None",
+    "SaveChanges": "Save Changes",
+    "Delete": "Delete",
+    "Material": "Material",
+    "Materials": "Materials",
+    "Active": "Active",
+    "Action": "Action",
+    "Status": "Status",
+    "Description": "Description",
+    "Inactive": "Inactive",
+    "Expired": "Expired",
+    "Daily": "Daily",
+    "Weekly": "Weekly",
+    "28 Days": "28 Days",
+    "Monthly": "Monthly",
+    "Quarterly": "Quarterly",
+    "Yearly": "Yearly",
+    "Servicing": "Servicing",
+    "Gallon": "Gallon",
+    "Minute": "Minute",
+    "Dump & Return": "Dump & Return",
+    "Equipment": "Equipment",
+    "Recurring": "Recurring",
+    "OneTime": "One-Time",
+    "Units": "Units",
+    "ImportCodes": "Import Codes",
+    "ShortDescription": "Short Description",
+    "Length": "Length",
+    "Size": "Size",
+    "Width": "Width",
+    "Height": "Height",
+    "Tons": "Tons",
+    "Feet": "Feet",
+    "UploadNew": "Upload New",
+    "ExpirationDate": "Expiration Date",
+    "DisposalSite": "Disposal Site",
+    "Recycle": "Recycle",
+    "Includes": "Includes",
+    "Name": "Name",
+    "Type": "Type",
+    "Create": "Create",
+    "Email": "Email",
+    "Domain": "Domain",
+    "Save": "Save",
+    "Billing": "Billing",
+    "Address": "Address",
+    "Users": "Users",
+    "Duplicate": "Duplicate",
+    "DoNotSave": "Don't Save",
+    "COE": "COE",
+    "Send": "Send",
+    "Download": "Download",
+    "OnHold": "On Hold",
+    "Edit": "Edit"
+  },
+  "Errors": {
+    "Payment": {
+      "AmountMustBeNumeric": "Amount must be numeric",
+      "AmountMustBePositive": "Amount must be positive",
+      "AmountIsRequired": "Amount is required",
+      "CreditCardIsRequired": "Credit card is required",
+      "AdressLine": "Address Line 1 is required",
+      "MaxChars100": "Please enter up to 100 characters",
+      "MaxChars50": "Please enter up to 50 characters",
+      "CityReq": "City is required",
+      "StateReq": "State is required",
+      "ZipReq": "Zip is required",
+      "CvvReq": "CVV is required",
+      "CvvLength": "CVV must be at least 3 characters long",
+      "CVV": "Please enter up to 4 characters",
+      "InvalidCvv": "Invalid CVV Type",
+      "ValidCard": "Please enter a valid card number",
+      "NameReq": "Name on Card is required",
+      "InvalidMonth": "Invalid Expiration Date"
+    }
+  },
+  "Titles": {
+    "Lobby": "Lobby",
+    "Subscriptions": "Subscriptions",
+    "CreditCards": "Credit Cards",
+    "Invoices": "Invoices",
+    "Statements": "Statements",
+    "Reports": "Reports",
+    "Profile": "Profile",
+    "Users": "Users",
+    "Login": "Login"
+  },
+  "ValidationErrors": {},
+  "formats": {
+    "date": "{{date, isoDate}}",
+    "decimal": "{{number, decimal}}",
+    "uppercase": "{{text, uppercase}}"
+  },
+  "pages": {
+    "Profile": {
+      "title": "Customer Profile",
+      "MainContactSection": {
+        "title": "Main Contact",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone Number"
+      },
+      "BalanceSection": {
+        "title": "Balance",
+        "name": "Name",
+        "creditLimit": "Credit Limit",
+        "prepaidOnAccount": "On-Account",
+        "availableCredit": "Available Credit",
+        "nonInvoicedTotal": "Non-Invoiced Orders",
+        "prepaidDeposits": "Prepaid Deposits",
+        "paymentDue": "Payment Due"
+      },
+      "GeneralInformationSection": {
+        "title": "General Information",
+        "email": "Email",
+        "name": "Name",
+        "phone": "Phone Number",
+        "billingAddress": "Billing Address",
+        "mailingAddress": "Mailing Address"
+      },
+      "EditDetails": "Edit Details"
+    },
+    "ReportsPage": {
+      "Today": "Today",
+      "Yesterday": "Yesterday",
+      "LastSevenDays": "Last 7 days",
+      "LastThirtyDays": "Last 30 days",
+      "LastNinetyDays": "Last 90 days",
+      "LastWeek": "Last Week",
+      "LastMonth": "Last Month",
+      "LastQuarter": "Last Quarter",
+      "LastYear": "Last Year",
+      "CustomDateRange": "Custom Date Range",
+      "SystemReports": "System Reports",
+      "CreateReport": "Create Report",
+      "DateRange": "Date Range",
+      "SelectDateRange": "Select Date Range",
+      "StartDate": "Start Date",
+      "EndDate": "End Date",
+      "ReportName": "Report Name",
+      "Type": "Type",
+      "SystemReport": "System Report",
+      "CustomReport": "Custom Report",
+      "RunReport": "Run Report",
+      "Download": "Download",
+      "Report": "Report"
+    },
+    "UserContacts": {
+      "title": "Users",
+      "addUser": "Add User",
+      "UsersGrid": {
+        "status": "Status",
+        "name": "Name",
+        "title": "Title",
+        "phone": "Phone",
+        "email": "Email"
+      },
+      "UserQuickViewUpdate": {
+        "statusCheckbox": "Active",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "jobTitle": "Title",
+        "email": "Email",
+        "assignMainContact": "Assign as the main contact",
+        "addPhoneNumber": "+ Add phone number",
+        "permissions": {
+          "title": "Permissions",
+          "allowContractApp": "Allow contractor app"
+        }
+      },
+      "UserQuickViewAdd": {
+        "title": "Create New Contact",
+        "statusCheckbox": "Active",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "jobTitle": "Title",
+        "email": "Email",
+        "assignMainContact": "Assign as the main contact",
+        "addPhoneNumber": "+ Add phone number",
+        "permissions": {
+          "title": "Permissions",
+          "allowContractApp": "Allow contractor app"
+        }
+      }
+    },
+    "customerCreditCards": {
+      "creditCards": "Credit Cards",
+      "showInactive": "Show Inactive",
+      "addCreditCard": "Add Credit Card",
+      "status": "Status",
+      "cardNickname": "Card Nickname",
+      "cardType": "Card Type",
+      "cardNumber": "Card Number",
+      "expirationDate": "Expiration Date",
+      "validFor": "Valid For"
+    },
+    "Statements": {
+      "title": "Statements",
+      "downloadButtonText": "Download",
+      "StatementsGrid": {
+        "created": "Created",
+        "statementDate": "Statement Date",
+        "endDate": "End Date",
+        "numberOfInvoices": "Number of invoices",
+        "balance": "Balance, $"
+      }
+    },
+    "Invoices": {
+      "Title": "Invoices",
+      "ShowOpenOnly": "Show Open only",
+      "Download": "Download",
+      "Payment": "Add Payment",
+      "ShownResults": "{{count}} of {{total}}",
+      "InvoicesSelected": "{{count}} Invoice(s) selected"
+    },
+    "InvoiceSubscriptions": {},
+    "InvoiceOrders": {},
+    "Login": {
+      "Text": {
+        "Login": "Log In to the System",
+        "Application": "CUSTOMER PORTAL"
+      }
+    }
+  },
+  "quickViews": {
+    "creditCardQuickView": {
+      "newCreditCard": "New Credit Card",
+      "cardInformation": "Card Information",
+      "assignToJobSite": "Assign to Job Site",
+      "cancel": "Cancel",
+      "back": "← Back"
+    },
+    "ProfileQuickView": {
+      "GeneralInfo": "General Information",
+      "Phone": "Phone",
+      "Email": "Email",
+      "MailingAddress": "Mailing Address",
+      "SearchAddress": "Search address",
+      "EnterAddress": "Enter Address",
+      "AddressLine1": "Address Line 1",
+      "AddressLine2": "Address Line 2",
+      "City": "City",
+      "State": "State",
+      "ZIP": "ZIP",
+      "BillingAddress": "Billing Address"
+    }
+  },
+  "components": {
+    "PageHeader": {
+      "Text": {
+        "Hi": "Hi",
+        "LogOut": "Log Out",
+        "EditProfile": "Edit Profile"
+      },
+      "Form": {},
+      "Errors": {},
+      "ValidationErrors": {}
+    },
+    "PageLayouts": {
+      "CustomerLayout": {
+        "CustomerNavigation": {
+          "Text": {
+            "Profile": "Profile",
+            "Subscriptions": "Subscriptions",
+            "JobSites": "Job Sites",
+            "Contacts": "Contacts",
+            "CreditCards": "Credit Cards",
+            "Invoices": "Invoices",
+            "PaymentsAndStatements": "Payments & Statements",
+            "FinancialHistory": "Financial History",
+            "CustomerRates": "Customer Rates",
+            "Users": "Users",
+            "Statements": "Statements",
+            "Reports": "Reports"
+          }
+        }
+      },
+      "InvoiceLayout": {
+        "InvoiceNavigation": {
+          "Text": {
+            "Orders": "Orders",
+            "Subscriptions": "Subscriptions",
+            "Placeholder": "Search Invoice"
+          }
+        }
+      }
+    },
+    "PhoneNumber": {
+      "Form": {
+        "SelectPhoneType": "Phone type"
+      },
+      "Text": {
+        "PhoneType": "Phone type",
+        "PhoneNumber": "Phone number",
+        "Extension": "Extension",
+        "TextMessagesOnly": "Text messages only"
+      }
+    },
+    "LobbyMenu": {
+      "title": "Choose Customer"
+    },
+    "GeneralInformationName": {
+      "BusinessName": "Business Name",
+      "FirstName": "First Name",
+      "LastName": "Last Name"
+    },
+    "SubscriptionsGrid": {
+      "Subscriptions": "Subscriptions",
+      "LoadingSubscriptions": "Loading Subscriptions"
+    },
+    "SubscriptionQuickView": {
+      "LineOfBusiness": "Line of Business",
+      "ServiceArea": "Service Area",
+      "Created": "Created",
+      "CSR": "CSR",
+      "Customer": "Customer",
+      "JobSite": "Job site",
+      "StartDate": "Start Date",
+      "EndDate": "End Date",
+      "PricePerBillingCycle": "Price per Billing Cycle, $",
+      "BillingCycle": "Billing Cycle",
+      "BillingType": "Billing Type",
+      "NextBillingDate": "Next Billing Period",
+      "NextServiceDate": "Next Service Date",
+      "Note": "Note",
+      "SubscriptionDetails": " Subscription Details →",
+      "EditSubscription": "Edit Subscription",
+      "Frequency": "Frequency",
+      "Service": "Service #{{number}}",
+      "RecurrentLineItems": "Recurrent Line Items",
+      "Quantity": "QTY"
+    }
+  },
+  "helpers": {
+    "getCustomerNavigationTabs": {
+      "Text": {
+        "All Customers": "All Customers",
+        "Contractor": "Contractor",
+        "Residential": "Residential"
+      }
+    }
+  },
+  "modules": {
+    "finance": {
+      "components": {
+        "Invoice": {
+          "Placeholder": "Search Invoice",
+          "LoadMore": "Loading Invoices"
+        },
+        "InvoiceTableHeader": {
+          "Created": "Created",
+          "InvoiceID": "Invoice #",
+          "Status": "Status",
+          "DueDate": "Due Date",
+          "Preview": "Preview",
+          "Total": "Total",
+          "RemainingBalance": "Remaining Balance",
+          "LineOfBusiness": "Line of Business"
+        },
+        "InvoicePaymentQuickView": {
+          "PaymentDetails": "Payment Details",
+          "Cancel": "Cancel",
+          "CreatePayment": "Create Payment",
+          "Date": "Date",
+          "Status": "Status",
+          "TotalAmount": "Invoice Amount",
+          "AmountDue": "Amount Due",
+          "Applied": "Applied",
+          "NewBalance": "New Balance",
+          "PaymentType": "Payment Type",
+          "CreditCard": "Credit Card",
+          "Amount": "Amount, $",
+          "ApplyToInvoice": "Apply To Invoices",
+          "CreditCardDetails": "Credit Card Details",
+          "NewCreditCard": "New Credit Card",
+          "NewPayment": "New Payment",
+          "PreviousAccBalance": "Previous Acc Balance:",
+          "PaymentAmount": "Payment Amount:"
+        }
+      },
+      "quickviews": {
+        "InvoiceDetails": {
+          "Text": {
+            "Subscriptions": "Subscriptions",
+            "Orders": "Orders",
+            "Payments": "Payments"
+          },
+          "PaymentsTab": {
+            "PaymentDate": "Payment Date",
+            "Type": "Type",
+            "PaymentID": "Payment ID",
+            "PaymentForm": "Payment Form",
+            "AppliedAmount": "Applied Amount, $",
+            "Payment": "Payment"
+          },
+          "OrdersTab": {
+            "ServiceDate": "Service Date",
+            "Order#": "Order#",
+            "Service": "Service",
+            "Amount": "Amount, $"
+          },
+          "LeftPanel": {
+            "Invoice#": "Invoice#",
+            "InvoiceID": "Invoice ID",
+            "DueDate": "Due Date",
+            "CSR": "CSR",
+            "OnAccount": "On Account",
+            "Prepaid": "Prepaid",
+            "OrdersIncluded": "Orders Included",
+            "SubscriptionsIncluded": "Subscriptions Included",
+            "PaymentsApplied": "Payments Applied",
+            "InvoiceTotal": "Invoice Total",
+            "RemainingBalance": "Remaining Balance"
+          },
+          "Subscriptions": {
+            "BillingPeriod": "Billing Period",
+            "Service": "Service",
+            "Amount": "Amount, {{currency}}",
+            "Subscription": "Subscription #{{id}}",
+            "Service#": "Service #{{id}}",
+            "LineItems": "Line Items",
+            "SubscriptionOrder#": "Subscription Order #{{id}}",
+            "NonServiceOrder#": "Non-Service Order #{{id}}",
+            "NotAService": "No Service"
+          }
+        }
+      },
+      "hooks": {
+        "useInvoiceTabConfig": {
+          "Orders": "Orders",
+          "Payments": "Payments"
+        }
+      }
+    },
+    "customer": {
+      "forms": {
+        "EditCustomer": {
+          "Validation": {
+            "CustomerInfoShape": {
+              "Email": {
+                "format": "Wrong email format"
+              },
+              "PhoneNumbers": {
+                "format": "Please enter a valid phone number",
+                "extension": "Please enter a valid extension"
+              }
+            },
+            "GeneralInformationCommercialShape": {
+              "BusinessName": {
+                "required": "Business Name is required",
+                "max": "Please enter up to 100 characters"
+              }
+            },
+            "GeneralInformationNonCommercialShape": {
+              "FirstName": {
+                "required": "First Name is required",
+                "max": "Please enter up to 50 characters"
+              },
+              "LastName": {
+                "required": "Last Name is required",
+                "max": "Please enter up to 50 characters"
+              }
+            },
+            "AddressTabShape": {
+              "AddressLine1": {
+                "required": "Address Line 1 is required",
+                "max": "Please enter up to 100 characters"
+              },
+              "City": {
+                "required": "City is required",
+                "max": "Please enter up to 50 characters"
+              },
+              "State": {
+                "required": "State is required",
+                "max": "Please enter up to 50 characters"
+              },
+              "Zip": {
+                "required": "Zip is required"
+              }
+            }
+          }
+        }
+      },
+      "components": {
+        "CustomerInfoBlock": {
+          "Balance": "Balance",
+          "OrdersTotal": "Orders Total",
+          "AvailableCredit": "Available Credit"
+        }
+      }
+    }
+  },
+  "hooks": {
+    "ordersAndSubscriptions": {
+      "useSubscriptionCells": {
+        "StartDate": "Start Date",
+        "LineOfBusiness": "Line of Business",
+        "Service": "Service",
+        "ServiceFrequency": "Service Frequency",
+        "NextServiceDate": "Next Service Date",
+        "Payment": "Payment",
+        "PricePerBillingCycle": "Price Per Billing Cycle, $",
+        "BillingCycle": "Billing Cycle"
+      }
+    }
+  },
+  "common": {
+    "TableTools": {
+      "TableData": {
+        "FormatService": {
+          "Text": {
+            "EveryDay": "Every day",
+            "EveryXDays": "Every {{times}} days",
+            "Monthly": "Monthly",
+            "OnCall": "On call",
+            "XPerWeek": "{{times}} per week",
+            "Multiple": "Multiple"
+          }
+        }
+      },
+      "TableQuickView": {
+        "UnsavedChanges": {
+          "Text": {
+            "YouHaveUnsavedChanges": "You have unsaved changes"
+          }
+        }
+      },
+      "TableFilter": {
+        "TableFilter": {
+          "Text": {
+            "Filters": "Filters",
+            "AddFilter": "Add Filter"
+          }
+        },
+        "Filters": {
+          "DateRangeFilter": {
+            "Text": {
+              "from": "From",
+              "to": "To"
+            }
+          },
+          "NumberRangeFilter": {
+            "Text": {
+              "from": "From",
+              "to": "To"
+            }
+          }
+        }
+      }
+    },
+    "FilePreview": {
+      "FilePreviewModal": {
+        "Text": {
+          "Preview": "{{string}} preview"
+        }
+      },
+      "FilePreviewMetaSection": {
+        "Text": {
+          "AttachedByAuthor": "Attached by {{author}}",
+          "TimeUnknown": "Time unknown",
+          "Remove": "Remove",
+          "Download": "Download",
+          "SendToEmail": "Send to email"
+        }
+      }
+    }
+  }
+}

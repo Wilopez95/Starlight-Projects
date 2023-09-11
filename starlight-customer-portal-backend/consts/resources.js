@@ -1,0 +1,1 @@
+export const CUSTOMER_PORTAL = 'CUSTOMER_PORTAL';

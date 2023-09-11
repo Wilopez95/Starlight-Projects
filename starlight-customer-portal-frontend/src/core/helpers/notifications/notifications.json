@@ -1,0 +1,294 @@
+{
+  "sendInvoices": {
+    "SUCCESS": "Emails were sent successfully"
+  },
+  "deleteOrderMedia": {
+    "SUCCESS": "Media file deleted successfully",
+    "UNKNOWN": "Could not delete media file"
+  },
+  "createSettlement": {
+    "SUCCESS": "Settlement created successfully"
+  },
+  "deleteSettlement": {
+    "SUCCESS": "Settlement deleted successfully"
+  },
+  "createServiceArea": {
+    "SUCCESS": "Service Area created successfully",
+    "UNKNOWN": "Could not create Service Area"
+  },
+  "createFinancialCharges": {
+    "SUCCESS": "Financial Charge created successfully"
+  },
+  "refundWrongCreditCard": {
+    "SUCCESS": "Order refunded successfully",
+    "UNKNOWN": "Could not refund Order"
+  },
+  "updateServiceArea": {
+    "SUCCESS": "Service Area updated successfully",
+    "UNKNOWN": "Could not update Service Area"
+  },
+  "updateTaxExemptions": {
+    "SUCCESS": "Tax exemptions updated successfully"
+  },
+  "createUnappliedPayment": {
+    "SUCCESS": "Payment created successfully"
+  },
+  "applyPaymentManually": {
+    "SUCCESS": "Payment applied successfully"
+  },
+  "reversePayment": {
+    "SUCCESS": "Payment reversed successfully"
+  },
+  "refundPrepaidOrder": {
+    "SUCCESS": "Amount refunded successfully",
+    "PRECONDITION_FAILED": "Transaction is not settled yet and cannot be partially refunded. Please try again later",
+    "UNKNOWN": "This amount cannot be refunded. Please try again later or contact support."
+  },
+  "refundUnappliedPayment": {
+    "SUCCESS": "Unapplied amount refunded successfully",
+    "PRECONDITION_FAILED": "Transaction is not settled yet and cannot be partially refunded. Please try again later",
+    "UNKNOWN": "This payment cannot be refunded. Please try again later or contact support."
+  },
+  "payment": {
+    "CONFLICT": "Payment already exists",
+    "SUCCESS": "Payment created successfully",
+    "INVALID_REQUEST": "We could not process your payment. Please check credit card validity and try again later."
+  },
+  "deletePayment": {
+    "SUCCESS": "Payment deleted successfully"
+  },
+  "updateCreditMemoPayment": {
+    "SUCCESS": "Credit memo updated successfully"
+  },
+  "createPriceGroup": {
+    "SUCCESS": "Price group created successfully"
+  },
+  "updatePriceGroup": {
+    "SUCCESS": "Price group updated successfully"
+  },
+  "duplicatePriceGroup": {
+    "SUCCESS": "Price group duplicated successfully"
+  },
+  "duplicatePriceGroupToAnotherBu": {
+    "SUCCESS": "The price group is created for "
+  },
+  "updateRatesServices": {
+    "SUCCESS": "Rates for billable services updated successfully"
+  },
+  "updateRatesLineItems": {
+    "SUCCESS": "Rates for billable line items updated successfully"
+  },
+  "updateRatesThresholds": {
+    "SUCCESS": "Rates for thresholds updated successfully"
+  },
+  "updateRatesThresholdSetting": {
+    "SUCCESS": "Threshold setting updated successfully"
+  },
+  "updateCompanyLogo": {
+    "SUCCESS": "Company logo information updated successfully"
+  },
+  "updateCompanyInformation": {
+    "SUCCESS": "Company information updated successfully"
+  },
+  "loadMailSettings": {
+    "UNKNOWN": "Failed to load mailing settings"
+  },
+  "saveMailSettings": {
+    "SUCCESS": "Successfully updated your mailing settings",
+    "UNKNOWN": "Failed to update mailing settings"
+  },
+  "saveFinanceChargesSettings": {
+    "SUCCESS": "Successfully updated finance charges settings",
+    "UNKNOWN": "Failed to update finance charges settings"
+  },
+  "saveGeneralSettings": {
+    "SUCCESS": "Successfully updated general settings",
+    "UNKNOWN": "Failed to update general settings"
+  },
+  "addDomain": {
+    "SUCCESS": "Successfully added a domain. Please check your email for instructions",
+    "CONFLICT": "This domain already exists",
+    "UNKNOWN": "We could not add your domain. Please try again later",
+    "INVALID_REQUEST": "We could not add your domain. Please make sure you have set up an admin email address and entered a valid domain name"
+  },
+  "deleteDomain": {
+    "SUCCESS": "Successfully removed your domain",
+    "CONFLICT": "You can not remove the domain you are currently using",
+    "UNKNOWN": "We could not remove your domain. Please try again later"
+  },
+  "validateDomainAuthentication": {
+    "SUCCESS": "Your domain was successfully validated",
+    "UNKNOWN": "We could not validate the domain authentication"
+  },
+  "project": {
+    "CONFLICT": "Project already exists"
+  },
+  "createProject": {
+    "SUCCESS": "Project created successfully"
+  },
+  "createJobSite": {
+    "SUCCESS": "Job Site created successfully"
+  },
+  "createAndLinkJobSite": {
+    "SUCCESS": "Job Site created and linked successfully"
+  },
+  "updateJobSite": {
+    "SUCCESS": "Job Site updated successfully"
+  },
+  "linkJobSite": {
+    "SUCCESS": "Job Site linked successfully"
+  },
+  "updateJobSiteLink": {
+    "SUCCESS": "Job Site Link updated successfully"
+  },
+  "calculateServiceRates": {
+    "NOT_FOUND": "No rate for this billable service found. Please add it in price group configuration."
+  },
+  "calculateLineItemRates": {
+    "NOT_FOUND": "No rate for this billable line item found. Please add it in price group configuration."
+  },
+  "order": {
+    "NOT_FOUND": "One of the order's linked item not found",
+    "CONFLICT": "Order already exists",
+    "INVALID_REQUEST": "Could not process this order. Ensure the entered data is correct."
+  },
+  "completeOrder": {
+    "SUCCESS": "Order #{0} completed successfully"
+  },
+  "approveOrder": {
+    "SUCCESS": "Order #{0} approved successfully"
+  },
+  "approveMultipleOrders": {
+    "SUCCESS": "Selected orders approved successfully"
+  },
+  "unapproveOrder": {
+    "SUCCESS": "Order unapproved successfully"
+  },
+  "unapproveMultipleOrders": {
+    "SUCCESS": "Selected orders unapproved successfully"
+  },
+  "finalizeOrder": {
+    "SUCCESS": "Order #{0} finalized successfully"
+  },
+  "finalizeMultipleOrders": {
+    "SUCCESS": "Selected orders finalized successfully"
+  },
+  "unfinalizeOrder": {
+    "SUCCESS": "Order unfinalized successfully"
+  },
+  "createOrder": {
+    "SUCCESS": "Order #{0} created successfully"
+  },
+  "createOrders": {
+    "SUCCESS": "Orders created successfully"
+  },
+  "editOrder": {
+    "SUCCESS": "Order #{0} updated successfully"
+  },
+  "taxDistrict": {
+    "CONFLICT": "Tax district already exists",
+    "NOT_FOUND": "Tax district not found"
+  },
+  "createTaxDistrict": {
+    "SUCCESS": "Tax district created successfully"
+  },
+  "updateTaxDistrict": {
+    "SUCCESS": "Tax district updated successfully"
+  },
+  "updateTaxes": {
+    "SUCCESS": "Taxes updated successfully"
+  },
+  "default": {
+    "SUCCESS": "Item saved successfully",
+    "CONFLICT": "Such item already exists",
+    "UNKNOWN": "Something went wrong",
+    "PRECONDITION_FAILED": "Your changes have not been saved, another user has already modified and saved the form while you have been editing."
+  },
+  "images": {
+    "INVALID_MIME_TYPE": "Please select only .jpg, .png, .pdf or .webp files",
+    "FILE_TOO_LARGE": "Please upload only up to 8 MB of images",
+    "UNKNOWN": "We could not load your file. Please try again."
+  },
+  "runInvoicing": {
+    "UNKNOWN": "Could not generate invoices"
+  },
+  "submitInvoices": {
+    "SUCCESS": "Successfully generated invoices",
+    "UNKNOWN": "Failed to generate invoices"
+  },
+  "customer": {
+    "UNKNOWN": "Could not fetch Customer",
+    "CONFLICT": "Customer already exists"
+  },
+  "createCustomer": {
+    "SUCCESS": "Customer created successfully"
+  },
+  "editCustomer": {
+    "SUCCESS": "Customer updated successfully"
+  },
+  "creditCard": {
+    "SUCCESS": "Credit card created successfully",
+    "INVALID_REQUEST": "Could not process this card. Ensure the entered data is correct."
+  },
+  "editCreditCard": {
+    "SUCCESS": "Credit card updated successfully"
+  },
+  "contact": {
+    "SUCCESS": "User created successfully",
+    "CONFLICT": "User already exists"
+  },
+  "editContact": {
+    "SUCCESS": "User updated successfully"
+  },
+  "me": {
+    "SUCCESS": "User updated successfully"
+  },
+  "updateBatchRates": {
+    "SUCCESS": "Rates batch updated successfully"
+  },
+  "createBusinessUnit": {
+    "SUCCESS": "Business Unit information created successfully",
+    "UNKNOWN": "Could not create Business Unit"
+  },
+  "updateBusinessUnit": {
+    "SUCCESS": "Business Unit information updated successfully",
+    "UNKNOWN": "Could not update Business Unit"
+  },
+  "updateBusinessLinesForUnit": {
+    "SUCCESS": "Lines of Business updated successfully",
+    "UNKNOWN": "Could not update Lines of Business"
+  },
+  "createBusinessLine": {
+    "SUCCESS": "Line of Business created successfully",
+    "UNKNOWN": "Could not create Line of Business",
+    "CONFLICT": "Line of Business with that name already exists"
+  },
+  "updateBusinessLine": {
+    "SUCCESS": "Line of Business updated successfully",
+    "UNKNOWN": "Could not update Line of Business",
+    "CONFLICT": "Line of Business with that name already exists"
+  },
+  "createPayout": {
+    "SUCCESS": "Payout created successfully"
+  },
+  "createSubscription": {
+    "SUCCESS": "Subscription #{0} created successfully",
+    "UNKNOWN": "Could not create Subscription"
+  },
+  "editSubscription": {
+    "SUCCESS": "Subscription updated successfully"
+  },
+  "createDraftSubscription": {
+    "SUCCESS": "Draft Subscription created successfully",
+    "UNKNOWN": "Could not create Draft Subscription"
+  },
+  "subscription": {
+    "UNKNOWN": "Could not fetch Subscription"
+  },
+  "createStatement": {
+    "SUCCESS": "Statement created successfully"
+  },
+  "sendStatement": {
+    "SUCCESS": "Statements are sent successfully"
+  }
+}

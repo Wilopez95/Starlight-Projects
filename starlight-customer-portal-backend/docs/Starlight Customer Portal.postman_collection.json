@@ -1,0 +1,2810 @@
+{
+	"info": {
+		"_postman_id": "1e120db8-b84e-46c0-a287-60011c2f98c0",
+		"name": "Starlight Customer Portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "get customer by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/customers/3",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"customers",
+								"3"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get customers total count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/customers/count",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"customers",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get customers (paginated)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/customers?skip=0&limit=25&sortOrder=desc",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit customer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contactId\": 3,\n    \"email\": \"shliapa2@com.ua\",\n\t\"businessName\": \"businessName\",\n\t\"commercial\": true,\n    \"phoneNumbers\": [\n\t\t{\n            \"id\": 12,\n            \"type\": \"main\",\n            \"number\": \"17202273000\",\n            \"extension\": null,\n            \"textOnly\": true\n        },\n\t\t{\n\t\t\t\"type\": \"fax\",\n\t\t\t\"number\": \"17202273666\",\n\t\t\t\"extension\": null,\n\t\t\t\"textOnly\": false\n\t\t}\n\t],\n    \"mailingAddress\": {\n\t\t\"addressLine1\": \"69774 Jada Drive\",\n        \"addressLine2\": \"231b\",\n        \"city\": \"Lake Mary\",\n        \"state\": \"CO\",\n        \"zip\": \"47712\"\n\t},\n\t\"billingAddress\": {\n\t\t\"addressLine1\": \"69774 Jada Drive\",\n        \"addressLine2\": \"231b\",\n        \"city\": \"Lake Mary\",\n        \"state\": \"CO\",\n        \"zip\": \"47712\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/customers/3",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"customers",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriptions",
+			"item": [
+				{
+					"name": "Drafts",
+					"item": [
+						{
+							"name": "get subscription drafts by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "x-amzn-trace-id",
+										"value": "{{$guid}}",
+										"type": "text"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions/drafts/28",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"subscriptions",
+										"drafts",
+										"28"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search subscription drafts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "x-amzn-trace-id",
+										"value": "{{$guid}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions/drafts/search?skip=0&limit=25&query=1&customerId=1",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"subscriptions",
+										"drafts",
+										"search"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "25"
+										},
+										{
+											"key": "query",
+											"value": "1"
+										},
+										{
+											"key": "customerId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get subscription drafts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "x-amzn-trace-id",
+										"value": "{{$guid}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions/drafts",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"subscriptions",
+										"drafts"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get subscriptions drafts count",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "x-amzn-trace-id",
+										"value": "{{$guid}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions/count",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"subscriptions",
+										"count"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"subscriptions"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions/search?skip=0&limit=25&query=1&customerId=1",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"subscriptions",
+								"search"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								},
+								{
+									"key": "query",
+									"value": "1"
+								},
+								{
+									"key": "customerId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get subscription by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions/1",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"subscriptions",
+								"1"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get subscriptions count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/subscriptions/count",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"subscriptions",
+								"count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "get contacts (paginated)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/contacts?limit=25&skip=0&customerId=50",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "activeOnly",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "customerId",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get contact by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/contacts/:id?customerId=50",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"contacts",
+								":id"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "50"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my contact",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/contacts/me",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"contacts",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add contact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": 50,\n\t\"active\": true,\n\t\"main\": true,\n\t\"firstName\": \"firstName\",\n\t\"lastName\": \"lastName\",\n\t\"jobTitle\": \"manager\",\n\t\"email\": \"vitalii.kozlishyn@eleks.com\",\n\t\"phoneNumbers\": [\n\t\t{\n\t\t\t\"type\": \"home\",\n\t\t\t\"number\": \"12025550162\"\n\t\t}\n\t],\n    \"allowContractorApp\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/contacts",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit contact",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": 50,\n\t\"active\": true,\n\t\"main\": true,\n\t\"firstName\": \"firstName\",\n\t\"lastName\": \"lastName\",\n\t\"jobTitle\": \"manager\",\n\t\"email\": \"v.kozlishyn1@gmail.com\",\n\t\"phoneNumbers\": [\n\t\t{\n\t\t\t\"type\": \"home\",\n\t\t\t\"number\": \"12025550162\"\n\t\t}\n\t],\n    \"allowContractorApp\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/contacts/4",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"contacts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete unactive contact",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/contacts/4",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"contacts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit my contact",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"firstName\",\n\t\"lastName\": \"lastName\",\n\t\"jobTitle\": \"manager\",\n\t\"phoneNumbers\": [\n\t\t{\n\t\t\t\"type\": \"home\",\n\t\t\t\"number\": \"12025550162\"\n\t\t}\n\t],\n    \"main\": false,\n    \"allowContractorApp\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/contacts/me",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"contacts",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "lobby",
+					"item": [
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/lobby/login",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"lobby",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logincb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/lobby/logincb?error=error message&code=500",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"lobby",
+										"logincb"
+									],
+									"query": [
+										{
+											"key": "error",
+											"value": "error message"
+										},
+										{
+											"key": "code",
+											"value": "500"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/lobby/login",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"lobby",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/lobby/logout?token=asdasd&systemLogout=true",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"lobby",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "asdasd"
+										},
+										{
+											"key": "systemLogout",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"refresh token here\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/lobby/refresh",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"lobby",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[deprecated] exchange code for token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"some code string\",\r\n    \"state\": \"some state string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/lobby/token",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"lobby",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "customers",
+					"item": [
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/customers/:customerId/login",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"customers",
+										":customerId",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logincb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/customers/:customerId/logincb?error=error message&code=500",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"customers",
+										":customerId",
+										"logincb"
+									],
+									"query": [
+										{
+											"key": "error",
+											"value": "error message"
+										},
+										{
+											"key": "code",
+											"value": "500"
+										}
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/customers/:customerId/login",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"customers",
+										":customerId",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/customers/:customerId/logout?token=asdasd&systemLogout=true",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"customers",
+										":customerId",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "asdasd"
+										},
+										{
+											"key": "systemLogout",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"refresh token here\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/customers/:customerId/refresh",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"customers",
+										":customerId",
+										"refresh"
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[deprecated] exchange code for token Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"some code string\",\r\n    \"state\": \"some state string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/customers/:customerId/token",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"customers",
+										":customerId",
+										"token"
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Billing Graph",
+			"item": [
+				{
+					"name": "Credit Cards",
+					"item": [
+						{
+							"name": "get credit cards",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getCreditCards(\r\n    $customerId: ID!\r\n    $activeOnly: Boolean = false\r\n    $jobSiteId: ID\r\n    $relevantOnly: Boolean = false\r\n) {\r\n    creditCards(\r\n        customerId: $customerId,\r\n        activeOnly: $activeOnly,\r\n        jobSiteId: $jobSiteId,\r\n        relevantOnly: $relevantOnly\r\n    ) {\r\n        id\r\n        active\r\n        cardNickname\r\n        cardType\r\n        cardNumberLastDigits\r\n        nameOnCard\r\n        expirationDate\r\n        addressLine1\r\n        addressLine2\r\n        city\r\n        state\r\n        zip\r\n        customer { id, name }\r\n        jobSites { id }\r\n        expDate\r\n        expiredLabel\r\n    }\r\n}",
+										"variables": "{\r\n    \"customerId\": 1,\r\n    \"jobSiteId\": 1,\r\n    \"activeOnly\": false,\r\n    \"relevantOnly\": false\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get credit card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getCreditCard($id: ID!) {\r\n    creditCard(id: $id) {\r\n        id\r\n        active\r\n        cardNickname\r\n        cardType\r\n        cardNumberLastDigits\r\n        nameOnCard\r\n        expirationDate\r\n        addressLine1\r\n        addressLine2\r\n        city\r\n        state\r\n        zip\r\n        customer { id, name }\r\n        jobSites { id }\r\n        expDate\r\n        expiredLabel\r\n    }\r\n}",
+										"variables": "{\r\n    \"id\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add credit card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation NewCreditCard(\r\n    $customerId: ID!\r\n    $data: AddCreditCardInput!\r\n) {\r\n    addCreditCard(customerId: $customerId, data: $data) {\r\n        id\r\n        active\r\n        cardNickname\r\n        cardType\r\n        cardNumberLastDigits\r\n        nameOnCard\r\n        expirationDate\r\n        addressLine1\r\n        addressLine2\r\n        city\r\n        state\r\n        zip\r\n        customer { id, name }\r\n        jobSites { id }\r\n        expDate\r\n        expiredLabel\r\n    }\r\n}",
+										"variables": "{\r\n    \"customerId\": 1,\r\n    \"data\": {\r\n        \"active\": false,\r\n        \"cardNickname\": \"name\",\r\n        \"addressLine1\": \"line1\",\r\n        \"addressLine2\": \"line2\",\r\n        \"city\": \"city\",\r\n        \"state\": \"state\",\r\n        \"zip\": \"35000\",\r\n        \"nameOnCard\": \"nameOnCard\",\r\n        \"expirationDate\": \"expirationDate\",\r\n        \"jobSites\": [1, 2, 3],\r\n        \"cardNumber\": \"1234567812345678\",\r\n        \"cvv\": \"322\"\r\n    }\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update credit card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation UpdateCreditCard(\r\n    $id: ID!\r\n    $data: EditCreditCardInput!\r\n) {\r\n    updateCreditCard(id: $id, data: $data) {\r\n        id\r\n        active\r\n        cardNickname\r\n        cardType\r\n        cardNumberLastDigits\r\n        nameOnCard\r\n        expirationDate\r\n        addressLine1\r\n        addressLine2\r\n        city\r\n        state\r\n        zip\r\n        customer { id, name }\r\n        jobSites { id }\r\n        expDate\r\n        expiredLabel\r\n    }\r\n}",
+										"variables": "{\r\n    \"id\": 1,\r\n    \"data\": {\r\n        \"active\": false,\r\n        \"cardNickname\": \"name\",\r\n        \"addressLine1\": \"line1\",\r\n        \"addressLine2\": \"line2\",\r\n        \"city\": \"city\",\r\n        \"state\": \"state\",\r\n        \"zip\": \"35000\",\r\n        \"nameOnCard\": \"nameOnCard\",\r\n        \"expirationDate\": \"expirationDate\",\r\n        \"jobSites\": [1, 2, 3]\r\n    }\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Invoices",
+					"item": [
+						{
+							"name": "get invoice by id",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getInvoiceById($id: ID!) {\r\n    invoice(id: $id) {\r\n        id\r\n        type\r\n        dueDate\r\n        createdAt\r\n        csrName\r\n        csrEmail\r\n        total\r\n        pdfUrl\r\n        previewUrl\r\n        balance\r\n        writeOff\r\n        customer {\r\n            onAccount\r\n            name\r\n            id\r\n        }\r\n    }\r\n}",
+										"variables": "{\r\n    \"id\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get detailed invoice by id",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getInvoiceById($id: ID!) {\r\n    invoice(id: $id) {\r\n        id\r\n        type\r\n        dueDate\r\n        createdAt\r\n        csrName\r\n        csrEmail\r\n        total\r\n        pdfUrl\r\n        previewUrl\r\n        balance\r\n        writeOff\r\n        orders {\r\n            id\r\n            grandTotal\r\n            serviceDate\r\n            lineItems {\r\n            isService\r\n            price\r\n            description\r\n            }\r\n        }\r\n        payments {\r\n            id\r\n            status\r\n            isAch\r\n            invoicedStatus\r\n            date\r\n            paymentType\r\n            amount\r\n            sendReceipt\r\n            checkNumber\r\n            prevBalance\r\n            newBalance\r\n            appliedAmount\r\n            unappliedAmount\r\n            memoNote\r\n            billableItemType\r\n            billableItemId\r\n            creditCard {\r\n                id\r\n                cardType\r\n                cardNumberLastDigits\r\n            }\r\n            deferredUntil\r\n            customer {\r\n                id\r\n                name\r\n            }\r\n        }\r\n        emails {\r\n            id\r\n            status\r\n            receiver\r\n            createdAt\r\n        }\r\n        customer {\r\n            onAccount\r\n            name\r\n            id\r\n        }\r\n    }\r\n}",
+										"variables": "{\r\n    \"id\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get invoices by customer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getCustomerInvoices(\r\n    $customerId: ID, \r\n    $offset: Int, \r\n    $limit: Int,\r\n    $sortBy: InvoiceSorting,\r\n    $sortOrder: SortOrder,\r\n    $jobSiteId: ID,\r\n    $filters: InvoiceFilters,\r\n    $query: String\r\n) {\r\n    invoices(\r\n        jobSiteId: $jobSiteId\r\n        offset: $offset\r\n        limit: $limit\r\n        sortBy: $sortBy\r\n        sortOrder: $sortOrder\r\n        customerId: $customerId\r\n        filters: $filters\r\n        query: $query\r\n    ) {\r\n        id\r\n        type\r\n        dueDate\r\n        createdAt\r\n        csrName\r\n        csrEmail\r\n        total\r\n        pdfUrl\r\n        previewUrl\r\n        balance\r\n        writeOff\r\n        customer {\r\n            id\r\n        }\r\n    }\r\n    invoicesCount(customerId: $customerId, filters: $filters, query: $query)\r\n}",
+										"variables": "{\r\n    \"jobSiteId\": 1,\r\n    \"offset\": 0,\r\n    \"limit\": 25,\r\n    \"sortBy\": \"id\",\r\n    \"sortOrder\": \"DESC\",\r\n    \"customerId\": 1,\r\n    \"filters\": null,\r\n    \"query\": null\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payments",
+					"item": [
+						{
+							"name": "get payments",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getPayments(\r\n    $offset: Int,\r\n    $limit: Int, \r\n    $customerId: ID,\r\n    $businessUnitId: ID, \r\n    $sortBy: PaymentSorting, \r\n    $sortOrder: SortOrder, \r\n    $filters: PaymentFilters, \r\n    $query: String\r\n) {\r\n    payments(\r\n        offset: $offset, \r\n        limit: $limit, \r\n        sortBy: $sortBy, \r\n        sortOrder: $sortOrder, \r\n        customerId: $customerId, \r\n        businessUnitId: $businessUnitId, \r\n        filters: $filters, \r\n        query: $query\r\n    ) {\r\n        id\r\n        status\r\n        isAch\r\n        invoicedStatus\r\n        date\r\n        paymentType\r\n        amount\r\n        sendReceipt\r\n        checkNumber\r\n        prevBalance\r\n        newBalance\r\n        appliedAmount\r\n        unappliedAmount\r\n        memoNote\r\n        billableItemType\r\n        billableItemId\r\n        creditCard {\r\n            id\r\n            cardType\r\n            cardNumberLastDigits\r\n        }\r\n        deferredUntil\r\n        customer {\r\n            id\r\n            name\r\n        }\r\n    }\r\n}",
+										"variables": "{\r\n    \"offset\": 0,\r\n    \"limit\": 25,\r\n    \"customerId\": 1,\r\n    \"businessUnitId\": 1,\r\n    \"sortBy\": \"DATE\", //DATE PAYMENT_TYPE AMOUNT CREATED_AT DEFERRED_UNTIL STATUS\r\n    \"sortOrder\": \"DESC\",\r\n    \"filters\": null,\r\n    \"query\": null\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get detailed payment by id",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getCustomerDetailedPayment($id: ID!) {\r\n    payment(id: $id) {\r\n        id\r\n        status\r\n        isAch\r\n        invoicedStatus\r\n        date\r\n        paymentType\r\n        amount\r\n        sendReceipt\r\n        checkNumber\r\n        prevBalance\r\n        newBalance\r\n        appliedAmount\r\n        unappliedAmount\r\n        memoNote\r\n        billableItemType\r\n        billableItemId\r\n        creditCard {\r\n            id\r\n            cardType\r\n            cardNumberLastDigits\r\n        }\r\n        deferredUntil\r\n        customer {\r\n            id\r\n            name\r\n        }\r\n        invoices {\r\n            id\r\n            type\r\n            dueDate\r\n            createdAt\r\n            total\r\n            balance\r\n            amount\r\n            prevBalance\r\n            writeOff\r\n        }\r\n        reverseData {\r\n            note\r\n        }\r\n        refundedAmount\r\n        refundedOnAccountAmount\r\n        originalPaymentId\r\n        writeOffNote\r\n    }\r\n}",
+										"variables": "{\r\n    \"id\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get latest order payment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getLatestOrderPayment($orderId: ID!) {\r\n    prepaidPayment(orderId: $orderId) {\r\n        id\r\n        status\r\n        isAch\r\n        invoicedStatus\r\n        date\r\n        paymentType\r\n        amount\r\n        sendReceipt\r\n        checkNumber\r\n        prevBalance\r\n        newBalance\r\n        appliedAmount\r\n        unappliedAmount\r\n        memoNote\r\n        billableItemType\r\n        billableItemId\r\n        creditCard {\r\n            id\r\n            cardType\r\n            cardNumberLastDigits\r\n        }\r\n        deferredUntil\r\n        customer {\r\n            id\r\n            name\r\n        }\r\n        invoices {\r\n            id\r\n            type\r\n            dueDate\r\n            createdAt\r\n            total\r\n            balance\r\n            amount\r\n            prevBalance\r\n            writeOff\r\n        }\r\n        reverseData {\r\n            note\r\n        }\r\n        refundedAmount\r\n        refundedOnAccountAmount\r\n        originalPaymentId\r\n        writeOffNote\r\n    }\r\n}",
+										"variables": "{\r\n    \"orderId\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get deferred",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getDeferredPayments(\r\n    $offset: Int, \r\n    $limit: Int, \r\n    $businessUnitId: ID, \r\n    $failedOnly: Boolean, \r\n    $sortBy: PaymentSorting,\r\n    $sortOrder: SortOrder\r\n) {\r\n    deferredPayments(\r\n        offset: $offset, \r\n        limit: $limit, \r\n        sortBy: $sortBy, \r\n        sortOrder: $sortOrder, \r\n        businessUnitId: $businessUnitId, \r\n        failedOnly: $failedOnly\r\n    ) {\r\n        id\r\n        status\r\n        date\r\n        amount\r\n        creditCard {\r\n            id\r\n            cardType\r\n            cardNumberLastDigits\r\n        }\r\n        customer {\r\n            id\r\n            name\r\n        }\r\n        deferredUntil,\r\n        orders {\r\n            id\r\n            jobSite {\r\n                id\r\n            }\r\n            serviceDate\r\n        }\r\n    }\r\n}",
+										"variables": "{\r\n    \"offset\": 0,\r\n    \"limit\": 25,\r\n    \"businessUnitId\": 1,\r\n    \"failedOnly\": false,\r\n    \"sortBy\": \"DATE\", //DATE PAYMENT_TYPE AMOUNT CREATED_AT DEFERRED_UNTIL STATUS\r\n    \"sortOrder\": \"DESC\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charge deferred by id",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation ChargeDeferred($paymentId: ID!) {\r\n    chargeDeferredPayment(paymentId: $paymentId) {\r\n        id\r\n        status\r\n        date\r\n        amount\r\n        creditCard {\r\n            id\r\n            cardType\r\n            cardNumberLastDigits\r\n        }\r\n        customer {\r\n            id\r\n            name\r\n        }\r\n        deferredUntil,\r\n        orders {\r\n            id\r\n            jobSite {\r\n                id\r\n            }\r\n            serviceDate\r\n        }\r\n    }\r\n}",
+										"variables": "{\r\n   \"paymentId\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charge deferred payments",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation ChargeDeferredPayments($paymentIds: [ID!]!) {\r\n    chargeDeferredPayments(paymentIds: $paymentIds) {\r\n        id\r\n        status\r\n        date\r\n        amount\r\n        creditCard {\r\n            id\r\n            cardType\r\n            cardNumberLastDigits\r\n        }\r\n        customer {\r\n            id\r\n            name\r\n        }\r\n        deferredUntil,\r\n        orders {\r\n            id\r\n            jobSite {\r\n                id\r\n            }\r\n            serviceDate\r\n        }\r\n    }\r\n}",
+										"variables": "{\r\n   \"paymentIds\": [1, 2, 3]\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "write off invoices",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation WriteOffInvoiced($invoiceIds: [ID!]!, $customerId: ID!, $note: String!) {\r\n    writeOffInvoices(invoiceIds: $invoiceIds, customerId: $customerId, note: $note) {\r\n        id\r\n        status\r\n        isAch\r\n        invoicedStatus\r\n        date\r\n        paymentType\r\n        amount\r\n        sendReceipt\r\n        checkNumber\r\n        prevBalance\r\n        newBalance\r\n        appliedAmount\r\n        unappliedAmount\r\n        memoNote\r\n        billableItemType\r\n        billableItemId\r\n        creditCard {\r\n            id\r\n            cardType\r\n            cardNumberLastDigits\r\n        }\r\n        deferredUntil\r\n        customer {\r\n            id\r\n            name\r\n        }\r\n        invoices {\r\n            id\r\n            type\r\n            dueDate\r\n            createdAt\r\n            total\r\n            balance\r\n            amount\r\n            prevBalance\r\n            writeOff\r\n        }\r\n        reverseData {\r\n            note\r\n        }\r\n        refundedAmount\r\n        refundedOnAccountAmount\r\n        originalPaymentId\r\n        writeOffNote\r\n    }\r\n}",
+										"variables": "{\r\n   \"invoiceIds\": [1, 2, 3],\r\n   \"customerId\": 1,\r\n   \"note\": \"some note here\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Statements",
+					"item": [
+						{
+							"name": "get statements list",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query getCustomerStatements(\r\n    $offset: Int, \r\n    $limit: Int, \r\n    $customerId: ID, \r\n    $businessUnitId: ID, \r\n    $sortBy: StatementSorting, \r\n    $sortOrder: SortOrder\r\n) {\r\n    statements(\r\n        offset: $offset, \r\n        limit: $limit, \r\n        customerId: $customerId, \r\n        businessUnitId: $businessUnitId, \r\n        sortBy: $sortBy, \r\n        sortOrder: $sortOrder\r\n    ) {\r\n        id\r\n        createdAt\r\n        statementDate\r\n        endDate\r\n        invoicesCount\r\n        invoicesTotal\r\n        balance\r\n        exagoPath\r\n    }\r\n}",
+										"variables": "{\r\n    \"offset\": 0,\r\n    \"limit\": 25,\r\n    \"customerId\": 1,\r\n    \"businessUnitId\": 1,\r\n    \"sortBy\": \"ID\", // ID BALANCE CREATED_AT INVOICES_COUNT\r\n    \"sortOrder\": \"DESC\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create statement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation CreateStatement(\r\n    $customerId: ID!, \r\n    $businessUnitId: ID!, \r\n    $statementDate: String!, \r\n    $endDate: String!\r\n) {\r\n    createStatement(\r\n        customerId: $customerId, \r\n        businessUnitId: $businessUnitId, \r\n        statementDate: $statementDate, \r\n        endDate: $endDate\r\n    )\r\n}",
+										"variables": "{\r\n    \"customerId\": 1,\r\n    \"businessUnitId\": 1,\r\n    \"statementDate\": \"2021-02-25\",\r\n    \"endDate\": \"2021-02-28\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get statement by id",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query RequestStatement($statementId: ID!) {\r\n    statement(id: $statementId) {\r\n        id\r\n        createdAt\r\n        statementDate\r\n        endDate\r\n        invoicesCount\r\n        invoicesTotal\r\n        balance\r\n        exagoPath\r\n        emails {\r\n            id\r\n            status\r\n            receiver\r\n            createdAt\r\n        }\r\n    }\r\n}",
+										"variables": "{\r\n    \"statementId\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete statement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation DeleteStatement($statementId: ID!) {\r\n    deleteStatement(id: $statementId)\r\n}",
+										"variables": "{\r\n    \"statementId\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "send statement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation SendStatements($statementIds: [ID!]!, $emails: [String!]) {\r\n    sendStatements(ids: $statementIds, emails: $emails)\r\n}",
+										"variables": "{\r\n    \"statementIds\": [1, 2, 3],\r\n    \"emails\": [\"vitalii.kozlishyn@eleks.com\"]\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "request statement end date",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{portalToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query StatementEndDate($customerId: ID!) {\r\n    newStatementEndDate(customerId: $customerId)\r\n}",
+										"variables": "{\r\n    \"customerId\": 1\r\n}"
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/billing/graphql",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"billing",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "UMS Graph",
+			"item": [
+				{
+					"name": "get resource",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query getResource($srn: String!) {\r\n    resource(srn: $srn) {\r\n        srn\r\n        type\r\n        loginUrl\r\n    }\r\n}",
+								"variables": "{\r\n    \"srn\": \"srn:devtenant:customer-portal:1\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/ums/graphql",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"ums",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n    me {\r\n        id\r\n        firstName\r\n        lastName\r\n        email\r\n        resource\r\n        permissions\r\n        tenantId\r\n        tenantName\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/ums/graphql",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"ums",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get available resources",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\r\n    availableResourceLogins {\r\n        id\r\n        label\r\n        subLabel\r\n        image\r\n        loginUrl\r\n        resourceType\r\n        updatedAt\r\n        tenantName\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/ums/graphql",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"ums",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statements",
+			"item": [
+				{
+					"name": "download statements",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/statements/download?id=1&id=2&id=3",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"statements",
+								"download"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								},
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "download invoices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/invoices/combined?invoiceIds=1&invoiceIds=2&invoiceIds=3",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"invoices",
+								"combined"
+							],
+							"query": [
+								{
+									"key": "invoiceIds",
+									"value": "1"
+								},
+								{
+									"key": "invoiceIds",
+									"value": "2"
+								},
+								{
+									"key": "invoiceIds",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "reports list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/reports",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/reports/download?businessUnitId=2&customerId=50&fileName=aaa&format=pdf&path&reportName=aaa&fromDate=2021-05-19&toDate=2021-05-19",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"reports",
+								"download"
+							],
+							"query": [
+								{
+									"key": "businessUnitId",
+									"value": "2"
+								},
+								{
+									"key": "customerId",
+									"value": "50"
+								},
+								{
+									"key": "fileName",
+									"value": "aaa"
+								},
+								{
+									"key": "format",
+									"value": "pdf"
+								},
+								{
+									"key": "path",
+									"value": null
+								},
+								{
+									"key": "reportName",
+									"value": "aaa"
+								},
+								{
+									"key": "fromDate",
+									"value": "2021-05-19"
+								},
+								{
+									"key": "toDate",
+									"value": "2021-05-19"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "init report session",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{portalToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"businessUnitId\": 2,\r\n    \"customerId\": 50,\r\n    \"fromDate\": \"2021-05-19\",\r\n    \"toDate\": \"2021-05-19\",\r\n    \"selfService\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{localPortal}}/api/customer-portal/v1/reports/session/view",
+							"host": [
+								"{{localPortal}}"
+							],
+							"path": [
+								"api",
+								"customer-portal",
+								"v1",
+								"reports",
+								"session",
+								"view"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search address suggestion",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-amzn-trace-id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{portalToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localPortal}}/api/v1/customer-portal/address-suggestions?query=Niagara Street",
+					"host": [
+						"{{localPortal}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customer-portal",
+						"address-suggestions"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Niagara Street"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-amzn-trace-id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{portalToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localPortal}}/api/customer-portal/v1/companies/current",
+					"host": [
+						"{{localPortal}}"
+					],
+					"path": [
+						"api",
+						"customer-portal",
+						"v1",
+						"companies",
+						"current"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health check [only for local env]",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-amzn-trace-id",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localPortal}}/health-check",
+					"host": [
+						"{{localPortal}}"
+					],
+					"path": [
+						"health-check"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get available resources",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-amzn-trace-id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{portalToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localPortal}}/api/customer-portal/v1/lobby/available-resource-logins",
+					"host": [
+						"{{localPortal}}"
+					],
+					"path": [
+						"api",
+						"customer-portal",
+						"v1",
+						"lobby",
+						"available-resource-logins"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

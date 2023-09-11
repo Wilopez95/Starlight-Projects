@@ -1,0 +1,8 @@
+.navigationPanelContainer {
+  background-color: var(--caption-dark);
+  width: var(--navigationPanelWidth);
+  padding: 34px 0;
+  overflow-y: auto;
+  min-width: 264px;
+  min-height: calc(100vh - var(--headerHeight));
+}

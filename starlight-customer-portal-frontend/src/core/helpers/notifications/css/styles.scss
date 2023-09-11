@@ -1,0 +1,70 @@
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate3d(110%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideIn {
+  animation-name: slideIn;
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(110%, 0, 0);
+  }
+}
+
+.slideOut {
+  animation-name: slideOut;
+}
+
+.toast {
+  background: white;
+  padding-left: 24px;
+  font-size: 1.75rem;
+
+  :global(.Toastify__close-button) {
+    color: var(--primary-gray-dark);
+  }
+
+  &:global(.Toastify__toast--success) {
+    color: black;
+  }
+
+  &:global(.Toastify__toast--error) {
+    color: var(--destructive);
+  }
+
+  :global(.Toastify__progress-bar--success) {
+    background: var(--primary);
+  }
+
+  :global(.Toastify__progress-bar--error) {
+    background: var(--destructive);
+  }
+
+  :global(.Toastify__progress-bar--warning) {
+    background: var(--primary);
+    height: 2px;
+  }
+
+  &:global(.Toastify__toast--warning) {
+    :global(.Toastify__close-button) {
+      color: black;
+    }
+    background: var(--primary-desaturated);
+    color: var(--primary);
+  }
+}

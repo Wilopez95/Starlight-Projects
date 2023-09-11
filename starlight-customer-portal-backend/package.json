@@ -1,0 +1,61 @@
+{
+    "name": "starlight-customer-portal-backend",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Starlight Customer Portal service",
+    "engines": {
+        "node": ">=14.16.0"
+    },
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "start:dev": "nodemon server.js",
+        "lint": "eslint .",
+        "pm2:start": "pm2 start server.js -f --name test-customer-portal --wait-ready --listen-timeout 20000",
+        "pm2:stop": "pm2 stop test-customer-portal && pm2 delete test-customer-portal",
+        "test": "jest --runInBand --no-cache --verbose --testTimeout=10000 --detectOpenHandles || true",
+        "pretest": "yarn pm2:start",
+        "posttest": "yarn pm2:stop",
+        "coverage": "rm -rf ./coverage && jest --runInBand --no-cache --verbose --testTimeout=10000 --detectOpenHandles --coverage || true",
+        "upgrade": "ncu --loglevel verbose --packageFile package.json -u"
+    },
+    "dependencies": {
+        "@koa/cors": "^3.1.0",
+        "@koa/router": "^9.4.0",
+        "axios": "^0.20.0",
+        "dotenv": "^8.2.0",
+        "http-status": "^1.4.2",
+        "ioredis": "^4.19.4",
+        "joi": "^17.3.0",
+        "koa": "^2.13.1",
+        "koa-bodyparser": "^4.3.0",
+        "koa-helmet": "^6.0.0",
+        "lodash": "^4.17.20",
+        "minimatch": "^3.0.4",
+        "nanoid": "^3.1.12",
+        "paseto": "^1.0.8",
+        "pino": "^6.7.0",
+        "pino-pretty": "^4.3.0",
+        "querystring": "^0.2.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.19.1",
+        "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+        "@babel/preset-env": "^7.12.1",
+        "@starlightpro/eslint-config-starlight": "1.0.0",
+        "@types/node": "^18.7.18",
+        "babel-jest": "^26.5.2",
+        "eslint": "^8.32.0",
+        "husky": "^4.3.0",
+        "jest": "^26.5.3",
+        "nodemon": "^2.0.6",
+        "npm-check-updates": "^11.0.2",
+        "pm2": "^4.5.0",
+        "prettier": "^2.8.7",
+        "pretty-quick": "^3.1.0",
+        "supertest": "^5.0.0",
+        "typescript": "4.9.5",
+        "yargs": "^16.1.0"
+    }
+}

@@ -1,0 +1,28 @@
+.modal {
+  height: 500px;
+  width: 700px;
+  padding: 40px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalPreview {
+  width: 100%;
+  max-width: 627px;
+  max-height: 345px;
+  object-fit: contain;
+  background-color: var(--primary-gray-desaturated);
+}
+
+.pdfPlaceholder {
+  width: 600px;
+  height: 300px;
+}
+
+.scrollContainer {
+  overflow-y: auto;
+  img {
+    max-height: unset;
+    object-fit: unset;
+  }
+}

@@ -1,0 +1,6 @@
+.layoutContent {
+  // todo: fix all scroll containers
+  --customerInfoBlock: 244px;
+  max-height: calc(100vh - var(--customerInfoBlock));
+  height: 100%;
+}

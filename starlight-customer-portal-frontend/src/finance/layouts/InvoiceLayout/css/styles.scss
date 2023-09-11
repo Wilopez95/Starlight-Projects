@@ -1,0 +1,5 @@
+.invoiceTableContainer {
+  --invoiceLayoutHeaderHeight: 78px;
+  padding: 0;
+  height: calc(100% - var(--invoiceLayoutHeaderHeight));
+}

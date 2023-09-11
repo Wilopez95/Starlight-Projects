@@ -1,0 +1,24 @@
+FROM node:16
+
+# https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker
+RUN apt-get update \
+    && apt-get install -y wget gnupg fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir /app
+
+WORKDIR /app
+
+COPY . /app/
+
+ENV NODE_ENV development
+
+ARG NPM_TOKEN
+ENV NPM_TOKEN=$NPM_TOKEN
+RUN test -n "$NPM_TOKEN" && echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" > .npmrc
+
+RUN yarn install --production
+
+EXPOSE 3000
+
+CMD node server.js

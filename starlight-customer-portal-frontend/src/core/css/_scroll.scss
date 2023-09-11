@@ -1,0 +1,24 @@
+.scroll {
+  &::-webkit-scrollbar {
+    height: 4px;
+    margin-left: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--pale-grey-two);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--caption-desaturated);
+  }
+
+  &::-webkit-scrollbar-button:single-button:vertical:decrement {
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &::-webkit-scrollbar-button:single-button:vertical:increment {
+    display: none;
+  }
+}

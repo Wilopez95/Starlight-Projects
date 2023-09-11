@@ -1,0 +1,36 @@
+{
+  "name": "@starlightpro/osm-helpers",
+  "version": "0.1.0",
+  "description": "Helpers for processing of OSM data",
+  "main": "build/main.js",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Starlightpro/starlight-shared-libs.git",
+    "directory": "packages/osm-helpers"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "types": "build/main.d.ts",
+  "scripts": {
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "build": "tsc"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "@mapbox/geojson-rewind": "^0.5.1",
+    "@mapbox/geojsonhint": "^3.0.1",
+    "@turf/turf": "^6.5.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/geojson": "^7946.0.8",
+    "@types/lodash": "^4.14.173",
+    "@types/node": "^14.14.14"
+  }
+}

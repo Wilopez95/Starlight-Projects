@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap');
+
+.divider {
+  border-bottom: 1px solid #dfe3e8;
+  grid-column: 1 / -1;
+}
+
+.heading {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.spaceBottom {
+  margin-bottom: 8px;
+}
+
+.wrapper {
+  color: #212b36;
+  padding: 8px;
+  line-height: 16px;
+  background: white;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+  &.preview {
+    font-size: 10px;
+  }
+
+  & .row {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  & .header {
+    display: flex;
+    width: 50%;
+    line-height: 1.6;
+  }
+
+  & .logo {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-right: 32px;
+
+    &.preview {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  .generalInformation {
+    margin: 50px 0 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    padding: 8px;
+
+    & tr {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+
+    & th {
+      background: #dfe3e8;
+      color: rgba(33, 43, 54, 0.6);
+      height: 36px;
+    }
+
+    & td,
+    & th {
+      padding: 0 8px;
+      line-height: 2;
+      text-align: left;
+
+      &.textRight {
+        text-align: right;
+      }
+    }
+
+    & tr:first-child {
+      & td {
+        padding-top: 8px;
+      }
+    }
+
+    & tr.divider {
+      & td {
+        border-bottom: 1px solid #dfe3e8;
+        padding-bottom: 8px;
+      }
+
+      & + tr {
+        & td {
+          padding-top: 8px;
+        }
+      }
+    }
+  }
+
+  .summary {
+    margin-left: auto;
+    width: 30%;
+    margin-top: 18px;
+    margin-right: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: right;
+    gap: 8px;
+
+    & .label {
+      text-align: left;
+    }
+
+    & .total {
+      font-size: 16px;
+      font-weight: bold;
+
+      &.preview {
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+:root {
+  /* colors */
+  --primary: #e87900;
+  --primary-dark: #c5500f;
+  --primary-light: #f5a623;
+  --primary-light-transparent: rgba(232, 121, 0, 0.1);
+  --primary-desaturated: #fcebd9;
+  --secondary: #006fbb;
+  --secondary-dark: #084e8a;
+  --secondary-light: #b4e0fa;
+  --secondary-desaturated: #ebf5fa;
+  --alternative: #47c1bf;
+  --alternative-dark: #00848e;
+  --alternative-light: #b7ecec;
+  --alternative-desaturated: #e0f5f5;
+  --destructive: #de3618;
+  --destructive-dark: #bf1d08;
+  --destructive-light: #fa9a88;
+  --destructive-desaturated: #fbeae5;
+  --caption: #454f5b;
+  --caption-dark: #212b36;
+  --caption-light: #637381;
+  --caption-desaturated: #919eab;
+  --primary-gray: #dfe3e8;
+  --primary-gray-dark: #c4cdd5;
+  --primary-gray-light: #f4f6f8;
+  --primary-gray-desaturated: #f9fafb;
+  --secondary-gray: #bcbfc2;
+  --secondary-gray-dark: #7a8086;
+  --secondary-gray-light: rgba(255, 255, 255, 0.6);
+  --secondary-gray-desaturated: rgba(255, 255, 255, 0.1);
+  --white: #fff;
+  --dark-white: #c3c2c0;
+  --black: #000;
+  --dark: #333;
+  --dark-30: rgba(33, 43, 54, 0.3);
+  --dark-two: #2b3949;
+  --dark-three: #141b22;
+  --dark-60: rgba(33, 43, 54, 0.6);
+  --border: rgb(223, 227, 232);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --pale-grey-two: #edf0f4;
+  --light-yellow: #fcf6d9;
+  --sap-green: #569111;
+  --ice: #e5ffec;
+  --success: #04ae64;
+
+  /* Data variables */
+  --headerHeight: 94px;
+  --backgroundOverlayZindex: 100;
+  --dateModalZindex: 2;
+  --tableNavigationZindex: 1;
+  --selectZindex: 10;
+}
+
+.fallbackOnlyForSCSSModulesTypings {
+  color: green;
+}

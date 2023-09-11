@@ -1,0 +1,35 @@
+.subsection {
+  padding: 20px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--primary-gray);
+  }
+
+  &:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.title {
+  padding-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dark-60);
+}
+
+.hint {
+  padding: 10px 0 15px;
+  font-size: 14px;
+  color: var(--dark-60);
+}
+
+.gray {
+  background-color: var(--primary-gray-desaturated);
+}

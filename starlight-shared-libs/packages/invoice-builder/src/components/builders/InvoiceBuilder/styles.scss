@@ -1,0 +1,12 @@
+.invoiceInformation {
+  grid-column: 3 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: right;
+
+  & .label {
+    font-weight: bold;
+    text-align: left;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "build"
+  },
+  "include": ["src/**/*", "declarations.d.ts"],
+  "exclude": ["node_modules", "build"]
+}

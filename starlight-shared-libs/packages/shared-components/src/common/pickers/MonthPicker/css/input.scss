@@ -1,0 +1,47 @@
+.monthPicker,
+.monthPicker:read-only {
+  padding: 1rem;
+  height: 36px;
+  cursor: pointer;
+
+  --box-shadow-base: inset 0 1px 2px 0 hsla(209, 9%, 44%, 0.21),
+    inset 0 0 0 1px hsla(209, 9%, 44%, 0.251);
+
+  /* input reset */
+  max-width: 100%;
+  width: 100%;
+  outline: 0;
+  font-size: 1.75rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease,
+    box-shadow 0.1s ease;
+  border-radius: 3px;
+  box-shadow: var(--box-shadow-base);
+  border: solid 1px hsl(208, 17%, 80%);
+  background: hsl(0, 0%, 100%) url('../../../../assets/img/calendar.svg') no-repeat scroll 14px 14px;
+  background-position: right 10px bottom 10px;
+
+  &:global(.active) {
+    box-shadow: inset 0 0 0 2px hsl(31, 100%, 45%);
+    border-color: hsl(31, 100%, 45%);
+  }
+
+  &.disabled {
+    background-color: var(--primary-gray-desaturated);
+    border: 1px solid var(--primary-gray-dark);
+    box-shadow: inset 0 1px 2px 0 hsla(209, 9%, 44%, 0.21), inset 0 0 0 1px hsla(209, 9%, 44%, 0.25);
+    cursor: not-allowed;
+  }
+
+  &.error {
+    border: 1px solid var(--destructive);
+    background-color: var(--destructive-desaturated);
+    box-shadow: inset 0 1px 2px 0 var(--destructive), inset 0 0 0 1px var(--destructive);
+  }
+}
+
+.borderError {
+  input {
+    border: 1px solid var(--destructive) !important;
+    box-shadow: inset 0 1px 2px 0 var(--destructive), inset 0 0 0 1px var(--destructive) !important;
+  }
+}

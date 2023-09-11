@@ -1,0 +1,56 @@
+.placeholder path {
+  fill: var(--secondary);
+}
+
+.fileUpload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #c5c5c5;
+  background: no-repeat center / cover;
+}
+
+.large {
+  width: 64px;
+  height: 64px;
+
+  .placeholder {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.small {
+  width: 36px;
+  height: 36px;
+
+  .placeholder {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.loading {
+  border-color: var(--primary);
+  cursor: default;
+}
+
+.dragActive {
+  border-color: var(--primary);
+
+  & > .placeholder {
+    fill: var(--primary);
+  }
+}
+
+.error {
+  border: solid 1px hsl(9, 80%, 48%);
+}
+
+.loader {
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
+}

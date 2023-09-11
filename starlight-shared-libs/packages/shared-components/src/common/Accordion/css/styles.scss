@@ -1,0 +1,20 @@
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  background-color: #f9fafb;
+}
+
+.arrow {
+  width: 10px;
+  margin-left: 16px;
+  margin-right: 16px;
+  transform: rotate(180deg);
+
+  &.open {
+    transform: rotate(90deg);
+  }
+}

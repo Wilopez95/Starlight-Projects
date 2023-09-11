@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
+.styles_divider__2X7pQ {
+  border-bottom: 1px solid #dfe3e8;
+  grid-column: 1/-1;
+}
+
+.styles_heading__17r3L {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.styles_spaceBottom__HK6iQ {
+  margin-bottom: 8px;
+}
+
+.styles_wrapper__doN-s {
+  color: #212b36;
+  padding: 8px;
+  line-height: 16px;
+  background: white;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.styles_wrapper__doN-s.styles_preview__SLUS4 {
+  font-size: 10px;
+}
+.styles_wrapper__doN-s .styles_row___rfGi {
+  display: flex;
+  justify-content: space-between;
+}
+.styles_wrapper__doN-s .styles_row___rfGi:not(:last-child) {
+  margin-bottom: 8px;
+}
+.styles_wrapper__doN-s .styles_header__ucTJd {
+  display: flex;
+  width: 50%;
+  line-height: 1.6;
+}
+.styles_wrapper__doN-s .styles_logo__Yk0-A {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-right: 32px;
+}
+.styles_wrapper__doN-s .styles_logo__Yk0-A.styles_preview__SLUS4 {
+  height: 50px;
+  width: 50px;
+}
+.styles_wrapper__doN-s .styles_generalInformation__1iM3E {
+  margin: 50px 0 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  padding: 8px;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS th {
+  background: #dfe3e8;
+  color: rgba(33, 43, 54, 0.6);
+  height: 36px;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS td, .styles_wrapper__doN-s .styles_table__3VGmS th {
+  padding: 0 8px;
+  line-height: 2;
+  text-align: left;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS td.styles_textRight__1kuXN, .styles_wrapper__doN-s .styles_table__3VGmS th.styles_textRight__1kuXN {
+  text-align: right;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS tr:first-child td {
+  padding-top: 8px;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS tr.styles_divider__2X7pQ td {
+  border-bottom: 1px solid #dfe3e8;
+  padding-bottom: 8px;
+}
+.styles_wrapper__doN-s .styles_table__3VGmS tr.styles_divider__2X7pQ + tr td {
+  padding-top: 8px;
+}
+.styles_wrapper__doN-s .styles_summary__3stoU {
+  margin-left: auto;
+  width: 30%;
+  margin-top: 18px;
+  margin-right: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: right;
+  gap: 8px;
+}
+.styles_wrapper__doN-s .styles_summary__3stoU .styles_label__DqcDc {
+  text-align: left;
+}
+.styles_wrapper__doN-s .styles_summary__3stoU .styles_total__3XMmf {
+  font-size: 16px;
+  font-weight: bold;
+}
+.styles_wrapper__doN-s .styles_summary__3stoU .styles_total__3XMmf.styles_preview__SLUS4 {
+  font-size: 12px;
+}
+.styles_invoiceInformation__2NmhE {
+  grid-column: 3/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: right;
+}
+.styles_invoiceInformation__2NmhE .styles_label__2xvBm {
+  font-weight: bold;
+  text-align: left;
+}
+.styles_tableHeader__19C2k {
+  background: #637381;
+  color: white;
+  padding: 8px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.styles_tableDivider__3Nio1 {
+  width: 100%;
+  height: 2px;
+  background: #dfe3e8;
+  margin: 8px 0;
+}
+
+.styles_total__r7B0h {
+  text-align: right;
+  font-weight: 500;
+  padding-right: 12px;
+  margin-bottom: 16px;
+}
+.styles_invoiceInformation__2uDSi {
+  grid-column: 3/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: right;
+}
+.styles_invoiceInformation__2uDSi .styles_label__2P_0w {
+  font-weight: bold;
+  text-align: left;
+}
+
+.styles_subsField__zLzAq {
+  width: 130px;
+}
+
+.styles_dateField__2yN7W {
+  width: 140px;
+}
+
+.styles_quantityField__2EnD1 {
+  width: 20px;
+}
+
+.styles_title__1TWIY {
+  font-weight: bold;
+}
+
+.styles_subtitle__2PrMf {
+  font-weight: bold;
+  padding-left: 16px;
+}

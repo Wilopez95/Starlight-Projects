@@ -1,0 +1,69 @@
+.container {
+  height: 36px;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+
+  input {
+    width: 100%;
+
+    --box-shadow-base: inset 0 1px 2px 0 hsla(209, 9%, 44%, 0.21),
+      inset 0 0 0 1px hsla(209, 9%, 44%, 0.251);
+    display: block;
+    appearance: none;
+    -moz-appearance: none;
+    padding: 0 12px;
+    max-width: 100%;
+    outline: 0;
+    font-size: 1.75rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease,
+      box-shadow 0.1s ease;
+    height: 100%;
+    border-radius: 3px;
+    box-shadow: var(--box-shadow-base);
+    border: solid 1px hsl(208, 17%, 80%);
+    background: hsl(0, 0%, 100%) url('../../../../assets/img/calendar.svg') no-repeat scroll 14px
+      14px;
+    background-position: right 10px bottom 10px;
+
+    &[data-error] {
+      border: solid 1px hsl(9, 80%, 48%);
+      background-color: hsl(14, 73%, 94%);
+
+      &:focus {
+        box-shadow: var(--box-shadow-base), inset 0 0 0 2px hsl(9, 80%, 48%);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: var(--primary-gray-desaturated);
+      }
+    }
+  }
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  z-index: var(--dateModalZindex);
+}
+
+.overlayWrapper {
+  display: block;
+}
+
+.wrap {
+  width: 100%;
+
+  &.right {
+    & .overlay {
+      right: 0;
+    }
+  }
+  &.up {
+    & .overlay {
+      right: 0;
+      top: -240px;
+    }
+  }
+}

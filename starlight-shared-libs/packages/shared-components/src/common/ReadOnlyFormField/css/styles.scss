@@ -1,0 +1,15 @@
+.input {
+  display: block;
+  background: none;
+  appearance: none;
+  outline: 0;
+  font-family: inherit;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  height: 36px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  border: solid 1px var(--primary-gray-dark);
+  background-color: var(--primary-gray-desaturated);
+  font-size: 1.75rem;
+}

@@ -1,0 +1,120 @@
+.checkmark {
+  position: relative;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: solid 1px var(--primary-gray-dark);
+  background-color: var(--white);
+
+  &::after {
+    position: relative;
+    display: none;
+    content: '';
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0.8);
+  }
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0 !important;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &.focus + .checkmark,
+  &:focus-within + .checkmark {
+    border: solid 2px var(--primary);
+
+    &::after {
+      left: 3px;
+      top: 0;
+    }
+  }
+
+  &:indeterminate + .checkmark {
+    border-color: var(--primary);
+
+    &::after {
+      display: block;
+      border: none;
+      transform: none;
+      background: var(--primary);
+      height: 2px;
+      width: 8px;
+      left: 3px;
+      top: 6px;
+    }
+  }
+
+  &:checked + .checkmark {
+    border-color: var(--primary);
+
+    &::after {
+      display: block;
+      border-color: var(--primary);
+    }
+  }
+
+  &[disabled]:not(:checked) + .checkmark {
+    border-color: var(--primary-gray);
+    background-color: var(--primary-gray-desaturated);
+    cursor: not-allowed;
+  }
+
+  &:checked.error + .checkmark {
+    border-color: var(--destructive);
+
+    &::after {
+      border-color: var(--destructive);
+    }
+  }
+
+  &.error:not(:checked) + .checkmark {
+    border-color: var(--destructive);
+    background-color: var(--destructive-desaturated);
+  }
+
+  &[disabled]:checked + .checkmark {
+    border-color: var(--primary-gray);
+    background-color: var(--primary-gray-desaturated);
+    cursor: not-allowed;
+
+    &::after {
+      border-color: var(--caption-desaturated);
+    }
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.43;
+  user-select: none;
+  color: var(--dark-60);
+}
+
+.text {
+  margin-left: 8px;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

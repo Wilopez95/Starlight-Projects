@@ -1,0 +1,32 @@
+.invoiceInformation {
+  grid-column: 3 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: right;
+
+  & .label {
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+.subsField {
+  width: 130px;
+}
+
+.dateField {
+  width: 140px;
+}
+
+.quantityField {
+  width: 20px;
+}
+.title {
+  font-weight: bold;
+}
+
+.subtitle {
+  font-weight: bold;
+  padding-left: 16px;
+}

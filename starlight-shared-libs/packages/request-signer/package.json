@@ -1,0 +1,31 @@
+{
+  "name": "@starlightpro/request-signer",
+  "version": "0.1.0",
+  "description": "Starlight request signing algorithm v1",
+  "main": "build/main.js",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Starlightpro/starlight-shared-libs.git",
+    "directory": "packages/request-signer"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "types": "build/main.d.ts",
+  "scripts": {
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "build": "tsc"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "paseto": "^1.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.14"
+  }
+}

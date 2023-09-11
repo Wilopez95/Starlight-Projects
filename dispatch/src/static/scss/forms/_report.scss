@@ -1,0 +1,35 @@
+.form--report {
+  margin: auto;
+
+  .btn-group {
+    max-width: 320px;
+
+    .btn {
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  .form-submitBtn {
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .form-footer {
+    overflow: hidden;
+  }
+
+  .form-actions {
+    float: right;
+
+    .btn {
+      margin-left: 10px;
+    }
+  }
+
+  .Select-input {
+    input {
+      color: transparent;
+    }
+  }
+}

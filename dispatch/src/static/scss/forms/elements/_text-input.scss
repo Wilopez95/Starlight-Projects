@@ -1,0 +1,24 @@
+.text-input {
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 12px;
+  width: 100%;
+  height: 34px;
+  border: 1px solid #dcdcdc;
+  font-size: 12px;
+  line-height: 34px;
+  background: #fafbfc;
+  border-radius: 8px;
+  color: #434343;
+
+  &:read-only {
+    background: #f3f3f3;
+    border: 1px solid #dcdcdc;
+  }
+
+  &.error-required,
+  &.error {
+    border-color: #d0021b;
+    box-shadow: 0px 0px 2px 0px rgba(208, 1, 27, 0.7);
+  }
+}

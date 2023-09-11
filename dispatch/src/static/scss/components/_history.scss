@@ -1,0 +1,114 @@
+.history-map {
+  height: 460px;
+}
+
+.history--workorder {
+  font-size: 0px;
+
+  .history-main,
+  .history-aside {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .history-main {
+    width: 64%;
+    margin-right: 2%;
+  }
+
+  .history-aside {
+    width: 34%;
+  }
+
+  .datalist--history {
+    height: 346px;
+    overflow: auto;
+    border: 1px solid #979797;
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+}
+
+.datalist--history {
+  .note {
+    display: table;
+    width: 100%;
+    border-bottom: 1px dashed #979797;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &.note--default {
+      background: #fefde6;
+    }
+  }
+
+  .note-column {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 14px;
+    color: #434343;
+    box-sizing: border-box;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    p {
+      margin: 4px 0px;
+    }
+
+    a {
+      color: #4a90e2;
+    }
+
+    &.note-column--date {
+      font-size: 12px;
+      line-height: 18px;
+      text-align: center;
+      width: 80px;
+      padding-right: 10px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        right: 0px;
+        border-right: solid 1px #979797;
+      }
+    }
+
+    &.note-column--author {
+      width: 16%;
+      padding-left: 16px;
+    }
+
+    &.note-column--title {
+      width: 24%;
+    }
+
+    &.note-column--details {
+      padding-right: 10px;
+      padding-left: 16px;
+
+      .details-list {
+        display: table;
+        width: 100%;
+      }
+
+      .details-item {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 16px;
+        min-width: 80px;
+
+        &.details-item--numbers {
+          width: 150px;
+        }
+      }
+    }
+  }
+}

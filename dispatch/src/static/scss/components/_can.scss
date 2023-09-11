@@ -1,0 +1,155 @@
+.can {
+  cursor: pointer;
+  color: #434343;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 8px;
+
+  &:last-child {
+    .can-body {
+      border-bottom: none;
+    }
+  }
+
+  &.active-can-popup {
+    width: 90%;
+    position: relative;
+    display: block;
+    z-index: 2;
+    text-align: center;
+    padding: 0 15px;
+    background-color: white;
+
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 5px;
+
+    .transactions-block {
+      display: block;
+    }
+
+    .popup-body {
+      border-bottom: dashed 1px #979797;
+      text-align: left;
+    }
+
+    .status-message {
+      font-weight: bold;
+      padding: 15px 0;
+      display: block;
+    }
+
+    .error-message {
+      color: red;
+    }
+  }
+
+  .can-body {
+    display: table;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    width: 100%;
+    border-bottom: dashed 1px #979797;
+  }
+
+  .can-number,
+  .can-activity,
+  .can-statuses,
+  .can-actions {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .can-number {
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-right: solid 1px #979797;
+    padding: 2px 4px 2px 0px;
+    width: 50px;
+    max-width: 120px;
+    word-wrap: break-word;
+
+    span {
+      display: block;
+    }
+  }
+
+  .can-activity {
+    font-size: 12px;
+    padding-left: 17px;
+
+    .activity-details {
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+  }
+
+  .can-statuses {
+    text-align: right;
+  }
+
+  .statuses-list {
+    white-space: nowrap;
+  }
+
+  .statuses-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 7px;
+  }
+
+  .can-actions {
+    width: 60px;
+  }
+
+  .can-transactions-list {
+    max-height: 245px;
+    overflow-y: auto;
+  }
+
+  .can-transactions-item {
+    border-bottom: 1px solid #979797;
+    color: #434343;
+    font-size: 12px;
+    padding: 14px 100px 14px 0px;
+    box-sizing: border-box;
+    position: relative;
+    text-align: left;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .can-transactions-time,
+  .can-transactions-type {
+    font-weight: 700;
+  }
+
+  .can-transactions-images {
+    position: absolute;
+    height: 30px;
+    top: 50%;
+    right: 0px;
+    margin-top: -15px;
+    max-width: 114px;
+    overflow: scroll;
+    white-space: nowrap;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    .preview {
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+}

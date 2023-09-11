@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src/",
+    "allowUmdGlobalAccess": false,
+    "allowJs": true,
+    "paths": {
+      "*": ["*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*", "build"]
+}

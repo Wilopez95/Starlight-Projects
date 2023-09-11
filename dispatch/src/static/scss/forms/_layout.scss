@@ -1,0 +1,50 @@
+.form-row {
+  margin-bottom: 19px;
+  display: table;
+  width: 100%;
+}
+
+.form-col {
+  display: table-cell;
+  vertical-align: top;
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: 10px;
+
+  &:last-child {
+    padding-right: 0px;
+  }
+}
+
+.form-error {
+  background: #d0021b;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  padding: 4px 10px;
+  margin-bottom: 19px;
+}
+
+.form-actions {
+  font-size: 0px;
+
+  .actions-group {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+
+    .btn {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      text-align: right;
+
+      .btn {
+        margin-left: 10px;
+        margin-right: 0px;
+      }
+    }
+  }
+}

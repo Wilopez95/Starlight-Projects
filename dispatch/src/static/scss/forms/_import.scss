@@ -1,0 +1,30 @@
+.form--import {
+  .btn-group {
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .form-submitBtn {
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .form-footer {
+    overflow: hidden;
+  }
+
+  .form-helper {
+    float: left;
+    padding-top: 6px;
+  }
+
+  .form-actions {
+    float: right;
+
+    .btn {
+      margin-left: 10px;
+    }
+  }
+}

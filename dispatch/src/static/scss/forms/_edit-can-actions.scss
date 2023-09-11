@@ -1,0 +1,110 @@
+.editCan-actions-nav {
+  margin-bottom: 30px;
+
+  .btn {
+    width: 25% !important;
+    text-align: center;
+  }
+}
+
+.form--editCan-move,
+.form--editCan-dropOff {
+  .form-col-header {
+    min-height: 83px;
+  }
+}
+
+.form--editCan-move,
+.form--editCan-dropOff,
+.form--editCan-transfer,
+.form--editCan-pickUp {
+  .map--one-point {
+    height: 140px;
+  }
+
+  .mapboxgl-ctrl-logo,
+  .mapboxgl-ctrl-bottom-right {
+    display: none !important;
+  }
+
+  .mapboxgl-ctrl-geocoder {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+
+  .mapboxgl-ctrl-geocoder--input {
+    margin-bottom: 0 !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 30px;
+    width: 100%;
+    height: 34px;
+    border: 1px solid #dcdcdc;
+    font-size: 12px;
+    line-height: 34px;
+    background: #fafbfc;
+    border-radius: 8px;
+    color: #434343;
+  }
+
+  .form-col-header {
+    margin-bottom: 19px;
+
+    p {
+      font-size: 14px;
+      line-height: 17px;
+      color: #434343;
+    }
+  }
+
+  .form-col-body {
+    text-align: center;
+    height: 140px;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .form-actions {
+    padding-top: 20px;
+    text-align: right;
+
+    .btn {
+      margin-left: 10px;
+    }
+  }
+
+  &.form--editCan-transfer {
+    background: url(https://cdn.starlightpro.com/img/icon--between.svg) center
+      center no-repeat;
+  }
+
+  .checkbox {
+    position: relative;
+    top: 5px;
+    -webkit-appearance: checkbox;
+    margin-right: 5px;
+  }
+
+  .checkbox-container {
+    width: 100%;
+  }
+
+  .tooltip-container {
+    display: flex;
+    flex-direction: row;
+  }
+}

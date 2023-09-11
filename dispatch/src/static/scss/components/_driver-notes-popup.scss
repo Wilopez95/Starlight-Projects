@@ -1,0 +1,187 @@
+.driverNotesPopup {
+  position: absolute;
+  top: calc(44% + 60px);
+  left: calc(50% - 515px);
+  // transform: translate(-50%, -50%);
+}
+
+.driver-notes-table-body {
+  width: 650px;
+}
+
+#driverNotesImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#driverNotesImg:hover {
+  opacity: 0.7;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  margin-top: 30px !important;
+  margin-right: 30px !important;
+  top: 20px;
+  right: 50px;
+  // color: #f1f1f1;
+  color: #bbb;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #f1f1f1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dnotes-modal {
+  z-index: 1999;
+  margin: 0 auto 0;
+  width: 575px;
+  border-radius: 5px;
+
+  &__thumbnail {
+    width: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    padding-right: 10px;
+  }
+
+  > .content {
+    width: 100%;
+    padding: 10px 5px;
+
+    img {
+      max-width: 90%;
+      max-height: 80%;
+      margin-top: 2%;
+    }
+  }
+
+  > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+
+  :target {
+    /** Remove default browser outline */
+    outline: none;
+
+    /** Unhide lightbox **/
+    display: block;
+  }
+}
+
+.dnotes-popup-table {
+  position: relative;
+  top: -220px;
+  right: -6px;
+  z-index: 1900 !important;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 2px 10px #999999;
+  border-radius: 4px;
+  overflow-y: scroll;
+  width: 650px;
+  min-width: 650px;
+
+  table {
+    width: 650px;
+  }
+
+  thead,
+  tbody {
+    width: 650px;
+    display: block;
+  }
+
+  tbody {
+    // height: 250px;
+    /* Just for the demo          */
+    overflow-y: scroll !important;
+    /* Trigger vertical scroll    */
+    // overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;
+    /* Hide the horizontal scroll */
+  }
+
+  th,
+  td {
+    padding: 10px;
+    width: 650px;
+  }
+
+  tr {
+    border-bottom: 1px #888 solid;
+    font-size: large;
+    width: 650px;
+  }
+
+  p {
+    padding-right: 2px;
+  }
+
+  &__header-row {
+    background-color: #434343;
+    color: #fff;
+    font-size: 1.3em;
+  }
+}
+
+.closeDriverInfowindow {
+  border-radius: 50%;
+  width: 30px;
+  float: right;
+  height: 30px;
+  text-align: center;
+  color: #434343;
+  background-color: white;
+}
+
+.closeDriverInfowindow:hover {
+  border-radius: 50%;
+  width: 30px;
+  float: right;
+  height: 30px;
+  text-align: center;
+  color: #434343;
+  background-color: #f5a622;
+}
+
+.crop {
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 22px;
+}
+
+.cropContractor {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+  padding-left: 10px;
+}
+
+.textp {
+  margin-right: 40px;
+}

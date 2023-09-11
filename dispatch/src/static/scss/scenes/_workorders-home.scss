@@ -1,0 +1,115 @@
+.page--workordersIndex {
+  box-sizing: border-box;
+  padding-top: 62px;
+  height: auto;
+
+  .form--editWorkOrder {
+    .checkbox {
+      -webkit-appearance: checkbox;
+    }
+
+    .form-col {
+      width: 33%;
+    }
+
+    .checkbox-container {
+      width: 100%;
+    }
+  }
+
+  .page-inner {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+
+  .page-main,
+  .page-aside {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .page-main {
+    position: relative;
+  }
+
+  .page-aside {
+    position: relative;
+    width: 438px;
+    background: #fafbfc;
+    box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.25);
+
+    .datalist {
+      position: absolute;
+      top: 154px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+    }
+  }
+
+  .aside-header {
+    padding: 10px 10px 0px 16px;
+    margin-bottom: 10px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+
+    .aside-title,
+    .controls {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .controls {
+      text-align: right;
+    }
+
+    .controls-item {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 13px;
+    }
+  }
+
+  .aside-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #434343;
+    font-size: 16px;
+  }
+
+  .geocoder-menu-item {
+    z-index: 999;
+  }
+}
+
+.form--editWorkOrder {
+  .mapboxgl-ctrl-logo,
+  .mapboxgl-ctrl-bottom-right {
+    display: none !important;
+  }
+
+  .mapboxgl-ctrl-geocoder {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+
+  .mapboxgl-ctrl-geocoder--input {
+    margin-bottom: 0 !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 30px;
+    width: 100%;
+    height: 34px;
+    border: 1px solid #dcdcdc;
+    font-size: 12px;
+    line-height: 34px;
+    background: #fafbfc;
+    border-radius: 8px;
+    color: #434343;
+  }
+}

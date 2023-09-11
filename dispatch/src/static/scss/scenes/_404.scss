@@ -1,0 +1,14 @@
+.page--error {
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  box-sizing: border-box;
+
+  .page-title {
+    font-size: 220px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,77 @@
+.form--filter-aside {
+  .form-row {
+    margin-bottom: 6px;
+  }
+
+  .form-col {
+    &.form-col--datarange {
+      width: 50%;
+    }
+    &.form-col--search {
+      width: 400px;
+    }
+
+    &.form-col--statuses {
+      width: 30%;
+    }
+
+    &.form-col--filters {
+      width: 19%;
+      text-align: right;
+
+      .btn__filters {
+        margin-left: 6px;
+
+        &:first-child {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+
+  .checkbox {
+    position: relative;
+    top: 6px;
+    -webkit-appearance: checkbox;
+    margin-right: 5px;
+  }
+
+  .checkbox-container {
+    width: 100%;
+  }
+
+  .tooltip-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .states-checkbox-group {
+    width: 180px;
+  }
+}
+
+.form--filter-table {
+  .form-row {
+    margin-bottom: 0px;
+  }
+
+  .checkbox {
+    position: relative;
+    top: 6px;
+    -webkit-appearance: checkbox;
+    margin-right: 5px;
+  }
+
+  .checkbox-container {
+    width: 100%;
+  }
+
+  .tooltip-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .states-checkbox-group {
+    width: 180px;
+  }
+}

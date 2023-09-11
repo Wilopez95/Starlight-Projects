@@ -1,0 +1,27 @@
+.form--export {
+  .btn-group {
+    max-width: 320px;
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .form-submitBtn {
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .form-footer {
+    overflow: hidden;
+  }
+
+  .form-actions {
+    float: right;
+
+    .btn {
+      margin-left: 10px;
+    }
+  }
+}

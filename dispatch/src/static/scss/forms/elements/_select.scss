@@ -1,0 +1,62 @@
+.select {
+  &.Select {
+    &.error-required .Select-control {
+      border-color: #d0021b;
+      box-shadow: 0px 0px 2px 0px rgba(208, 1, 27, 0.7);
+    }
+  }
+
+  &.is-open > .Select-control {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .Select-control {
+    background-color: #fafbfc;
+    border-color: #d9d9d9 #ccc #b3b3b3;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    color: #434343;
+    cursor: default;
+    display: table;
+    height: 32px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &.disabled {
+    .Select-placeholder {
+      background-color: #f3f3f3;
+      opacity: 0.7;
+    }
+  }
+
+  .Select-input {
+    height: 32px;
+  }
+
+  .Select-option {
+    font-size: 12px;
+  }
+
+  .Select-placeholder {
+    line-height: 32px;
+    color: #434343;
+  }
+
+  &.is-focused:not(.is-open) > .Select-control {
+    border-color: #dcdcdc;
+    box-shadow: none;
+  }
+
+  .Select-clear {
+    line-height: 12px;
+  }
+}

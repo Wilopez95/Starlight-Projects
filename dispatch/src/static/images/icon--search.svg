@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="10" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.175 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0.0993920169" y="0.0985257732" width="19.0832672" height="18.8035361"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-Main" transform="translate(-869.000000, -148.000000)">
+            <g id="Nav-Bar" transform="translate(842.000000, 72.000000)" filter="url(#filter-1)" fill="#FAFBFC">
+                <g id="Background---Tab">
+                    <rect id="BG" x="0" y="0" width="439" height="992"></rect>
+                </g>
+            </g>
+            <rect id="Rectangle-34-Copy" fill-opacity="0.428300498" fill="#D8D8D8" x="837" y="129" width="439" height="93"></rect>
+            <rect id="Rectangle-7-Copy-3" stroke="#DCDCDC" fill="#FAFBFC" x="852" y="140" width="411" height="34" rx="9"></rect>
+            <g id="Search" transform="translate(866.000000, 148.000000)">
+                <g id="noun_91496_cc" transform="translate(0.717949, 0.000000)">
+                    <g id="Group">
+                        <g id="Clipped">
+                            <mask id="mask-3" fill="white">
+                                <use xlink:href="#path-2"></use>
+                            </mask>
+                            <g id="b"></g>
+                            <path d="M7.46752102,10.2218041 C6.7306286,9.14213402 6.26805815,7.85542268 6.26805815,6.46176289 C6.26805815,2.95283505 9.1647391,0.0987216495 12.7253587,0.0987216495 C16.2861771,0.0987216495 19.1826593,2.95283505 19.1826593,6.46176289 C19.1826593,9.97029897 16.2861771,12.8244124 12.7253587,12.8244124 C11.3110103,12.8244124 10.0048004,12.3686082 8.93971557,11.6052784 C8.92878245,11.6170309 4.66440987,15.7028907 4.66440987,15.7028907 C4.4648307,15.8991587 4.20402605,15.9972928 3.94342018,15.9972928 C3.68261553,15.9972928 3.42181087,15.8991587 3.22262927,15.7028907 C2.82426607,15.3109422 2.82426607,14.6747361 3.22262927,14.2829835 L7.46752102,10.2218041 Z M12.7253587,11.6522887 C15.6301898,11.6522887 17.9931356,9.32351546 17.9931356,6.46156701 C17.9931356,3.59903093 15.6301898,1.27064948 12.7253587,1.27064948 C9.82092519,1.27064948 7.45758181,3.59942268 7.45758181,6.46156701 C7.45758181,9.32312371 9.82072641,11.6522887 12.7253587,11.6522887" id="Shape" fill="#434343" mask="url(#mask-3)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+.header-menu-btn {
+  @include reset-btn();
+  color: #fafbfc;
+  font-size: 34px;
+  font-family: 'Font Awesome 5 Pro';
+
+  &::after {
+    content: '\f0c9';
+  }
+}

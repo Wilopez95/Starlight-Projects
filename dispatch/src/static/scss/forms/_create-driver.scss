@@ -1,0 +1,49 @@
+.form--createDriver {
+  .photo {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .photo-removeBtn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    line-height: 100%;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    color: #f60606;
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  .form-actions {
+    .btn {
+      margin-right: 10px;
+    }
+  }
+  .tooltip-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .checkbox {
+    -webkit-appearance: checkbox;
+    margin-right: 8px;
+    margin-top: 2px;
+  }
+}

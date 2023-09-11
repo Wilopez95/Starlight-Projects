@@ -1,0 +1,25 @@
+.form--addWorkOrderNote {
+  .form-col--text {
+    width: auto;
+  }
+
+  .form-col--picture {
+    width: 100px;
+
+    .btn {
+      height: 34px;
+      line-height: 34px;
+    }
+  }
+
+  .form-col--action {
+    width: 103px;
+
+    .btn {
+      height: 34px;
+      line-height: 34px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+.page--reports {
+  padding: 100px 20px 30px 20px;
+  margin-left: 30px;
+  overflow: auto !important;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  .page-aside {
+    margin-top: 50px;
+    width: 180px;
+  }
+
+  .page-main {
+    margin-left: 260px;
+  }
+
+  .page-header {
+    margin-bottom: 14px;
+  }
+
+  .page-title {
+    font-weight: 700;
+    font-size: 22px;
+    color: #434343;
+    text-transform: uppercase;
+    margin-right: 14px;
+    line-height: 23px;
+  }
+
+  .page-group-header {
+    margin-left: 14%;
+    font-weight: 700;
+    font-size: 18px;
+    color: #434343;
+    text-transform: uppercase;
+    line-height: 23px;
+  }
+
+  .page-actions {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .nav--aside {
+    margin-top: 5px;
+    padding: 20px 20px 6px 20px;
+    background: rgba(215, 215, 215, 0.43);
+    border-radius: 3px;
+    min-width: 130px;
+    position: relative;
+    left: 20px;
+  }
+  .nav-item {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 14px;
+
+    a {
+      color: #4a90e2;
+      color: #000;
+      cursor: pointer;
+    }
+  }
+
+  .form {
+    margin-top: 30px;
+    max-width: 500px;
+  }
+
+  .page--reports-editor {
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  .page-inner {
+    &.report-container {
+      margin-bottom: 130px;
+    }
+  }
+  .downloadLink {
+    border-radius: '10px';
+    background-color: 'teal';
+    color: 'white';
+    padding-left: '10px';
+    padding-right: '10px';
+    padding-top: '4px';
+    padding-bottom: '4px';
+    font-size: '15px';
+    margin-right: '30px';
+  }
+  .rt-resizable-header-content {
+    width: 100%;
+  }
+}
+#startTime {
+  width: 100%;
+}
+.makeChange {
+  color: white;
+  background-color: teal;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.makeChange:hover {
+  color: white;
+  background-color: lightseagreen;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.button-group__reports {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+// .downloadLink{
+//   border-radius: '10px';
+//   background-color: 'teal';
+//   color: 'white';
+//   padding-left: '10px';
+//   padding-right: '10px';
+//   padding-top: '4px';
+//   padding-bottom: '4px';
+//   font-size: '15px';
+//   margin-right: '30px';
+// }

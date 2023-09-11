@@ -1,0 +1,12 @@
+.geo-input {
+  .error-required {
+    border: 1px solid #d0021b;
+    border-radius: 8px;
+  }
+  .disabled {
+    background-color: #f3f3f3;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    opacity: 0.7;
+  }
+}

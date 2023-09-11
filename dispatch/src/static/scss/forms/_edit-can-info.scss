@@ -1,0 +1,25 @@
+.form--editCan-info {
+  .form-col--name {
+    width: 66%;
+  }
+
+  .form-col--size {
+    width: 34%;
+  }
+
+  .checkbox {
+    position: relative;
+    top: 3px;
+    -webkit-appearance: checkbox;
+    margin-right: 5px;
+  }
+
+  .checkbox-container {
+    width: 100%;
+  }
+
+  .tooltip-container {
+    display: flex;
+    flex-direction: row;
+  }
+}

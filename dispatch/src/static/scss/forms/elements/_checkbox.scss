@@ -1,0 +1,40 @@
+.checkbox-group,
+.form-row {
+  .checkbox {
+    margin-bottom: 11px;
+  }
+}
+
+.checkbox-group-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+}
+
+.checkbox-container {
+  display: flex;
+}
+
+.checkbox-label {
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #434343;
+}
+
+.checkbox-input {
+  /* float: left; */
+  background: #fafbfc;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  transition: border 0.3s ease-out;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-right: 3px;
+}

@@ -1,0 +1,110 @@
+@mixin reset-btn() {
+  border: none;
+  background: none;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+@mixin no-select {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none !important;
+}
+@mixin no-select {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none !important;
+}
+
+@mixin reset-text-input {
+  border: none;
+  outline: none;
+  background: none;
+  margin: 0px;
+  padding: 0px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+// prefix declarations
+@mixin prefixed($property, $value) {
+  @if $webkit == true {
+    -webkit-#{$property}: #{$value};
+  }
+
+  @if $moz == true {
+    -moz-#{$property}: #{$value};
+  }
+
+  @if $ms == true {
+    -ms-#{$property}: #{$value};
+  }
+
+  @if $o == true {
+    -o-#{$property}: #{$value};
+  }
+
+  #{$property}: #{$value};
+}
+
+// prefix keyframes
+@mixin keyframes($name) {
+  @if $webkit == true {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $moz == true {
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $ms == true {
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $o == true {
+    @-o-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/* Fade */
+@mixin fade {
+  @include hacks();
+  overflow: hidden;
+  @include prefixed(transition-duration, $mediumDuration);
+  @include prefixed(transition-property, 'color, background-color');
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $c-primary-active;
+    color: white;
+  }
+}
+@mixin fadeColor {
+  @include hacks();
+  // overflow: hidden;
+  @include prefixed(transition-duration, $mediumDuration);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-primary-active;
+  }
+}

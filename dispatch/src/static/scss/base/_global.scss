@@ -1,0 +1,83 @@
+* + * {
+  margin-top: 1.5em;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  position: relative;
+  width: 100%;
+  // height: 100%; // commented out for scrolling in firefox
+  background-color: #f8f9fa;
+}
+body {
+  margin: 0;
+  font: normal 1em/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga' on;
+}
+
+html.wf-active {
+  body {
+    font-family: $primary-font, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  line-height: 1.5;
+}
+
+link {
+  pointer-events: none;
+  color: white;
+}
+
+link:hover {
+  color: none !important;
+}
+ul {
+  list-style: none;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+.wrapper {
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+.pr-10 {
+  padding-right: 10px;
+}

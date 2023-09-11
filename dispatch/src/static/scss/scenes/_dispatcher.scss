@@ -1,0 +1,706 @@
+@-moz-document url-prefix() {
+  #root {
+    overflow: hidden;
+  }
+}
+
+#driver-marker-popup {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 5px 10px 5px;
+  pointer-events: auto;
+}
+
+.page--dispatcher {
+  padding-top: 60px;
+  height: 100%;
+  box-sizing: border-box;
+
+  .suggestions {
+    position: relative !important;
+  }
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  .map-container {
+    position: absolute;
+    top: 62px;
+    left: 0px;
+    width: calc(100% - 395px);
+    height: calc(100% - 62px);
+    overflow: hidden;
+  }
+
+  .listview-header {
+    display: table !important;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+  }
+
+  .driver {
+    display: flex;
+    width: 100%;
+  }
+
+  .driver-photo,
+  .driver-content,
+  .driver-actions,
+  .driver-marker,
+  .driver-actions {
+    display: flex;
+    vertical-align: top;
+    padding-top: 10px;
+  }
+
+  .driver-photo {
+    width: 40px;
+    flex-direction: column;
+    img {
+      margin-left: 10px;
+      border-radius: 20px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .driver-content {
+    width: 215px;
+    padding-left: 1.25em;
+    flex-direction: column;
+  }
+
+  .locations-count {
+    font-weight: 700;
+  }
+
+  .driver-name {
+    font-size: 0.87rem;
+    width: 207px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+  }
+
+  .driver-actions {
+    width: 120px;
+    position: relative;
+    top: -36px;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .driver-marker {
+    position: absolute;
+    width: 5px;
+    height: 60px;
+  }
+
+  .driver.driver--withContextMenu {
+    padding: 0;
+    .context-menu-driver {
+      display: flex;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+
+  .driver-fa-icon {
+    font-size: 25px;
+    background: white;
+    padding: 4px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    // border: 1px solid rgb(186, 186, 186);
+    color: rgb(186, 186, 186);
+    position: relative;
+    top: 15px;
+  }
+
+  .driver-fa-icon:hover {
+    cursor: pointer;
+    // background-color: blue;
+    @include fadeColor();
+  }
+
+  #addDriverIcon {
+    border-radius: 10px;
+  }
+
+  .listview-filter-icon {
+    position: relative;
+    top: 3px;
+    right: -10px;
+    font-size: 20px;
+  }
+
+  .driver-list-item {
+    height: 60px;
+    border-top: 1px solid #888;
+    width: 100%;
+  }
+
+  #newDrivers {
+    width: 100%;
+    overflow-y: auto;
+
+    .listview-filter {
+      padding: 0.7em 0;
+    }
+  }
+
+  #searchText {
+    font-size: 16px;
+    border-radius: 0.6em;
+    border: 1px solid rgb(170, 170, 170);
+    padding-left: 30px;
+    height: 37px;
+    width: 90%;
+    display: inline;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+    background: #f9f9f9;
+  }
+
+  .listview-filter #searchText {
+    box-sizing: border-box;
+  }
+
+  .btn__all-drivers {
+    padding: 1px 7px 2px;
+    border-radius: 4px;
+    margin-left: 5px;
+    width: 100%;
+    font-size: 11px;
+    line-height: 1.2;
+    height: 37px;
+    outline: none;
+  }
+
+  .listview {
+    position: absolute;
+    top: 0;
+    bottom: 8%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .listview-unassigned {
+      padding: 0.7em 0;
+      cursor: pointer;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+  }
+
+  .listview-unassigned-icon {
+    padding-left: 6px;
+    width: 40px;
+    display: inline-flex;
+  }
+
+  .listview-unassigned-inner {
+    height: 40px;
+    box-sizing: border-box;
+    padding-top: 4px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .listview-unassigned-title {
+    margin-left: 13px;
+    line-height: 15px;
+    display: inline-flex;
+    width: 200px;
+    flex-direction: column;
+  }
+  .listview-flex--row {
+    display: flex;
+    flex-direction: row;
+  }
+  .listview-unassigned-actions {
+    position: relative;
+    display: inline-block;
+    top: -14px;
+    // right: -70px;
+  }
+
+  .listview-unassigned-actions .arrow-up {
+    border-bottom: 5px solid #f8f8f8;
+  }
+
+  .listview-header-title,
+  .listview-header-action {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  #closeAddDriverButton {
+    position: relative;
+  }
+
+  .listview-header-title {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .hoverButton {
+    border-radius: 15px;
+
+    &:hover {
+      cursor: pointer;
+      background: blue;
+    }
+  }
+
+  .fa-plus.hoverBorder:hover {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  .listview-header-action {
+    width: 20px;
+  }
+
+  .listview-header-action:hover,
+  .btn__all-drivers:hover {
+    cursor: pointer;
+  }
+
+  .closeButtonPanel {
+    position: absolute;
+    background-color: #fff;
+    top: 40%;
+    left: -37px;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    font-size: 15px;
+    float: left;
+    z-index: 10;
+    font-family: Helvetica, sans-serif;
+    line-height: 74px;
+    text-align: center;
+    width: 36px;
+    height: 75px;
+    box-shadow: 0px 5px 15px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .driverOrders {
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+    padding: 0 15px;
+    margin-bottom: 45px;
+
+    td {
+      width: auto;
+      border-collapse: collapse;
+    }
+  }
+
+  .header__column .header__column--actions {
+    margin-left: -8px;
+  }
+
+  .driverOrder {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  /* puzzle pieces styles*/
+  .dispatch-row {
+    .puzzleMainDiv {
+      position: relative;
+      top: 20px;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100px;
+      p {
+        line-height: 16px;
+      }
+    }
+    .puzzleLeftDiv {
+      float: left;
+      width: 50px;
+      position: relative;
+    }
+    .puzzleRightDiv {
+      padding-right: 14px;
+      width: 85%;
+      left: 34px;
+      position: relative;
+      b {
+        font-weight: 400;
+      }
+    }
+    .actionAlias {
+      font-size: 15px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
+    .landfill {
+      white-space: nowrap;
+    }
+
+    .puzzleWithTop .puzzleLeftDiv,
+    .puzzleWithTop .puzzleRightDiv {
+      margin-top: -3px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .puzzleWithoutTop {
+    margin-top: -25px !important;
+  }
+
+  .downPuzzle {
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 35px;
+  }
+
+  .puzzleSvg {
+    position: absolute;
+    margin-left: 0px;
+    margin-top: 21px;
+  }
+
+  .stackedMarkerInfoWindow {
+    max-height: 150px;
+    overflow: scroll;
+  }
+
+  .gm-style-iw-d {
+    overflow: auto !important;
+
+    .puzzleSvg {
+      margin-left: -16px;
+      margin-top: 8px;
+    }
+  }
+
+  .upPuzzle {
+    border-top-right-radius: 35px;
+    border-top-left-radius: 35px;
+  }
+
+  .moon {
+    border-radius: 80%;
+    box-shadow: 0px 11px 0 0 grey;
+  }
+
+  .mapboxgl-popup-content {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    pointer-events: auto;
+  }
+
+  .mapboxgl-popup-tip,
+  .mapboxgl-popup-close-button {
+    display: none;
+  }
+
+  .info-window-can-count {
+    position: relative;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 2px 10px #999999;
+    border-radius: 4px;
+
+    th,
+    td {
+      padding: 10px;
+    }
+
+    tr {
+      border-bottom: 1px #888 solid;
+      font-size: large;
+    }
+  }
+
+  /* modal image...must be nested here */
+  .popup-content {
+    background-color: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+  }
+
+  .draggable-map-work-order {
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .contextSubMenu {
+    overflow: scroll;
+    position: absolute;
+    top: 0;
+    min-height: 600px;
+  }
+
+  .contextMenu {
+    position: fixed;
+
+    .contextSubMenu {
+      background: white;
+      box-shadow: 0px 2px 10px #999999;
+      z-index: 99999;
+
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+
+      &--option {
+        padding: 6px 50px 5px 10px;
+        min-width: 160px;
+        cursor: default;
+        font-size: 12px;
+
+        &:hover {
+          background: red;
+          color: white;
+        }
+
+        &:active {
+          color: #e9e9e9;
+          background: red;
+        }
+
+        &__disabled {
+          color: #999999;
+          pointer-events: none;
+        }
+      }
+
+      &--separator {
+        width: 100%;
+        height: 1px;
+        background: #cccccc;
+        margin: 0 0 0 0;
+      }
+    }
+  }
+
+  .print {
+    display: none;
+  }
+
+  @media print {
+    .print {
+      display: block;
+    }
+
+    * {
+      display: none;
+    }
+
+    .cell-title {
+      height: 10px;
+      padding: 4px;
+      font-weight: 700;
+      font-size: x-small;
+    }
+  }
+
+  .border {
+    font-size: 50px;
+  }
+
+  .form--filter-workorders {
+    z-index: 1000;
+    position: fixed;
+    right: 10px;
+    border-radius: 6px;
+
+    .dropdown__content {
+      top: 15px;
+      z-index: 30;
+      min-width: 380px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .menu {
+    z-index: 999;
+  }
+
+  .form--filter-table .form-col.form-col--filters {
+    position: absolute;
+  }
+
+  .labelOrderStatus {
+    position: relative;
+    top: -1px;
+    right: 0;
+    background-color: rgb(74, 74, 74);
+    border-radius: 9px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+    font-weight: normal;
+    white-space: nowrap;
+    display: inline-block;
+    margin: 0 0 3px 10px;
+    z-index: 1;
+    text-transform: uppercase;
+  }
+
+  .notificationPanel {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #f5a623;
+    color: white;
+    position: fixed;
+    top: 0;
+    height: 62px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    padding: 4px;
+  }
+
+  .notificationPanelInner {
+    display: block;
+    width: 100%;
+  }
+
+  .notificationPanel-closeBtn {
+    height: 32px;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .ordersFilter {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: #f8f8f8;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    label {
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #434343;
+    }
+    ul {
+      padding-left: 0px;
+    }
+    li {
+      border-top-width: 0px;
+      background: #f8f8f8 !important;
+    }
+  }
+
+  .ordersFilter-header {
+    border-bottom: 2px solid #888;
+    padding: 12px !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .ordersFilter-title {
+    float: left;
+    font-size: 16px;
+    color: #4a4a4a;
+  }
+
+  .ordersFilter-header-actions {
+    float: right;
+  }
+
+  .ordersFilter-inner {
+    padding-top: 5px;
+    padding-left: 10px;
+    border-bottom: none !important;
+  }
+
+  .ordersFilter-column {
+    margin: 5px;
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .ordersFilter-row-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+  }
+
+  .ordersFilter-row {
+    margin-bottom: 10px;
+  }
+
+  .checkbox-group .checkbox {
+    margin-bottom: 0;
+  }
+
+  .checkbox-group-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+  }
+}
+
+.applyBtn {
+  display: none;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+#test {
+  background: #eee;
+  border: 1px dotted #ccc;
+  margin: 1em;
+}
+
+// .cropContractor.textp {
+//   padding-right: 40px;
+// }

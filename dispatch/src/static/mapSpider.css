@@ -1,0 +1,56 @@
+.spider-leg-pin {
+  position: absolute;
+  width: 25px;
+  height: 42px;
+  margin-left: -14px;
+  margin-top: -40px;
+  background-image: url('https://cdn.starlightpro.com/dispatch/img/workorderPin.png');
+  background-position: -50px -40px;
+}
+
+#cluster-pins {
+  box-shadow: '0px 0px 0px 5px rgba(242,204,55,0.6)';
+}
+
+.mapboxgl-ctrl-top-right {
+  top: 0;
+  right: 50%;
+}
+
+#point_count {
+  box-shadow: '0px 0px 0px 5px rgba(242,204,55,0.6)';
+}
+
+/* add customer marker so match old pin design // url('mapbox-icon.png'); */
+
+.pins {
+  background-image: url('https://cdn.starlightpro.com/dispatch/img/workorderPin.png');
+  background-size: cover;
+  width: 26px;
+  height: 41px;
+  cursor: pointer;
+}
+
+.marker {
+  background-image: url('https://cdn.starlightpro.com/dispatch/img/workorderPin.png');
+  background-size: cover;
+  width: 26px;
+  height: 41px;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mapboxgl-ctrl-icon .mapboxgl-ctrl-map {
+  align-content: left;
+}
+.mapboxgl-ctrl-icon .mapboxgl-style-switcher {
+  float: right;
+}

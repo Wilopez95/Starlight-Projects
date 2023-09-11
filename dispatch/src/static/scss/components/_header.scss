@@ -1,0 +1,138 @@
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown__content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown--active .dropdown__content {
+  display: block;
+}
+
+.header__main {
+  width: 100%;
+  background: #434343;
+  height: 62px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  transition: all 0.5s;
+  display: flex;
+
+  .header__title {
+    color: #fafbfc;
+    font-size: 34px;
+  }
+
+  .header__right {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    text-align: left;
+    justify-content: flex-end;
+    width: 100%;
+
+    .header__column--title {
+      width: 100px;
+    }
+
+    .header__column--actions {
+      text-align: right;
+      display: flex;
+      margin-left: 15px;
+    }
+
+    .header__column--userbar {
+      display: flex;
+      text-align: right;
+      align-items: center;
+      margin-right: 50px;
+      margin-left: auto;
+      justify-content: flex-end;
+
+      .btn {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .header__userbar {
+    color: #fafbfc;
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 14px;
+    margin-left: 20px;
+
+    .userbar__username {
+      font-weight: 700;
+      color: #fafbfc;
+    }
+  }
+
+  .header__menuBtn {
+    @include reset-btn();
+    color: #fafbfc;
+    font-size: 34px;
+    font-family: 'Font Awesome 5 Pro';
+
+    &::after {
+      content: '\f0c9';
+    }
+  }
+
+  .header__nav {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding-right: 1rem;
+    width: 100%;
+    .nav__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+    }
+
+    .nav__item {
+      padding: 0 0.25rem;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 0.65em;
+
+      @media (min-width: 769px) {
+        font-size: 0.75em;
+      }
+      @media (min-width: 1400px) {
+        font-size: 1em;
+      }
+
+      a {
+        display: block;
+        padding: 10px 10px 0px 10px;
+        height: 60px;
+        color: #fff;
+        text-decoration: underline;
+        box-sizing: border-box;
+
+        &.active {
+          color: $c-primary;
+          background: #565656;
+          cursor: default;
+          text-decoration: none;
+        }
+
+        @media (min-width: 769px) {
+          padding: 20px 5px 0px 10px;
+        }
+        @media (min-width: 960px) {
+          padding: 20px 20px 0px 20px;
+        }
+      }
+    }
+  }
+}

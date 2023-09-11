@@ -1,0 +1,20 @@
+.search-input {
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 33px;
+  width: 100%;
+  height: 34px;
+  border: 1px solid #dcdcdc;
+  font-size: 12px;
+  line-height: 34px;
+  border-radius: 8px;
+  color: #434343;
+}
+
+.search-icon {
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  background: transparent url(https://cdn.starlightpro.com/img/icon--search.svg)
+    8px 50% no-repeat;
+}

@@ -1,0 +1,27 @@
+.filter {
+  position: relative;
+
+  &.disabled {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      background: rgba(224, 224, 224, 0.5);
+    }
+  }
+}
+
+.filter--aside {
+  background: rgba(215, 215, 215, 0.43);
+  padding: 11px 11px 5px 11px;
+  position: relative;
+}
+
+.filter--table {
+  background: rgba(215, 215, 215, 0.43);
+  padding: 7px;
+}

@@ -1,0 +1,34 @@
+.form--filter-workorders {
+  .form-row {
+    margin-bottom: 6px;
+  }
+
+  .form-col {
+    &.form-col--search {
+      width: auto;
+    }
+
+    &.form-col--filters {
+      width: 90px;
+    }
+
+    &.form-col--datarange {
+      width: auto;
+    }
+
+    &.form-col--statuses {
+      width: 30%;
+    }
+  }
+
+  .dropdown-column {
+    width: 155px;
+  }
+
+  .checkbox {
+    position: relative;
+    top: 6px;
+    -webkit-appearance: checkbox;
+    margin-right: 5px;
+  }
+}

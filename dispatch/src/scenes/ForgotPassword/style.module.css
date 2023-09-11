@@ -1,0 +1,62 @@
+.formContainer {
+  width: 510px;
+  padding-top: 100px;
+  margin: 0px auto 0px auto;
+  text-align: center;
+}
+
+.forgotPwHeader {
+  color: #1fa67b;
+  padding-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.loginLogo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.forgotLogoImg {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 200px;
+}
+.restorePasswordSuccess {
+  text-align: center;
+
+  h2 {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  p {
+    font-size: 1em;
+    margin-bottom: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3px;
+  }
+  strong {
+    font-weight: 700;
+  }
+}
+
+.restorePasswordForm {
+  text-align: center;
+
+  form {
+    margin-bottom: 14px;
+
+    label {
+      text-align: left;
+    }
+  }
+
+  > p {
+    font-size: 14px;
+  }
+}

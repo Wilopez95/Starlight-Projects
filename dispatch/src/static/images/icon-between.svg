@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="49px" height="38px" viewBox="0 0 49 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="1" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.175 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="375" y="146" width="490" height="400" rx="20"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="10-Edit-Can-Transfer" transform="translate(-592.000000, -384.000000)">
+            <g id="BG" transform="translate(-13.000000, -89.000000)">
+                <rect id="Greyscale---©-Google-Maps" x="0" y="86.6704312" width="866" height="1394.32957"></rect>
+            </g>
+            <rect id="Rectangle-161-Copy" fill-opacity="0.74000001" fill="#000000" x="1" y="2" width="1280" height="766"></rect>
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="BG-Copy" fill="#FAFBFC" filter="url(#filter-1)" xlink:href="#path-2"></use>
+            <g id="Transfer" mask="url(#mask-3)" fill="#434343">
+                <g transform="translate(616.500000, 403.000000) rotate(-270.000000) translate(-616.500000, -403.000000) translate(597.500000, 378.500000)" id="Shape">
+                    <path d="M29.156682,36.1612903 L29.156682,14.7096774 L23.3778802,14.7096774 L23.3778802,36.1612903 L14.7096774,36.1612903 L26.2672811,48.4193548 L37.8248848,36.1612903 L29.156682,36.1612903 L29.156682,36.1612903 Z M11.5576037,0 L0,12.2580645 L8.66820276,12.2580645 L8.66820276,33.7096774 L14.4470046,33.7096774 L14.4470046,12.2580645 L23.1152074,12.2580645 L11.5576037,0 L11.5576037,0 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

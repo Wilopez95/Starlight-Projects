@@ -1,0 +1,54 @@
+form {
+  &.sui-form {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px 14px;
+    // label,
+    label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #434343;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .sui-form-element {
+      margin-bottom: 15px;
+    }
+    .sui-checkbox-input-wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+    .sui-radio-options {
+      display: flex;
+      align-items: center;
+      label {
+        margin-bottom: 0;
+      }
+    }
+    .sui-checkbox-text {
+      display: initial;
+      margin-bottom: 0;
+    }
+    .sui-form__error {
+      margin-top: 0.25rem;
+      color: #d0021b;
+      font-size: 0.8rem;
+    }
+    .sui-form__hint {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.sui-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+
+  button {
+    margin-left: 0.75em;
+  }
+}

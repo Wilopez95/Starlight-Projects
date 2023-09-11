@@ -1,0 +1,50 @@
+.page--searchResultsTable {
+  padding-top: 80px;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-bottom: 10px;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+
+  .page-header {
+    margin-bottom: 10px;
+    display: table;
+    width: 100%;
+
+    .header__column {
+      display: table-cell;
+      vertical-align: middle;
+
+      &.header__column--title {
+        width: 140px;
+      }
+
+      &.header__column--controls {
+        width: 210px;
+        text-align: right;
+      }
+    }
+  }
+
+  .page-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    color: #434343;
+  }
+
+  .page-inner {
+    position: relative;
+    padding-bottom: 50px;
+    th {
+      font-size: 0.8em;
+    }
+  }
+
+  .rt-tbody {
+    max-height: 650px;
+    overflow: scroll;
+  }
+}

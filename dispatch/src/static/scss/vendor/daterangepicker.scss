@@ -1,0 +1,129 @@
+.daterangepicker {
+  position: absolute;
+  background: #fafbfc;
+  padding: 18px 6px;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0px 2px 6px 0px rgba(67, 67, 67, 0.3);
+  margin-top: 6px;
+  border: 1px solid #dcdcdc;
+  z-index: 1000;
+
+  &::after {
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-bottom: 7px solid #fafbfc;
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 10px;
+  }
+
+  .ranges {
+    display: block !important;
+    text-align: right;
+    padding: 14px 6px 0px 6px;
+
+    .btn {
+      margin-left: 4px;
+    }
+  }
+
+  .calendar {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px 6px;
+  }
+
+  .table-condensed {
+    font-size: 12px;
+    color: #434343;
+    text-align: center;
+
+    .month {
+      font-size: 14px;
+      font-weight: 700;
+      padding-bottom: 12px;
+    }
+
+    thead {
+      margin-bottom: 5px;
+
+      tr {
+        th {
+          padding-bottom: 5px;
+
+          &.prev,
+          &.next {
+            cursor: default;
+            opacity: 0.5;
+
+            .glyphicon-chevron-left,
+            .glyphicon-chevron-right {
+              font-family: 'Font Awesome 5 Pro';
+              font-size: 14px;
+            }
+
+            &.available {
+              cursor: pointer;
+              opacity: 1;
+            }
+          }
+
+          &.prev .glyphicon-chevron-left::before {
+            content: '\f053';
+          }
+
+          &.next .glyphicon-chevron-right::before {
+            content: '\f054';
+          }
+        }
+
+        &:last-child {
+          font-weight: 700;
+        }
+      }
+    }
+
+    tbody {
+      td {
+        height: 27px;
+        width: 27px;
+        vertical-align: middle;
+
+        &.available {
+          cursor: pointer;
+        }
+
+        &.start-date,
+        &.end-date {
+          background: #4a90e2 !important;
+          color: #fff;
+        }
+
+        &.start-date {
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+
+        &.end-date {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+
+        &.in-range {
+          background: #ececed;
+        }
+
+        &:hover {
+          background: #d8d8d8;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+
+.daterangepicker_input {
+  display: none;
+}

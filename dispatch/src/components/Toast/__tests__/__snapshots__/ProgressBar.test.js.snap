@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar Should be able to hide the progress bar 1`] = `ShallowWrapper {}`;
+
+exports[`ProgressBar Should be able to pause animation 1`] = `ShallowWrapper {}`;

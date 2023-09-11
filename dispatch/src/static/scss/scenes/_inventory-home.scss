@@ -1,0 +1,68 @@
+.page--inventoryIndex {
+  display: table;
+  box-sizing: border-box;
+  padding-top: 62px;
+  width: 100%;
+  height: 100%;
+
+  .page-main,
+  .page-aside {
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .page-main {
+    position: relative;
+  }
+
+  .page-aside {
+    width: 438px;
+    background: #fafbfc;
+    box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+
+    .datalist {
+      position: absolute;
+      top: 176px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+    }
+  }
+
+  .aside-header {
+    padding: 10px 10px 0px 16px;
+    margin-bottom: 10px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+
+    .aside-title,
+    .controls {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .controls {
+      text-align: right;
+    }
+
+    .controls-item {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 13px;
+    }
+  }
+
+  .aside-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #434343;
+    font-size: 16px;
+  }
+}
+
+.btn-edit-can-actions {
+  width: 100% !important;
+}

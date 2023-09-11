@@ -1,0 +1,27 @@
+type: object
+properties:
+  id:
+    type: number
+  nameLine1:
+    type: string
+  nameLine2:
+    type: string
+  logoUrl:
+    type: string
+  physicalAddressLine1:
+    type: string
+  physicalAddressLine2:
+    type: string
+  physicalCity:
+    type: string
+  physicalState:
+    type: string
+  physicalZip:
+    type: string
+required:
+  - nameLine1
+  - logoUrl
+  - physicalAddressLine1
+  - physicalCity
+  - physicalState
+  - physicalZip

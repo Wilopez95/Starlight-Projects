@@ -1,0 +1,28 @@
+type: object
+properties:
+  coordinates:
+    type: array
+    minItems: 2
+    maxItems: 2
+    description: two elements array of longitude and latitude [long, lat]
+    items:
+      type: number
+  lat:
+    type: string
+    description: one of pair lat or latitude or coordinates array or all of them
+  latitude:
+    type: string
+    description: one of pair lat or latitude or coordinates array or all of them
+  lon:
+    type: string
+    description: one of pair lon or longitude or coordinates array or all of them
+  longitude:
+    type: string
+    description: one of pair lon or longitude or coordinates array or all of them
+  type:
+    type: string
+    enum:
+      - TRUCK
+  name:
+    description: name of location
+    type: string

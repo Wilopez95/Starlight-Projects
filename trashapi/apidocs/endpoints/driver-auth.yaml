@@ -1,0 +1,17 @@
+/trashapi/v1/auth/{tenantName}/driver/login:
+  get:
+    $fs-ref: ./configuration-auth/get-login.yaml
+  post:
+    $fs-ref: ./configuration-auth/post-login.yaml
+
+/trashapi/v1/auth/{tenantName}/driver/logincb:
+  get:
+    $fs-ref: ./configuration-auth/logincb.yaml
+
+/trashapi/v1/auth/{tenantName}/driver/refresh:
+  post:
+    $fs-ref: ./configuration-auth/refresh.yaml
+
+/trashapi/v1/auth/{tenantName}/driver/logout:
+  get:
+    $fs-ref: ./configuration-auth/logout.yaml

@@ -1,0 +1,28 @@
+type: object
+properties:
+  key:
+    type: string
+  value:
+    type: object
+  businessUnitId:
+    type: integer
+    description: businessUnitId using for inserting and updating data, also could be used haulingBusinessUnitId
+  haulingBusinessUnitId:
+    type: integer
+    description: haulingBusinessUnitId alias for businessUnitId
+  businessUnitName:
+    type: string
+  createdBy:
+    type: string
+  createdDate:
+    type: string
+    format: date-time
+  modifiedBy:
+    type: string
+  modifiedDate:
+    type: string
+    format: date-time
+required:
+  - key
+  - value
+  - businessUnitId

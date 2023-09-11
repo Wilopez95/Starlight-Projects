@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  trash_db:
+    hostname: trash_db
+    container_name: trash_db
+    image: '${DB_IMAGE:-postgres:12.3}'
+    restart: always
+    ports:
+      - '${DB_PORT:-5436}:5432'
+    environment:
+      POSTGRES_USER: '${DB_USER}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
+      POSTGRES_DB: '${DB_NAME}'
+
+  # trash_redis:
+  #   hostname: trash_redis
+  #   container_name: trash_redis
+  #   image: redis:alpine
+  #   ports:
+  #     - '${REDIS_PORT:-6383}:6379'
+
+  # trash_rabbit:
+  #   hostname: trash_rabbit
+  #   container_name: trash_rabbit
+  #   image: rabbitmq:3.8-management-alpine
+  #   ports:
+  #     - '${AMQP_PORT:-5672}:5672'
+  #     - '${AMQP_MANAGEMENT_PORT:-15672}:15672'

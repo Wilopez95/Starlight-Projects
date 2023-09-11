@@ -1,0 +1,32 @@
+x-name: workorders-hauling-disposal-sites
+summary: Get hauling disposal sites of the work order.
+tags:
+  - Work Orders
+parameters:
+  - $fs-ref: ../../globals/auth-params.yaml
+  - name: workOrderId
+    in: path
+    description: trashapi work order id
+    type: integer
+    required: true
+  - name: description
+    in: query
+    description: part of the description of the disposal site to search matches
+    type: string
+    required: false
+  - name: activeOnly
+    in: query
+    description: get only active disposal sites
+    type: boolean
+    required: false
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of hauling disposal sites
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/HaulingDisposalSite'
+  500:
+    $ref: '#/responses/Unexpected'

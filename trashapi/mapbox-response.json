@@ -1,0 +1,356 @@
+{
+  "responses": [
+    {
+      "type": "FeatureCollection",
+      "query": [ "1874", "ms", "43", "columbia", "ms", "39429", "usa" ],
+      "features": [
+        {
+          "id": "address.1830928246662660",
+          "type": "Feature",
+          "place_type": ["address"],
+          "relevance": 1,
+          "properties": {
+            "accuracy": "interpolated"
+          },
+          "text": "Mississippi Highway 43",
+          "place_name": "1874 Mississippi Highway 43, Columbia, Mississippi 39429, United States",
+          "matching_text": "MS 43",
+          "matching_place_name": "1874 MS 43, Columbia, Mississippi 39429, USA",
+          "center": [
+            -89.77555, 31.121417
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [ -89.77555, 31.121417 ],
+            "interpolated": true
+          },
+          "address": "1874",
+          "context": [
+            { "id": "postcode.7916729187089100", "text": "39429" },
+            {
+              "id": "place.10427361156309500",
+              "wikidata": "Q2076280",
+              "text": "Columbia"
+            },
+            {
+              "id": "district.9436234035905730",
+              "wikidata": "Q490848",
+              "text": "Marion County"
+            },
+            {
+              "id": "region.8199901647736440",
+              "short_code": "US-MS",
+              "wikidata": "Q1494",
+              "text": "Mississippi"
+            },
+            {
+              "id": "country.14135384517372290",
+              "wikidata": "Q30",
+              "short_code": "us",
+              "text": "United States"
+            }
+          ]
+        }
+      ],
+      "attribution": "NOTICE: © 2022 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+    },
+    {
+      "type": "FeatureCollection",
+      "query": [
+        "19799",    "east",
+        "36th",     "drive",
+        "c",        "d",
+        "material", "aurora",
+        "co",       "80011"
+      ],
+      "features": [
+        {
+          "id": "address.2359288821239898",
+          "type": "Feature",
+          "place_type": [
+            "address"
+          ],
+          "relevance": 0.755556,
+          "properties": { "accuracy": "rooftop" },
+          "text": "East 36th Drive",
+          "place_name": "19799 East 36th Drive, Aurora, Colorado 80011, United States",
+          "center": [ -104.75577, 39.76771 ],
+          "geometry": { "type": "Point", "coordinates": [ -104.75577, 39.76771 ] },
+          "address": "19799",
+          "context": [
+            { "id": "neighborhood.8061683103305600", "text": "Northeast" },
+            { "id": "postcode.7368451844214040", "text": "80011" },
+            {
+              "id": "place.12668459445341650",
+              "wikidata": "Q49246",
+              "text": "Aurora"
+            },
+            {
+              "id": "district.5903439479265250",
+              "wikidata": "Q112807",
+              "text": "Adams County"
+            },
+            {
+              "id": "region.10002699958017490",
+              "short_code": "US-CO",
+              "wikidata": "Q1261",
+              "text": "Colorado"
+            },
+            {
+              "id": "country.14135384517372290",
+              "wikidata": "Q30",
+              "short_code": "us",
+              "text": "United States"
+            }
+          ]
+        }
+      ],
+      "attribution": "NOTICE: © 2022 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+    },
+    {
+      "type": "FeatureCollection",
+      "query": [ "6156", "us", "98", "hattiesburg", "ms", "39402", "usa" ],
+      "features": [
+        {
+          "id": "address.8410954263507190",
+          "type": "Feature",
+          "place_type": [
+            "address"
+          ],
+          "relevance": 1,
+          "properties": { "accuracy": "rooftop" },
+          "text": "US Route 98",
+          "place_name": "6156 US Route 98, Hattiesburg, Mississippi 39402, United States",
+          "matching_place_name": "6156 US Route 98, Hattiesburg, Mississippi 39402, USA",
+          "center": [ -89.38675, 31.32001 ],
+          "geometry": { "type": "Point", "coordinates": [ -89.38675, 31.32001 ] },
+          "address": "6156",
+          "context": [
+            { "id": "neighborhood.2024921154496530", "text": "East Lakewood" },
+            { "id": "postcode.9683833234378100", "text": "39402" },
+            {
+              "id": "place.3837871599249500",
+              "wikidata": "Q384464",
+              "text": "Hattiesburg"
+            },
+            {
+              "id": "district.14430732456728080",
+              "wikidata": "Q490896",
+              "text": "Lamar County"
+            },
+            {
+              "id": "region.8199901647736440",
+              "short_code": "US-MS",
+              "wikidata": "Q1494",
+              "text": "Mississippi"
+            },
+            {
+              "id": "country.14135384517372290",
+              "wikidata": "Q30",
+              "short_code": "us",
+              "text": "United States"
+            }
+          ]
+        }
+      ],
+      "attribution": "NOTICE: © 2022 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+    },
+    {
+      "type": "FeatureCollection",
+      "query": [ "979", "us", "98", "hattiesburg", "ms", "39401", "usa" ],
+      "features": [
+        {
+          "id": "address.6090357341399228",
+          "type": "Feature",
+          "place_type": [
+            "address"
+          ],
+          "relevance": 1,
+          "properties": { "accuracy": "interpolated" },
+          "text": "Hardy Street",
+          "place_name": "979 Hardy Street, Hattiesburg, Mississippi 39401, United States",
+          "matching_text": "US 98",
+          "matching_place_name": "979 US 98, Hattiesburg, Mississippi 39401, USA",
+          "center": [ -89.305382, 31.324739 ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [ -89.305382, 31.324739 ],
+            "interpolated": true,
+            "omitted": true
+          },
+          "address": "979",
+          "context": [
+            { "id": "postcode.4867184159032000", "text": "39401" },
+            {
+              "id": "place.3837871599249500",
+              "wikidata": "Q384464",
+              "text": "Hattiesburg"
+            },
+            {
+              "id": "district.8954344275871780",
+              "wikidata": "Q491221",
+              "text": "Forrest County"
+            },
+            {
+              "id": "region.8199901647736440",
+              "short_code": "US-MS",
+              "wikidata": "Q1494",
+              "text": "Mississippi"
+            },
+            {
+              "id": "country.14135384517372290",
+              "wikidata": "Q30",
+              "short_code": "us",
+              "text": "United States"
+            }
+          ]
+        }
+      ],
+      "attribution": "NOTICE: © 2022 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+    },
+    {
+      "type": "FeatureCollection",
+      "query": [ "okatoma", "river", "road", "seminary", "ms", "39479" ],
+      "features": [
+        {
+          "id": "address.24855277809332",
+          "type": "Feature",
+          "place_type": [
+            "address"
+          ],
+          "relevance": 1,
+          "properties": { "accuracy": "street" },
+          "text": "Riels Road",
+          "place_name": "Riels Road, Seminary, Mississippi 39479, United States",
+          "matching_text": "Okatoma River Rd",
+          "matching_place_name": "Okatoma River Rd, Seminary, Mississippi 39479, United States",
+          "center": [ -89.39095, 31.51031 ],
+          "geometry": { "type": "Point", "coordinates": [ -89.39095, 31.51031 ] },
+          "context": [
+            { "id": "postcode.15784103563240200", "text": "39479" },
+            {
+              "id": "place.15336647705481750",
+              "wikidata": "Q2425011",
+              "text": "Seminary"
+            },
+            {
+              "id": "district.8274858023610790",
+              "wikidata": "Q130008",
+              "text": "Jones County"
+            },
+            {
+              "id": "region.8199901647736440",
+              "short_code": "US-MS",
+              "wikidata": "Q1494",
+              "text": "Mississippi"
+            },
+            {
+              "id": "country.14135384517372290",
+              "wikidata": "Q30",
+              "short_code": "us",
+              "text": "United States"
+            }
+          ]
+        }
+      ],
+      "attribution": "NOTICE: © 2022 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+    },
+    {
+      "type": "FeatureCollection",
+      "query": [
+        "10498",  "east",
+        "49th",   "avenue",
+        "bimbo",  "bakery",
+        "denver", "co",
+        "80238"
+      ],
+      "features": [
+        {
+          "id": "address.454654088074690",
+          "type": "Feature",
+          "place_type": [
+            "address"
+          ],
+          "relevance": 0.800123,
+          "properties": { "accuracy": "rooftop" },
+          "text": "East 49th Avenue",
+          "place_name": "10498 East 49th Avenue, Denver, Colorado 80238, United States",
+          "center": [ -104.866775, 39.786465 ],
+          "geometry": { "type": "Point", "coordinates": [ -104.866775, 39.786465 ] },
+          "address": "10498",
+          "context": [
+            { "id": "neighborhood.12194394283715620", "text": "Stapleton" },
+            { "id": "postcode.11168797627561100", "text": "80238" },
+            {
+              "id": "place.1321445977046320",
+              "wikidata": "Q16554",
+              "text": "Denver"
+            },
+            {
+              "id": "district.1022628670046320",
+              "wikidata": "Q16554",
+              "text": "Denver"
+            },
+            {
+              "id": "region.10002699958017490",
+              "short_code": "US-CO",
+              "wikidata": "Q1261",
+              "text": "Colorado"
+            },
+            {
+              "id": "country.14135384517372290",
+              "wikidata": "Q30",
+              "short_code": "us",
+              "text": "United States"
+            }
+          ]
+        }
+      ],
+      "attribution": "NOTICE: © 2022 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+    },
+    {
+      "type": "FeatureCollection",
+      "query": [ "powhaton", "road", "and", "e", "64th", "avenue" ],
+      "features": [
+        {
+          "id": "address.4521110317685210",
+          "type": "Feature",
+          "place_type": [ "address" ],
+          "relevance": 1,
+          "properties": { "accuracy": "intersection" },
+          "text": "East 64th Avenue",
+          "place_name": "Powhaton Road and East 64th Avenue, Aurora, Colorado 80249, United States",
+          "center": [ -104.6781164, 39.8126494 ],
+          "geometry": { "type": "Point", "coordinates": [ -104.6781164, 39.8126494 ] },
+          "context": [
+            { "id": "postcode.4521110317685210", "text": "80249" },
+            {
+              "id": "place.12668459445341650",
+              "wikidata": "Q49246",
+              "text": "Aurora"
+            },
+            {
+              "id": "district.5903439479265250",
+              "wikidata": "Q112807",
+              "text": "Adams County"
+            },
+            {
+              "id": "region.10002699958017490",
+              "short_code": "US-CO",
+              "wikidata": "Q1261",
+              "text": "Colorado"
+            },
+            {
+              "id": "country.14135384517372290",
+              "wikidata": "Q30",
+              "short_code": "us",
+              "text": "United States"
+            }
+          ]
+        }
+      ],
+      "attribution": "NOTICE: © 2022 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+    }
+  ]
+}
+

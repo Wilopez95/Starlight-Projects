@@ -1,0 +1,32 @@
+x-name: workorders-hauling-materials
+summary: Get hauling materials of the work order.
+tags:
+  - Work Orders
+parameters:
+  - $fs-ref: ../../globals/auth-params.yaml
+  - name: billableServiceId
+    in: query
+    description: get materials by billable service id
+    type: integer
+    required: false
+  - name: workOrderId
+    in: path
+    description: trashapi work order id
+    type: integer
+    required: true
+  - name: activeOnly
+    in: query
+    description: get only active materials
+    type: boolean
+    required: false
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of hauling materials
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/HaulingMaterial'
+  500:
+    $ref: '#/responses/Unexpected'

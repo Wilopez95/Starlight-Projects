@@ -1,0 +1,134 @@
+SELECT "work_orders"."id", "work_orders"."location_id_1" AS "locationId1", "work_orders"."location_id_2" AS "locationId2", "work_orders"."driver_id" AS "driverId", "work_orders"."document_id" AS "documentId", "work_orders"."template_id" AS "templateId", "work_orders"."suspension_location_id" AS "suspensionLocationId", "work_orders"."suspended_can_id" AS "suspendedCanId", "work_orders"."hauling_billable_service_id" AS "haulingBillableServiceId", "work_orders"."hauling_material_id" AS "haulingMaterialId", "work_orders"."hauling_disposal_site_id" AS "haulingDisposalSiteId", "work_orders"."hauling_sync" AS "haulingSync", "work_orders"."tenant_id" AS "tenantId", "work_orders"."service_description" AS "serviceDescription", "work_orders"."customer_id" AS "customerId", "work_orders"."hauling_business_unit_id" AS "haulingBusinessUnitId", "work_orders"."status", "work_orders"."action", "work_orders"."size", "work_orders"."material", "work_orders"."scheduled_date" AS "scheduledDate", "work_orders"."scheduled_start" AS "scheduledStart", "work_orders"."scheduled_end" AS "scheduledEnd", "work_orders"."po_number" AS "poNumber", "work_orders"."contact_name" AS "contactName", "work_orders"."contact_number" AS "contactNumber", "work_orders"."customer_name" AS "customerName", "work_orders"."instructions", "work_orders"."alley_placement" AS "alleyPlacement", "work_orders"."early_pick_up" AS "earlyPickUp", "work_orders"."ok_to_roll" AS "okToRoll", "work_orders"."negotiated_fill" AS "negotiatedFill", "work_orders"."cow", "work_orders"."sos", "work_orders"."cab_over" AS "cabOver", "work_orders"."permitted_can" AS "permittedCan", "work_orders"."permit_number" AS "permitNumber", "work_orders"."text_on_way" AS "textOnWay", "work_orders"."profile_number" AS "profileNumber", "work_orders"."signature_required" AS "signatureRequired", "work_orders"."customer_provided_profile" AS "customerProvidedProfile", "work_orders"."priority", "work_orders"."step", "work_orders"."created_by" AS "createdBy", "work_orders"."created_date" AS "createdDate", "work_orders"."modified_by" AS "modifiedBy", "work_orders"."modified_date" AS "modifiedDate", "work_orders"."deleted", "work_orders"."index", "work_orders"."pending_suspend" AS "pendingSuspend", "work_orders"."suspend_requested" AS "suspendRequested", "locations1"."name" AS "locationName1", "locations1"."type" AS "locationType1", "locations1"."description" AS "locationDescription1", "locations1"."waypoint_type" AS "locationWaypointType1", "locations1"."waypoint_name" AS "locationWaypointName1", "locations1"."latitude" AS "locationLatitude1", "locations1"."longitude" AS "locationLongitude1", "locations1"."created_by" AS "locationCreatedBy1", "locations1"."created_date" AS "locationCreatedDate1", "locations1"."modified_by" AS "locationModifiedBy1", "locations1"."modified_date" AS "locationModifiedDate1", "locations1"."license_plate" AS "locationLicensePlate1", "locations2"."name" AS "locationName2", "locations2"."type" AS "locationType2", "locations2"."description" AS "locationDescription2", "locations2"."waypoint_type" AS "locationWaypointType2", "locations2"."waypoint_name" AS "locationWaypointName2", "locations2"."latitude" AS "locationLatitude2", "locations2"."longitude" AS "locationLongitude2", "locations2"."created_by" AS "locationCreatedBy2", "locations2"."created_date" AS "locationCreatedDate2", "locations2"."modified_by" AS "locationModifiedBy2", "locations2"."modified_date" AS "locationModifiedDate2", "locations2"."license_plate" AS "locationLicensePlate2", "suspensionLocations"."name" AS "suspensionLocationName", "suspensionLocations"."type" AS "suspensionLocationType", "suspensionLocations"."description" AS "suspensionLocationDescription", "suspensionLocations"."waypoint_type" AS "suspensionLocationWaypointType", "suspensionLocations"."waypoint_name" AS "suspensionLocationWaypointName", "suspensionLocations"."latitude" AS "suspensionLocationLatitude", "suspensionLocations"."longitude" AS "suspensionLocationLongitude", "suspensionLocations"."created_by" AS "suspensionLocationCreatedBy", "suspensionLocations"."created_date" AS "suspensionLocationCreatedDate", "suspensionLocations"."modified_by" AS "suspensionLocationModifiedBy", "suspensionLocations"."modified_date" AS "suspensionLocationModifiedDate", "suspensionLocations"."license_plate" AS "suspensionLocationLicensePlate" FROM "work_orders" LEFT JOIN "locations" AS "locations1" ON ("work_orders"."location_id_1" = "locations1"."id") LEFT JOIN "locations" AS "locations2" ON ("work_orders"."location_id_2" = "locations2"."id") LEFT JOIN "locations" AS "suspensionLocations" ON ("work_orders"."suspension_location_id" = "suspensionLocations"."id") WHERE ((((((((((((((TRUE AND TRUE) AND ("work_orders"."scheduled_date" BETWEEN ? AND ?)) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND ("work_orders"."deleted" <> ?)) AND ("work_orders"."hauling_business_unit_id" = ?)) AND TRUE) ORDER BY "work_orders"."scheduled_date" DESC, "work_orders"."index" DESC  [ '2022-08-10', '2022-08-10', 'TRUE', '1' ]
+
+[
+  'SELECT "locations"."id", "locations"."seed_name" AS "seedName", "locations"."deleted", "locations"."name", "locations"."type", "locations"."description", "locations"."waypoint_type" AS "waypointType", "locations"."waypoint_name" AS "waypointName", "locations"."latitude", "locations"."longitude", "locations"."created_by" AS "createdBy", "locations"."created_date" AS "createdDate", "locations"."modified_by" AS "modifiedBy", "locations"."modified_date" AS "modifiedDate", "locations"."license_plate" AS "licensePlate" FROM "locations" WHERE (((((TRUE AND TRUE) AND TRUE) AND ("locations"."type" IN (?))) AND TRUE) AND ("locations"."deleted" = ?))',
+  [ 'location', 'FALSE' ]
+][
+  'SELECT "cans"."id", "cans"."name", "cans"."serial", "cans"."size", "cans"."requires_maintenance" AS "requiresMaintenance", "cans"."out_of_service" AS "outOfService", "cans"."location_id" AS "locationId", "cans"."prev_location_id" AS "prevLocationId", "cans"."source", "cans"."start_date" AS "startDate", "cans"."hazardous", "cans"."action", "cans"."timestamp", "cans"."created_by" AS "createdBy", "cans"."created_date" AS "createdDate", "cans"."modified_by" AS "modifiedBy", "cans"."modified_date" AS "modifiedDate", "cans"."in_use" AS "inUse", "cans"."hauling_business_unit_id" AS "haulingBusinessUnitId", "cans"."truck_id" AS "truckId", "cans"."deleted", "locations"."name" AS "locationName", "locations"."type" AS "locationType", "locations"."description" AS "locationDescription", "locations"."waypoint_type" AS "locationWaypointType", "locations"."waypoint_name" AS "locationWaypointName", "locations"."latitude" AS "locationLatitude", "locations"."longitude" AS "locationLongitude", "locations"."created_by" AS "locationCreatedBy", "locations"."created_date" AS "locationCreatedDate", "locations"."modified_by" AS "locationModifiedBy", "locations"."modified_date" AS "locationModifiedDate", "locations"."license_plate" AS "locationLicensePlate", "prevLocations"."name" AS "prevLocationName", "prevLocations"."type" AS "prevLocationType", "prevLocations"."description" AS "prevLocationDescription", "prevLocations"."waypoint_type" AS "prevLocationWaypointType", "prevLocations"."waypoint_name" AS "prevLocationWaypointName", "prevLocations"."latitude" AS "prevLocationLatitude", "prevLocations"."longitude" AS "prevLocationLongitude", "prevLocations"."created_by" AS "prevLocationCreatedBy", "prevLocations"."created_date" AS "prevLocationCreatedDate", "prevLocations"."modified_by" AS "prevLocationModifiedBy", "prevLocations"."modified_date" AS "prevLocationModifiedDate", "prevLocations"."license_plate" AS "prevLocationLicensePlate" FROM "cans" LEFT JOIN "locations" ON ("cans"."location_id" = "locations"."id") LEFT JOIN "locations" AS "prevLocations" ON ("cans"."prev_location_id" = "prevLocations"."id") WHERE (((((((((((((((((((TRUE AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND ("cans"."deleted" <> ?)) AND TRUE) AND TRUE) AND TRUE) AND ("cans"."hauling_business_unit_id" = ?)) AND TRUE) AND TRUE) ORDER BY "cans"."name", "cans"."timestamp" DESC',
+  [ 'TRUE', '1' ]
+][
+  'SELECT "cans"."id", "cans"."name", "cans"."serial", "cans"."size", "cans"."requires_maintenance" AS "requiresMaintenance", "cans"."out_of_service" AS "outOfService", "cans"."location_id" AS "locationId", "cans"."prev_location_id" AS "prevLocationId", "cans"."source", "cans"."start_date" AS "startDate", "cans"."hazardous", "cans"."action", "cans"."timestamp", "cans"."created_by" AS "createdBy", "cans"."created_date" AS "createdDate", "cans"."modified_by" AS "modifiedBy", "cans"."modified_date" AS "modifiedDate", "cans"."in_use" AS "inUse", "cans"."hauling_business_unit_id" AS "haulingBusinessUnitId", "cans"."truck_id" AS "truckId", "cans"."deleted", "locations"."name" AS "locationName", "locations"."type" AS "locationType", "locations"."description" AS "locationDescription", "locations"."waypoint_type" AS "locationWaypointType", "locations"."waypoint_name" AS "locationWaypointName", "locations"."latitude" AS "locationLatitude", "locations"."longitude" AS "locationLongitude", "locations"."created_by" AS "locationCreatedBy", "locations"."created_date" AS "locationCreatedDate", "locations"."modified_by" AS "locationModifiedBy", "locations"."modified_date" AS "locationModifiedDate", "locations"."license_plate" AS "locationLicensePlate", "prevLocations"."name" AS "prevLocationName", "prevLocations"."type" AS "prevLocationType", "prevLocations"."description" AS "prevLocationDescription", "prevLocations"."waypoint_type" AS "prevLocationWaypointType", "prevLocations"."waypoint_name" AS "prevLocationWaypointName", "prevLocations"."latitude" AS "prevLocationLatitude", "prevLocations"."longitude" AS "prevLocationLongitude", "prevLocations"."created_by" AS "prevLocationCreatedBy", "prevLocations"."created_date" AS "prevLocationCreatedDate", "prevLocations"."modified_by" AS "prevLocationModifiedBy", "prevLocations"."modified_date" AS "prevLocationModifiedDate", "prevLocations"."license_plate" AS "prevLocationLicensePlate", "transactions"."id" AS "transactionId", "transactions"."timestamp" AS "transactionTimestamp", "transactions"."action" AS "transactionAction", "transactions"."payload" AS "transactionPayload", "transactions"."location_id_1" AS "locationId1", "locations1"."name" AS "locationName1", "locations1"."type" AS "locationType1", "locations1"."description" AS "locationDescription1", "locations1"."waypoint_type" AS "locationWaypointType1", "locations1"."waypoint_name" AS "locationWaypointName1", "locations1"."latitude" AS "locationLatitude1", "locations1"."longitude" AS "locationLongitude1", "locations1"."created_by" AS "locationCreatedBy1", "locations1"."created_date" AS "locationCreatedDate1", "locations1"."modified_by" AS "locationModifiedBy1", "locations1"."modified_date" AS "locationModifiedDate1", "locations1"."license_plate" AS "locationLicensePlate1", "transactions"."location_id_2" AS "locationId2", "locations2"."name" AS "locationName2", "locations2"."type" AS "locationType2", "locations2"."description" AS "locationDescription2", "locations2"."waypoint_type" AS "locationWaypointType2", "locations2"."waypoint_name" AS "locationWaypointName2", "locations2"."latitude" AS "locationLatitude2", "locations2"."longitude" AS "locationLongitude2", "locations2"."created_by" AS "locationCreatedBy2", "locations2"."created_date" AS "locationCreatedDate2", "locations2"."modified_by" AS "locationModifiedBy2", "locations2"."modified_date" AS "locationModifiedDate2", "locations2"."license_plate" AS "locationLicensePlate2" FROM "cans" LEFT JOIN "locations" ON ("cans"."location_id" = "locations"."id") LEFT JOIN "locations" AS "prevLocations" ON ("cans"."prev_location_id" = "prevLocations"."id") LEFT JOIN "transactions" ON ("cans"."id" = "transactions"."can_id") LEFT JOIN "locations" AS "locations1" ON ("transactions"."location_id_1" = "locations1"."id") LEFT JOIN "locations" AS "locations2" ON ("transactions"."location_id_2" = "locations2"."id") WHERE (((((((((((((((((((("cans"."id" IN (?)) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND ("cans"."size" = ?)) AND ("cans"."name" = ?)) AND TRUE) AND ("cans"."deleted" <> ?)) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND TRUE) ORDER BY "transactions"."timestamp" DESC, "cans"."timestamp" DESC',
+  [ 1, '10', '10-001', 'TRUE' ]
+]
+ content: {
+      "user": {
+        "id": "7dda3b61-e7bf-4840-a396-28cd4acc4425",
+        "firstName": "",
+        "lastName": "",
+        "email": "dev+starlight@starlightsoftwaresolutions.com",
+        "resource": "srn:starlight_waste:hauling:1",
+        "permissions": "***",
+        "tenantId": "2",
+        "tenantName": "starlight_waste",
+        "name": "system",
+        "userId": "7dda3b61-e7bf-4840-a396-28cd4acc4425",
+        "businessUnitId": "1",
+        "username": "system",
+        "companyName": "Starlight Waste",
+        "phone": null,
+        "enableManifest": null
+      },
+      "output": {}
+    }
+    method: "GET"
+    path: "/trashapi/v1/locations"
+    took: 15
+    url: "/trashapi/v1/locations?type=WAYPOINT%2CLOCATION&name=seda"
+    source: "pino"
+    service: "trashapi"
+[
+  'SELECT "locations"."id", "locations"."seed_name" AS "seedName", "locations"."deleted", "locations"."name", "locations"."type", "locations"."description", "locations"."waypoint_type" AS "waypointType", "locations"."waypoint_name" AS "waypointName", "locations"."latitude", "locations"."longitude", "locations"."created_by" AS "createdBy", "locations"."created_date" AS "createdDate", "locations"."modified_by" AS "modifiedBy", "locations"."modified_date" AS "modifiedDate", "locations"."license_plate" AS "licensePlate" FROM "locations" WHERE (((((TRUE AND ((("locations"."name" ILIKE ?) OR ("locations"."waypoint_name" ILIKE ?)) OR ("locations"."description" ILIKE ?))) AND TRUE) AND ("locations"."type" IN (?, ?))) AND TRUE) AND ("locations"."deleted" = ?))',
+  [ '%seda%', '%seda%', '%seda%', 'WAYPOINT', 'LOCATION', 'FALSE' ]
+]
+content: {
+      "input": {
+        "scheduledDate": "2022-08-10T11:10:23.000Z",
+        "alleyPlacement": 0,
+        "earlyPickUp": 0,
+        "okToRoll": 0,
+        "cow": 0,
+        "sos": 0,
+        "cabOver": 0,
+        "priority": 0,
+        "signatureRequired": 0,
+        "permittedCan": 0,
+        "templateId": null,
+        "haulingBillableServiceId": 1,
+        "size": "10",
+        "action": "SPOT",
+        "serviceDescription": "10 Delivery",
+        "haulingMaterialId": 1,
+        "material": "Plastic",
+        "customerName": "Steven Truesdell",
+        "contactName": "Steven Truesdell",
+        "location1": {
+          "type": "LOCATION",
+          "location": {
+            "lon": -105.03149,
+            "lat": 39.536435
+          },
+          "name": "3646 West Rosewalk Circle, Highlands Ranch, CO 80129"
+        },
+        "haulingDisposalSiteId": null,
+        "locationId2": null,
+        "tenantId": "2",
+        "businessLineId": 1,
+        "customerId": 1,
+        "haulingBusinessUnitId": 1
+      }
+    }
+    method: "POST"
+    path: "/trashapi/v1/workorders"
+    url: "/trashapi/v1/workorders"
+    source: "pino"
+    service: "trashapi"
+    reqId: "78e2b83cdb70942df31af7efd8affb7f3f3d8fd611e3ac2144793e656944430a"
+[
+  'SELECT "locations"."id", "locations"."seed_name" AS "seedName", "locations"."deleted", "locations"."name", "locations"."type", "locations"."description", "locations"."waypoint_type" AS "waypointType", "locations"."waypoint_name" AS "waypointName", "locations"."latitude", "locations"."longitude", "locations"."created_by" AS "createdBy", "locations"."created_date" AS "createdDate", "locations"."modified_by" AS "modifiedBy", "locations"."modified_date" AS "modifiedDate", "locations"."license_plate" AS "licensePlate" FROM "locations" WHERE (((("locations"."seed_name" = ?) OR ("locations"."name" = ?)) OR ("locations"."id" = ?)) OR ((("locations"."type" = ?) AND ("locations"."longitude" = ?)) AND ("locations"."latitude" = ?)))',
+  [
+    '3646 West Rosewalk Circle, Highlands Ranch, CO 80129',
+    '3646 West Rosewalk Circle, Highlands Ranch, CO 80129',
+    null,
+    'LOCATION',
+    null,
+    null
+  ]
+][
+'INSERT INTO "locations" ("name", "longitude", "latitude", "type", "seed_name", "created_by") VALUES (?, ?, ?, ?, ?, ?) RETURNING id',
+  [
+    '3646 West Rosewalk Circle, Highlands Ranch, CO 80129',
+    -105.03149,
+    39.536435,
+    'LOCATION',
+    '3646 West Rosewalk Circle, Highlands Ranch, CO 80129',
+    'Root'
+  ]
+]
+[
+  'SELECT "locations"."id", "locations"."seed_name" AS "seedName", "locations"."deleted", "locations"."name", "locations"."type", "locations"."description", "locations"."waypoint_type" AS "waypointType", "locations"."waypoint_name" AS "waypointName", "locations"."latitude", "locations"."longitude", "locations"."created_by" AS "createdBy", "locations"."created_date" AS "createdDate", "locations"."modified_by" AS "modifiedBy", "locations"."modified_date" AS "modifiedDate", "locations"."license_plate" AS "licensePlate" FROM "locations" WHERE (((((("locations"."id" = ?) AND TRUE) AND TRUE) AND TRUE) AND TRUE) AND ("locations"."deleted" = ?))',
+  [ 6, 'FALSE' ]
+]
+
+[
+  'INSERT INTO "work_orders" ("scheduled_date", "alley_placement", "early_pick_up", "ok_to_roll", "cow", "sos", "cab_over", "priority", "signature_required", "permitted_can", "template_id", "hauling_billable_service_id", "size", "action", "service_description", "hauling_material_id", "material", "customer_name", "contact_name", "hauling_disposal_site_id", "location_id_2", "tenant_id", "customer_id", "hauling_business_unit_id", "hauling_sync", "location_id_1", "created_by") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id',
+  [
+    '2022-08-10',       0,
+    0,                  0,
+    0,                  0,
+    0,                  0,
+    0,                  0,
+    null,               1,
+    '10',               'SPOT',
+    '10 Delivery',      1,
+    'Plastic',          'Steven Truesdell',
+    'Steven Truesdell', null,
+    null,               '2',
+    1,                  1,
+    true,               6,
+    'Root'
+  ]
+]
+[
+  'SELECT "work_orders"."id", "work_orders"."location_id_1" AS "locationId1", "work_orders"."location_id_2" AS "locationId2", "work_orders"."driver_id" AS "driverId", "work_orders"."document_id" AS "documentId", "work_orders"."template_id" AS "templateId", "work_orders"."suspension_location_id" AS "suspensionLocationId", "work_orders"."suspended_can_id" AS "suspendedCanId", "work_orders"."hauling_billable_service_id" AS "haulingBillableServiceId", "work_orders"."hauling_material_id" AS "haulingMaterialId", "work_orders"."hauling_disposal_site_id" AS "haulingDisposalSiteId", "work_orders"."hauling_sync" AS "haulingSync", "work_orders"."tenant_id" AS "tenantId", "work_orders"."service_description" AS "serviceDescription", "work_orders"."customer_id" AS "customerId", "work_orders"."hauling_business_unit_id" AS "haulingBusinessUnitId", "work_orders"."status", "work_orders"."action", "work_orders"."size", "work_orders"."material", "work_orders"."scheduled_date" AS "scheduledDate", "work_orders"."scheduled_start" AS "scheduledStart", "work_orders"."scheduled_end" AS "scheduledEnd", "work_orders"."po_number" AS "poNumber", "work_orders"."contact_name" AS "contactName", "work_orders"."contact_number" AS "contactNumber", "work_orders"."customer_name" AS "customerName", "work_orders"."instructions", "work_orders"."alley_placement" AS "alleyPlacement", "work_orders"."early_pick_up" AS "earlyPickUp", "work_orders"."ok_to_roll" AS "okToRoll", "work_orders"."negotiated_fill" AS "negotiatedFill", "work_orders"."cow", "work_orders"."sos", "work_orders"."cab_over" AS "cabOver", "work_orders"."permitted_can" AS "permittedCan", "work_orders"."permit_number" AS "permitNumber", "work_orders"."text_on_way" AS "textOnWay", "work_orders"."profile_number" AS "profileNumber", "work_orders"."signature_required" AS "signatureRequired", "work_orders"."customer_provided_profile" AS "customerProvidedProfile", "work_orders"."priority", "work_orders"."step", "work_orders"."created_by" AS "createdBy", "work_orders"."created_date" AS "createdDate", "work_orders"."modified_by" AS "modifiedBy", "work_orders"."modified_date" AS "modifiedDate", "work_orders"."deleted", "work_orders"."index", "work_orders"."pending_suspend" AS "pendingSuspend", "work_orders"."suspend_requested" AS "suspendRequested", "locations1"."name" AS "locationName1", "locations1"."type" AS "locationType1", "locations1"."description" AS "locationDescription1", "locations1"."waypoint_type" AS "locationWaypointType1", "locations1"."waypoint_name" AS "locationWaypointName1", "locations1"."latitude" AS "locationLatitude1", "locations1"."longitude" AS "locationLongitude1", "locations1"."created_by" AS "locationCreatedBy1", "locations1"."created_date" AS "locationCreatedDate1", "locations1"."modified_by" AS "locationModifiedBy1", "locations1"."modified_date" AS "locationModifiedDate1", "locations1"."license_plate" AS "locationLicensePlate1", "locations2"."name" AS "locationName2", "locations2"."type" AS "locationType2", "locations2"."description" AS "locationDescription2", "locations2"."waypoint_type" AS "locationWaypointType2", "locations2"."waypoint_name" AS "locationWaypointName2", "locations2"."latitude" AS "locationLatitude2", "locations2"."longitude" AS "locationLongitude2", "locations2"."created_by" AS "locationCreatedBy2", "locations2"."created_date" AS "locationCreatedDate2", "locations2"."modified_by" AS "locationModifiedBy2", "locations2"."modified_date" AS "locationModifiedDate2", "locations2"."license_plate" AS "locationLicensePlate2", "suspensionLocations"."name" AS "suspensionLocationName", "suspensionLocations"."type" AS "suspensionLocationType", "suspensionLocations"."description" AS "suspensionLocationDescription", "suspensionLocations"."waypoint_type" AS "suspensionLocationWaypointType", "suspensionLocations"."waypoint_name" AS "suspensionLocationWaypointName", "suspensionLocations"."latitude" AS "suspensionLocationLatitude", "suspensionLocations"."longitude" AS "suspensionLocationLongitude", "suspensionLocations"."created_by" AS "suspensionLocationCreatedBy", "suspensionLocations"."created_date" AS "suspensionLocationCreatedDate", "suspensionLocations"."modified_by" AS "suspensionLocationModifiedBy", "suspensionLocations"."modified_date" AS "suspensionLocationModifiedDate", "suspensionLocations"."license_plate" AS "suspensionLocationLicensePlate" FROM "work_orders" LEFT JOIN "locations" AS "locations1" ON ("work_orders"."location_id_1" = "locations1"."id") LEFT JOIN "locations" AS "locations2" ON ("work_orders"."location_id_2" = "locations2"."id") LEFT JOIN "locations" AS "suspensionLocations" ON ("work_orders"."suspension_location_id" = "suspensionLocations"."id") WHERE (("work_orders"."id" = ?) AND ("work_orders"."deleted" <> ?))',
+  [ 17, 'TRUE' ]
+]

@@ -1,0 +1,17 @@
+/trashapi/v1/auth/{tenantName}/business-units/{businessUnit}/login:
+  get:
+    $fs-ref: ./business-unit-auth/get-login.yaml
+  post:
+    $fs-ref: ./business-unit-auth/post-login.yaml
+
+/trashapi/v1/auth/{tenantName}/business-units/{businessUnit}/logincb:
+  get:
+    $fs-ref: ./business-unit-auth/logincb.yaml
+
+/trashapi/v1/{tenantName}/business-units/{businessUnit}/refresh:
+  post:
+    $fs-ref: ./business-unit-auth/refresh.yaml
+
+/trashapi/v1/{tenantName}/business-units/{businessUnit}/logout:
+  get:
+    $fs-ref: ./business-unit-auth/logout.yaml

@@ -1,0 +1,23 @@
+x-name: configuration-refresh-token
+summary: Refresh UMS token
+tags:
+  - Configuration Auth
+parameters:
+  - $fs-ref: ../../globals/configuration-login-params.yaml
+  - name: refreshToken
+    in: body
+    description: refreshToken of the user
+    schema:
+      type: object
+      required:
+        - refreshToken
+      properties:
+        refreshToken:
+          type: string
+responses:
+  200:
+    description: Refresh token data
+    schema:
+      $ref: '#/definitions/RefreshToken'
+  500:
+    $ref: '#/responses/Unexpected'

@@ -1,0 +1,47 @@
+type: object
+properties:
+  id:
+    type: number
+    description: id of record in DB
+  tenantId:
+    type: number
+    description: id of current tenant
+  name:
+    type: string
+  slug:
+    type: string
+  website:
+    type: string
+  logoUrl:
+    type: string
+  address:
+    type: string
+  address2:
+    type: string
+  zipcode:
+    type: string
+  phoneNumber:
+    type: string
+  city:
+    type: string
+  state:
+    type: string
+  enableSignature:
+    type: boolean
+  enableManifest:
+    type: boolean
+  enableWhipAround:
+    type: boolean
+  enableWingmate:
+    type: boolean
+  twilioNumber:
+    type: string
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time
+  deletedAt:
+    type: string
+    format: date-time

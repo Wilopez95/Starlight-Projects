@@ -1,0 +1,5 @@
+- name: Authorization
+  in: header
+  type: string
+  description: SSO token starts with "Bearer "
+  default: "Bearer "

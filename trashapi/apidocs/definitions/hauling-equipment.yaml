@@ -1,0 +1,30 @@
+type: object
+properties:
+  id:
+    type: integer
+  businessLineId:
+    type: integer
+  type:
+    type: string
+  customerOwned:
+    type: boolean
+  active:
+    type: boolean
+  description:
+    type: string
+  shortDescription:
+    type: string
+  size:
+    type: integer
+  length:
+    type: integer
+  width:
+    type: integer
+  height:
+    type: integer
+  emptyWeight:
+    type: integer
+  closedTop:
+    type: boolean
+  imageUrl:
+    type: string

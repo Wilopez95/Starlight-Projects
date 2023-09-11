@@ -1,0 +1,3 @@
+/trashapi/v1/lobby/available-resource-logins:
+  get:
+    $fs-ref: ./lobby/list.yaml

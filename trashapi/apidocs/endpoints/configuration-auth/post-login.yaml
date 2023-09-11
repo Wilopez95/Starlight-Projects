@@ -1,0 +1,11 @@
+x-name: configuration-post-login
+summary: Login with post method
+tags:
+  - Configuration Auth
+parameters:
+  - $fs-ref: ../../globals/configuration-login-params.yaml
+responses:
+  304:
+    description: Redirect to UMS API
+  500:
+    $ref: '#/responses/Unexpected'

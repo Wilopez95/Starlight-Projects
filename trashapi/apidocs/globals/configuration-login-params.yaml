@@ -1,0 +1,5 @@
+- name: tenantName
+  in: path
+  type: string
+  description: Name of tenant to log in (only for business-units and configuration login)
+  required: true

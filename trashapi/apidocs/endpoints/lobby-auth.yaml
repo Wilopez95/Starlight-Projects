@@ -1,0 +1,17 @@
+/trashapi/v1/auth/lobby/login:
+  get:
+    $fs-ref: ./lobby-auth/get-login.yaml
+  post:
+    $fs-ref: ./lobby-auth/post-login.yaml
+
+/trashapi/v1/auth/lobby/logincb:
+  get:
+    $fs-ref: ./lobby-auth/logincb.yaml
+
+/trashapi/v1/auth/lobby/refresh:
+  post:
+    $fs-ref: ./lobby-auth/refresh.yaml
+
+/trashapi/v1/auth/lobby/logout:
+  get:
+    $fs-ref: ./lobby-auth/logout.yaml

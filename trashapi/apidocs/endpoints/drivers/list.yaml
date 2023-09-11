@@ -1,0 +1,42 @@
+x-name: list-drivers
+summary: Get all the drivers
+tags:
+  - Drivers
+parameters:
+  - $fs-ref: ../../globals/auth-params.yaml
+  - $ref: '#/parameters/search'
+  - name: activeOnly
+    in: query
+    description: get only active drivers
+    type: boolean
+  - name: filterByBusinessUnit
+    in: query
+    description: filter by business unit ids
+    type: array
+    items:
+      type: integer
+  - name: query
+    in: query
+    description: search by description and phone
+    type: string
+  - name: email
+    in: query
+    description: get by email
+    type: string
+  - name: driverIds
+    in: query
+    description: get by drivers ids
+    type: array
+    items:
+      type: integer
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of drivers
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Driver'
+  500:
+    $ref: '#/responses/Unexpected'

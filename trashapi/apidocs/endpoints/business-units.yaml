@@ -1,0 +1,3 @@
+/trashapi/v1/business-units:
+  get:
+    $fs-ref: ./business-units/list.yaml

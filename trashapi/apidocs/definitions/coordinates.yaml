@@ -1,0 +1,6 @@
+type: array
+minItems: 2
+maxItems: 2
+description: two elements array of longitude and latitude [lon, lat]
+items:
+  type: number

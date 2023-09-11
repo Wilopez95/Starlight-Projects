@@ -1,0 +1,21 @@
+x-name: list-business-units
+summary: Get business units
+tags:
+  - Business Units
+parameters:
+  - $fs-ref: ../../globals/auth-params.yaml
+  - name: activeOnly
+    in: query
+    description: allows to filter only active items
+    type: boolean
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of business units
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/BusinessUnit'
+  500:
+    $ref: '#/responses/Unexpected'

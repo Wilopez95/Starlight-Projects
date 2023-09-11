@@ -1,0 +1,40 @@
+x-name: list-trucks
+summary: Get all the trucks
+tags:
+  - Trucks
+parameters:
+  - $fs-ref: ../../globals/auth-params.yaml
+  - $ref: '#/parameters/search'
+  - name: activeOnly
+    in: query
+    description: get only active trucks
+    type: boolean
+  - name: filterByBusinessUnit
+    in: query
+    description: filter by business unit ids
+    type: array
+    items:
+      type: integer
+  - name: filterByTruckType
+    in: query
+    description: filter by truck type ids
+    type: array
+    items:
+      type: integer
+  - name: truckIds
+    in: query
+    description: get by truck ids
+    type: array
+    items:
+      type: integer
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of trucks
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Truck'
+  500:
+    $ref: '#/responses/Unexpected'

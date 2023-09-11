@@ -1,0 +1,9 @@
+/trashapi/v1/templates:
+  get:
+    $fs-ref: ./templates/list-templates.yaml
+  post:
+    $fs-ref: ./templates/create-template.yaml
+
+/trashapi/v1/templates/{templateId}:
+  get:
+    $fs-ref: ./templates/get-template.yaml

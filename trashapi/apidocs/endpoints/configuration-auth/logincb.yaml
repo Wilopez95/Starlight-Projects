@@ -1,0 +1,19 @@
+x-name: configuration-logincb
+summary: Login callback with get method
+tags:
+  - Configuration Auth
+parameters:
+  - $fs-ref: ../../globals/configuration-login-params.yaml
+  - name: code
+    in: query
+    description: code to exchange for token
+    type: string
+    required: true
+  - name: error
+    in: query
+    type: string
+responses:
+  304:
+    description: Redirect to front-end URL
+  500:
+    $ref: '#/responses/Unexpected'

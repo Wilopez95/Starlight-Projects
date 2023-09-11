@@ -1,0 +1,44 @@
+type: object
+properties:
+  id:
+    type: integer
+  businessLineId:
+    type: integer
+  allowForRecurringOrders:
+    type: boolean
+  active:
+    type: boolean
+  oneTime:
+    type: boolean
+  prorationType:
+    type: string
+  equipmentItemId:
+    type: integer
+  action:
+    type: string
+  unit:
+    type: string
+  description:
+    type: string
+  importCodes:
+    type: string
+  materialBased:
+    type: boolean
+  materialBasedPricing:
+    type: boolean
+  applySurcharges:
+    type: boolean
+  spUsed:
+    type: boolean
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time
+  allowedMaterials:
+    type: array
+    items:
+      $ref: '#/definitions/HaulingMaterial'
+  equipmentItem:
+    $ref: '#/definitions/HaulingEquipment'

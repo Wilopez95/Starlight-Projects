@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: number
+  active:
+    type: boolean
+  description:
+    type: string
+  licensePlate:
+    type: string
+  note:
+    type: string
+  truckTypeId:
+    type: integer
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time
+  location:
+    $ref: '#/definitions/TruckLocation'
+

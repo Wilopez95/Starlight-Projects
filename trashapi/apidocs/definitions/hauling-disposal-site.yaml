@@ -1,0 +1,50 @@
+type: object
+properties:
+  id:
+    type: number
+    description: always null as not an item of dispatch location
+  haulingDisposalSiteId:
+    type: number
+    description: id of the core disposal site
+  name:
+    type: string
+  description:
+    type: string
+  location:
+    $ref: '#/definitions/DispatchCoordinates'
+  type:
+    type: string
+    enum:
+      - WAYPOINT
+    description: always WAYPOINT
+  waypointName:
+    type: string
+  waypointType:
+    type: string
+    enum:
+      - HOME_YARD
+      - LANDFILL_STORAGE_YARD
+      - LANDFILL
+      - RECYCLE_CENTER
+      - STORAGE_YARD
+      - TRANSFER_CENTER
+  deleted:
+    type: boolean
+    description: always false as not an item of dispatch location
+  licensePlate:
+    type: string
+    description: always null as not an item of dispatch location
+  createdBy:
+    type: string
+    description: always null as not an item of dispatch location
+  createdDate:
+    type: string
+    format: date-time
+    description: always null as not an item of dispatch location
+  modifiedBy:
+    type: string
+    description: always null as not an item of dispatch location
+  modifiedDate:
+    type: string
+    format: date-time
+    description: always null as not an item of dispatch location

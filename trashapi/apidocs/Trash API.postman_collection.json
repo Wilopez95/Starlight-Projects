@@ -1,0 +1,4468 @@
+{
+	"info": {
+		"_postman_id": "61318235-3d31-44dc-8561-1ad4db4fa0a3",
+		"name": "Trash API",
+		"description": "The Trash API / Dispatch API facilitates all interaction between Core, the Driver App, and Dispatch.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cans",
+			"item": [
+				{
+					"name": "Get all cans",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/v1/cans",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans"
+							],
+							"query": [
+								{
+									"key": "bounds",
+									"value": "",
+									"description": "a string of bounding box coordinates concatenated by the comma, there should not be any space, in the form: xLow,yLow,xHigh,yHigh",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "this is a text search query",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "",
+									"description": "a date filter, takes a range of dates as ${start.getTime()}..${end.getTime()}, where start and end both are JS Date objects",
+									"disabled": true
+								},
+								{
+									"key": "locationId",
+									"value": "",
+									"description": "get all cans associated with the specified location",
+									"disabled": true
+								},
+								{
+									"key": "modifiedSince",
+									"value": "",
+									"description": "filters all the cans, which were modified since the time passed in. The format is a unix timestamp with milliseconds (+new Date())",
+									"disabled": true
+								},
+								{
+									"key": "isRequiredMaintenance",
+									"value": "",
+									"description": "get required maintenance cans, double",
+									"disabled": true
+								},
+								{
+									"key": "isOutOfService",
+									"value": "",
+									"description": "get out of service cans, double",
+									"disabled": true
+								},
+								{
+									"key": "allowNullLocations",
+									"value": "",
+									"description": "allows cans with null locations, double",
+									"disabled": true
+								},
+								{
+									"key": "withTransactions",
+									"value": "",
+									"description": "get cans with transactions, double",
+									"disabled": true
+								},
+								{
+									"key": "hazardous",
+									"value": "",
+									"description": "get hazardous cans\n\n",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "status can be one of the CREATE, UPDATE, MOVE, PICKUP, DROPOFF, TRANSFER, REMOVE",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "",
+									"description": "get deleted cans",
+									"disabled": true
+								},
+								{
+									"key": "businessUnitIds",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "businessUnitId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "truckId",
+									"value": "67",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all cans from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get can by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/cans/{{canId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans",
+								"{{canId}}"
+							]
+						},
+						"description": "Returns a can by the id specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Get can by locationId",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/cans?locationId=90168",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans"
+							],
+							"query": [
+								{
+									"key": "locationId",
+									"value": "90168"
+								}
+							]
+						},
+						"description": "Returns a can by the locationId specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Add note to can",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"note\":\"note\"}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/cans/{{canId}}/note",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans",
+								"{{canId}}",
+								"note"
+							]
+						},
+						"description": "Adds a note to can"
+					},
+					"response": []
+				},
+				{
+					"name": "Pick up can",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"location\": {\r\n        \"id\": 1375,\r\n        \"name\": \"411\",\r\n        \"location\": {\r\n            \"lon\": -104.9840432,\r\n            \"lat\": 39.8246318\r\n        },\r\n        \"type\": \"TRUCK\",\r\n        \"waypointType\": null,\r\n        \"waypointName\": null,\r\n        \"deleted\": 0,\r\n        \"description\": \"Truck 121\",\r\n        \"licensePlate\": null\r\n    },\r\n    \"truckId\": 1\r\n }\r\n "
+						},
+						"url": {
+							"raw": "{{host}}/v1/cans/{{canId}}/pickup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans",
+								"{{canId}}",
+								"pickup"
+							]
+						},
+						"description": "Updates a can in the database from the id passed in the url params to be picked up on the truck\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer can",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"location\": {\r\n        \"id\": 1375,\r\n        \"name\": \"411\",\r\n        \"location\": {\r\n            \"lon\": -104.9840432,\r\n            \"lat\": 39.8246318\r\n        },\r\n        \"type\": \"TRUCK\",\r\n        \"waypointType\": null,\r\n        \"waypointName\": null,\r\n        \"deleted\": 0,\r\n        \"description\": \"Truck 121\",\r\n        \"licensePlate\": null\r\n    },\r\n    \"truckId\": 1\r\n }\r\n "
+						},
+						"url": {
+							"raw": "{{host}}/v1/cans/{{canId}}/transfer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans",
+								"{{canId}}",
+								"transfer"
+							]
+						},
+						"description": "Updates a can in the database from the id passed in the url params to be picked up on the truck\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Drop off can",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"location\": {\r\n        \"id\": 1375,\r\n        \"name\": \"411\",\r\n        \"location\": {\r\n            \"lon\": -104.9840432,\r\n            \"lat\": 39.8246318\r\n        },\r\n        \"type\": \"TRUCK\",\r\n        \"waypointType\": null,\r\n        \"waypointName\": null,\r\n        \"deleted\": 0,\r\n        \"description\": \"Truck 121\",\r\n        \"licensePlate\": null\r\n    }\r\n }\r\n "
+						},
+						"url": {
+							"raw": "{{host}}/v1/cans/{{canId}}/dropoff",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans",
+								"{{canId}}",
+								"dropoff"
+							]
+						},
+						"description": "Updates a can in the database from the id passed in the url params to be picked up on the truck\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Move can",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"location\": {\r\n        \"id\": 1375,\r\n        \"name\": \"411\",\r\n        \"location\": {\r\n            \"lon\": -104.9840432,\r\n            \"lat\": 39.8246318\r\n        },\r\n        \"type\": \"TRUCK\",\r\n        \"waypointType\": null,\r\n        \"waypointName\": null,\r\n        \"deleted\": 0,\r\n        \"description\": \"Truck 121\",\r\n        \"licensePlate\": null\r\n    }\r\n }\r\n "
+						},
+						"url": {
+							"raw": "{{host}}/v1/cans/{{canId}}/move",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans",
+								"{{canId}}",
+								"move"
+							]
+						},
+						"description": "Updates a can in the database from the id passed in the url params to be picked up on the truck\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Create can",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"new test can\",\n    \"size\": 30,\n    \"businessUnitId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/cans",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"cans"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "Get all locations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/v1/locations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "coordinates",
+									"value": "",
+									"description": "a string of coordinates concatenated by the comma, there should not be any space, in the form: longitude,latitude",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "",
+									"description": "filter locations by name",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "filter location by type, can be concatenated string by comma, like LOCATION,WAYPOINT",
+									"disabled": true
+								},
+								{
+									"key": "empty",
+									"value": "",
+									"description": "filter locations which haven't stored any cans yet, double\n",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "",
+									"description": "deleted, double",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all locations from the database (locations, trucks, waypoints)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get location by id",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/locations/{{locationId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations",
+								"{{locationId}}"
+							]
+						},
+						"description": "Returns a location by the id specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Create location",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 90149,\n  \"name\": \"createdLoc\",\n  \"description\": \"gjdfg\",\n  \"type\": \"WAYPOINT\",\n  \"waypointName\": \"myWay\",\n  \"waypointType\": \"HOME_YARD\",\n  \"deleted\": 0,\n  \"licensePlate\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/locations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations"
+							]
+						},
+						"description": "Adds a new location in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Update location",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\"name\": \"updateLocation\",\r\n  \"description\": \"newDescription\",\r\n  \"type\": \"WAYPOINT\",\r\n  \"waypointName\": \"myWay\",\r\n  \"waypointType\": \"HOME_YARD\",\r\n  \"deleted\": 0,\r\n  \"licensePlate\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/locations/{{locationId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations",
+								"{{locationId}}"
+							]
+						},
+						"description": "Updates location in the database from the id passed in the url params\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete location",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/locations/{{locationId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations",
+								"{{locationId}}"
+							]
+						},
+						"description": "Deletes location with the id passed in the url params from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get trucks",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/locations?type=TRUCK",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "TRUCK"
+								}
+							]
+						},
+						"description": "Returns all trucks from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get waypoints",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/locations?type=WAYPOINT",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "WAYPOINT"
+								}
+							]
+						},
+						"description": "Returns all waypoints from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get locations",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/locations?type=LOCATION",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "LOCATION"
+								}
+							]
+						},
+						"description": "Returns all locations from the database"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Work Orders",
+			"item": [
+				{
+					"name": "Get work orders",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2018-12-07..2018-12-07",
+									"description": "a date filter, takes a range of dates as ${start.getTime()}..${end.getTime()}, where start and end both are JS Date objects",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "UNASSIGNED, ASSIGNED, INPROGRESS, COMPLETED, CANCELED",
+									"disabled": true
+								},
+								{
+									"key": "bounds",
+									"value": "",
+									"description": "a string of bounding box coordinates concatenated by the comma",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "this is a text search query\n\n",
+									"disabled": true
+								},
+								{
+									"key": "modifiedSince",
+									"value": "",
+									"description": "filters all the work orders, which were modified since the time passed in",
+									"disabled": true
+								},
+								{
+									"key": "driverId",
+									"value": "",
+									"description": "driver Id\n\n",
+									"disabled": true
+								},
+								{
+									"key": "deepAssignmentSearch",
+									"value": "",
+									"description": "if this param is passed, will be fetched all the work orders which are assigned to the certain driverId. You can only use it in the pair with driverId param.",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "",
+									"description": "can size",
+									"disabled": true
+								},
+								{
+									"key": "material",
+									"value": "",
+									"description": "material type",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "",
+									"description": "SPOT, FINAL, SWITCH, DUMP & RETURN, LIVE LOAD, PICKUP CAN, DROPOFF CAN, RELOCATE, REPOSITION, GENERAL PURPOSE",
+									"disabled": true
+								},
+								{
+									"key": "cow",
+									"value": "",
+									"description": "filter workorders by 'callOnWay'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "sos",
+									"value": "",
+									"description": "filter workorders by 'seeOnSite'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "alleyPlacement",
+									"value": "",
+									"description": "filter workorders by 'alleyPlacement'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "permittedCan",
+									"value": "",
+									"description": "filter workorders by 'permittedCan'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "earlyPickUp",
+									"value": "",
+									"description": "filter workorders by 'earlyPickUp'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "cabOver",
+									"value": "",
+									"description": "filter workorders by 'cabOver'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "okToRoll",
+									"value": "",
+									"description": "filter workorders by 'okToRoll'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "priority",
+									"value": "",
+									"description": "filter workorders by 'priority'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "negotiatedFill",
+									"value": "",
+									"description": "filter workorders by 'negotiatedFill'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "customerProvidedProfile",
+									"value": "",
+									"description": "filter workorders by 'customerProvidedProfile'\n\n",
+									"disabled": true
+								},
+								{
+									"key": "scheduledStart",
+									"value": "",
+									"description": "filter workorders by having scheduled start\n\n",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "",
+									"description": "get deleted workorders\n\n",
+									"disabled": true
+								},
+								{
+									"key": "businessUnitId",
+									"value": "",
+									"description": "get by business unit",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all work orders from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get work order by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}"
+							]
+						},
+						"description": "Returns a work order by the id specified in the url params"
+					},
+					"response": [
+						{
+							"name": "Get Work Order",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlSWQiOjExLCJ0eiI6IkFtZXJpY2EvRGVudmVyIiwiaWQiOiI4ODBlOWYwZS1lMTJkLTExZTctODBjMS05YTIxNGNmMDkzYWUiLCJvcmdJZCI6IjEiLCJ1c2VybmFtZSI6InN0cnVlcyIsImVtYWlsIjoic3RldmVuLnRydWVzZGVsbEBzdGFybGlnaHRwcm8uY29tIiwiZXhwIjoxNTc5ODgwMzUwfQ.t5MWfWaeOntCdIVgv6O8ItmIBhq56w72vxTrVFRPGaI",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MzI5NGVjLWI2YjEtMTFlOC05NmY4LTUyOTI2OWZiMTQ1OSIsInVzZXJuYW1lIjoiY29yZHJAc3RhcmxpZ2h0cHJvLmNvbSIsImVtYWlsIjoiY29yZHJAc3RhcmxpZ2h0cHJvLmNvbSIsIm9yZ0lkIjo4LCJyb2xlSWQiOjEwLCJ0eiI6IkFtZXJpY2EvTG9zX0FuZ2VsZXMiLCJtZXRhIjp7InRlbmFudElkIjotMSwiY29udGFjdElkIjotMSwiY3VzdG9tZXJJZCI6LTEsImFwaUJhc2VVcmwiOiJodHRwczovLzAuMC4wLjA6ODA4MC9hcGkxLjAiLCJhcGlNb2RlIjoidGVzdCJ9LCJpYXQiOjE1ODQ2NDA4NjMsImV4cCI6MTU4NTg1MDQ2MywiYXVkIjoic3RhcmxpZ2h0IiwiaXNzIjoic3RhcmxpZ2h0LWFwaSJ9.Oce2ZgvjJXdTb5lMpYXf0841RLJ8KwGrw46Pf0TJFco"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}{{prefix}}/workorders/17264",
+									"host": [
+										"{{baseUrl}}{{prefix}}"
+									],
+									"path": [
+										"workorders",
+										"17264"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2018-01-19..2018-01-19",
+											"disabled": true
+										},
+										{
+											"key": "driverId",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "ASSIGNED,INPROGRESS,COMPLETED",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 19 Mar 2020 18:04:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2536"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9e8-Gz3kDuzWvDBpDuTx0CQplkmQQ/g\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"location1\": {\n        \"id\": 202,\n        \"name\": \"Mult Co Courthouse, 1200 Southwest 1st A, Portland, OR, 97204\",\n        \"description\": \"Multnomah County Courthouse\",\n        \"type\": \"LOCATION\",\n        \"waypointType\": null,\n        \"waypointName\": null,\n        \"location\": {\n            \"lon\": -122.6751934,\n            \"lat\": 45.5141856\n        },\n        \"createdBy\": \"cordr\",\n        \"createdDate\": \"2018-09-25T20:29:10.744Z\",\n        \"modifiedBy\": \"cordr\",\n        \"modifiedDate\": \"2018-12-12T18:57:37.048Z\"\n    },\n    \"location2\": {\n        \"id\": 1230,\n        \"name\": \"4530 Northeast 138th Avenue, Portland, OR, 97230\",\n        \"description\": \"CORE Recycling - 138th\",\n        \"type\": \"WAYPOINT\",\n        \"waypointType\": \"HOME_YARD\",\n        \"waypointName\": \"CORE Recycling - 138th\",\n        \"location\": {\n            \"lon\": -122.5162164,\n            \"lat\": 45.5552322\n        },\n        \"createdBy\": \"cordr\",\n        \"createdDate\": \"2018-10-01T22:27:26.454Z\",\n        \"modifiedBy\": \"cordr\",\n        \"modifiedDate\": \"2019-03-06T16:40:24.592Z\"\n    },\n    \"driver\": {\n        \"truck\": {\n            \"id\": null,\n            \"name\": null,\n            \"type\": null,\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": null,\n                \"lat\": null\n            },\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": null,\n        \"name\": null,\n        \"username\": null,\n        \"photo\": null,\n        \"createdBy\": null,\n        \"createdDate\": null,\n        \"modifiedBy\": null,\n        \"modifiedDate\": null,\n        \"deleted\": null,\n        \"agreeWhipAround\": null,\n        \"enableWoControl\": null,\n        \"deviceToken\": null,\n        \"language\": null\n    },\n    \"id\": 17264,\n    \"documentId\": null,\n    \"templateId\": 1,\n    \"trackingDocId\": null,\n    \"status\": \"UNASSIGNED\",\n    \"action\": \"SWITCH\",\n    \"size\": \"30\",\n    \"material\": \"C&D\",\n    \"scheduledDate\": \"2020-03-19\",\n    \"scheduledStart\": \"12:00:00\",\n    \"scheduledEnd\": \"18:00:00\",\n    \"poNumber\": \"5300015-39559- OL\",\n    \"contactName\": \"William Courthouse\",\n    \"contactNumber\": \"971-223-9350\",\n    \"customerName\": \"Hoffman Construction Company\",\n    \"instructions\": null,\n    \"alleyPlacement\": 0,\n    \"earlyPickUp\": 0,\n    \"okToRoll\": 0,\n    \"negotiatedFill\": 1,\n    \"cow\": 1,\n    \"sos\": 0,\n    \"cabOver\": 0,\n    \"permittedCan\": 0,\n    \"permitNumber\": null,\n    \"textOnWay\": null,\n    \"profileNumber\": null,\n    \"signatureRequired\": 0,\n    \"customerProvidedProfile\": 0,\n    \"priority\": 0,\n    \"step\": null,\n    \"canId\": null,\n    \"createdBy\": \"cordr@starlightpro.com\",\n    \"createdDate\": \"2020-03-17T18:40:51.162Z\",\n    \"modifiedBy\": \"cordr@starlightpro.com\",\n    \"modifiedDate\": \"2020-03-17T20:33:26.769Z\",\n    \"deleted\": 0,\n    \"index\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get work orders by driverId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/driver/{{driverId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"driver",
+								"{{driverId}}"
+							]
+						},
+						"description": "Returns a work order by the driverId specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Create work order",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"action\": \"FINAL\",\n  \"size\": \"10\",\n  \"material\": \"C & D\",\n  \"scheduledDate\": \"2020-11-01\",\n  \"priority\": 0,\n  \"location1\": {\n    \"id\": 1380225,\n    \"name\": \"Derek's Landfill\",\n    \"type\": \"LOCATION\",\n    \"location\": {\n            \"lon\": -104.810117920901,\n            \"lat\": 39.9096725596284\n        }\n  },\n  \"signatureRequired\": 1,\n  \"businessUnitId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/workorders",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders"
+							]
+						},
+						"description": "Adds a new work order in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Update work order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"UNASSIGNED\",\n  \"action\": \"SPOT\",\n  \"size\": \"10\",\n  \"material\": \"C & D\",\n  \"scheduledDate\": \"2020-10-30T15:30:12.137Z\",\n  \"priority\": 0,\n  \"location1\": {\n    \"id\": 1380225,\n    \"name\": \"Derek's Landfill\",\n    \"type\": \"LOCATION\",\n    \"location\": {\n            \"lon\": -104.810117920901,\n            \"lat\": 39.9096725596284\n        },\n    \"deleted\": 0\n  },\n  \"signatureRequired\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}"
+							]
+						},
+						"description": "Updates work order in the database from the id passed in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete work order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}"
+							]
+						},
+						"description": "Deletes work order with the id passed in the url params from database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get work order state",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/transition",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"transition"
+							]
+						},
+						"description": "Returns a state of work order by the id specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Set work order state",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"TRANSITION\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/transition/{{newState}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"transition",
+								"{{newState}}"
+							],
+							"query": [
+								{
+									"key": "canId",
+									"value": "",
+									"description": "set a can ID if you do PICKUP or DROPOFF",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Adds a state to work order"
+					},
+					"response": []
+				},
+				{
+					"name": "Get notes of work order",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/note",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"note"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "",
+									"description": "MANIFEST, NOTE, SCALETICKET, WEIGHT_RECORD, SIGNED_DOC, or TRANSITION",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "",
+									"description": "allows get deleted notes\n\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns notes of work order by the id specified in the url params"
+					},
+					"response": [
+						{
+							"name": "Get Work Order Note",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MzI5NGVjLWI2YjEtMTFlOC05NmY4LTUyOTI2OWZiMTQ1OSIsInVzZXJuYW1lIjoiY29yZHJAc3RhcmxpZ2h0cHJvLmNvbSIsImVtYWlsIjoiY29yZHJAc3RhcmxpZ2h0cHJvLmNvbSIsIm9yZ0lkIjo4LCJyb2xlSWQiOjEwLCJ0eiI6IkFtZXJpY2EvTG9zX0FuZ2VsZXMiLCJtZXRhIjp7InRlbmFudElkIjotMSwiY29udGFjdElkIjotMSwiY3VzdG9tZXJJZCI6LTEsImFwaUJhc2VVcmwiOiJodHRwczovLzAuMC4wLjA6ODA4MC9hcGkxLjAiLCJhcGlNb2RlIjoidGVzdCJ9LCJpYXQiOjE1ODQ2NDA4NjMsImV4cCI6MTU4NTg1MDQ2MywiYXVkIjoic3RhcmxpZ2h0IiwiaXNzIjoic3RhcmxpZ2h0LWFwaSJ9.Oce2ZgvjJXdTb5lMpYXf0841RLJ8KwGrw46Pf0TJFco"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}{{prefix}}/workorders/17214/note",
+									"host": [
+										"{{baseUrl}}{{prefix}}"
+									],
+									"path": [
+										"workorders",
+										"17214",
+										"note"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2018-01-19..2018-01-19",
+											"disabled": true
+										},
+										{
+											"key": "driverId",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "ASSIGNED,INPROGRESS,COMPLETED",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 19 Mar 2020 18:38:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14668"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"394c-cRR3tVEt9LVRiUEg6EED47jdUJ0\""
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"location\": {\n            \"id\": 71199,\n            \"name\": \"GPS_1584474174040\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5172546,\n                \"lat\": 45.5554071\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T19:43:04.233Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T19:43:04.233Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158465,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"WORK ORDER COMPLETE\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T19:43:04.256Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T19:43:04.256Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71198,\n            \"name\": \"GPS_1584474090342\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5172547,\n                \"lat\": 45.5554071\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T19:41:32.734Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T19:41:32.734Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158464,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"RECORD WEIGHT TICKETS\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T19:41:34.884Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T19:41:34.884Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71198,\n            \"name\": \"GPS_1584474090342\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5172547,\n                \"lat\": 45.5554071\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T19:41:32.734Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T19:41:32.734Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158463,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"FINISH DISPOSAL\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T19:41:32.788Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T19:41:32.788Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71188,\n            \"name\": \"GPS_1584472459925\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5171539,\n                \"lat\": 45.555395\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T19:14:31.049Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T19:14:31.049Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158448,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"ARRIVE AT FILL\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T19:14:31.088Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T19:14:31.088Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71185,\n            \"name\": \"GPS_1584471560747\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5863078,\n                \"lat\": 45.5878133\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:59:29.763Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:59:29.763Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158440,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"GOING TO FILL\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:59:29.785Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:59:29.785Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71179,\n            \"name\": \"GPS_1584471271408\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5858414,\n                \"lat\": 45.5876219\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:54:41.022Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:54:41.022Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158426,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"FINISH SERVICE\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:54:42.686Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:54:42.686Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71179,\n            \"name\": \"GPS_1584471271408\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5858414,\n                \"lat\": 45.5876219\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:54:41.022Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:54:41.022Z\"\n        },\n        \"can\": {\n            \"id\": 269,\n            \"name\": \"30109\",\n            \"serial\": \"1\",\n            \"size\": \"30\",\n            \"requiresMaintenance\": 0,\n            \"outOfService\": 0,\n            \"source\": null,\n            \"startDate\": \"2019-10-17T18:01:55.000Z\",\n            \"hazardous\": 0,\n            \"action\": \"PICKUP\",\n            \"timestamp\": \"2020-03-18T17:39:58.000Z\",\n            \"createdBy\": \"cordr@starlightpro.com\",\n            \"createdDate\": \"2019-10-17T18:01:55.356Z\",\n            \"modifiedBy\": \"Cwelch\",\n            \"modifiedDate\": \"2020-03-18T17:39:58.533Z\"\n        },\n        \"id\": 158425,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"canId\": \"269\",\n            \"newState\": \"PICKUP CAN\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:54:41.105Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:54:41.105Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71174,\n            \"name\": \"GPS_1584470618253\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5868576,\n                \"lat\": 45.5880037\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:43:40.718Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:43:40.718Z\"\n        },\n        \"can\": {\n            \"id\": 233,\n            \"name\": \"3074\",\n            \"serial\": \"3074\",\n            \"size\": \"30\",\n            \"requiresMaintenance\": 0,\n            \"outOfService\": 0,\n            \"source\": null,\n            \"startDate\": \"2019-03-06T20:30:01.000Z\",\n            \"hazardous\": 0,\n            \"action\": \"DROPOFF\",\n            \"timestamp\": \"2020-03-17T18:43:42.000Z\",\n            \"createdBy\": \"cordr\",\n            \"createdDate\": \"2019-03-06T20:30:01.995Z\",\n            \"modifiedBy\": \"Cwelch\",\n            \"modifiedDate\": \"2020-03-17T18:43:42.502Z\"\n        },\n        \"id\": 158418,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"canId\": \"233\",\n            \"newState\": \"DROP CAN\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:43:42.516Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:43:42.516Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71174,\n            \"name\": \"GPS_1584470618253\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5868576,\n                \"lat\": 45.5880037\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:43:40.718Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:43:40.718Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158417,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"SIGNATURE\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:43:40.747Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:43:40.747Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71173,\n            \"name\": \"GPS_1584470606569\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5868184,\n                \"lat\": 45.5879802\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:43:37.645Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:43:37.645Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158416,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"START SERVICE\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:43:39.339Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:43:39.339Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71173,\n            \"name\": \"GPS_1584470606569\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5868184,\n                \"lat\": 45.5879802\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:43:37.645Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:43:37.645Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158415,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"ARRIVE ON SITE\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:43:37.673Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:43:37.673Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": 71168,\n            \"name\": \"GPS_1584469762574\",\n            \"description\": null,\n            \"type\": \"LOCATION\",\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": -122.5927697,\n                \"lat\": 45.5886125\n            },\n            \"createdBy\": \"Cwelch\",\n            \"createdDate\": \"2020-03-17T18:29:30.280Z\",\n            \"modifiedBy\": null,\n            \"modifiedDate\": \"2020-03-17T18:29:30.280Z\"\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158408,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"newState\": \"START WORK ORDER\"\n        },\n        \"createdBy\": \"Cwelch\",\n        \"createdDate\": \"2020-03-17T18:29:30.304Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-17T18:29:30.304Z\",\n        \"deleted\": 0\n    },\n    {\n        \"location\": {\n            \"id\": null,\n            \"name\": null,\n            \"description\": null,\n            \"type\": null,\n            \"waypointType\": null,\n            \"waypointName\": null,\n            \"location\": {\n                \"lon\": null,\n                \"lat\": null\n            },\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"can\": {\n            \"id\": null,\n            \"name\": null,\n            \"serial\": null,\n            \"size\": null,\n            \"requiresMaintenance\": null,\n            \"outOfService\": null,\n            \"source\": null,\n            \"startDate\": null,\n            \"hazardous\": null,\n            \"action\": null,\n            \"timestamp\": null,\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"modifiedBy\": null,\n            \"modifiedDate\": null\n        },\n        \"id\": 158084,\n        \"workOrderId\": 17214,\n        \"type\": \"TRANSITION\",\n        \"note\": {\n            \"text\": \"Assigned to Chris Welch\",\n            \"driverId\": 14,\n            \"newState\": \"REASSIGNMENT\"\n        },\n        \"createdBy\": \"cordr@starlightpro.com\",\n        \"createdDate\": \"2020-03-16T18:48:16.231Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-03-16T18:48:16.231Z\",\n        \"deleted\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get work order note by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/note/{{workOrderNoteId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"note",
+								"{{workOrderNoteId}}"
+							]
+						},
+						"description": "Returns a work order note by the id specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Create work order note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"MANIFEST\",\r\n  \"note\": {\r\n    \"picture\": \"string1\",\r\n    \"text\": \"string2\",\r\n    \"quantity\": 1.2,\r\n    \"unittype\": \"YARDS\",\r\n    \"landfill\": \"stringf\",\r\n    \"newState\": \"START_WORK_ORDER\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/note",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"note"
+							]
+						},
+						"description": "Adds a new note to work order in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Update work order note",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"MANIFEST\",\r\n  \"note\": {\r\n    \"picture\": \"myPicture\",\r\n    \"text\": \"string2\",\r\n    \"quantity\": 1.2,\r\n    \"unittype\": \"YARDS\",\r\n    \"landfill\": \"stringf\",\r\n    \"newState\": \"START_WORK_ORDER\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/note/{{workOrderNoteId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"note",
+								"{{workOrderNoteId}}"
+							]
+						},
+						"description": "Updates work order note in the database from the id passed in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete work order note",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/note/{{workOrderNoteId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"note",
+								"{{workOrderNoteId}}"
+							]
+						},
+						"description": "Deletes work order note with the id passed in the url params from database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get billable services from Core",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/billable-services?materialId=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"billable-services"
+							],
+							"query": [
+								{
+									"key": "materialId",
+									"value": "1"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get materials from Core ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/materials?billableServiceId=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"materials"
+							],
+							"query": [
+								{
+									"key": "billableServiceId",
+									"value": "1"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get disposal sites from Core ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/workorders/{{workOrderId}}/disposal-sites?description=asd",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"workorders",
+								"{{workOrderId}}",
+								"disposal-sites"
+							],
+							"query": [
+								{
+									"key": "description",
+									"value": "asd",
+									"description": "part of description"
+								},
+								{
+									"key": "activeOnly",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Sizes",
+			"item": [
+				{
+					"name": "Get sizes",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/sizes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"sizes"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "allows to filter sizes by id\n\n",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "",
+									"description": "allows to filter sizes by size name",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "",
+									"description": "allows get deleted size, double\n\n",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "allows sort sizes by field (id or name)\n\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all sizes from the database"
+					},
+					"response": [
+						{
+							"name": "Get Sizes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4MGU5ZjBlLWUxMmQtMTFlNy04MGMxLTlhMjE0Y2YwOTNhZSIsInVzZXJuYW1lIjoic3RydWVzIiwiZW1haWwiOiJzdGV2ZW4udHJ1ZXNkZWxsQHN0YXJsaWdodHByby5jb20iLCJvcmdJZCI6MSwicm9sZUlkIjoxMSwidHoiOiJBbWVyaWNhL0RlbnZlciIsIm1ldGEiOnsidGVuYW50SWQiOi0xLCJjb250YWN0SWQiOi0xLCJjdXN0b21lcklkIjotMSwiYXBpQmFzZVVybCI6Imh0dHBzOi8vMC4wLjAuMDo4MDgwL2FwaTEuMCIsImFwaU1vZGUiOiJ0ZXN0In0sImlhdCI6MTU3ODY5NzgyMywiZXhwIjoxNTc5OTA3NDIzLCJhdWQiOiJzdGFybGlnaHQiLCJpc3MiOiJzdGFybGlnaHQtYXBpIn0.BqMcUZTxC9UDcXZNKnie7N2uRg3PcHrB6kvIyjVTptk"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}{{prefix}}/sizes",
+									"host": [
+										"{{baseUrl}}{{prefix}}"
+									],
+									"path": [
+										"sizes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 23:53:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1497"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d9-g2Z7bOA7BlvkA8hn3jFpgC50V7Y\""
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"10\",\n        \"createdBy\": \"dan@marketsoup.com\",\n        \"createdDate\": \"2017-09-24T23:29:28.583Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2017-09-24T23:29:28.583Z\",\n        \"deleted\": 0\n    },\n    {\n        \"id\": 2,\n        \"name\": \"12\",\n        \"createdBy\": \"dan@marketsoup.com\",\n        \"createdDate\": \"2017-09-24T23:29:28.592Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2017-09-24T23:29:28.592Z\",\n        \"deleted\": 0\n    },\n    {\n        \"id\": 3,\n        \"name\": \"20\",\n        \"createdBy\": \"dan@marketsoup.com\",\n        \"createdDate\": \"2017-09-24T23:29:28.600Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2017-09-24T23:29:28.600Z\",\n        \"deleted\": 0\n    },\n    {\n        \"id\": 4,\n        \"name\": \"30\",\n        \"createdBy\": \"dan@marketsoup.com\",\n        \"createdDate\": \"2017-09-24T23:29:28.611Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2017-09-24T23:29:28.611Z\",\n        \"deleted\": 0\n    },\n    {\n        \"id\": 5,\n        \"name\": \"40\",\n        \"createdBy\": \"dan@marketsoup.com\",\n        \"createdDate\": \"2017-09-24T23:29:28.620Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2017-09-24T23:29:28.620Z\",\n        \"deleted\": 0\n    },\n    {\n        \"id\": 6,\n        \"name\": \"40CT\",\n        \"createdBy\": \"dan@marketsoup.com\",\n        \"createdDate\": \"2017-09-24T23:29:28.629Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2017-09-24T23:29:28.629Z\",\n        \"deleted\": 0\n    },\n    {\n        \"id\": 8,\n        \"name\": \"22\",\n        \"createdBy\": \"strues\",\n        \"createdDate\": \"2020-01-12T23:52:10.187Z\",\n        \"modifiedBy\": null,\n        \"modifiedDate\": \"2020-01-12T23:52:10.187Z\",\n        \"deleted\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get size by id",
+					"protocolProfileBehavior": {
+						"followRedirects": false,
+						"followOriginalHttpMethod": false,
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/sizes/{{sizeId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"sizes",
+								"{{sizeId}}"
+							]
+						},
+						"description": "Returns a size by the id specified in the url params"
+					},
+					"response": [
+						{
+							"name": "View Size",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4MGU5ZjBlLWUxMmQtMTFlNy04MGMxLTlhMjE0Y2YwOTNhZSIsInVzZXJuYW1lIjoic3RydWVzIiwiZW1haWwiOiJzdGV2ZW4udHJ1ZXNkZWxsQHN0YXJsaWdodHByby5jb20iLCJvcmdJZCI6MSwicm9sZUlkIjoxMSwidHoiOiJBbWVyaWNhL0RlbnZlciIsIm1ldGEiOnsidGVuYW50SWQiOi0xLCJjb250YWN0SWQiOi0xLCJjdXN0b21lcklkIjotMSwiYXBpQmFzZVVybCI6Imh0dHBzOi8vMC4wLjAuMDo4MDgwL2FwaTEuMCIsImFwaU1vZGUiOiJ0ZXN0In0sImlhdCI6MTU3ODY5NzgyMywiZXhwIjoxNTc5OTA3NDIzLCJhdWQiOiJzdGFybGlnaHQiLCJpc3MiOiJzdGFybGlnaHQtYXBpIn0.BqMcUZTxC9UDcXZNKnie7N2uRg3PcHrB6kvIyjVTptk"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}{{prefix}}/sizes/1",
+									"host": [
+										"{{baseUrl}}{{prefix}}"
+									],
+									"path": [
+										"sizes",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 23:53:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "195"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c3-vMoIW6ngx5Qp3EVImIe7PuKLAeo\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"10\",\n    \"createdBy\": \"dan@marketsoup.com\",\n    \"createdDate\": \"2017-09-24T23:29:28.583Z\",\n    \"modifiedBy\": null,\n    \"modifiedDate\": \"2017-09-24T23:29:28.583Z\",\n    \"deleted\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Create size",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"79\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/sizes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"sizes"
+							]
+						},
+						"description": "Adds a new size in the database (not core)."
+					},
+					"response": [
+						{
+							"name": "Create Size",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4MGU5ZjBlLWUxMmQtMTFlNy04MGMxLTlhMjE0Y2YwOTNhZSIsInVzZXJuYW1lIjoic3RydWVzIiwiZW1haWwiOiJzdGV2ZW4udHJ1ZXNkZWxsQHN0YXJsaWdodHByby5jb20iLCJvcmdJZCI6MSwicm9sZUlkIjoxMSwidHoiOiJBbWVyaWNhL0RlbnZlciIsIm1ldGEiOnsidGVuYW50SWQiOi0xLCJjb250YWN0SWQiOi0xLCJjdXN0b21lcklkIjotMSwiYXBpQmFzZVVybCI6Imh0dHBzOi8vMC4wLjAuMDo4MDgwL2FwaTEuMCIsImFwaU1vZGUiOiJ0ZXN0In0sImlhdCI6MTU3ODY5NzgyMywiZXhwIjoxNTc5OTA3NDIzLCJhdWQiOiJzdGFybGlnaHQiLCJpc3MiOiJzdGFybGlnaHQtYXBpIn0.BqMcUZTxC9UDcXZNKnie7N2uRg3PcHrB6kvIyjVTptk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"22\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}{{prefix}}/sizes",
+									"host": [
+										"{{baseUrl}}{{prefix}}"
+									],
+									"path": [
+										"sizes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 23:52:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Vary",
+									"value": "X-HTTP-Method-Override"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b7-fYndUH1tsnGFOxmcMi1X8r/Y6sE\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"name\": \"22\",\n    \"createdBy\": \"strues\",\n    \"createdDate\": \"2020-01-12T23:52:10.187Z\",\n    \"modifiedBy\": null,\n    \"modifiedDate\": \"2020-01-12T23:52:10.187Z\",\n    \"deleted\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Update size",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"108\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/sizes/{{sizeId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"sizes",
+								"{{sizeId}}"
+							]
+						},
+						"description": "Updates a size in the database (not core) from the id passed in the url params"
+					},
+					"response": [
+						{
+							"name": "Update Size",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4MGU5ZjBlLWUxMmQtMTFlNy04MGMxLTlhMjE0Y2YwOTNhZSIsInVzZXJuYW1lIjoic3RydWVzIiwiZW1haWwiOiJzdGV2ZW4udHJ1ZXNkZWxsQHN0YXJsaWdodHByby5jb20iLCJvcmdJZCI6MSwicm9sZUlkIjoxMSwidHoiOiJBbWVyaWNhL0RlbnZlciIsIm1ldGEiOnsidGVuYW50SWQiOi0xLCJjb250YWN0SWQiOi0xLCJjdXN0b21lcklkIjotMSwiYXBpQmFzZVVybCI6Imh0dHBzOi8vMC4wLjAuMDo4MDgwL2FwaTEuMCIsImFwaU1vZGUiOiJ0ZXN0In0sImlhdCI6MTU3ODY5NzgyMywiZXhwIjoxNTc5OTA3NDIzLCJhdWQiOiJzdGFybGlnaHQiLCJpc3MiOiJzdGFybGlnaHQtYXBpIn0.BqMcUZTxC9UDcXZNKnie7N2uRg3PcHrB6kvIyjVTptk"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"23\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}{{prefix}}/sizes/8",
+									"host": [
+										"{{baseUrl}}{{prefix}}"
+									],
+									"path": [
+										"sizes",
+										"8"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 23:55:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-uzWB1BcpRrzKzFbDbraHA7/ykBc\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"name\": \"23\",\n    \"createdBy\": \"strues\",\n    \"createdDate\": \"2020-01-12T23:52:10.187Z\",\n    \"modifiedBy\": \"strues\",\n    \"modifiedDate\": \"2020-01-12T23:55:40.253Z\",\n    \"deleted\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete size",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/sizes/{{sizeId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"sizes",
+								"{{sizeId}}"
+							]
+						},
+						"description": "Deletes size with the id passed in the url params from database"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Materials",
+			"item": [
+				{
+					"name": "Get all materials",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/v1/materials",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"materials"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "allows to filter materials by id\n\n",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "",
+									"description": "allows to filter materials by material name",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "",
+									"description": "allows get deleted materials",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "allows sort materials by field (name or id)\n\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all materials from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Create material",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Plywood\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/materials",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"materials"
+							]
+						},
+						"description": "Adds a new material in the database"
+					},
+					"response": [
+						{
+							"name": "Create Material",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4MGU5ZjBlLWUxMmQtMTFlNy04MGMxLTlhMjE0Y2YwOTNhZSIsInVzZXJuYW1lIjoic3RydWVzIiwiZW1haWwiOiJzdGV2ZW4udHJ1ZXNkZWxsQHN0YXJsaWdodHByby5jb20iLCJvcmdJZCI6MSwicm9sZUlkIjoxMSwidHoiOiJBbWVyaWNhL0RlbnZlciIsIm1ldGEiOnsidGVuYW50SWQiOi0xLCJjb250YWN0SWQiOi0xLCJjdXN0b21lcklkIjotMSwiYXBpQmFzZVVybCI6Imh0dHBzOi8vMC4wLjAuMDo4MDgwL2FwaTEuMCIsImFwaU1vZGUiOiJ0ZXN0In0sImlhdCI6MTU3ODY5NzgyMywiZXhwIjoxNTc5OTA3NDIzLCJhdWQiOiJzdGFybGlnaHQiLCJpc3MiOiJzdGFybGlnaHQtYXBpIn0.BqMcUZTxC9UDcXZNKnie7N2uRg3PcHrB6kvIyjVTptk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Plywood\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/materials",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"materials"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 23:46:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "189"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Vary",
+									"value": "X-HTTP-Method-Override"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bd-0BX5OCG2qIDpvesX5sPMpu5D/X4\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"name\": \"Plywood\",\n    \"createdBy\": \"strues\",\n    \"createdDate\": \"2020-01-12T23:46:55.846Z\",\n    \"modifiedBy\": null,\n    \"modifiedDate\": \"2020-01-12T23:46:55.846Z\",\n    \"deleted\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Update material",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Ply-wood1\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/materials/{{materialId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"materials",
+								"{{materialId}}"
+							]
+						},
+						"description": "Updates material in the database from the id passed in the url params"
+					},
+					"response": [
+						{
+							"name": "Update Material",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4MGU5ZjBlLWUxMmQtMTFlNy04MGMxLTlhMjE0Y2YwOTNhZSIsInVzZXJuYW1lIjoic3RydWVzIiwiZW1haWwiOiJzdGV2ZW4udHJ1ZXNkZWxsQHN0YXJsaWdodHByby5jb20iLCJvcmdJZCI6MSwicm9sZUlkIjoxMSwidHoiOiJBbWVyaWNhL0RlbnZlciIsIm1ldGEiOnsidGVuYW50SWQiOi0xLCJjb250YWN0SWQiOi0xLCJjdXN0b21lcklkIjotMSwiYXBpQmFzZVVybCI6Imh0dHBzOi8vMC4wLjAuMDo4MDgwL2FwaTEuMCIsImFwaU1vZGUiOiJ0ZXN0In0sImlhdCI6MTU3ODY5NzgyMywiZXhwIjoxNTc5OTA3NDIzLCJhdWQiOiJzdGFybGlnaHQiLCJpc3MiOiJzdGFybGlnaHQtYXBpIn0.BqMcUZTxC9UDcXZNKnie7N2uRg3PcHrB6kvIyjVTptk"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Ply-wood\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/materials/15",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"materials",
+										"15"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 23:49:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "194"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c2-C+KQ9hAf0AADvurEbNoe3GW0u2c\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"name\": \"Ply-wood\",\n    \"createdBy\": \"strues\",\n    \"createdDate\": \"2020-01-12T23:46:55.846Z\",\n    \"modifiedBy\": \"strues\",\n    \"modifiedDate\": \"2020-01-12T23:49:46.382Z\",\n    \"deleted\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete material",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/materials/{{materialId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"materials",
+								"{{materialId}}"
+							]
+						},
+						"description": "Deletes material with the id passed in the url params from the database"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "Get documents",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/documents",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"documents"
+							]
+						},
+						"description": "Returns all documents from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Create new document",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"printedName\": \"Some\",\r\n  \"signature\": \"YES\",\r\n  \"workOrderId\": 21608\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/documents",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"documents"
+							]
+						},
+						"description": "Adds a new document in the database"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Templates",
+			"item": [
+				{
+					"name": "Get templates",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/templates",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"templates"
+							]
+						},
+						"description": "Returns all templates from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Create template",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"The Template6\",\r\n\"acknowledgement\":\"By digitally signing...\",\r\n\"content\":\"Contaminated loads of concrete will be charged a $53 ton over haul rate. Customer responsible for the container for any fire, theft, damage, and insurance. Container must not be over loaded. Must not contain Hazardous Waste, Toxic or Flammable liquids, solids, or gases. No Hot ashes or burning, liquids or wet concrete, tires, refrigerators, or air conditioners. By signing you agree to pay any assessed trip charges or overweight fines from improper loading.\",\r\n\"description\":\"this is a desc\"}"
+						},
+						"url": {
+							"raw": "{{host}}/v1/templates",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"templates"
+							]
+						},
+						"description": "Adds a new template in the database"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Drivers",
+			"item": [
+				{
+					"name": "Get all drivers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/v1/drivers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"drivers"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "",
+									"description": "this is a text search query\n\n",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "\n",
+									"description": "get deleted drivers \n\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all drivers from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get driver by email",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/drivers/email/:email",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"drivers",
+								"email",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": null
+								}
+							]
+						},
+						"description": "Returns a work driver by the username specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Get driver by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/v1/drivers/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"drivers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "Returns a driver by the driverId specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Update driver",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"language\": \"en\",\n    \"deviceToken\": \"1231231asdasdadada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/drivers/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"drivers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "47"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trucks",
+			"item": [
+				{
+					"name": "Get all trucks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/v1/trucks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"trucks"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "",
+									"description": "this is a text search query\n\n",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "\n",
+									"description": "get deleted drivers \n\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all drivers from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Get truck by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/v1/trucks/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"trucks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "Returns a driver by the driverId specified in the url params"
+					},
+					"response": []
+				},
+				{
+					"name": "Update truck location",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": {\n        \"type\": \"Point\",\n        \"coordinates\": [-172.122, -81.23]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/trucks/:id/location",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"trucks",
+								":id",
+								"location"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "52"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Settings - map",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/settings?businessUnitId=1&keys=map",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"settings"
+							],
+							"query": [
+								{
+									"key": "keys",
+									"value": "map,driver.dispatcherPhone",
+									"disabled": true
+								},
+								{
+									"key": "businessUnitIds",
+									"value": "1,2,3",
+									"disabled": true
+								},
+								{
+									"key": "businessUnitId",
+									"value": "1"
+								},
+								{
+									"key": "keys",
+									"value": "map"
+								}
+							]
+						},
+						"description": "Returns settings with map key from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Settings - dispatcherPhone",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/settings?businessUnitId=1&keys=driver.dispatcherPhone",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"settings"
+							],
+							"query": [
+								{
+									"key": "keys",
+									"value": "map,driver.dispatcherPhone",
+									"disabled": true
+								},
+								{
+									"key": "businessUnitIds",
+									"value": "1,2,3",
+									"disabled": true
+								},
+								{
+									"key": "businessUnitId",
+									"value": "1"
+								},
+								{
+									"key": "keys",
+									"value": "driver.dispatcherPhone"
+								}
+							]
+						},
+						"description": "Returns settings with driver.dispatcherPhone key from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Create setting",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"key\": \"map\",\n    \"value\": \"{\\\"zoom\\\": 10}\",\n    \"businessUnitId\": 1\n},{\n    \"key\": \"map\",\n    \"value\": \"{\\\"zoom\\\": 20}\",\n    \"businessUnitId\": 2\n}]"
+						},
+						"url": {
+							"raw": "{{host}}/v1/settings",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Time Cards",
+			"item": [
+				{
+					"name": "Get time cards",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/timecards",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"timecards"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "",
+									"description": "a date filter, takes a range of dates as ${start.getTime()}..${end.getTime()}, where start and end both are JS Date objects",
+									"disabled": true
+								},
+								{
+									"key": "driverId",
+									"value": "",
+									"description": "filter time cards by driver's id",
+									"disabled": true
+								},
+								{
+									"key": "driverName",
+									"value": "",
+									"description": "filter time cards by driver's name",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "",
+									"description": "get deleted cans",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns time cards from the database"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Default",
+			"item": [
+				{
+					"name": "List constants",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false,
+						"followOriginalHttpMethod": false,
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/constants",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"constants"
+							]
+						},
+						"description": "Returns all sizes from the database"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "lobby",
+					"item": [
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/lobby/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"lobby",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logincb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/lobby/logincb",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"lobby",
+										"logincb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/lobby/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"lobby",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/lobby/logout?token=asdasd&systemLogout=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"lobby",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "asdasd"
+										},
+										{
+											"key": "systemLogout",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"refresh token here\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/lobby/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"lobby",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[deprecated] exchange code for token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"some code string\",\r\n    \"state\": \"some state string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/lobby/token",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"lobby",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "drivers",
+					"item": [
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/driver/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"driver",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logincb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/driver/logincb",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"driver",
+										"logincb"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/driver/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"driver",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/driver/logout?token=asdasd&systemLogout=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"driver",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "asdasd"
+										},
+										{
+											"key": "systemLogout",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"refresh token here\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/driver/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"driver",
+										"refresh"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[deprecated] exchange code for token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"some code string\",\r\n    \"state\": \"some state string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/driver/token",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"driver",
+										"token"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "configuration",
+					"item": [
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/configuration/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"configuration",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logincb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/configuration/logincb",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"configuration",
+										"logincb"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/configuration/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"configuration",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/configuration/logout?token=asdasd&systemLogout=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"configuration",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "asdasd"
+										},
+										{
+											"key": "systemLogout",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"refresh token here\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/configuration/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"configuration",
+										"refresh"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[deprecated] exchange code for token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"some code string\",\r\n    \"state\": \"some state string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/configuration/token",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"configuration",
+										"token"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "business units",
+					"item": [
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/business-units/:businessUnit/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"business-units",
+										":businessUnit",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										},
+										{
+											"key": "businessUnit",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logincb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/business-units/:businessUnit/logincb",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"business-units",
+										":businessUnit",
+										"logincb"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										},
+										{
+											"key": "businessUnit",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/business-units/:businessUnit/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"business-units",
+										":businessUnit",
+										"login"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										},
+										{
+											"key": "businessUnit",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/business-units/:businessUnit/logout?token=asdasd&systemLogout=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"business-units",
+										":businessUnit",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "asdasd"
+										},
+										{
+											"key": "systemLogout",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										},
+										{
+											"key": "businessUnit",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refreshToken\": \"refresh token here\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/v1/auth/:tenantName/business-units/:businessUnit/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										":tenantName",
+										"business-units",
+										":businessUnit",
+										"refresh"
+									],
+									"variable": [
+										{
+											"key": "tenantName",
+											"value": null
+										},
+										{
+											"key": "businessUnit",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[deprecated] exchange code for token Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"some code string\",\r\n    \"state\": \"some state string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localPortal}}/api/customer-portal/v1/auth/customers/:customerId/token",
+									"host": [
+										"{{localPortal}}"
+									],
+									"path": [
+										"api",
+										"customer-portal",
+										"v1",
+										"auth",
+										"customers",
+										":customerId",
+										"token"
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Business Units",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/business-units/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"business-units",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Get by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-amzn-trace-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/companies/:companyId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"companies",
+								":companyId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "companyId",
+									"value": "166"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health check [only for local env]",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-amzn-trace-id",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/system/healthcheck",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"system",
+						"healthcheck"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get available resources",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-amzn-trace-id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/v1/lobby/available-resource-logins",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"lobby",
+						"available-resource-logins"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "15"
+		},
+		{
+			"key": "username",
+			"value": "username"
+		}
+	]
+}

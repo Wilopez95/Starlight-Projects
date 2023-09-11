@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    type: number
+  label:
+    type: string
+  subLabel:
+    type: string
+  image:
+    type: string
+  loginUrl:
+    type: string
+  targetType:
+    type: string
+  tenantName:
+    type: string
+  updatedAt:
+    type: string
+    format: date-time

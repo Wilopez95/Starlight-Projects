@@ -1,0 +1,11 @@
+/trashapi/v1/trucks:
+  get:
+    $fs-ref: ./trucks/list.yaml
+
+/trashapi/v1/trucks/{truckId}:
+  get:
+    $fs-ref: ./trucks/view.yaml
+
+/trashapi/v1/trucks/{truckId}/location:
+  patch:
+    $fs-ref: ./trucks/update-location.yaml

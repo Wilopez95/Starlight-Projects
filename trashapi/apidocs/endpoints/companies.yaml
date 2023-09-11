@@ -1,0 +1,3 @@
+/trashapi/v1/companies/{companyId}:
+  get:
+    $fs-ref: ./companies/view.yaml

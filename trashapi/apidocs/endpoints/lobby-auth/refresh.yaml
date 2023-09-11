@@ -1,0 +1,22 @@
+x-name: lobby-refresh-token
+summary: Refresh UMS token
+tags:
+  - Lobby Auth
+parameters:
+  - name: refreshToken
+    in: body
+    description: refreshToken of the user
+    schema:
+      type: object
+      required:
+        - refreshToken
+      properties:
+        refreshToken:
+          type: string
+responses:
+  200:
+    description: Refresh token data
+    schema:
+      $ref: '#/definitions/RefreshToken'
+  500:
+    $ref: '#/responses/Unexpected'

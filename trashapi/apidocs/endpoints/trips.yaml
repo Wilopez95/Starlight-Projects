@@ -1,0 +1,13 @@
+/trashapi/v1/trips:
+  post:
+    $fs-ref: ./trips/create.yaml
+  get:
+    $fs-ref: ./trips/list-trips.yaml
+
+/trashapi/v1/trips/{tripId}:
+  put:
+    $fs-ref: ./trips/update.yaml
+  get:
+    $fs-ref: ./trips/view-trip.yaml
+  delete:
+    $fs-ref: ./trips/delete.yaml

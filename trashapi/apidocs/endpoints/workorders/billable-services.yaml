@@ -1,0 +1,32 @@
+x-name: workorders-hauling-billable-services
+summary: Get hauling billable services of the work order.
+tags:
+  - Work Orders
+parameters:
+  - $fs-ref: ../../globals/auth-params.yaml
+  - name: materialId
+    in: query
+    description: get billable services by material id
+    type: integer
+    required: false
+  - name: workOrderId
+    in: path
+    description: trashapi work order id
+    type: integer
+    required: true
+  - name: activeOnly
+    in: query
+    description: get only active services
+    type: boolean
+    required: false
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of hauling billable services
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/HaulingBillableService'
+  500:
+    $ref: '#/responses/Unexpected'

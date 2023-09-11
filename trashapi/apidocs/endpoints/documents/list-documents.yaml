@@ -1,0 +1,15 @@
+x-name: list-documents
+summary: Get all the documents
+tags:
+  - Documents
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of documents
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Document'
+  500:
+    $ref: '#/responses/Unexpected'

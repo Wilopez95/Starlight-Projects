@@ -1,0 +1,17 @@
+x-name: list-lobby
+summary: Get all available resource logins
+tags:
+  - Lobby
+parameters:
+  - $fs-ref: ../../globals/auth-params.yaml
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  200:
+    description: An array of resources
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Resource'
+  500:
+    $ref: '#/responses/Unexpected'

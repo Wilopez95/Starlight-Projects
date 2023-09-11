@@ -1,0 +1,37 @@
+x-name: update-truck-location
+summary: Update a truck location
+tags:
+  - Trucks
+parameters:
+  - $fs-ref: '../../globals/auth-params.yaml'
+  - name: truckId
+    in: path
+    description: ID of the Truck
+    type: integer
+    required: true
+  - name: truckLocation
+    in: body
+    description: new location for the truck
+    schema:
+      type: object
+      properties:
+        location:
+          $ref: '#/definitions/TruckLocation'
+    required: true
+responses:
+  403:
+    $ref: '#/responses/Forbidden'
+  202:
+    description: An updated truck
+    schema:
+      $ref: '#/definitions/Truck'
+  404:
+    description: Truck not found
+    schema:
+      $ref: '#/definitions/NotFoundError'
+  400:
+    description: Invalid truck ID supplied
+    schema:
+      $ref: '#/definitions/InvalidParameterError'
+  500:
+    $ref: '#/responses/Unexpected'

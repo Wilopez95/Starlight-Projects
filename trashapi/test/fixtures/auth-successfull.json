@@ -1,0 +1,7 @@
+{
+  "access_token": "bQRgaD918y6Uy2dxX0popa4Ww6bm%2B1bB0p9B8ksXQRvbIhgcFUcbtexFiZInkzo8GX22b0RENZVEyMTn%2FdAuxQ%3D%3D",
+  "token_type": "Bearer",
+  "expires_in": 31449600,
+  "scope": "role:4;user_id:52;customer_id:0;name:Test Dispatch;tenant_id:1;username:dispatch3;required_data:western_star,Service,western_star.vw_waypoint_locations,western_star,Service,western_star.services,western_star.vw_units_imperial, western_star.waypoint_locations,western_star.fill_locations,western_star.vw_fill_locations,western_star.vw_workorder_note_type,Service.roleAlias,western_star.line_item_dd_vw,western_star.vw_status,Service.statemachine,western_star.invoice_construction_types,western_star.billing_term_types,western_star.billing_period_types,western_star.vw_transaction_types,Service.actionAlias,western_star.can_size;first_run:1",
+  "refresh_token": "im438qsb78qua1892v4oolddh6"
+}

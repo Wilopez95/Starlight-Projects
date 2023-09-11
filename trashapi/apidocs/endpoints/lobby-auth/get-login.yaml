@@ -1,0 +1,9 @@
+x-name: lobby-get-login
+summary: Login with get method
+tags:
+  - Lobby Auth
+responses:
+  304:
+    description: Redirect to UMS API
+  500:
+    $ref: '#/responses/Unexpected'

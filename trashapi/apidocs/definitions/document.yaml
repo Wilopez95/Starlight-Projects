@@ -1,0 +1,38 @@
+type: object
+properties:
+  id:
+    type: number
+  url:
+    type: string
+    description: automatically created on the back-end side
+  driver:
+    type: string
+  printedName:
+    type: string
+  signature:
+    type: string
+    description: needed only for the creation, doesn't exists in database
+  time:
+    type: string
+    format: date-time
+    description: needed only for the creation, doesn't exists in database, should be in moment format 'MM-DD-YYYY hh:mm:ss a'
+    example: "11-05-2021 04:50:11 pm"
+  templateId:
+    type: number
+  workOrderId:
+    type: number
+  createdBy:
+    type: string
+  createdDate:
+    type: string
+    format: date-time
+  modifiedBy:
+    type: string
+  modifiedDate:
+    type: string
+    format: date-time
+required:
+  - signature
+  - workOrderId
+  - printedName
+  - time

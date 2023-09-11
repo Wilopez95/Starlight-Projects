@@ -1,0 +1,24 @@
+x-name: business-unit-refresh-token
+summary: Refresh UMS token
+tags:
+  - Business Unit Auth
+parameters:
+  - $fs-ref: ../../globals/business-unit-login-params.yaml
+  - name: refreshToken
+    in: body
+    description: refreshToken of the user
+    required: true
+    schema:
+      type: object
+      required:
+        - refreshToken
+      properties:
+        refreshToken:
+          type: string
+responses:
+  200:
+    description: Refresh token data
+    schema:
+      $ref: '#/definitions/RefreshToken'
+  500:
+    $ref: '#/responses/Unexpected'

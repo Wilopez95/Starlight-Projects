@@ -1,0 +1,20 @@
+x-name: business-unit-logout
+summary: Logout with get method
+tags:
+  - Business Unit Auth
+parameters:
+  - $fs-ref: ../../globals/business-unit-login-params.yaml
+  - name: token
+    in: query
+    description: token of the user
+    type: string
+    required: true
+  - name: systemLogout
+    in: query
+    type: boolean
+    required: true
+responses:
+  304:
+    description: Redirect to login URL
+  500:
+    $ref: '#/responses/Unexpected'

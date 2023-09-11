@@ -1,0 +1,9 @@
+x-name: lobby-post-login
+summary: Login with post method
+tags:
+  - Lobby Auth
+responses:
+  304:
+    description: Redirect to UMS API
+  500:
+    $ref: '#/responses/Unexpected'

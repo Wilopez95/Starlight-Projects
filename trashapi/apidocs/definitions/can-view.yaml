@@ -1,0 +1,9 @@
+type: object
+allOf:
+  - $ref: '#/definitions/Can'
+  - type: object
+    properties:
+      transactions:
+        type: array
+        items:
+          $ref: '#/definitions/Transaction'

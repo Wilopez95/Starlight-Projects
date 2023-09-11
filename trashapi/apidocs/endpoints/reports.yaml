@@ -1,0 +1,7 @@
+/trashapi/v1/reports/drivers:
+  get:
+    $fs-ref: ./reports/drivers.yaml
+
+/trashapi/v1/reports/cans-aging:
+  get:
+    $fs-ref: ./reports/cans-aging.yaml

@@ -1,0 +1,50 @@
+type: object
+properties:
+  id:
+    type: number
+  active:
+    type: boolean
+  description:
+    type: string
+  name:
+    type: string
+    description: alias for description
+  photoUrl:
+    type: string
+  phone:
+    type: string
+  email:
+    type: string
+  licenseNumber:
+    type: string
+  licenseType:
+    type: string
+  workingWeekdays:
+    type: array
+    items:
+      type: integer
+  truckId:
+    type: integer
+  licenseValidityDate:
+    type: string
+    format: date-time
+  medicalCardValidityDate:
+    type: string
+    format: date-time
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time
+  language:
+    type: string
+    description: language code for driver app
+    enum:
+      - en
+      - es
+  deviceToken:
+    type: string
+    description: token of mobile phone
+  truck:
+    $ref: '#/definitions/Truck'

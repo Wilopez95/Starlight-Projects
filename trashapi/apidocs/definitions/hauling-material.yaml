@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    type: integer
+  bussinessLineId:
+    type: integer
+  active:
+    type: boolean
+  description:
+    type: string
+  manifested:
+    type: boolean
+  recycle:
+    type: boolean
+  misc:
+    type: boolean
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time
+  yard:
+    type: boolean
+  landfillCanOverride:
+    type: boolean
+  useForLoad:
+    type: boolean
+  useForDump:
+    type: boolean
+  code:
+    type: string

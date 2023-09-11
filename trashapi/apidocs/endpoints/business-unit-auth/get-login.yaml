@@ -1,0 +1,11 @@
+x-name: get-business-unit-login
+summary: Login with get method
+tags:
+  - Business Unit Auth
+parameters:
+  - $fs-ref: ../../globals/business-unit-login-params.yaml
+responses:
+  304:
+    description: Redirect to UMS API
+  500:
+    $ref: '#/responses/Unexpected'

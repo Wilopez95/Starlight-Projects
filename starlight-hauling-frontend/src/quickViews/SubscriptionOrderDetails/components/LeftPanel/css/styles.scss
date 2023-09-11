@@ -1,0 +1,8 @@
+.workOrder {
+  display: flex;
+  align-items: flex-end;
+
+  .completedBadge {
+    margin-left: 10px;
+  }
+}

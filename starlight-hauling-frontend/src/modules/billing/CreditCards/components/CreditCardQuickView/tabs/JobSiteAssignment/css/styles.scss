@@ -1,0 +1,33 @@
+.radioButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.radioButton {
+  margin-bottom: 10px;
+}
+
+.textWithIcon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.assignJobSite {
+  justify-content: flex-end;
+}
+
+.icon {
+  margin-right: 8px;
+
+  &.deleteIcon {
+    & path {
+      fill: var(--dark-60);
+    }
+  }
+
+  &.withControl {
+    margin-bottom: 25px;
+  }
+}

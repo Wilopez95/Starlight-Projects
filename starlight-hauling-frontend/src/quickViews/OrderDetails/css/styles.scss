@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.panelsContainer {
+  display: flex;
+  height: calc(100% - 85px);
+}
+
+.rightPanelContainer {
+  width: 66.66%;
+}
+
+.scrollContainer {
+  padding: 0px 24px !important;
+}

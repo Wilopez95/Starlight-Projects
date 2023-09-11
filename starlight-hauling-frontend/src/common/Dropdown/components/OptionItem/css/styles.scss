@@ -1,0 +1,23 @@
+.optionItem {
+  position: relative;
+  padding: 7px 16px;
+  border-bottom: 1px solid var(--primary-gray);
+  cursor: pointer;
+
+  &:hover,
+  &:focus.optionItem,
+  &[aria-selected='true'] {
+    box-shadow: inset 2px 0 0 0 var(--primary);
+    background-color: var(--primary-gray-desaturated);
+  }
+
+  &.disabled {
+    color: var(--primary-gray);
+
+    &:hover {
+      box-shadow: none;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+}

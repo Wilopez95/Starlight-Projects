@@ -1,0 +1,37 @@
+{
+  "size": "{{size}}",
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "multi_match": {
+            "query": "{{query}}",
+            "type": "cross_fields",
+            "fields": ["address", "city"]
+          }
+        },
+        {
+          "match": {
+            "zip": "{{query}}"
+          }
+        },
+        {
+          "match": {
+            "state": "{{query}}"
+          }
+        }
+      ]
+    }
+  },
+  "highlight": {
+    "fields": {
+      "address": {},
+      "addressLine1": {},
+      "addressLine2": {},
+      "city": {},
+      "zip": {},
+      "state": {},
+      "tenantName": {}
+    }
+  }
+}

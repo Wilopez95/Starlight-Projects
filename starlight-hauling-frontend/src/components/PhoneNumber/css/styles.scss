@@ -1,0 +1,58 @@
+.typeWrapper {
+  width: 40%;
+  min-width: 125px;
+  margin-right: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.type {
+  width: 85%;
+
+  &.disabled {
+    width: 100%;
+  }
+}
+
+.extension {
+  max-width: 100px;
+}
+
+.textOnly {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+
+  &.default {
+    margin-bottom: 0;
+  }
+}
+
+.number {
+  width: 100%;
+  min-width: 125px;
+}
+
+.removeIcon {
+  cursor: pointer;
+  width: 15%;
+  margin-right: 10px;
+  margin-bottom: 25px;
+
+  & path {
+    fill: var(--secondary-gray);
+    &:hover {
+      fill: var(--destructive);
+    }
+  }
+
+  &.first {
+    margin-bottom: 0;
+  }
+}
+
+.addPhoneNumberContainer {
+  float: right;
+}

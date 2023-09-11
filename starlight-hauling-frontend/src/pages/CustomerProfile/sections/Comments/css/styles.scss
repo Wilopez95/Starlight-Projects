@@ -1,0 +1,47 @@
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+.comment {
+  background: var(--light-yellow);
+  padding: 24px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    text-transform: capitalize;
+
+    & svg {
+      cursor: pointer;
+    }
+  }
+
+  .subHeader {
+    color: var(--dark-60);
+    font-size: 12px;
+  }
+
+  .content {
+    margin-top: 16px;
+    display: inline-block;
+    word-break: break-all;
+  }
+
+  .deleteIcon {
+    margin-left: 16px;
+    & path {
+      fill: var(--caption-desaturated);
+    }
+  }
+
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
+}
+
+.showMoreLink {
+  margin-top: 10px;
+}

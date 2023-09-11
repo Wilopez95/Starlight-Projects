@@ -1,0 +1,31 @@
+.container {
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: 100%;
+  margin-right: 0px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    min-width: 1px;
+    height: 1px;
+    margin-left: -1px;
+  }
+}

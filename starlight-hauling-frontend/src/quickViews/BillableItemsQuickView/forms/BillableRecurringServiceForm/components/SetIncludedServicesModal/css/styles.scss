@@ -1,0 +1,13 @@
+.modal {
+  top: 25%;
+  width: 742px;
+  height: 57%;
+  min-height: 545px;
+  transform: translate(-50%, -25%);
+}
+
+.overlay {
+  min-width: 795px;
+  width: 50%;
+  z-index: var(--backgroundOverlayZindex);
+}

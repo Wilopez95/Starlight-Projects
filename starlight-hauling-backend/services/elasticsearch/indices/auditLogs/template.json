@@ -1,0 +1,38 @@
+{
+  "name": "audit_logs",
+  "level": "tenant",
+  "syncAllowed": true,
+  "content": {
+    "index_patterns": ["audit_logs*"],
+    "version": 2,
+    "mappings": {
+      "properties": {
+        "entityId": {
+          "type": "keyword"
+        },
+        "entity": {
+          "type": "keyword"
+        },
+        "action": {
+          "type": "keyword"
+        },
+        "user": {
+          "type": "text"
+        },
+        "userId": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date"
+        },
+        "businessUnitId": {
+          "type": "keyword"
+        },
+        "data": {
+          "type": "object",
+          "enabled": false
+        }
+      }
+    }
+  }
+}

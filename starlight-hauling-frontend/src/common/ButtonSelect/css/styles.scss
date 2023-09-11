@@ -1,0 +1,109 @@
+.buttonSelect {
+  display: flex;
+  justify-content: center;
+  border-width: 1px 1px 1px 0;
+
+  & .button {
+    width: 100%;
+  }
+
+  & .button.active {
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    background-color: var(--primary-desaturated);
+  }
+
+  &.row {
+    & .button {
+      border-width: 1px 1px 1px 0;
+
+      &:first-child {
+        border-radius: 3px 0 0 3px;
+        border-width: 1px;
+
+        &:focus::after,
+        &:hover::after {
+          content: '';
+          width: 1px;
+          height: calc(100% + 2px);
+          position: absolute;
+          right: -1px;
+          top: -1px;
+          z-index: 1;
+          background-color: var(--primary);
+        }
+      }
+
+      &:last-child {
+        border-radius: 0 3px 3px 0;
+        border-width: 1px 1px 1px 0;
+      }
+
+      &:not(:first-child):focus::after,
+      &:not(:first-child):hover::after {
+        content: '';
+        width: 1px;
+        height: calc(100% + 2px);
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        z-index: 1;
+        background-color: var(--primary);
+      }
+    }
+  }
+
+  &.column {
+    &.button {
+      &:first-child {
+        border-radius: 3px 3px 0 0;
+
+        &:focus::after,
+        &:hover::after {
+          content: '';
+          height: 1px;
+          width: calc(100% + 2px);
+          position: absolute;
+          left: -1px;
+          bottom: -1px;
+          z-index: 1;
+          background-color: var(--primary);
+        }
+      }
+
+      &:last-child {
+        border-radius: 0 0 3px 3px;
+        border-width: 0 1px 1px 1px;
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-width: 0 1px 1px 1px;
+      }
+
+      &:not(:first-child):focus::after,
+      :not(:first-child):hover::after {
+        content: '';
+        height: 1px;
+        width: calc(100% + 2px);
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        z-index: 1;
+        background-color: var(--primary);
+      }
+    }
+  }
+}
+
+.validationText {
+  display: block;
+  min-height: 20px;
+  line-height: 1.43;
+  margin: 4px 1px;
+  color: var(--destructive);
+  font-size: 12px;
+}
+
+.wrapper {
+  width: 100%;
+}

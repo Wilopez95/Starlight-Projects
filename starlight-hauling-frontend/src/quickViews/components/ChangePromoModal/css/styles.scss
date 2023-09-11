@@ -1,0 +1,28 @@
+.modal {
+  top: 50%;
+  width: 500px;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  width: 100%;
+}
+
+.select {
+  width: 100%;
+}
+
+.removeIcon {
+  cursor: pointer;
+
+  & path {
+    fill: var(--secondary-gray);
+    &:hover {
+      fill: var(--destructive);
+    }
+  }
+}
+
+.promo {
+  word-break: break-word;
+}

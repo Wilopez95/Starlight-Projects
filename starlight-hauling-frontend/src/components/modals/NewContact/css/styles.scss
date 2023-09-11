@@ -1,0 +1,20 @@
+.modal {
+  top: 50%;
+  width: 742px;
+  height: 645px;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  min-width: 795px;
+  width: 50%;
+  z-index: var(--backgroundOverlayZindex);
+}
+
+.half {
+  width: 50%;
+}
+
+.fullSize {
+  width: 100%;
+}

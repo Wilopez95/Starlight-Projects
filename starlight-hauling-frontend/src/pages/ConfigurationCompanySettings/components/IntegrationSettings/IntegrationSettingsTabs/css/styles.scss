@@ -1,0 +1,12 @@
+.removeIcon {
+  cursor: pointer;
+  width: 15%;
+  margin-top: 1rem;
+
+  & path {
+    fill: var(--secondary-gray);
+    &:hover {
+      fill: var(--destructive);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "administrative",
+  "level": "root",
+  "syncAllowed": false,
+  "content": {
+    "index_patterns": ["administrative*"],
+    "version": 3,
+    "mappings": {
+      "properties": {
+        "name": {
+          "type": "search_as_you_type"
+        },
+        "alternativeNames": {
+          "type": "search_as_you_type"
+        },
+        "level": {
+          "type": "keyword"
+        },
+        "primaryUnit": {
+          "type": "search_as_you_type"
+        },
+        "bbox": {
+          "type": "object",
+          "enabled": false
+        }
+      }
+    }
+  }
+}

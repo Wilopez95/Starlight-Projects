@@ -1,0 +1,25 @@
+.pageContainer {
+  height: calc(100vh - var(--headerHeight));
+}
+
+.fullWidth {
+  flex: 1;
+}
+
+.left {
+  min-width: 450px;
+  width: 30%;
+  overflow: auto;
+}
+
+.instructions {
+  overflow: auto;
+  height: 100%;
+}
+
+.mapboxContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}

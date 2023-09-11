@@ -1,0 +1,54 @@
+.sidebar {
+  background: var(--primary-gray-desaturated);
+  overflow: hidden;
+
+  --space: 24px;
+
+  & .header {
+    padding: 0 var(--space);
+
+    & .backLink {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      & svg {
+        margin-right: 8px;
+      }
+    }
+
+    & .heading {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--dark);
+      padding-top: 8px;
+    }
+  }
+
+  & .customers {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    overflow: hidden;
+
+    & .subHeading {
+      padding: var(--space);
+      background: var(--primary-gray-desaturated);
+    }
+  }
+
+  & .summary {
+    padding: var(--space);
+    padding-bottom: 0;
+    margin-bottom: var(--space);
+
+    & .summaryItem {
+      display: flex;
+      justify-content: space-between;
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

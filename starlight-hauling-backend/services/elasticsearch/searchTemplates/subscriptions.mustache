@@ -1,0 +1,117 @@
+{
+    "size": "{{size}}",
+    "query": {
+        "bool": {
+            "filter": [
+                {
+                    "term": {
+                        "businessUnitId": {
+                            "value": "{{businessUnitId}}"
+                        }
+                    }
+                }
+                {{#businessLine}}
+                ,{
+                    "terms": {
+                        "businessLineId": [
+                            "{{#businessLine}}",
+                            "{{.}}",
+                            "{{/businessLine}}"
+                        ]
+                }
+                {{/businessLine}}
+                {{#startDateTo}}
+                ,{
+                    "range": {
+                        "startDate": {
+                            "gte": {{startDateTo}},
+                            "lte": {{startDateFrom}}
+                        }
+                    }
+                }
+                {{/startDateTo}}
+                {{#serviceFrequencyId}}
+                ,{
+                    "terms": {
+                        "serviceFrequencyAggregated": [
+                            "{{#serviceFrequencyId}}",
+                            "{{.}}",
+                            "{{/serviceFrequencyId}}",
+                        ]
+                    }
+                }
+                {{/serviceFrequencyId}}
+                {{#billingCycle}}
+                ,{
+                    "terms": {
+                        "billingCycle": [
+                            "{{#billingCycle}}",
+                            "{{.}}",
+                            "{{/billingCycle}}"
+                        ]
+                    }
+                }
+                {{/billingCycle}}
+                {{#ratesChanged}}
+                ,{
+                    "term": {
+                        "ratesChanged": {
+                            "value": "{{ratesChanged}}"
+                        }
+                    }
+                }
+                {{/ratesChanged}}
+                {{#status}}
+                ,{
+                    "term": {
+                        "status": {
+                            "value": "{{status}}"
+                        }
+                    }
+                }
+                {{/status}}
+                {{#csrEmail}}
+                ,{
+                    "term": {
+                        "csrEmail": {
+                            "value": "{{csrEmail}}"
+                        }
+                    }
+                }
+                {{/csrEmail}}
+            ]
+            {{#query}}
+            ,
+            "must": [
+                {
+                    "multi_match": {
+                        "query": "{{query}}",
+                        "type": "cross_fields",
+                        "fields": ["customerName", "jobSiteAddress"]
+                    }
+                }
+            ]
+            {{/query}}
+        }
+    },
+    "sort": [
+        {
+            "_score": {
+                "order": "desc"
+            }
+        },
+        {
+            "updatedAt": {
+                "order": "desc",
+                "missing": "_last"
+            }
+        }
+    ],
+    "highlight": {
+        "number_of_fragments": 1,
+        "fields": {
+            "customerName": {},
+            "jobSiteAddress": {}
+        }
+    }
+}

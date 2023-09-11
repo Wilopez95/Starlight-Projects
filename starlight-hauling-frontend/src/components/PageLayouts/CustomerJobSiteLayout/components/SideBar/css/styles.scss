@@ -1,0 +1,59 @@
+.sidebar {
+  --linkJobSiteHeight: 70px;
+  width: 250px;
+  min-width: 250px;
+  border-right: 1px solid var(--primary-gray);
+
+  .switch {
+    margin-right: 20px;
+  }
+
+  .linkedSettings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-gray);
+    padding: 28px 14px;
+    height: var(--linkJobSiteHeight);
+  }
+
+  .linkJobSite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-gray);
+    padding: 28px 14px;
+    height: var(--linkJobSiteHeight);
+
+    & div {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    & svg {
+      cursor: pointer;
+
+      &:hover {
+        & path {
+          fill: var(--secondary);
+        }
+      }
+    }
+  }
+
+  .jobSitesNavigation {
+    min-width: 200px;
+
+    & > div {
+      flex: 0 0 70px;
+      color: var(--black);
+    }
+  }
+}
+
+.plus {
+  padding-right: 8px;
+  font-size: 18px;
+  color: var(--dark-60);
+}

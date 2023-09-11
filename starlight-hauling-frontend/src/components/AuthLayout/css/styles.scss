@@ -1,0 +1,19 @@
+.loginPage {
+  height: 100%;
+  display: flex;
+}
+
+.left {
+  width: 100%;
+  height: 100%;
+  background: url('../../../../assets/img/login-bg.jpg') no-repeat center / cover;
+}
+
+.right {
+  width: 560px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}

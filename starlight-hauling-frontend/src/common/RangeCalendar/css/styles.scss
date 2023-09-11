@@ -1,0 +1,131 @@
+.container {
+  background-color: var(--white);
+  max-width: 300px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px var(--dark-30);
+}
+
+.wrapper {
+  position: relative;
+  flex-direction: row;
+  user-select: none;
+}
+
+.month {
+  display: table;
+  margin-top: 1em;
+  border-spacing: 0;
+  border-collapse: collapse;
+  user-select: none;
+}
+
+.day {
+  color: var(--secondary-gray-dark);
+  display: table-cell;
+  padding: 11px;
+  font-size: 16px;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:hover:not(.disabled) {
+    background-color: var(--primary-gray-desaturated);
+    color: var(--caption-dark);
+    border: 1px solid var(--primary);
+  }
+
+  &.disabled {
+    user-select: none;
+    cursor: default;
+    pointer-events: none;
+    color: var(--secondary-gray);
+  }
+}
+
+.selected {
+  color: var(--white);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+
+  &:hover {
+    border: 1px solid transparent;
+  }
+}
+
+//TODO: add styles for selected date range
+//! .start - start of range
+//! .end - end of range
+// .range {
+//   & :global(.start) {
+//     border-top-left-radius: 50% !important;
+//     border-bottom-left-radius: 50% !important;
+//   }
+//   & :global(.end) {
+//     border-top-right-radius: 50% !important;
+//     border-bottom-right-radius: 50% !important;
+//   }
+// }
+
+.weekday {
+  display: table-cell;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--secondary-gray-dark);
+
+  & abbr[title] {
+    text-decoration: none;
+  }
+}
+
+.caption {
+  display: table-caption;
+  margin-bottom: 0.5em;
+  padding: 0 0.5em;
+  text-align: center;
+
+  & > div {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.navBar {
+  position: absolute;
+  width: 100%;
+
+  & > div {
+    width: 24px;
+    height: 24px;
+    margin: 10px;
+    cursor: pointer;
+  }
+}
+
+.navButton {
+  display: inline-block;
+  position: absolute;
+  top: 1em;
+  margin-top: 2px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navButtonPrev {
+  @extend .navButton;
+  right: auto;
+  left: 1.5em;
+  background-image: url('../../../../assets/img/arrow-left.svg');
+}
+
+.navButtonNext {
+  @extend .navButton;
+  right: 1.5em;
+  left: auto;
+  background-image: url('../../../../assets/img/arrow-right.svg');
+}

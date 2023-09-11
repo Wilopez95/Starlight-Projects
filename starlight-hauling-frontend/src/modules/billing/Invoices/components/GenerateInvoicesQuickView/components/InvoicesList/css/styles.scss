@@ -1,0 +1,26 @@
+.cancelIcon {
+  margin-right: 8px;
+}
+
+.header {
+  margin: 16px 0 8px;
+
+  .heading {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.customerPreferences {
+  display: flex;
+
+  .preference {
+    background: var(--primary-gray-light);
+    padding: 3px;
+    margin-right: 16px;
+  }
+}
+
+.warningText {
+  margin: 16px 0;
+}

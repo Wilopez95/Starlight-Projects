@@ -1,0 +1,16 @@
+.loader {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 250px;
+  text-align: center;
+  font-size: 20px;
+  color: var(--secondary-gray);
+
+  svg {
+    height: 82px;
+    width: 61px;
+  }
+}

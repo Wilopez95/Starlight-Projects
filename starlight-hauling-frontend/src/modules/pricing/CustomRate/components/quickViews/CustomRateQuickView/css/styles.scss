@@ -1,0 +1,28 @@
+.navigation {
+  padding: 0 24px;
+}
+
+.buttonsComponentContainer {
+  padding: 24px;
+  padding-top: 0;
+}
+
+.scrollContainer {
+  padding: 0 24px;
+  display: flex;
+}
+
+.subtitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.closeButton {
+  display: block;
+  margin-left: auto;
+}
+
+.formContainer {
+  color: var(--dark-60);
+}

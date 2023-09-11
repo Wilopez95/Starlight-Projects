@@ -1,0 +1,88 @@
+.modal {
+  width: 742px;
+  height: 622px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.75rem;
+}
+
+.overlay {
+  min-width: 795px;
+  width: 50%;
+  z-index: var(--backgroundOverlayZindex);
+}
+
+.centered {
+  width: 100%;
+}
+
+.title {
+  padding: 32px 40px;
+}
+
+.description {
+  line-height: 1.71;
+}
+
+.controls {
+  padding: 32px 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+%taxesTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  tr {
+    box-shadow: none !important;
+  }
+
+  td,
+  th {
+    padding: 14px 0;
+    text-align: left;
+    line-height: 1.71;
+  }
+
+  :is(td, th):last-child {
+    text-align: right;
+  }
+}
+
+.calculationTable {
+  @extend %taxesTable;
+
+  th:last-child {
+    width: 20%;
+  }
+}
+
+/* stylelint-disable */
+
+.summaryTable {
+  @extend %taxesTable;
+
+  td,
+  th {
+    padding: 8px 0;
+  }
+
+  th:last-child {
+    width: 10%;
+  }
+}
+
+/* stylelint-enable */
+
+.taxesSection {
+  padding: 28px 40px;
+}
+
+.summarySection {
+  border-top: 1px solid var(--primary-gray);
+  padding: 32px 40px;
+}

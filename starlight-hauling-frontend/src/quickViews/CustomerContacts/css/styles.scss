@@ -1,0 +1,11 @@
+.formSubTitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.88;
+  color: var(--dark);
+}
+
+.disabled {
+  color: var(--secondary-gray) !important;
+  cursor: not-allowed !important;
+}

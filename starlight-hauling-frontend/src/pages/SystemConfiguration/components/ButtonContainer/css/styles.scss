@@ -1,0 +1,22 @@
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.flexEnd {
+  justify-self: flex-end;
+}
+
+.deleteButton {
+  color: var(--destructive);
+  border-color: var(--destructive);
+}
+
+.spaceRight {
+  margin-right: 20px;
+}
+
+.spaceLeft {
+  margin-left: 20px;
+}

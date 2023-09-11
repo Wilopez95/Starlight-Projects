@@ -1,0 +1,11 @@
+.section {
+  background: white;
+  border: 2px solid var(--primary-gray);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-of-type) {
+    margin-bottom: 36px;
+  }
+}

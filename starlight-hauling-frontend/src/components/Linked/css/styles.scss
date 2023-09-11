@@ -1,0 +1,53 @@
+.title {
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--dark);
+}
+
+.subTitle {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--dark-60);
+}
+
+.linkedItem {
+  margin-bottom: 24px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  color: var(--secondary);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--primary-gray-desaturated);
+  }
+
+  &.disabled {
+    .title {
+      color: var(--caption-desaturated);
+    }
+
+    .subTitle {
+      color: var(--caption-desaturated);
+    }
+
+    &:hover {
+      box-shadow: none;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.icon {
+  margin-right: 24px;
+  height: 28px;
+  width: 25px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}

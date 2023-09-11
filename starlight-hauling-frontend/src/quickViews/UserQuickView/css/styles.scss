@@ -1,0 +1,49 @@
+.status {
+  display: flex;
+  margin-bottom: 28px;
+
+  .title {
+    margin-right: 50px;
+  }
+  .checkbox {
+    margin-right: 30px;
+  }
+
+  & > label {
+    margin-top: 0px !important;
+  }
+}
+
+.subTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.resetPassword {
+  height: 20px;
+}
+
+.selectWrapper {
+  flex-direction: column;
+}
+
+.full {
+  width: 100%;
+}
+
+.selectSize {
+  min-width: 200px;
+  max-width: 50%;
+}
+
+.phoneRow {
+  display: flex;
+  align-items: center;
+}
+
+.addPhone {
+  display: flex;
+  padding: 10px 0;
+}

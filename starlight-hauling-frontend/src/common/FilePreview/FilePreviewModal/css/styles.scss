@@ -1,0 +1,22 @@
+.modal {
+  height: 675px;
+  width: 800px;
+  padding: 40px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalPreview {
+  width: 100%;
+  max-width: 727px;
+  max-height: 500px;
+  height: 500px;
+  object-fit: contain;
+  background-color: var(--primary-gray-desaturated);
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

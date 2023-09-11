@@ -1,0 +1,107 @@
+{
+  "name": "subscriptions",
+  "level": "tenant",
+  "syncAllowed": true,
+  "content": {
+    "index_patterns": ["subscriptions*"],
+    "version": 1,
+    "settings": {
+      "analysis": {
+        "filter": {
+          "autocomplete_filter": {
+            "type": "edge_ngram",
+            "min_gram": 3,
+            "max_gram": 20
+          },
+          "shingle_filter": {
+            "type": "shingle",
+            "output_unigrams": false
+          }
+        },
+        "analyzer": {
+          "autocomplete": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": ["lowercase", "autocomplete_filter"]
+          },
+          "shingles": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": ["lowercase", "shingle_filter"]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "businessUnitId": {
+          "type": "keyword"
+        },
+        "businessLineId": {
+          "type": "keyword"
+        },
+        "csrEmail": {
+          "type": "keyword"
+        },
+        "customerId": {
+          "type": "keyword"
+        },
+        "customerName": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "autocomplete",
+          "fields": {
+            "shingles": {
+              "type": "text",
+              "analyzer": "autocomplete"
+            }
+          }
+        },
+        "jobSiteAddress": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "standard",
+          "fields": {
+            "shingles": {
+              "type": "text",
+              "analyzer": "shingles"
+            }
+          }
+        },
+        "billingCycle": {
+          "type": "keyword"
+        },
+        "serviceName": {
+          "type": "keyword"
+        },
+        "startDate": {
+          "type": "date"
+        },
+        "endDate": {
+          "type": "date"
+        },
+        "nextServiceDate": {
+          "type": "date"
+        },
+        "serviceFrequencyAggregated": {
+          "type": "keyword"
+        },
+        "status": {
+          "type": "keyword"
+        },
+        "grandTotal": {
+          "type": "double"
+        },
+        "ratesChanged": {
+          "type": "boolean"
+        },
+        "updatedAt": {
+          "type": "date"
+        },
+        "recurringGrandTotal": {
+          "type": "double"
+        }
+      }
+    }
+  }
+}

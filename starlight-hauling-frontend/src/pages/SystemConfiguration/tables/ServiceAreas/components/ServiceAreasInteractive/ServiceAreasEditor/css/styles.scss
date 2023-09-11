@@ -1,0 +1,67 @@
+.controlsOverlay {
+  position: absolute;
+  width: 100%;
+  padding: 16px;
+}
+
+.controlsWrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  padding: 16px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.boundaryLabel {
+  white-space: nowrap;
+}
+
+.selectWrapper {
+  width: 132px;
+  margin-right: 16px;
+}
+
+.mapHintOverlay {
+  position: absolute;
+  width: 100%;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mapHintContent {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  min-width: 520px;
+  background: #fff;
+  border-radius: 4px;
+  height: 36px;
+}
+
+.areaExplanationList {
+  list-style: none;
+  display: flex;
+  padding: 8px;
+  flex: 1;
+}
+
+.areaExplanationListItem {
+  flex: 1;
+  font-size: 14px;
+}
+
+.areaNoticeMark {
+  height: 16px;
+  width: 16px;
+  margin: 0 8px;
+  display: inline-block;
+  vertical-align: bottom;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+}

@@ -1,0 +1,25 @@
+.spaceTop {
+  margin-top: 12px;
+}
+
+.fileUpload {
+  border: none;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+
+.skeleton {
+  margin-bottom: 20px;
+
+  &:first-child {
+    margin-right: 16px;
+  }
+
+  &:last-child {
+    margin-left: 16px;
+  }
+}
+
+.confirmModalOverlay {
+  z-index: calc(var(--backgroundOverlayZindex) + 1);
+}

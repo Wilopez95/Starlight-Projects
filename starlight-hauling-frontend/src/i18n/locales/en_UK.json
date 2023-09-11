@@ -1,0 +1,31 @@
+{
+  "Text": {},
+  "Errors": {},
+  "ValidationErrors": {},
+  "formats": {
+    "date": "{{date, isoDate}}",
+    "decimal": "{{number, decimal}}",
+    "uppercase": "{{text, uppercase}}"
+  },
+  "components": {
+    "PageHeader": {
+      "PageHeader": {
+        "Text": {
+          "Hi": "Hi",
+          "LogOut": "Log Out",
+          "ClockIn": "Clock In",
+          "ClockOut": "Clock Out",
+          "CancelButton": "Stay Clocked In",
+          "SubmitButton": "Clock Out",
+          "Title": "Are you leaving?",
+          "SubTitle": "While you leaving, would you like to clock out also?",
+          "GlobalSystemConfiguration": "Global System Configuration",
+          "LangPlaceholder": "select language"
+        },
+        "Form": {},
+        "Errors": {},
+        "ValidationErrors": {}
+      }
+    }
+  }
+}

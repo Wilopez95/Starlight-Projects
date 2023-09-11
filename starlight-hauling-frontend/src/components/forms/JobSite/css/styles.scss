@@ -1,0 +1,27 @@
+.itemWrapper {
+  & div:first-child {
+    margin-right: 24px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.autocomplete {
+  --box-shadow-base: inset 0 1px 2px 0 hsla(209, 9%, 44%, 0.21),
+    inset 0 0 0 1px hsla(209, 9%, 44%, 0.251);
+  height: 40px;
+  box-shadow: var(--box-shadow-base);
+  border: solid 1px #c3cdd5;
+}
+
+.autocompleteWrapper {
+  margin: 20px 0;
+}
+
+.leftSide {
+  width: 100%;
+}

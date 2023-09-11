@@ -1,0 +1,297 @@
+.section {
+  display: flex;
+  margin: 20px;
+  border: 1px solid var(--primary-gray);
+  border-radius: 4px;
+}
+
+.sectionTitle {
+  font-weight: 500;
+  color: var(--dark);
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.linkedProjectsSubsection {
+  position: relative;
+}
+
+.checkboxes {
+  & label {
+    margin: 10px 0;
+  }
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.lineItemServiceWrapper {
+  & svg {
+    margin-right: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+
+  & span {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.lineItemService {
+  width: 298px;
+  margin-right: 24px;
+}
+
+.lineItemUnits,
+.lineItemPrice,
+.lineItemQuantity {
+  margin-right: 24px;
+}
+
+.lineItemTotal {
+  height: 62px;
+  min-width: 100px;
+  width: 100px;
+  text-align: right;
+
+  & > div {
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.grandTotal {
+  text-align: right;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+
+  & > span {
+    text-align: right;
+    width: 100px;
+  }
+
+  & > span:first-child {
+    margin-right: 30px;
+  }
+}
+
+.summaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 80%;
+  float: right;
+
+  /* stylelint-disable */
+  & div {
+    padding: 8px 0;
+    display: flex;
+    color: var(--dark-60);
+  }
+
+  & div:nth-last-child(-n + 2) {
+    color: var(--caption-dark);
+  }
+
+  & div > span {
+    text-align: right;
+    width: 100px;
+  }
+
+  & div > span:first-child {
+    margin-right: 30px;
+  }
+  /* stylelint-enable */
+}
+
+.add {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-right: 10px;
+  }
+}
+
+.serviceBigInput {
+  min-width: 276px;
+  margin-right: 24px;
+  width: 100%;
+}
+
+.serviceSmallInput {
+  min-width: 90px;
+  width: 50%;
+}
+
+.priceTypeLabel {
+  height: 46px !important;
+  display: flex !important;
+  align-items: flex-end;
+}
+
+.checkboxLabel {
+  margin: 4px 1px;
+}
+
+.checkboxMessageOnlyLabel {
+  margin-bottom: 25px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.spaceRight {
+  margin-right: 16px;
+}
+
+.spaceLeft {
+  margin-left: 16px;
+}
+
+.expirationDate {
+  display: flex;
+  align-items: flex-end;
+}
+
+.divider {
+  margin-bottom: 36px;
+}
+
+/* stylelint-disable */
+
+.removePromo {
+  cursor: pointer;
+  margin-right: 10px;
+
+  & path {
+    fill: var(--secondary-gray);
+    &:hover {
+      fill: var(--destructive);
+    }
+  }
+}
+
+.removeIcon {
+  & path {
+    fill: var(--secondary-gray);
+    &:hover {
+      fill: var(--destructive);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    &:hover {
+      fill: var(--secondary-gray);
+    }
+  }
+}
+
+/* stylelint-enable */
+
+.closeIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.contactFooter {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-right: 10px;
+  }
+}
+
+.bestTimeToComeRange {
+  display: flex;
+  justify-content: space-between;
+
+  & > div:first-child {
+    margin-right: 12px;
+  }
+}
+
+.validationText {
+  min-height: 20px;
+  margin: 4px 1px;
+}
+
+.modalOverlay {
+  width: 100%;
+}
+
+.promoSearchWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.promoSearch {
+  width: 90%;
+}
+
+.addPromo {
+  cursor: pointer;
+  margin-top: 24px;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projectOverlay {
+  width: 100%;
+}
+
+/* stylelint-disable */
+
+.assignEquipmentItem {
+  display: flex;
+
+  & > label {
+    margin-right: 24px;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+
+  & .flexBlock {
+    margin-right: 24px;
+    width: calc(44% - 54px);
+
+    & svg {
+      cursor: pointer;
+      margin-right: 10px;
+
+      path {
+        fill: var(--secondary-gray);
+
+        &:hover {
+          fill: var(--destructive);
+        }
+      }
+    }
+  }
+}
+
+/* stylelint-enable */
+
+.notify {
+  margin-left: 24px;
+}

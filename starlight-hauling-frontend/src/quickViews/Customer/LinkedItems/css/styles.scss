@@ -1,0 +1,9 @@
+.linkedItemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 24px;
+  min-height: 44px;
+  overflow-wrap: break-word;
+}

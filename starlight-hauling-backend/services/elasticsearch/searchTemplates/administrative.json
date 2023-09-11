@@ -1,0 +1,38 @@
+{
+  "size": "{{size}}",
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "multi_match": {
+            "query": "{{query}}",
+            "type": "bool_prefix",
+            "fuzziness": "AUTO:3,6",
+            "fields": [
+              "name",
+              "name._2gram",
+              "name._3gram",
+              "alternativeNames",
+              "alternativeNames._2gram",
+              "alternativeNames._3gram",
+              "primaryUnit",
+              "primaryUnit._2gram",
+              "primaryUnit._3gram"
+            ]
+          }
+        }
+      ],
+      "filter": {
+        "term": {
+          "level": "{{level}}"
+        }
+      }
+    }
+  },
+  "highlight": {
+    "number_of_fragments": 1,
+    "fields": {
+      "name": {}
+    }
+  }
+}

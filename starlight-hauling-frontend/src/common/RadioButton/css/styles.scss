@@ -1,0 +1,83 @@
+.checkmark {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: solid 1px var(--primary-gray-dark);
+  background-color: var(--white);
+  position: relative;
+  flex-shrink: 0;
+
+  &::after {
+    position: absolute;
+    display: none;
+    content: '';
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    transform: scale(0.8);
+  }
+}
+
+.text {
+  margin-left: 8px;
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &.focus + .checkmark,
+  &:focus-within + .checkmark {
+    border: solid 2px var(--primary);
+
+    &::after {
+      top: 2px;
+      left: 2px;
+    }
+  }
+
+  &:checked + .checkmark {
+    &::after {
+      display: block;
+      background-color: var(--primary);
+    }
+  }
+
+  &[disabled]:not(:checked) + .checkmark {
+    border-color: var(--primary-gray);
+    background-color: var(--primary-gray-desaturated);
+  }
+
+  &[disabled]:checked + .checkmark {
+    border-color: var(--primary-gray);
+    background-color: var(--primary-gray-desaturated);
+
+    &::after {
+      background-color: var(--primary-gray-dark);
+    }
+  }
+
+  &:not(:checked) ~ .text {
+    color: var(--caption-light);
+  }
+}
+
+.label {
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+}

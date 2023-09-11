@@ -1,0 +1,194 @@
+.page {
+  display: flex;
+  background: var(--white);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollContainer {
+  box-shadow: none;
+}
+
+.contentWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.headingWrapper {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+
+  & > h2 {
+    height: 25px;
+  }
+}
+
+.configLabels {
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.configLabel {
+  display: flex;
+  align-items: center;
+
+  /* stylelint-disable */
+  & svg {
+    margin-right: 10px;
+  }
+  /* stylelint-enable */
+}
+
+.jobSiteNavigationItem {
+  width: 100%;
+}
+
+.secondLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  height: 100%;
+  margin-left: 5px;
+}
+
+.projectFilterWrapper {
+  display: flex;
+  margin-top: 20px;
+
+  & .filterIcon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    margin-top: 3px;
+  }
+}
+
+.projectFilter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* stylelint-disable */
+.projectFilterItem {
+  height: 26px;
+  background-color: #f4f7f9;
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  & .title {
+    color: var(--caption-desaturated);
+  }
+
+  & .divider {
+    background-color: var(--caption-desaturated);
+    height: 100%;
+    width: 1px;
+    height: 50%;
+    margin: 0 5px;
+  }
+
+  & .config {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    & path {
+      fill: var(--caption-desaturated);
+    }
+  }
+
+  &:hover,
+  &.selected {
+    background-color: var(--caption-desaturated);
+
+    & .title {
+      color: white;
+    }
+
+    & .divider {
+      background-color: white;
+    }
+
+    & .config {
+      & path {
+        fill: white;
+      }
+    }
+  }
+}
+/* stylelint-enable */
+
+.projectOverlay {
+  width: 100%;
+}
+
+.plus {
+  padding-right: 8px;
+  font-size: 18px;
+  color: var(--dark-60);
+}
+
+.notFound {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & div {
+    width: 316px;
+    line-height: 1.78;
+    font-size: 18px;
+    color: var(--secondary-gray);
+  }
+
+  & svg {
+    width: 182px;
+    height: 182px;
+    margin-bottom: 26px;
+  }
+}
+
+.navigation {
+  min-height: 50px;
+}
+
+.fullAddress {
+  color: var(--dark-60);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.buttonSpace {
+  margin-top: 10px;
+}

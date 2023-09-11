@@ -1,0 +1,50 @@
+.container {
+  position: relative;
+  width: 232px;
+  height: 232px;
+  border: 1px solid var(--primary-gray);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  border: 1px solid var(--primary-gray-dark);
+  border-radius: 3px;
+  color: #2b3949;
+}
+
+.container:hover .deleteIcon {
+  display: flex;
+}
+
+.deleteIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.deleteIcon path {
+  fill: var(--caption-light);
+}
+
+.fileExtension {
+  padding-top: 50px;
+  font-weight: 500;
+  font-size: 7rem;
+  line-height: 10rem;
+}

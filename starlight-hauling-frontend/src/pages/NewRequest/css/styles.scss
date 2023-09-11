@@ -1,0 +1,12 @@
+.fallback {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url('../../../../assets/img/map-fallback.png');
+  height: calc(100vh - var(--headerHeight));
+  width: 100%;
+}
+
+.validationText {
+  min-height: 20px;
+  margin: 4px 1px;
+}

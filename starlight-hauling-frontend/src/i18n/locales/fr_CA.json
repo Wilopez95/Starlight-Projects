@@ -1,0 +1,31 @@
+{
+  "Text": {},
+  "Errors": {},
+  "ValidationErrors": {},
+  "formats": {
+    "date": "{{date, isoDate}}",
+    "decimal": "{{number, decimal}}",
+    "uppercase": "{{text, uppercase}}"
+  },
+  "components": {
+    "PageHeader": {
+      "PageHeader": {
+        "Text": {
+          "Hi": "Hé",
+          "LogOut": "Se déconnecter",
+          "ClockIn": "Horloge dans",
+          "ClockOut": "Horloge de sortie",
+          "CancelButton": "Restez connecté",
+          "SubmitButton": "Horloge de sortie",
+          "Title": "Vous partez?",
+          "SubTitle": "Pendant que vous partez, souhaitez-vous aussi pointer?",
+          "GlobalSystemConfiguration": "Configuration système globale",
+          "LangPlaceholder": "choisir la langue"
+        },
+        "Form": {},
+        "Errors": {},
+        "ValidationErrors": {}
+      }
+    }
+  }
+}

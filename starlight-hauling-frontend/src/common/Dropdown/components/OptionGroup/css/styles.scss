@@ -1,0 +1,29 @@
+.title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--caption-desaturated);
+  text-transform: uppercase;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 49px;
+  padding: 15px 15px 7px 15px;
+
+  & svg {
+    height: 100%;
+    margin-right: 8px;
+  }
+}
+
+.items {
+  list-style: none;
+
+  &:last-child {
+    & li:last-child {
+      border: none;
+    }
+  }
+}

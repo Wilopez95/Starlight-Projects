@@ -1,0 +1,33 @@
+.validDays {
+  display: flex;
+  flex-wrap: wrap;
+
+  & label {
+    width: 52px;
+  }
+
+  & label:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+.radioContainer {
+  width: 100%;
+  display: flex;
+
+  & > label:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+
+.autocomplete {
+  --box-shadow-base: inset 0 1px 2px 0 hsla(209, 9%, 44%, 0.21),
+    inset 0 0 0 1px hsla(209, 9%, 44%, 0.251);
+  height: 36px;
+  box-shadow: var(--box-shadow-base);
+  border: solid 1px #c3cdd5;
+}
+
+.serviceAreasWrapper {
+  border: solid 1px var(--primary-gray-dark);
+}

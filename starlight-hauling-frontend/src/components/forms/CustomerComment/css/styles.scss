@@ -1,0 +1,32 @@
+.container {
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.formTitle {
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--dark);
+}
+
+.form {
+  flex: 1;
+  padding: 40px 0;
+
+  & .commentContent {
+    height: 100px;
+  }
+}
+
+.controls {
+  border-top: 1px solid var(--primary-gray);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+
+  & button {
+    margin: 0;
+  }
+}

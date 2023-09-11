@@ -1,0 +1,125 @@
+{
+    "from": "{{from}}",
+    "size": "{{size}}",
+    "query": {
+        "bool": {
+            "must": [
+                {{#findDeleted}}
+                    {
+                        "term": {
+                            "entity": {
+                                "value": "{{entity}}"
+                            }
+                        }
+                    },
+                    {
+                        "term": {
+                            "entityId": {
+                                "value": "{{entityId}}"
+                            }
+                        }
+                    },
+                    {
+                        "terms": {
+                            "action": [
+                                "create",
+                                "modify"
+                            ]
+                        }
+                    }
+                {{/findDeleted}}
+                {{#findLogs}}
+                    {{#matchAll}}
+                    {
+                        "match_all": {}
+                    }
+                    {{/matchAll}}
+                    {{^matchAll}}
+                    {
+                       "exists": {
+                           "field": "entity"
+                        }
+                    }
+                    {{#entities}}
+                    ,{
+                        "terms": {
+                            "entity": [
+                                "{{#entities}}",
+                                "{{.}}",
+                                "{{/entities}}"
+                            ]
+                        }
+                    }
+                    {{/entities}}
+                    {{#entityId}}
+                    ,{
+                        "term": {
+                            "entityId": {
+                                "value": "{{entityId}}"
+                            }
+                        }
+                    }
+                    {{/entityId}}
+                    {{#userIds}}
+                    ,{
+                        "terms": {
+                            "userId": [
+                                "{{#userIds}}",
+                                "{{.}}",
+                                "{{/userIds}}"
+                            ]
+                        }
+                    }
+                    {{/userIds}}
+                    {{#actions}}
+                    ,{
+                        "terms": {
+                            "action": [
+                                "{{#actions}}",
+                                "{{.}}",
+                                "{{/actions}}"
+                            ]
+                        }
+                    }
+                    {{/actions}}
+                    {{#businessUnitIds}}
+                    ,{
+                        "terms": {
+                            "businessUnitId": [
+                                "{{#businessUnitIds}}",
+                                "{{.}}",
+                                "{{/businessUnitIds}}"
+                            ]
+                        }
+                    }
+                    {{/businessUnitIds}}
+                    {{/matchAll}}
+                {{/findLogs}}
+            ]
+            {{#datesFiler}}
+            ,"filter": [
+                {
+                    "range": {
+                        "timestamp": {
+                            {{#dateFrom}}
+                            "gte": "{{dateFrom}}"
+                            {{#dateTo}},{{/dateTo}}
+                            {{/dateFrom}}
+                            {{#dateTo}}
+                            "lte": "{{dateTo}}"
+                            {{/dateTo}}
+                        }
+                    }
+                }
+            ]
+            {{/datesFiler}}
+        }
+    },
+    "sort": [
+        {
+            "timestamp": {
+                "order": "desc"
+            }
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+.icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  cursor: pointer;
+
+  path {
+    fill: var(--secondary-gray-dark);
+  }
+}
+
+.tableWrapper {
+  align-self: flex-start;
+  width: 50%;
+}
+
+.tableContainerWrapper {
+  --tableHeaderHeight: 65px;
+}
+
+.mapContainerWrapper {
+  display: inline-block;
+  width: 50%;
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.tableIconTitle {
+  width: 20px;
+}
+
+.overlay {
+  width: 100%;
+}
+
+.customRow,
+.customRow:hover {
+  background-color: var(--primary-light-transparent);
+}

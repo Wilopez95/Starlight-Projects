@@ -1,0 +1,333 @@
+{
+  "create": {
+    "SUCCESS": "{0} created successfully.",
+    "CONFLICT": "This {0} already exists.",
+    "UNKNOWN": "We could not create this {0}. Please try again later.",
+    "INVALID_REQUEST": "We could not create this {0}. Ensure the entered data is correct."
+  },
+  "update": {
+    "SUCCESS": "{0} updated successfully.",
+    "CONFLICT": "This {0} already updated.",
+    "UNKNOWN": "We could not update this {0}. Please try again later",
+    "INVALID_REQUEST": "We could not update this {0}. Ensure the entered data is correct."
+  },
+  "delete": {
+    "SUCCESS": "{0} deleted successfully.",
+    "CONFLICT": "This {0} already deleted.",
+    "UNKNOWN": "We could not delete your {0}. Please try again later",
+    "INVALID_REQUEST": "We could not delete your {0}. Ensure the entered data is correct."
+  },
+  "send": {
+    "SUCCESS": "{0} are sent successfully.",
+    "CONFLICT": "This {0} already sent.",
+    "UNKNOWN": "We could not send this {0}. Please try again later.",
+    "INVALID_REQUEST": "We could not send this {0}. Ensure the entered data is correct."
+  },
+  "dispatchSync": {
+    "NOT_FOUND": "Dispatch has no data yet"
+  },
+  "unapproveOrder": {
+    "SUCCESS": "Order #{0} unapproved successfully.",
+    "CONFLICT": "This Order already unapproved.",
+    "UNKNOWN": "We could not unapprove this Order. Please try again later",
+    "INVALID_REQUEST": "We could not unapprove this Order. Ensure the entered data is correct."
+  },
+  "unapproveMultipleOrders": {
+    "SUCCESS": "Selected orders unapproved successfully.",
+    "CONFLICT": "This Selected orders already unapproved.",
+    "UNKNOWN": "We could not unapprove this Selected orders. Please try again later",
+    "INVALID_REQUEST": "We could not approve this Selected orders. Ensure the entered data is correct."
+  },
+  "createBusinessUnit": {
+    "BAD_REQUEST": "Invalid credit card gateway username or password",
+    "INVALID_REQUEST": "We could not create this Business Unit. Ensure the entered data is correct."
+  },
+  "updateBusinessUnit": {
+    "BAD_REQUEST": "Invalid credit card gateway username or password",
+    "INVALID_REQUEST": "We could not update this Business Unit. Ensure the entered data is correct."
+  },
+  "createUnappliedPayment": {
+    "PRECONDITION_FAILED": "Merchant is not configured for this business unit"
+  },
+  "createCreditCard": {
+    "PRECONDITION_FAILED": "Merchant is not configured for this business unit"
+  },
+  "createPayment": {
+    "PRECONDITION_FAILED": "Merchant is not configured for this business unit"
+  },
+  "finalizeOrder": {
+    "SUCCESS": "Order #{0} finalized successfully.",
+    "CONFLICT": "This Order already finalized.",
+    "UNKNOWN": "We could not finalize this Order. Please try again later",
+    "INVALID_REQUEST": "We could not finalize this Order. Ensure the entered data is correct."
+  },
+  "finalizeMultipleOrders": {
+    "SUCCESS": "Selected orders finalized successfully.",
+    "CONFLICT": "This Selected orders already finalized.",
+    "UNKNOWN": "We could not finalize this Selected orders. Please try again later",
+    "INVALID_REQUEST": "We could not finalize this Selected orders. Ensure the entered data is correct."
+  },
+  "refundWrongCreditCard": {
+    "SUCCESS": "Order refunded successfully.",
+    "UNKNOWN": "Could not refund Order."
+  },
+  "orderRequestReject": {
+    "SUCCESS": "Order Request rejected successfully.",
+    "CONFLICT": "This Order Request already rejected.",
+    "UNKNOWN": "We could not reject this Order Request. Please try again later.",
+    "INVALID_REQUEST": "We could not reject this Order Request. Ensure the entered data is correct."
+  },
+  "applyPaymentManually": {
+    "SUCCESS": "Payment applied successfully.",
+    "CONFLICT": "This Payment already applied.",
+    "UNKNOWN": "We could not apply this Payment. Please try again later.",
+    "INVALID_REQUEST": "We could not apply this Payment. Ensure the entered data is correct."
+  },
+  "reversePayment": {
+    "SUCCESS": "Payment reversed successfully.",
+    "CONFLICT": "This Payment already reversed.",
+    "UNKNOWN": "We could not reverse this Payment. Please try again later.",
+    "INVALID_REQUEST": "We could not reverse this Payment. Ensure the entered data is correct."
+  },
+  "refundPrepaidOrder": {
+    "SUCCESS": "Amount refunded successfully",
+    "PRECONDITION_FAILED": "Transaction is not settled yet and cannot be partially refunded. Please try again later",
+    "UNKNOWN": "This amount cannot be refunded. Please try again later or contact support."
+  },
+  "refundUnappliedPayment": {
+    "SUCCESS": "Unapplied amount refunded successfully.",
+    "CONFLICT": "This Unapplied amount already refunded.",
+    "PRECONDITION_FAILED": "Transaction is not settled yet and cannot be partially refunded. Please try again later",
+    "UNKNOWN": "This payment cannot be refunded. Please try again later or contact support.",
+    "INVALID_REQUEST": "We could not refund this Unapplied amount. Ensure the entered data is correct."
+  },
+  "duplicatePriceGroup": {
+    "SUCCESS": "Price group duplicated successfully.",
+    "CONFLICT": "This Price group already duplicated.",
+    "UNKNOWN": "We could not duplicate this Price group. Please try again later.",
+    "INVALID_REQUEST": "We could not duplicate this Price group. Ensure the entered data is correct."
+  },
+  "duplicatePriceGroupToAnotherBu": {
+    "SUCCESS": "Price group is duplicated successfully to another Business Unit.",
+    "CONFLICT": "This Price group already duplicated to another Business Unit.",
+    "UNKNOWN": "We could not duplicate this Price group to another Business Unit. Please try again later.",
+    "INVALID_REQUEST": "We could not duplicate this Price group to another Business Unit. Ensure the entered data is correct."
+  },
+  "loadMailSettings": {
+    "UNKNOWN": "Failed to load mailing settings"
+  },
+  "addDomain": {
+    "SUCCESS": "Successfully added a domain. Please check your email for instructions",
+    "CONFLICT": "This domain already exists",
+    "UNKNOWN": "We could not add your domain. Please try again later",
+    "INVALID_REQUEST": "We could not add your domain. Please make sure you have set up an admin email address and entered a valid domain name"
+  },
+  "addAccounting": {
+    "SUCCESS": "Successfully added a Accounting Integration.",
+    "CONFLICT": "This Accounting already exists",
+    "UNKNOWN": "We could not add your accounting. Please try again later",
+    "INVALID_REQUEST": "We could not add your accounting. Please make sure if the QuickBooks Accounting is valid",
+    "BAD_REQUEST": "This Tenant already has an existing connection"
+  },
+  "deleteDomain": {
+    "SUCCESS": "Successfully removed your domain",
+    "CONFLICT": "You can not remove the domain you are currently using",
+    "UNKNOWN": "We could not remove your domain. Please try again later"
+  },
+  "validateDomainAuthentication": {
+    "SUCCESS": "Your domain was successfully validated",
+    "UNKNOWN": "We could not validate the domain authentication"
+  },
+  "createAndLinkJobSite": {
+    "SUCCESS": "Job Site created and linked successfully"
+  },
+  "linkJobSite": {
+    "SUCCESS": "Job Site linked successfully",
+    "CONFLICT": "This Job Site already linked to Customer",
+    "UNKNOWN": "We could not link Job Site to Customer. Please try again later",
+    "INVALID_REQUEST": "We could not link Job Site to Customer. Ensure the entered data is correct."
+  },
+  "calculateServiceRates": {
+    "NOT_FOUND": "No rate for this billable service found. Please add it in price group configuration."
+  },
+  "calculateLineItemRates": {
+    "NOT_FOUND": "No rate for this billable line item found. Please add it in price group configuration."
+  },
+  "createOrder": {
+    "SUCCESS": "Order #{0} created successfully.",
+    "PRECONDITION_FAILED": "Merchant is not configured for this business unit."
+  },
+  "completeOrder": {
+    "SUCCESS": "Order #{0} completed successfully.",
+    "CONFLICT": "This Order already completed.",
+    "UNKNOWN": "We could not complete this Order. Please try again later.",
+    "INVALID_REQUEST": "We could not complete this Order. Ensure the entered data is correct."
+  },
+  "uncompleteOrder": {
+    "SUCCESS": "Order #{0} uncompleted successfully.",
+    "CONFLICT": "This Order already uncompleted.",
+    "UNKNOWN": "We could not uncomplete this Order. Please try again later",
+    "INVALID_REQUEST": "We could not uncomplete this Order. Ensure the entered data is correct."
+  },
+  "approveOrder": {
+    "SUCCESS": "Order #{0} approved successfully.",
+    "CONFLICT": "This Order already approved.",
+    "UNKNOWN": "We could not approve this Order. Please try again later",
+    "INVALID_REQUEST": "We could not approve this Order. Ensure the entered data is correct."
+  },
+  "approveMultipleOrders": {
+    "SUCCESS": "Selected orders approved successfully",
+    "CONFLICT": "This Selected orders already approved.",
+    "UNKNOWN": "We could not approve this Selected orders. Please try again later",
+    "INVALID_REQUEST": "We could not approve this Selected orders. Ensure the entered data is correct."
+  },
+  "cancelOrder": {
+    "SUCCESS": "Order #{0} canceled successfully.",
+    "CONFLICT": "This Order already canceled.",
+    "UNKNOWN": "We could not cancel this Order. Please try again later",
+    "INVALID_REQUEST": "We could not cancel this Order. Ensure the entered data is correct."
+  },
+  "unfinalizeOrder": {
+    "SUCCESS": "Order #{0} unfinalized successfully.",
+    "CONFLICT": "This Order already unfinalized.",
+    "UNKNOWN": "We could not unfinalize this Order. Please try again later",
+    "INVALID_REQUEST": "We could not unfinalize this Order. Ensure the entered data is correct."
+  },
+  "putOnHoldOrder": {
+    "SUCCESS": "Recurrent order #{0} put on hold successfully",
+    "CONFLICT": "This order already putted on hold",
+    "UNKNOWN": "We could not put on hold this order. Please try again later",
+    "INVALID_REQUEST": "We could not put on hold this order. Ensure the entered data is correct."
+  },
+  "putUnHoldOrder": {
+    "SUCCESS": "Recurrent order #{0} unhold successfully",
+    "CONFLICT": "This order already unholded",
+    "UNKNOWN": "We could not unhold your order. Please try again later",
+    "INVALID_REQUEST": "We could not unhold order. Ensure the entered data is correct."
+  },
+  "closeRecurrentOrder": {
+    "SUCCESS": "Recurrent order #{0} is closed successfully",
+    "CONFLICT": "This recurrent order already closed",
+    "UNKNOWN": "We could not close your order. Please try again later",
+    "INVALID_REQUEST": "Unable to cancel. Please finalize or cancel all generated orders related to this recurrent order first."
+  },
+  "editOrder": {
+    "SUCCESS": "Order #{0} edited successfully.",
+    "INVALID_REQUEST": "Could not process this order. Ensure the entered data is correct.",
+    "UNKNOWN": "We could not update this order. Please try again later.",
+    "EXPIRED_END_DATE": "You can not update template if end date expired",
+    "CONFLICT": "Payment was not updated. Please check payment details of orders and try again."
+  },
+  "rescheduleOrder": {
+    "SUCCESS": "Order rescheduled successfully.",
+    "CONFLICT": "Deferred payment date must be before service date.",
+    "UNKNOWN": "Failed to reschedule order."
+  },
+  "default": {
+    "SUCCESS": "Item saved successfully",
+    "CONFLICT": "Such item already exists",
+    "UNKNOWN": "Something went wrong",
+    "INVALID_REQUEST": "Could not process this operation. Ensure the entered data is correct.",
+    "PRECONDITION_FAILED": "Your changes have not been saved, another user has already modified and saved the form while you have been editing.",
+    "ACCESS_DENIED": "You do not have sufficient permissions to perform this action",
+    "NO_INTERNET": "The connection is lost. Please check your internet connection and try again later."
+  },
+  "orderData": {
+    "ACCESS_DENIED": "You do not have sufficient permissions to access {0}"
+  },
+  "images": {
+    "INVALID_MIME_TYPE": "Please select only .jpg, .png, .pdf or .webp files",
+    "FILE_TOO_LARGE": "Please upload only up to 10 MB of images",
+    "UNKNOWN": "We could not load your file. Please try again."
+  },
+  "runInvoicing": {
+    "UNKNOWN": "Could not generate invoices"
+  },
+  "submitInvoices": {
+    "SUCCESS": "Successfully generated invoices",
+    "UNKNOWN": "Failed to generate invoices"
+  },
+  "downloadInvoiceMedia": {
+    "NOT_FOUND": "Media files not found"
+  },
+  "changeCustomerStatus": {
+    "SUCCESS": "Customer status changed successfully.",
+    "CONFLICT": "This customer is already in desired status.",
+    "UNKNOWN": "We could not change status for this customer. Please try again later.",
+    "INVALID_REQUEST": "We could not change status for this customer. Ensure the entered data is correct."
+  },
+  "lockBankDeposit": {
+    "SUCCESS": "Bank Deposit locked successfully.",
+    "CONFLICT": "This Bank Deposit already locked.",
+    "UNKNOWN": "We could not lock Bank Deposit. Please try again later.",
+    "INVALID_REQUEST": "We could not lock Bank Deposit. Ensure the entered data is correct."
+  },
+  "unlockBankDeposit": {
+    "SUCCESS": "Bank Deposit unlocked successfully",
+    "CONFLICT": "This Bank Deposit already unlocked.",
+    "UNKNOWN": "We could not unlock Bank Deposit. Please try again later.",
+    "INVALID_REQUEST": "We could not unlock Bank Deposit. Ensure the entered data is correct."
+  },
+  "subscriptionOrderCreated": {
+    "SUCCESS": "Subscription Order created successfully"
+  },
+  "subscriptionOnHold": {
+    "SUCCESS": "Subscription order #{0} has been successfully held. The related job site has been removed from the route."
+  },
+  "subscriptionResume": {
+    "SUCCESS": "The subscription #{0} has been successfully resumed",
+    "CONFLICT": "This Subscription order has been already put on hold",
+    "UNKNOWN": "We could not put on hold this Subscription order. Please try again later",
+    "INVALID_REQUEST": "We could not put on hold this Subscription order. Ensure the entered data is correct."
+  },
+  "attachments": {
+    "INVALID_MIME_TYPE": "Please select only .jpg, .png, .pdf, .webp, .pdf, .docx, .xlsx, .mp3, .mp4 or .zip files",
+    "FILE_TOO_LARGE": "The attachment size exceeds the allowed limit of {0}",
+    "UNKNOWN": "We could not load your file. Please try again."
+  },
+  "deleteAttachment": {
+    "SUCCESS": "File successfully deleted"
+  },
+  "deleteNotification": {
+    "SUCCESS": "Notification removed."
+  },
+  "uploadAttachment": {
+    "SUCCESS": "1 file has been successfully uploaded."
+  },
+  "uploadAttachments": {
+    "SUCCESS": "{0} files have been successfully uploaded.",
+    "INVALID_REQUEST": "Error during uploading"
+  },
+  "approveMultipleSubscriptionOrders": {
+    "SUCCESS": "Selected subscription orders approved successfully",
+    "CONFLICT": "These Selected subscription orders already approved.",
+    "UNKNOWN": "We could not approve these Selected subscription orders. Please try again later",
+    "INVALID_REQUEST": "We could not approve these Selected subscription orders. Ensure the entered data is correct."
+  },
+  "finalizeMultipleSubscriptionOrders": {
+    "SUCCESS": "Selected subscription orders finalized successfully.",
+    "CONFLICT": "These Selected subscription orders already finalized.",
+    "UNKNOWN": "We could not finalize these Selected subscription orders. Please try again later",
+    "INVALID_REQUEST": "We could not finalize these Selected subscription orders. Ensure the entered data is correct."
+  },
+  "createMaterial": {
+    "CONFLICT": "Can't be saved. Material with such code already exists.",
+    "UNKNOWN": "We could not create this Material. Please try again later.",
+    "INVALID_REQUEST": "We could not create this Material. Ensure the entered data is correct."
+  },
+  "updateMaterial": {
+    "CONFLICT": "Can't be saved. Material with such code already exists.",
+    "UNKNOWN": "We could not update this Material. Please try again later",
+    "INVALID_REQUEST": "We could not update this Material. Ensure the entered data is correct."
+  },
+  "generalSettings": {
+    "NOT_FOUND": "Company Profile should be configured first"
+  },
+  "reassignSubscription": {
+    "SUCCESS": "Account manager for selected subscription reassigned successfully",
+    "INVALID_REQUEST": "We could not reassign subscription to selectedAccount manager. Ensure the entered data is correct."
+  },
+  "createStatement": {
+    "NOT_FOUND": "There are no statements for the selected period"
+  }
+}

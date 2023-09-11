@@ -1,0 +1,16 @@
+.tableFooter {
+  padding: 4px 16px;
+  z-index: var(--tableNavigationZindex);
+
+  & td {
+    border-top: 1px solid var(--primary-gray);
+    padding: 10px 0;
+    background-color: white;
+  }
+
+  &.sticky td {
+    position: sticky;
+    bottom: 0px;
+    z-index: var(--tableNavigationZindex);
+  }
+}

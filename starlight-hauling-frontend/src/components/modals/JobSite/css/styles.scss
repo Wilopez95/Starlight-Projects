@@ -1,0 +1,20 @@
+.modal {
+  top: 25%;
+  width: 742px;
+  height: 57%;
+  min-height: 545px;
+  transform: translate(-50%, -25%);
+
+  &.withMap {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 73.2%;
+    min-height: 720px;
+  }
+}
+
+.overlay {
+  min-width: 795px;
+  width: 50%;
+  z-index: var(--backgroundOverlayZindex);
+}

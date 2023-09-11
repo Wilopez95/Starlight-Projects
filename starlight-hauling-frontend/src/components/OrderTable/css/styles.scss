@@ -1,0 +1,54 @@
+.rows {
+  width: 100%;
+  min-width: fit-content;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.space {
+  margin-right: 34px;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.headerTitle {
+  margin-right: 20px;
+}
+
+.unapproveButton {
+  color: var(--destructive);
+  background-color: var(--white);
+  border: 1px solid var(--destructive);
+
+  &:hover {
+    background-color: var(--destructive-desaturated);
+    border: 1px solid var(--destructive);
+  }
+
+  &:focus {
+    border: 1px solid var(--destructive);
+  }
+}
+
+.ticketCell {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  height: 24px;
+  svg {
+    height: 24px;
+    width: 25px;
+  }
+}

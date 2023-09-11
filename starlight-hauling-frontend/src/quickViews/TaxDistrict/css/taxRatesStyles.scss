@@ -1,0 +1,102 @@
+.navigation {
+  padding: 0 24px;
+}
+
+.scrollContainer {
+  padding: 0 24px;
+  display: flex;
+}
+
+.wrapper {
+  border-top: 1px solid var(--primary-gray);
+  padding-top: 20px;
+  width: 100%;
+}
+
+.settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 8px;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+
+    & > .settingItem:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.taxes {
+  border-top: 1px solid var(--primary-gray);
+  display: flex;
+  flex-direction: column;
+  padding-top: 14px;
+}
+
+.taxRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & .taxName {
+    padding-bottom: 24px;
+  }
+
+  &:first-child {
+    margin-bottom: 18px;
+  }
+}
+
+// Hackish way to raise specificity.
+input.groupTaxInput {
+  width: 90px;
+  margin-left: auto;
+  text-align: right;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  color: var(--dark-60);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 500px;
+  text-align: left;
+
+  &.upperCase {
+    text-transform: uppercase;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+  }
+}
+
+.skeletonRow {
+  display: flex;
+}
+
+.skeleton {
+  margin-bottom: 20px;
+
+  &:first-child {
+    margin-right: 16px;
+  }
+
+  &:last-child {
+    margin-left: 16px;
+  }
+}
+
+.quickViewClassName {
+  z-index: 400; //Fix this
+}

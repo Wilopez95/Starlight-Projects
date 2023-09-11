@@ -1,0 +1,31 @@
+import { mathRound2 } from '../../../utils/math.js';
+
+export const mapOneTimeSubscriptionOrderForTemplate = (subscription, serviceItem, item) => ({
+  ...item,
+  serviceDayOfWeekRequiredByCustomer: true,
+  grandTotal: mathRound2(Number(item.price || 0) * Number(item.quantity || 1)),
+  subscriptionServiceItemId: serviceItem.id,
+  oneTime: true,
+  canReschedule: true, // TODO: clarify with BA
+  instructionsForDriver: subscription.driverInstructions,
+  jobSiteNote: subscription.jobSiteNote,
+  jobSiteContactTextOnly: subscription.jobSiteContactTextOnly,
+  bestTimeToComeFrom: subscription.bestTimeToComeFrom,
+  bestTimeToComeTo: subscription.bestTimeToComeTo,
+  someoneOnSite: subscription.someoneOnSite,
+  highPriority: subscription.highPriority,
+  earlyPick: subscription.earlyPick,
+  unlockOverrides: subscription.unlockOverrides,
+  jobSiteContactId: subscription.jobSiteContactId,
+  thirdPartyHaulerId: subscription.thirdPartyHaulerId,
+  permitId: subscription.permitId,
+  promoId: subscription.promoId,
+  toRoll: subscription.toRoll,
+  subscriptionContactId: subscription.subscriptionContactId,
+  purchaseOrderId: subscription.purchaseOrderId,
+  signatureRequired: subscription.signatureRequired,
+  alleyPlacement: subscription.alleyPlacement,
+  customRatesGroupId: subscription.customRatesGroupId,
+  poRequired: subscription.poRequired,
+  permitRequired: subscription.permitRequired,
+});

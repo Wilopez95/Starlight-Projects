@@ -1,0 +1,80 @@
+$speed: 0.25s;
+
+.section {
+  background: white;
+  border: 2px solid var(--primary-gray);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 36px;
+
+  & .content {
+    flex: 1;
+    padding: 24px;
+  }
+
+  & .spaceBottom {
+    margin-bottom: 24px;
+
+    &.small {
+      margin-bottom: 12px;
+    }
+  }
+
+  & .row {
+    display: flex;
+
+    & > .column {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+
+      &.fullWidth {
+        width: 100%;
+      }
+
+      &:not(:last-child) {
+        margin-right: 48px;
+      }
+    }
+  }
+
+  & .buttonContainer {
+    padding: 24px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 2px solid var(--primary-gray);
+  }
+
+  label input {
+    position: static;
+  }
+}
+
+.applyCompanyProfile {
+  float: right;
+}
+
+.businessLineList {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-height: 30px;
+}
+
+.businessLine {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.linesError {
+  position: relative;
+  transition: all $speed;
+  margin-top: -5px;
+
+  &:not(.visible) {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+  }
+}

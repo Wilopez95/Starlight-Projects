@@ -1,0 +1,105 @@
+.navigation {
+  padding: 0 24px;
+}
+
+.quickViewTitle {
+  font-size: 22px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  color: var(--dark);
+}
+
+.quickViewDescription {
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: var(--dark-60);
+  text-transform: uppercase;
+}
+
+.buttonsComponentContainer {
+  padding: 24px;
+  padding-top: 0;
+}
+
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.validDays {
+  display: flex;
+  flex-wrap: wrap;
+
+  & label {
+    width: 52px;
+  }
+
+  & label:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+.thresholds {
+  & span {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+}
+
+.thresholdsTitle {
+  color: var(--dark-60);
+  text-transform: uppercase;
+  margin: 25px 0 15px 0;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  & td {
+    padding: 0 10px;
+  }
+
+  & .space {
+    color: var(--dark-60);
+    padding: 0 10px 25px;
+  }
+
+  & .frequencyListSpace {
+    vertical-align: top;
+    color: var(--dark-60);
+    padding: 0 10px 25px;
+  }
+
+  .label {
+    padding: 0 10px 25px;
+  }
+}
+
+.checkbox:first-child {
+  margin-bottom: 10px;
+}
+
+.systemCheckbox,
+.activeCheckbox {
+  margin-bottom: 25px;
+}
+
+.validationText {
+  display: block;
+  min-height: 20px;
+  line-height: 1.43;
+  margin: 4px 1px;
+  color: var(--destructive);
+  font-size: 12px;
+}

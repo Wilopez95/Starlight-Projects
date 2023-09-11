@@ -1,0 +1,161 @@
+{
+  "name": "customers",
+  "level": "tenant",
+  "syncAllowed": true,
+  "content": {
+    "index_patterns": ["customers*"],
+    "version": 8,
+    "settings": {
+      "analysis": {
+        "char_filter": {
+          "digits_only": {
+            "type": "pattern_replace",
+            "pattern": "[^\\d]"
+          },
+          "phone": {
+            "type": "pattern_replace",
+            "pattern": "[^\\d \\-]"
+          }
+        },
+        "filter": {
+          "autocomplete_filter": {
+            "type": "edge_ngram",
+            "min_gram": 2,
+            "max_gram": 20
+          },
+          "shingle_filter": {
+            "type": "shingle",
+            "output_unigrams": false
+          },
+          "asciifolding_filter": {
+            "type": "asciifolding"
+          },
+          "us_phone_number": {
+            "type": "pattern_capture",
+            "preserve_original": true,
+            "patterns": ["1?(1)(\\d*)"]
+          },
+          "ten_digits_min": {
+            "type": "length",
+            "min": 10
+          },
+          "not_empty": {
+            "type": "length",
+            "min": 1
+          },
+          "min_2_symbols": {
+            "type": "length",
+            "min": 2
+          }
+        },
+        "analyzer": {
+          "ascii": {
+            "tokenizer": "standard",
+            "filter": ["lowercase", "asciifolding_filter"]
+          },
+          "autocomplete": {
+            "type": "custom",
+            "tokenizer": "whitespace",
+            "filter": ["min_2_symbols", "lowercase", "autocomplete_filter"]
+          },
+          "shingles": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": ["lowercase", "shingle_filter"]
+          },
+          "autocomplete_shingles": {
+            "type": "custom",
+            "tokenizer": "whitespace",
+            "filter": ["min_2_symbols", "lowercase", "shingle_filter", "autocomplete_filter"]
+          },
+          "phone_number": {
+            "char_filter": "phone",
+            "tokenizer": "keyword",
+            "filter": ["min_2_symbols", "autocomplete_filter"]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "businessUnitId": {
+          "type": "keyword"
+        },
+        "businessUnitName": {
+          "type": "text"
+        },
+        "firstName": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "autocomplete"
+        },
+        "lastName": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "autocomplete"
+        },
+        "name": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "autocomplete",
+          "fields": {
+            "shingles": {
+              "type": "text",
+              "analyzer": "autocomplete_shingles"
+            }
+          }
+        },
+        "email": {
+          "type": "keyword"
+        },
+        "contactName": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "autocomplete",
+          "fields": {
+            "shingles": {
+              "type": "text",
+              "analyzer": "autocomplete_shingles"
+            }
+          }
+        },
+        "contactEmail": {
+          "type": "keyword"
+        },
+        "phoneNumbers": {
+          "type": "text",
+          "analyzer": "phone_number",
+          "search_analyzer": "phone_number"
+        },
+        "mailingAddress": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "autocomplete",
+          "fields": {
+            "shingles": {
+              "type": "text",
+              "analyzer": "autocomplete_shingles"
+            }
+          }
+        },
+        "billingAddress": {
+          "type": "text",
+          "analyzer": "autocomplete",
+          "search_analyzer": "autocomplete",
+          "fields": {
+            "shingles": {
+              "type": "text",
+              "analyzer": "autocomplete_shingles"
+            }
+          }
+        },
+        "updatedAt": {
+          "type": "date"
+        },
+        "status": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

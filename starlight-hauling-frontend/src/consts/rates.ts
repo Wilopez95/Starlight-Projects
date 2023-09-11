@@ -1,0 +1,1 @@
+export const NONE_MATERIAL_KEY = 'NONE_MATERIAL';

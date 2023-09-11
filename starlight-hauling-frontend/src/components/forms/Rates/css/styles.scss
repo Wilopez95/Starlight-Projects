@@ -1,0 +1,291 @@
+.formContainer {
+  border-top: 1px solid var(--primary-gray);
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.equipmentItemsNavigation {
+  padding: 0 24px;
+  margin-left: -1px;
+  border-left: 1px solid var(--primary-gray);
+  border-bottom: 1px solid var(--primary-gray);
+}
+
+/* stylelint-disable */
+.materialsNavigation {
+  overflow: unset;
+  padding-top: 60px;
+  width: 100%;
+  border-right: 1px solid var(--primary-gray);
+  height: inherit;
+
+  & > div {
+    min-height: 51px;
+    height: 51px;
+    display: flex;
+    padding-right: 8px;
+    border-right: none !important;
+  }
+
+  & > div:first-child {
+    border-top: 1px solid var(--primary-gray);
+  }
+}
+
+.customerMaterialsNavigation {
+  @extend .materialsNavigation;
+  width: 30%;
+  min-width: 30%;
+
+  &.quickView {
+    max-width: 260px;
+    min-width: initial;
+  }
+}
+
+.expandChild {
+  background-color: var(--primary-gray-desaturated);
+  border-top: 1px solid var(--primary-gray);
+  border-bottom: 1px solid var(--primary-gray);
+
+  & > div {
+    width: 100% !important;
+  }
+}
+
+.thresholdMaterials {
+  & > div {
+    min-height: 51px;
+    height: 51px;
+    display: flex;
+    padding-right: 8px;
+  }
+
+  & > div:first-child {
+    border-top: 1px solid var(--primary-gray);
+  }
+}
+
+/* stylelint-enable */
+
+.form {
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: 20px 20px 0 20px;
+  width: 100%;
+}
+
+.cell {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--dark);
+  padding: 0;
+
+  &.large {
+    max-width: 220px;
+  }
+
+  &.midSize {
+    width: 350px;
+  }
+
+  &.relative {
+    position: relative;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: var(--dark-60);
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  white-space: nowrap;
+
+  &.left {
+    text-align: left;
+    width: auto;
+    min-width: 200px;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  &.globalPrice {
+    text-align: right;
+    width: 120px;
+  }
+
+  &.value {
+    text-align: right;
+    width: 120px;
+  }
+
+  &.finalPrice {
+    text-align: right;
+    width: 140px;
+  }
+
+  &.unit {
+    text-align: left;
+    width: auto;
+  }
+
+  &.center {
+    text-align: center;
+  }
+}
+
+.label {
+  padding-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--dark);
+
+  &.right {
+    text-align: right;
+  }
+  &.center {
+    text-align: center;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.input {
+  width: 120px !important;
+
+  & > input {
+    text-align: right;
+  }
+}
+
+.unit {
+  padding-top: 10px;
+
+  &.left {
+    margin-left: 8px;
+  }
+
+  &.right {
+    margin-right: 10px;
+  }
+}
+
+.columnNavigation {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-right: 1px solid var(--primary-gray);
+}
+
+.customerColumnNavigation {
+  @extend .columnNavigation;
+  min-width: 260px;
+}
+
+.historyLabel {
+  &:hover {
+    background-color: var(--primary-gray-desaturated);
+    transition: all 0.5s linear;
+    svg {
+      opacity: 1;
+    }
+  }
+}
+
+.infoIcon {
+  color: var(--primary);
+  width: 16px;
+  height: 16px;
+}
+
+.rateHistoryIcon {
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  margin-left: 1rem;
+  margin-top: 3px;
+}
+
+.skeletonRow {
+  display: flex;
+}
+
+.skeleton {
+  margin-bottom: 20px;
+
+  &:first-child {
+    margin-right: 16px;
+  }
+
+  &:last-child {
+    margin-left: 16px;
+  }
+}
+
+.spacer {
+  height: 10px;
+}
+
+.inactive {
+  margin-left: 6px;
+}
+
+.tHead {
+  height: 40px;
+}
+
+.table {
+  padding: 8px 0;
+
+  td {
+    padding: 4px 0;
+  }
+}
+
+.tableCell {
+  margin: 0;
+}
+
+.surchargeGrid {
+  display: grid;
+  column-gap: 2rem;
+  grid-template-rows: 36px;
+  grid-template-columns: auto 161px 170px 150px;
+  align-items: center;
+  padding: 0;
+}
+
+.thresholdGrid {
+  display: grid;
+  column-gap: 2rem;
+  grid-template-rows: 36px;
+  grid-template-columns: auto 210px 140px 160px;
+  align-items: center;
+  padding: 0;
+}
+
+.fourthWidth {
+  width: 25%;
+}
+
+.fifthWidth {
+  width: 20%;
+}
+
+.thresholdTitleCell {
+  display: flex;
+  align-items: center;
+}

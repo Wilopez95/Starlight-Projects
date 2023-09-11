@@ -1,0 +1,19 @@
+.headerCell {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  color: var(--caption-desaturated);
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: normal;
+  &.right {
+    text-align: right;
+  }
+  &.center {
+    text-align: center;
+  }
+}
+
+.customRow {
+  height: 40px;
+}

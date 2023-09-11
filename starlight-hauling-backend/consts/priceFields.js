@@ -1,0 +1,18 @@
+export const priceFields = [
+  'id',
+  'entityType',
+  'billableServiceId',
+  'billableLineItemId',
+  'equipmentItemId',
+  'materialId',
+  'thresholdId',
+  'surchargeId',
+  'billingCycle',
+  'frequencyId',
+  'price',
+  'nextPrice',
+  'startAt',
+  'endAt',
+  'createdAt',
+  'limit',
+];

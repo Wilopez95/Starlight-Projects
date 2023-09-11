@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.formTitle {
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--dark);
+}
+
+.projectIdLabel {
+  font-size: 14px;
+  color: var(--dark-60);
+  line-height: 1.43;
+  display: block;
+  min-width: 110px;
+  margin-bottom: 4px;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--dark-60);
+  line-height: 1.43;
+  display: block;
+  min-width: 110px;
+  padding-bottom: 25px;
+}
+
+.checkbox {
+  padding-left: 110px;
+  margin-bottom: 15px;
+}
+
+.projectIDWrapper {
+  margin-top: 20px;
+}
+
+.textAreaWrapper {
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+.rows {
+  width: 100%;
+  min-width: fit-content;
+}
+
+.headerTitle {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.57;
+  color: var(--dark);
+  margin-right: 20px;
+}
+
+.switchSpace {
+  margin-right: 34px;
+}
+
+.modalOverlay {
+  width: 100%;
+  z-index: var(--backgroundOverlayZindex);
+}

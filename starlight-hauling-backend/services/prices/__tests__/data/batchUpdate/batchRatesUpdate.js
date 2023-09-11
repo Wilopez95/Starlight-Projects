@@ -1,0 +1,17 @@
+export const baseInput = {
+  businessLineId: 5,
+  businessUnitId: 2,
+  target: 'all',
+  application: 'customers',
+  calculation: 'percentage',
+  source: 'global',
+  value: 10,
+  equipmentItems: [1, 2, 3, 4, 5],
+  lineItems: [1, 2, 3, 4, 5],
+  materials: ['INCLUDE_ALL', 'INCLUDE_NONE_MATERIAL'],
+  services: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+  applyTo: [1, 2, 3, 4],
+  effectiveDate: '2021-08-18T00:00:00.000Z',
+  overridePrices: true,
+  today: new Date('2021-08-01T00:00:00.000Z'),
+};

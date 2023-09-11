@@ -1,0 +1,14 @@
+.footer {
+  background-color: white;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: var(--secondary-gray);
+  cursor: pointer;
+}
+
+.loader {
+  margin-right: 15px;
+}

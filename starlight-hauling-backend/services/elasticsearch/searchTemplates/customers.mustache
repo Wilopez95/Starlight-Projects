@@ -1,0 +1,237 @@
+{
+    "size": "{{size}}",
+    "query": {
+        "bool": {
+            {{#quickSearch}}
+            "filter": [
+                {{#status}}
+                {
+                    "term": {
+                        "status": {
+                            "value": "{{status}}"
+                        }
+                    }
+                }
+                {{/status}}
+                {{#businessUnitId}}
+                {{#status}}
+                ,
+                {{/status}}
+                {
+                    "term": {
+                        "businessUnitId": {
+                            "value": "{{businessUnitId}}"
+                        }
+                    }
+                }
+                {{/businessUnitId}}
+            ],
+            "must": [
+                {
+                    "bool": {
+                        "should": [
+                            {
+                                "match": {
+                                    "name": {
+                                        "query": "{{query}}",
+                                        "fuzziness": "AUTO:3,6",
+                                        "boost": 60
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "name.shingles": {
+                                        "query": "{{query}}",
+                                        "boost": 100
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+            {{/quickSearch}}
+            {{^quickSearch}}
+            "filter": [
+                {
+                    "term": {
+                        "businessUnitId": {
+                            "value": "{{businessUnitId}}"
+                        }
+                    }
+                }
+            ],
+            "must": [
+                {
+                    "bool": {
+                        "should": [
+                            {
+                                "prefix": {
+                                    "email": "{{query}}"
+                                }
+                            },
+                            {
+                                "match_phrase": {
+                                    "email": {
+                                        "query": "{{query}}",
+                                        "boost": 15
+                                    }
+                                }
+                            },
+                            {
+                                "prefix": {
+                                    "contactEmail": "{{query}}"
+                                }
+                            },
+                            {
+                                "match_phrase": {
+                                    "email": {
+                                        "query": "{{query}}",
+                                        "boost": 13
+                                    }
+                                }
+                            },
+                            {
+                                "prefix": {
+                                    "phoneNumbers": "{{query}}"
+                                }
+                            },
+                            {
+                                "match_phrase": {
+                                    "email": {
+                                        "query": "{{query}}",
+                                        "boost": 11
+                                    }
+                                }
+                            },
+                            
+                            
+                            {
+                                "match_phrase": {
+                                    "name": {
+                                        "query": "{{query}}",
+                                        "boost": 10
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "name": {
+                                        "query": "{{query}}",
+                                        "boost": 1.5
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "name": {
+                                        "query": "{{query}}",
+                                        "fuzziness": "AUTO:3,6"
+                                    }
+                                }
+                            },
+                            
+
+                            {
+                                "match_phrase": {
+                                    "contactName": {
+                                        "query": "{{query}}",
+                                        "boost": 9
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "contactName": {
+                                        "query": "{{query}}",
+                                        "fuzziness": "AUTO:3,6"
+                                    }
+                                }
+                            },
+                            
+    
+                            {
+                                "match": {
+                                    "mailingAddress.shingles": {
+                                        "query": "{{query}}",
+                                        "boost": 1.5
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "mailingAddress": {
+                                        "query": "{{query}}",
+                                        "boost": 1
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "mailingAddress": {
+                                        "query": "{{query}}",
+                                        "fuzziness": "AUTO:3,6"
+                                    }
+                                }
+                            },
+                            
+                            {
+                                "match": {
+                                    "billingAddress.shingles": {
+                                        "query": "{{query}}",
+                                        "boost": 1.5
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "billingAddress": {
+                                        "query": "{{query}}",
+                                        "boost": 1
+                                    }
+                                }
+                            },
+                            {
+                                "match": {
+                                    "billingAddress": {
+                                        "query": "{{query}}",
+                                        "fuzziness": "AUTO:3,6"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+            {{/quickSearch}}
+        }
+    },
+    {{^quickSearch}}
+    "sort": [
+        {
+            "_score": {
+                "order": "desc"
+            }
+        },
+        {
+            "updatedAt": {
+                "order": "desc",
+                "missing": "_last"
+            }
+        }
+    ],
+    {{/quickSearch}}
+    "highlight": {
+        "number_of_fragments": 1,
+        "fields": {
+            "name": {},
+            "email": {},
+            "contactName": {},
+            "contactEmail": {},
+            "phoneNumbers": {},
+            "mailingAddress": {},
+            "billingAddress": {}
+        }
+    }
+}

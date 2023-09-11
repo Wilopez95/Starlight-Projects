@@ -1,0 +1,1342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calculate subscription prices without proration on create custom prices based on material 1`] = `
+Object {
+  "serviceItems": Array [
+    Object {
+      "customRatesGroupServicesId": 3740,
+      "globalRatesRecurringServicesId": null,
+      "lineItems": Array [
+        Object {
+          "customRatesGroupRecurringLineItemBillingCycleId": 700,
+          "globalRatesRecurringLineItemsBillingCycleId": null,
+          "price": 210,
+        },
+      ],
+      "materialId": 29,
+      "price": 110,
+      "subscriptionOrders": Array [
+        Object {
+          "customRatesGroupServicesId": 4191,
+          "globalRatesServicesId": null,
+          "price": 310,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`calculate subscription prices without proration on create custom prices based on material 2`] = `
+Object {
+  "grandTotal": 1170,
+  "lineItemsTotal": 420,
+  "prorationInfo": Array [],
+  "prorationPeriods": Array [
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+              "price": 210,
+              "proratedTotal": 420,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 420,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "periodFrom": 2021-07-01T06:00:00.000Z,
+          "periodTo": 2021-08-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": 29,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 110,
+            "proratedTotal": 440,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 310,
+            "totalDay": 31,
+            "totalPrice": 440,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [
+            Object {
+              "billableServiceId": 1603,
+              "customRatesGroupServicesId": 4191,
+              "globalRatesServicesId": null,
+              "price": 310,
+              "quantity": 1,
+              "serviceDate": 2021-07-14T06:00:00.000Z,
+              "subscriptionOrderId": null,
+              "totalPrice": 310,
+            },
+          ],
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+              "price": 210,
+              "proratedTotal": 420,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 420,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "periodFrom": 2021-08-01T06:00:00.000Z,
+          "periodTo": 2021-09-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": 29,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 110,
+            "proratedTotal": 440,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 0,
+            "totalDay": 31,
+            "totalPrice": 440,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [],
+        },
+      ],
+    ],
+  ],
+  "recurringGrandTotal": 860,
+  "serviceTotal": 440,
+  "showProrationButton": false,
+  "subscriptionOrdersTotal": 310,
+  "subscriptionSurcharges": Array [],
+  "summaryForFirstBillingPeriod": 1170,
+  "summaryForSecondBillingPeriod": 860,
+  "taxesInfo": Object {
+    "recurringTaxesTotal": 0,
+    "taxCalculations": Array [],
+    "taxDistrictNames": Array [],
+    "taxesTotal": 0,
+  },
+  "totalSurcharge": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create custom prices based on material 3`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create custom prices based on material 4`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 210,
+            "proratedTotal": 420,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 420,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": 29,
+        "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+        "periodFrom": 2021-07-01T06:00:00.000Z,
+        "periodTo": 2021-08-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "price": 110,
+          "proratedTotal": 440,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 310,
+          "totalDay": 31,
+          "totalPrice": 440,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [
+          Object {
+            "billableServiceId": 1603,
+            "customRatesGroupServicesId": 4191,
+            "globalRatesServicesId": null,
+            "price": 310,
+            "quantity": 1,
+            "serviceDate": 2021-07-14T06:00:00.000Z,
+            "subscriptionOrderId": null,
+            "totalPrice": 310,
+          },
+        ],
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 210,
+            "proratedTotal": 420,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 420,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": 29,
+        "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+        "periodFrom": 2021-08-01T06:00:00.000Z,
+        "periodTo": 2021-09-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "price": 110,
+          "proratedTotal": 440,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 0,
+          "totalDay": 31,
+          "totalPrice": 440,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [],
+      },
+    ],
+  ],
+]
+`;
+
+exports[`calculate subscription prices without proration on create custom prices based on material 5`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create custom prices based on material 6`] = `
+Object {
+  "recurringTaxesTotal": 0,
+  "taxCalculations": Array [],
+  "taxDistrictNames": Array [],
+  "taxesTotal": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create custom prices not based on material 1`] = `
+Object {
+  "serviceItems": Array [
+    Object {
+      "customRatesGroupServicesId": 3740,
+      "globalRatesRecurringServicesId": null,
+      "lineItems": Array [
+        Object {
+          "customRatesGroupRecurringLineItemBillingCycleId": 700,
+          "globalRatesRecurringLineItemsBillingCycleId": null,
+          "price": 210,
+        },
+      ],
+      "materialId": null,
+      "price": 110,
+      "subscriptionOrders": Array [
+        Object {
+          "customRatesGroupServicesId": 4191,
+          "globalRatesServicesId": null,
+          "price": 310,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`calculate subscription prices without proration on create custom prices not based on material 2`] = `
+Object {
+  "grandTotal": 1170,
+  "lineItemsTotal": 420,
+  "prorationInfo": Array [],
+  "prorationPeriods": Array [
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+              "price": 210,
+              "proratedTotal": 420,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 420,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "periodFrom": 2021-07-01T06:00:00.000Z,
+          "periodTo": 2021-08-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 110,
+            "proratedTotal": 440,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 310,
+            "totalDay": 31,
+            "totalPrice": 440,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [
+            Object {
+              "billableServiceId": 1603,
+              "customRatesGroupServicesId": 4191,
+              "globalRatesServicesId": null,
+              "price": 310,
+              "quantity": 1,
+              "serviceDate": 2021-07-14T06:00:00.000Z,
+              "subscriptionOrderId": null,
+              "totalPrice": 310,
+            },
+          ],
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+              "price": 210,
+              "proratedTotal": 420,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 420,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "periodFrom": 2021-08-01T06:00:00.000Z,
+          "periodTo": 2021-09-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 110,
+            "proratedTotal": 440,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 0,
+            "totalDay": 31,
+            "totalPrice": 440,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [],
+        },
+      ],
+    ],
+  ],
+  "recurringGrandTotal": 860,
+  "serviceTotal": 440,
+  "showProrationButton": false,
+  "subscriptionOrdersTotal": 310,
+  "subscriptionSurcharges": Array [],
+  "summaryForFirstBillingPeriod": 1170,
+  "summaryForSecondBillingPeriod": 860,
+  "taxesInfo": Object {
+    "recurringTaxesTotal": 0,
+    "taxCalculations": Array [],
+    "taxDistrictNames": Array [],
+    "taxesTotal": 0,
+  },
+  "totalSurcharge": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create custom prices not based on material 3`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create custom prices not based on material 4`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 210,
+            "proratedTotal": 420,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 420,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": null,
+        "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+        "periodFrom": 2021-07-01T06:00:00.000Z,
+        "periodTo": 2021-08-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "price": 110,
+          "proratedTotal": 440,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 310,
+          "totalDay": 31,
+          "totalPrice": 440,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [
+          Object {
+            "billableServiceId": 1603,
+            "customRatesGroupServicesId": 4191,
+            "globalRatesServicesId": null,
+            "price": 310,
+            "quantity": 1,
+            "serviceDate": 2021-07-14T06:00:00.000Z,
+            "subscriptionOrderId": null,
+            "totalPrice": 310,
+          },
+        ],
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 210,
+            "proratedTotal": 420,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 420,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": null,
+        "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+        "periodFrom": 2021-08-01T06:00:00.000Z,
+        "periodTo": 2021-09-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "price": 110,
+          "proratedTotal": 440,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 0,
+          "totalDay": 31,
+          "totalPrice": 440,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [],
+      },
+    ],
+  ],
+]
+`;
+
+exports[`calculate subscription prices without proration on create custom prices not based on material 5`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create custom prices not based on material 6`] = `
+Object {
+  "recurringTaxesTotal": 0,
+  "taxCalculations": Array [],
+  "taxDistrictNames": Array [],
+  "taxesTotal": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create global prices based on material 1`] = `
+Object {
+  "serviceItems": Array [
+    Object {
+      "customRatesGroupServicesId": null,
+      "globalRatesRecurringServicesId": 427,
+      "lineItems": Array [
+        Object {
+          "customRatesGroupRecurringLineItemBillingCycleId": null,
+          "globalRatesRecurringLineItemsBillingCycleId": 354,
+          "price": 216,
+        },
+      ],
+      "materialId": 29,
+      "price": 116,
+      "subscriptionOrders": Array [
+        Object {
+          "customRatesGroupServicesId": null,
+          "globalRatesServicesId": 422,
+          "price": 316,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`calculate subscription prices without proration on create global prices based on material 2`] = `
+Object {
+  "grandTotal": 1212,
+  "lineItemsTotal": 432,
+  "prorationInfo": Array [],
+  "prorationPeriods": Array [
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+              "price": 216,
+              "proratedTotal": 432,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 432,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "periodFrom": 2021-07-01T06:00:00.000Z,
+          "periodTo": 2021-08-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": 29,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 116,
+            "proratedTotal": 464,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 316,
+            "totalDay": 31,
+            "totalPrice": 464,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [
+            Object {
+              "billableServiceId": 1603,
+              "customRatesGroupServicesId": null,
+              "globalRatesServicesId": 422,
+              "price": 316,
+              "quantity": 1,
+              "serviceDate": 2021-07-14T06:00:00.000Z,
+              "subscriptionOrderId": null,
+              "totalPrice": 316,
+            },
+          ],
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+              "price": 216,
+              "proratedTotal": 432,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 432,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "periodFrom": 2021-08-01T06:00:00.000Z,
+          "periodTo": 2021-09-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": 29,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 116,
+            "proratedTotal": 464,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 0,
+            "totalDay": 31,
+            "totalPrice": 464,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [],
+        },
+      ],
+    ],
+  ],
+  "recurringGrandTotal": 896,
+  "serviceTotal": 464,
+  "showProrationButton": false,
+  "subscriptionOrdersTotal": 316,
+  "subscriptionSurcharges": Array [],
+  "summaryForFirstBillingPeriod": 1212,
+  "summaryForSecondBillingPeriod": 896,
+  "taxesInfo": Object {
+    "recurringTaxesTotal": 0,
+    "taxCalculations": Array [],
+    "taxDistrictNames": Array [],
+    "taxesTotal": 0,
+  },
+  "totalSurcharge": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create global prices based on material 3`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create global prices based on material 4`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 216,
+            "proratedTotal": 432,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 432,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": 29,
+        "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+        "periodFrom": 2021-07-01T06:00:00.000Z,
+        "periodTo": 2021-08-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "price": 116,
+          "proratedTotal": 464,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 316,
+          "totalDay": 31,
+          "totalPrice": 464,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [
+          Object {
+            "billableServiceId": 1603,
+            "customRatesGroupServicesId": null,
+            "globalRatesServicesId": 422,
+            "price": 316,
+            "quantity": 1,
+            "serviceDate": 2021-07-14T06:00:00.000Z,
+            "subscriptionOrderId": null,
+            "totalPrice": 316,
+          },
+        ],
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 216,
+            "proratedTotal": 432,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 432,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": 29,
+        "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+        "periodFrom": 2021-08-01T06:00:00.000Z,
+        "periodTo": 2021-09-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": 29,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "price": 116,
+          "proratedTotal": 464,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 0,
+          "totalDay": 31,
+          "totalPrice": 464,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [],
+      },
+    ],
+  ],
+]
+`;
+
+exports[`calculate subscription prices without proration on create global prices based on material 5`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create global prices based on material 6`] = `
+Object {
+  "recurringTaxesTotal": 0,
+  "taxCalculations": Array [],
+  "taxDistrictNames": Array [],
+  "taxesTotal": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create global prices not based on material 1`] = `
+Object {
+  "serviceItems": Array [
+    Object {
+      "customRatesGroupServicesId": null,
+      "globalRatesRecurringServicesId": 427,
+      "lineItems": Array [
+        Object {
+          "customRatesGroupRecurringLineItemBillingCycleId": null,
+          "globalRatesRecurringLineItemsBillingCycleId": 354,
+          "price": 216,
+        },
+      ],
+      "materialId": null,
+      "price": 116,
+      "subscriptionOrders": Array [
+        Object {
+          "customRatesGroupServicesId": null,
+          "globalRatesServicesId": 422,
+          "price": 316,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`calculate subscription prices without proration on create global prices not based on material 2`] = `
+Object {
+  "grandTotal": 1212,
+  "lineItemsTotal": 432,
+  "prorationInfo": Array [],
+  "prorationPeriods": Array [
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+              "price": 216,
+              "proratedTotal": 432,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 432,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "periodFrom": 2021-07-01T06:00:00.000Z,
+          "periodTo": 2021-08-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 116,
+            "proratedTotal": 464,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 316,
+            "totalDay": 31,
+            "totalPrice": 464,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [
+            Object {
+              "billableServiceId": 1603,
+              "customRatesGroupServicesId": null,
+              "globalRatesServicesId": 422,
+              "price": 316,
+              "quantity": 1,
+              "serviceDate": 2021-07-14T06:00:00.000Z,
+              "subscriptionOrderId": null,
+              "totalPrice": 316,
+            },
+          ],
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+              "price": 216,
+              "proratedTotal": 432,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 432,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "periodFrom": 2021-08-01T06:00:00.000Z,
+          "periodTo": 2021-09-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 116,
+            "proratedTotal": 464,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 0,
+            "totalDay": 31,
+            "totalPrice": 464,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [],
+        },
+      ],
+    ],
+  ],
+  "recurringGrandTotal": 896,
+  "serviceTotal": 464,
+  "showProrationButton": false,
+  "subscriptionOrdersTotal": 316,
+  "subscriptionSurcharges": Array [],
+  "summaryForFirstBillingPeriod": 1212,
+  "summaryForSecondBillingPeriod": 896,
+  "taxesInfo": Object {
+    "recurringTaxesTotal": 0,
+    "taxCalculations": Array [],
+    "taxDistrictNames": Array [],
+    "taxesTotal": 0,
+  },
+  "totalSurcharge": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create global prices not based on material 3`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create global prices not based on material 4`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 216,
+            "proratedTotal": 432,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 432,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": null,
+        "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+        "periodFrom": 2021-07-01T06:00:00.000Z,
+        "periodTo": 2021-08-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "price": 116,
+          "proratedTotal": 464,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 316,
+          "totalDay": 31,
+          "totalPrice": 464,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [
+          Object {
+            "billableServiceId": 1603,
+            "customRatesGroupServicesId": null,
+            "globalRatesServicesId": 422,
+            "price": 316,
+            "quantity": 1,
+            "serviceDate": 2021-07-14T06:00:00.000Z,
+            "subscriptionOrderId": null,
+            "totalPrice": 316,
+          },
+        ],
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 216,
+            "proratedTotal": 432,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 432,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": null,
+        "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+        "periodFrom": 2021-08-01T06:00:00.000Z,
+        "periodTo": 2021-09-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "price": 116,
+          "proratedTotal": 464,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 0,
+          "totalDay": 31,
+          "totalPrice": 464,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [],
+      },
+    ],
+  ],
+]
+`;
+
+exports[`calculate subscription prices without proration on create global prices not based on material 5`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create global prices not based on material 6`] = `
+Object {
+  "recurringTaxesTotal": 0,
+  "taxCalculations": Array [],
+  "taxDistrictNames": Array [],
+  "taxesTotal": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create prices with surcharges 1`] = `
+Object {
+  "serviceItems": Array [
+    Object {
+      "customRatesGroupServicesId": null,
+      "globalRatesRecurringServicesId": 427,
+      "lineItems": Array [
+        Object {
+          "customRatesGroupRecurringLineItemBillingCycleId": null,
+          "globalRatesRecurringLineItemsBillingCycleId": 354,
+          "price": 216,
+        },
+      ],
+      "materialId": null,
+      "price": 116,
+      "subscriptionOrders": Array [
+        Object {
+          "customRatesGroupServicesId": null,
+          "globalRatesServicesId": 422,
+          "price": 316,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`calculate subscription prices without proration on create prices with surcharges 2`] = `
+Object {
+  "grandTotal": 1212,
+  "lineItemsTotal": 432,
+  "prorationInfo": Array [],
+  "prorationPeriods": Array [
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+              "price": 216,
+              "proratedTotal": 432,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 432,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "periodFrom": 2021-07-01T06:00:00.000Z,
+          "periodTo": 2021-08-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 116,
+            "proratedTotal": 464,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 316,
+            "totalDay": 31,
+            "totalPrice": 464,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [
+            Object {
+              "billableServiceId": 1603,
+              "customRatesGroupServicesId": null,
+              "globalRatesServicesId": 422,
+              "price": 316,
+              "quantity": 1,
+              "serviceDate": 2021-07-14T06:00:00.000Z,
+              "subscriptionOrderId": null,
+              "totalPrice": 316,
+            },
+          ],
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "billableServiceId": 1729,
+          "lineItemsProrationInfo": Array [
+            Object {
+              "billableLineItemId": 47,
+              "effectiveDate": null,
+              "lineItemId": null,
+              "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+              "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+              "price": 216,
+              "proratedTotal": 432,
+              "quantity": 2,
+              "totalDay": 31,
+              "totalPrice": 432,
+              "usageDay": 31,
+            },
+          ],
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "periodFrom": 2021-08-01T06:00:00.000Z,
+          "periodTo": 2021-09-01T05:59:59.999Z,
+          "serviceItemId": null,
+          "serviceItemProrationInfo": Object {
+            "billableServiceId": 1729,
+            "effectiveDate": null,
+            "materialId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 116,
+            "proratedTotal": 464,
+            "quantity": 4,
+            "serviceItemId": null,
+            "subscriptionOrdersTotal": 0,
+            "totalDay": 31,
+            "totalPrice": 464,
+            "usageDay": 31,
+          },
+          "subscriptionOrders": Array [],
+        },
+      ],
+    ],
+  ],
+  "recurringGrandTotal": 896,
+  "serviceTotal": 464,
+  "showProrationButton": false,
+  "subscriptionOrdersTotal": 316,
+  "subscriptionSurcharges": Array [
+    undefined,
+  ],
+  "summaryForFirstBillingPeriod": 1212,
+  "summaryForSecondBillingPeriod": 896,
+  "taxesInfo": Object {
+    "recurringTaxesTotal": 0,
+    "taxCalculations": Array [],
+    "taxDistrictNames": Array [],
+    "taxesTotal": 0,
+  },
+  "totalSurcharge": 0,
+}
+`;
+
+exports[`calculate subscription prices without proration on create prices with surcharges 3`] = `Array []`;
+
+exports[`calculate subscription prices without proration on create prices with surcharges 4`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+            "price": 216,
+            "proratedTotal": 432,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 432,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": null,
+        "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+        "periodFrom": 2021-07-01T06:00:00.000Z,
+        "periodTo": 2021-08-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-07-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-08-01T05:59:59.999Z,
+          "price": 116,
+          "proratedTotal": 464,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 316,
+          "totalDay": 31,
+          "totalPrice": 464,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [
+          Object {
+            "billableServiceId": 1603,
+            "customRatesGroupServicesId": null,
+            "globalRatesServicesId": 422,
+            "price": 316,
+            "quantity": 1,
+            "serviceDate": 2021-07-14T06:00:00.000Z,
+            "subscriptionOrderId": null,
+            "totalPrice": 316,
+          },
+        ],
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "billableServiceId": 1729,
+        "lineItemsProrationInfo": Array [
+          Object {
+            "billableLineItemId": 47,
+            "effectiveDate": null,
+            "lineItemId": null,
+            "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+            "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+            "price": 216,
+            "proratedTotal": 432,
+            "quantity": 2,
+            "totalDay": 31,
+            "totalPrice": 432,
+            "usageDay": 31,
+          },
+        ],
+        "materialId": null,
+        "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+        "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+        "periodFrom": 2021-08-01T06:00:00.000Z,
+        "periodTo": 2021-09-01T05:59:59.999Z,
+        "serviceItemId": null,
+        "serviceItemProrationInfo": Object {
+          "billableServiceId": 1729,
+          "effectiveDate": null,
+          "materialId": null,
+          "nextBillingPeriodFrom": 2021-08-01T06:00:00.000Z,
+          "nextBillingPeriodTo": 2021-09-01T05:59:59.999Z,
+          "price": 116,
+          "proratedTotal": 464,
+          "quantity": 4,
+          "serviceItemId": null,
+          "subscriptionOrdersTotal": 0,
+          "totalDay": 31,
+          "totalPrice": 464,
+          "usageDay": 31,
+        },
+        "subscriptionOrders": Array [],
+      },
+    ],
+  ],
+]
+`;
+
+exports[`calculate subscription prices without proration on create prices with surcharges 5`] = `
+Array [
+  undefined,
+]
+`;
+
+exports[`calculate subscription prices without proration on create prices with surcharges 6`] = `
+Object {
+  "recurringTaxesTotal": 0,
+  "taxCalculations": Array [],
+  "taxDistrictNames": Array [],
+  "taxesTotal": 0,
+}
+`;

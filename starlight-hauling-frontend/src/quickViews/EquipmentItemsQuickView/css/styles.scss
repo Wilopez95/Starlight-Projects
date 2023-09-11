@@ -1,0 +1,68 @@
+.errorButton {
+  color: var(--destructive);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.uploadButton {
+  color: var(--secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0 0 16px 0;
+}
+
+.fileActionIcon {
+  margin: 0 8px 0 0;
+}
+
+.uploadIcon {
+  path {
+    fill: var(--secondary);
+  }
+}
+
+.emptyCell {
+  opacity: 1;
+}
+
+.label {
+  color: var(--dark-60);
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  & td {
+    padding: 0 7px 0 0;
+    width: 115px;
+  }
+
+  & .space {
+    color: var(--dark-60);
+    padding: 0 0 26px;
+  }
+}
+
+.fileUploadContainer {
+  & td {
+    padding: 20px 10px;
+  }
+}
+
+.activeCheckbox {
+  margin-bottom: 25px;
+}
+
+.fileUpload {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fileUploadControls {
+  display: flex;
+  flex-direction: column;
+}

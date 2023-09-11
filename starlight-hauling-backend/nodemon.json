@@ -1,0 +1,5 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/*", "logs/*", "db/snapshot/*", ".spec.js"],
+  "ext": "js,cjs,json,env"
+}

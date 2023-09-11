@@ -1,0 +1,12 @@
+.expiredLabel {
+  margin-left: 10px;
+}
+
+.validForContainer {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: block;
+  white-space: nowrap;
+}

@@ -1,0 +1,37 @@
+.buttonsComponentContainer {
+  padding: 24px;
+  padding-top: 0;
+}
+
+.validationText {
+  min-height: 20px;
+  color: var(--destructive);
+  font-size: 12px;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+
+  & td {
+    padding: 0 10px;
+  }
+
+  & .checkboxRow {
+    padding: 5px 10px;
+  }
+
+  & .space {
+    color: var(--dark-60);
+    padding: 0 10px 25px;
+  }
+
+  & .spaceSmall {
+    color: var(--dark-60);
+    padding: 0 10px 12px;
+  }
+}
+
+.activeCheckbox {
+  margin-bottom: 25px;
+}

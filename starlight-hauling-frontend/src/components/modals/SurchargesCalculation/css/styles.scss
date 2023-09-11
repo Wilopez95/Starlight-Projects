@@ -1,0 +1,44 @@
+.modal {
+  width: 742px;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.75rem;
+}
+
+.overlay {
+  min-width: 795px;
+  width: 50%;
+  z-index: var(--backgroundOverlayZindex);
+}
+
+.centered {
+  width: 100%;
+}
+
+.description {
+  line-height: 1.71;
+}
+
+.controls {
+  padding: 32px 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.surchargesTable {
+  th {
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+
+  tr {
+    height: 35px;
+    &:hover {
+      cursor: default;
+      background: inherit;
+    }
+  }
+}

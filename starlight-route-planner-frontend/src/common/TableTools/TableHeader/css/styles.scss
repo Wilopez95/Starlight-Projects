@@ -1,0 +1,19 @@
+.tableHead {
+  padding: 4px 16px;
+  z-index: var(--tableNavigationZindex);
+  // filter: drop-shadow(0px 8px 8px rgba(33, 43, 54, 0.1));
+
+  & th {
+    padding: 10px 0;
+    box-shadow: 0 2px 0 0 var(--primary-gray);
+    background-color: white;
+    border-bottom: 2px solid var(--primary-gray);
+  }
+
+  &.sticky th {
+    position: sticky;
+    top: var(--sortableTableHeaderHeight, 0);
+    z-index: var(--tableNavigationZindex);
+    border-bottom: none;
+  }
+}

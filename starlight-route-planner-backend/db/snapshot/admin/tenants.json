@@ -1,0 +1,32 @@
+{
+    "attributes": {
+        "id": {
+            "type": "int4",
+            "isNullable": false,
+            "isIdentity": true
+        },
+        "name": {
+            "type": "text",
+            "isNullable": false
+        },
+        "legal_name": {
+            "type": "text",
+            "isNullable": false
+        },
+        "created_at": {
+            "type": "timestamptz",
+            "isNullable": false,
+            "defaultTo": "CURRENT_TIMESTAMP"
+        },
+        "updated_at": {
+            "type": "timestamptz",
+            "isNullable": false,
+            "defaultTo": "CURRENT_TIMESTAMP"
+        }
+    },
+    "constraints": {
+        "tenants_name_check": "CHECK (name ~ '^(?!.*?__)[a-z][a-z0-9_]*$'::text)",
+        "tenants_name_key": "UNIQUE (name)",
+        "tenants_pkey": "PRIMARY KEY (id)"
+    }
+}

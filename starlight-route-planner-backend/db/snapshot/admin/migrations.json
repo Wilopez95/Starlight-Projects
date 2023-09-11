@@ -1,0 +1,26 @@
+{
+    "attributes": {
+        "id": {
+            "type": "int4",
+            "isNullable": false,
+            "isIdentity": true
+        },
+        "name": {
+            "type": "text",
+            "isNullable": false
+        },
+        "batch": {
+            "type": "int4",
+            "isNullable": false
+        },
+        "started_at": {
+            "type": "timestamptz",
+            "isNullable": false,
+            "defaultTo": "CURRENT_TIMESTAMP"
+        }
+    },
+    "constraints": {
+        "migrations_name_key": "UNIQUE (name)",
+        "migrations_pkey": "PRIMARY KEY (id)"
+    }
+}

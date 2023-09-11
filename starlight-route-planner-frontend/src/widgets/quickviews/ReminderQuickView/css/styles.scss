@@ -1,0 +1,49 @@
+.crossIcon {
+  visibility: hidden;
+  width: 15px;
+  height: 15px;
+}
+
+.reminderBox {
+  cursor: pointer;
+
+  &:hover {
+    .crossIcon {
+      visibility: visible;
+    }
+  }
+}
+
+.titleAlign {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  color: var(--secondary);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.tableContainer {
+  white-space: normal !important;
+}
+
+.body {
+  width: 100%;
+  table-layout: auto;
+  border-spacing: 0;
+  overflow-x: auto;
+}

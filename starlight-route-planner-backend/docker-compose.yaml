@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  route_planner_db:
+    container_name: route_planner_db
+    hostname: route_planner_db
+    image: '${DB_IMAGE:-postgis/postgis:13-3.1-alpine}'
+    restart: always
+    ports:
+      - '${DB_PORT:-5432}:5432'
+    environment:
+      POSTGRES_USER: '${DB_USER}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
+      POSTGRES_DB: '${DB_NAME}'
+    networks:
+      - starlight-local
+
+  # common_rabbit:
+  #   container_name: common_rabbit
+  #   hostname: common_rabbit
+  #   image: rabbitmq:3.8-management-alpine
+  #   ports:
+  #     - '${AMQP_PORT:-5672}:5672'
+  #     - '${AMQP_MANAGEMENT_PORT:-15672}:15672'
+  #   networks:
+  #     - starlight-local
+
+networks:
+  starlight-local:
+    name: starlight-local

@@ -1,0 +1,21 @@
+.modal {
+  top: 50%;
+  width: 428px;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  width: 100%;
+}
+
+.title {
+  padding: 32px 40px;
+  font-size: 20px !important;
+  font-weight: 500;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 40px;
+}

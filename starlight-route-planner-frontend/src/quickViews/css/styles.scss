@@ -1,0 +1,92 @@
+.descriptionPanel {
+  font-size: 1.75rem;
+  position: fixed;
+  min-height: 620px;
+  z-index: 10;
+  right: 3rem;
+  box-shadow: -5px 2px 8px 0 rgba(33, 43, 54, 0.1);
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
+}
+
+.dataContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cancelButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 0;
+
+  & svg {
+    cursor: pointer;
+  }
+}
+
+.quickViewTitle {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 2;
+  color: var(--dark);
+  text-overflow: ellipsis;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.quickViewDescription {
+  font-size: 12px;
+  min-height: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: var(--dark-60);
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.header {
+  padding: 24px 24px 0 24px;
+}
+
+.table {
+  white-space: initial;
+  overflow-x: auto;
+  word-break: break-word;
+  .label {
+    color: var(--dark-60);
+  }
+}
+
+.buttonContainer {
+  padding: 24px;
+  padding-top: 0;
+}
+
+.half {
+  width: 50%;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.spaceRight {
+  margin-right: 16px;
+}
+
+.spaceLeft {
+  margin-left: 16px;
+}

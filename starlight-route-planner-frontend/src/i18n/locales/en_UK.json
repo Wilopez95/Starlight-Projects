@@ -1,0 +1,805 @@
+{
+  "Text": {
+    "WO": "",
+    "AssignedRoute": "",
+    "3pHauler": "",
+    "No3pHauler": "",
+    "CompletedOn": "",
+    "Instructions": "",
+    "Comment": "",
+    "Media": "",
+    "Status": "",
+    "JobSite": "",
+    "Ok": "",
+    "MediaFiles": "",
+    "Phone": "",
+    "BestTimeToCome": "",
+    "BestTimeToComeFrom": "",
+    "BestTimeToComeTo": "",
+    "Route": "",
+    "Truck": "",
+    "Ticket": "",
+    "ConfirmChanges": "",
+    "DailyRoute": "",
+    "ScheduledOn": "",
+    "DriverName": "",
+    "AssignedTruck": "",
+    "InstructionsForDriver": "",
+    "PickedUpEquipmentNumber": "",
+    "DroppedEquipmentNumber": "",
+    "Weight": "",
+    "SaveChanges": "",
+    "NoOptions": "",
+    "NeverMind": "",
+    "ConfirmCancellation": "",
+    "Continue": "",
+    "Reset": "",
+    "Select": "",
+    "Cancel": "",
+    "Available": "",
+    "RoutesUpdatingStatus": "",
+    "PublishedRoutes": "",
+    "NoResultsFound": "",
+    "Units": "",
+    "Material": "",
+    "ServiceArea": "",
+    "Driver": "",
+    "ClockIn": "",
+    "ClockOut": "",
+    "OdometerStart": "",
+    "OdometerEnd": "",
+    "TicketNumber": "",
+    "DailyRouteNumber": "",
+    "MasterRoute": "",
+    "ParentOrderNumber": "",
+    "EquipmentNumber": "",
+    "CancellationReason": "",
+    "Edit": "",
+    "RollOff": "",
+    "Commercial": "",
+    "Residential": "",
+    "CommercialResidential": "",
+    "PortableToilets": "",
+    "Number": "",
+    "Delete": "",
+    "Subscription#": "",
+    "Attachments": "",
+    "Details": "",
+    "FacilityName": "",
+    "ArrivalTime": "",
+    "DepartureTime": "",
+    "TimeOnLandfill": "",
+    "LoadValue": "",
+    "Loading": "",
+    "SomethingWrong": "",
+    "SaveRoute": "",
+    "HistoryTitle": "",
+    "From": "",
+    "To": "",
+    "Added": "",
+    "Changed": "",
+    "Removed": "",
+    "Created": "",
+    "ToRoll": "",
+    "PermitRequired": "",
+    "PoRequired": "",
+    "SignatureRequired": "",
+    "HighPriority": "",
+    "SomeoneOnSite": "",
+    "AlleyPlacement": "",
+    "ThirdPartyHaulerDescription": "",
+    "TruckId": "",
+    "CompletedAt": "",
+    "ServiceDate": "",
+    "PickedUpEquipment": "",
+    "DroppedEquipment": "",
+    "Name": "",
+    "DriverId": "",
+    "TruckType": "",
+    "TruckName": "",
+    "WorkOrderIds": "",
+    "WeightTicket": "",
+    "WeightTickets": "",
+    "RouteSheet": "",
+    "Download": "",
+    "IN_PROGRESS": "",
+    "EDITING": "",
+    "CANCELED": "",
+    "COMPLETED": "",
+    "SCHEDULED": "",
+    "UNPUBLISHED": "",
+    "PUBLISHED": "",
+    "BLOCKED": "",
+    "UPDATING": "",
+    "APPROVED": "",
+    "FINALIZED": "",
+    "INVOICED": "",
+    "RouteNameExists": "",
+    "Service": ""
+  },
+  "ValidationErrors": {
+    "RouteGeneric": "",
+    "RouteInactiveTruck": "",
+    "RouteInactiveDriver": "",
+    "RouteNonUniqueTruck": "",
+    "RouteNonUniqueDriver": ""
+  },
+  "formats": {
+    "date": "",
+    "decimal": "",
+    "uppercase": ""
+  },
+  "pages": {
+    "Dispatcher": {
+      "components": {
+        "Header": {
+          "Text": {
+            "Title": "",
+            "MasterRoutesGridButton": "Grid",
+            "CreateNewRouteButton": "",
+            "CalendarLabel": ""
+          }
+        },
+        "Tabs": {
+          "Text": {
+            "Dashboard": "",
+            "DailyRoutes": "",
+            "MasterRoutes": "",
+            "DriversTrucks": "",
+            "WorkOrders": "",
+            "MasterRouteInputPlaceholder": "",
+            "DashboardInputPlaceholder": "",
+            "WorkOrderInputPlaceholder": "",
+            "DailyRouteInputPlaceholder": ""
+          }
+        },
+        "Map": {
+          "Text": {
+            "UnassignedServicesCount": "",
+            "UnassignedWorkOrdersCount": ""
+          }
+        },
+        "NothingToShowSidebar": {
+          "Text": {
+            "Description": ""
+          }
+        },
+        "NothingToShowMapLabel": {
+          "Text": {
+            "NoSearchResults": ""
+          }
+        },
+        "WorkOrders": {
+          "Table": {
+            "Text": {
+              "LoadMore": ""
+            }
+          },
+          "QuickViews": {
+            "CommentSection": {
+              "Text": {
+                "InputSection": "",
+                "AddComment": "",
+                "PlaceHolder": ""
+              },
+              "Validation": {
+                "CommentRequired": ""
+              }
+            }
+          }
+        },
+        "Dashboard": {
+          "Table": {
+            "Text": {
+              "RouteType": "",
+              "NumberOfStops": "",
+              "NumberOfWOs": "",
+              "DriverAssigned": "",
+              "TruckNumber": "",
+              "TruckType": "",
+              "CompletionRate": "",
+              "LoadMore": ""
+            }
+          }
+        }
+      }
+    },
+    "Login": {
+      "Text": {
+        "Login": ""
+      }
+    },
+    "SystemConfiguration": {
+      "components": {
+        "NavigationPanel": {
+          "NavigationPanel": {
+            "CommonText": {
+              "Billable Items": "",
+              "Materials": "",
+              "Material Profiles": "",
+              "Equipment": ""
+            },
+            "Text": {
+              "Company": "",
+              "LinesOfBusiness": "",
+              "Users And Groups": "",
+              "Company Profile": "",
+              "Business Unit": "",
+              "Lines of Business": "",
+              "Business Units": "",
+              "Company Settings": "",
+              "Customer Groups": "",
+              "Brokers": "",
+              "3rd Party Haulers": "",
+              "Disposal Sites": "",
+              "Tax Districts": "",
+              "Roll-Off Container": "",
+              "Commercial": "",
+              "Residential": "",
+              "Portable Toilet": "",
+              "Test": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "PageHeader": {
+      "Text": {
+        "Hi": "",
+        "LogOut": "",
+        "ClockIn": "",
+        "ClockOut": "",
+        "TitleClockOut": "",
+        "SubTitleClockOut": "",
+        "CancelButton": "",
+        "SubmitButton": "",
+        "Title": "",
+        "SubTitle": "",
+        "GlobalSystemConfiguration": "",
+        "LangPlaceholder": ""
+      }
+    },
+    "PageLayouts": {
+      "BusinessUnitLayout": {
+        "Header": {
+          "Text": {
+            "SearchPlaceholder": "",
+            "Orders": "",
+            "WorkOrders": "",
+            "Invoice": "",
+            "Customer": "",
+            "JobSite": ""
+          }
+        },
+        "NavigationPanel": {
+          "Text": {
+            "OrdersAndSubscriptions": "",
+            "Customers": "",
+            "Billing": "",
+            "Orders": "",
+            "OnlyMyOrders": "",
+            "Subscriptions": "",
+            "MyRecentSubscriptions": "",
+            "AllCustomers": "",
+            "Invoices": "",
+            "DeferredPayments": "",
+            "AccountsReceivable": "",
+            "PaymentsPayouts": "",
+            "BatchStatements": "",
+            "CreditCardSettlements": "",
+            "Reports": "",
+            "Dispatcher": "",
+            "CreateNew": "",
+            "SystemReports": ""
+          }
+        }
+      },
+      "CustomerJobSiteLayout": {
+        "Text": {
+          "SearchJobSite": "",
+          "CustomerJobSiteDetails": "",
+          "CreateProject": "",
+          "NoSearchResults": ""
+        },
+        "Errors": {
+          "NotFound": ""
+        },
+        "CustomerJobSiteNavigation": {
+          "Text": {
+            "OpenOrders": "",
+            "InvoicedOrders": "",
+            "Contacts": "",
+            "CreditCards": "",
+            "Invoices": "",
+            "JobSiteRates": ""
+          }
+        },
+        "components": {
+          "ProjectFilter": {
+            "Text": {
+              "AllOrders": ""
+            }
+          },
+          "SideBar": {
+            "Text": {
+              "LinkJobSite": "",
+              "ShowInactive": ""
+            }
+          }
+        }
+      },
+      "CustomerLayout": {
+        "CustomerNavigation": {
+          "Text": {
+            "Profile": "",
+            "OrdersAndSubscriptions": "",
+            "JobSites": "",
+            "Contacts": "",
+            "CreditCards": "",
+            "Invoices": "",
+            "PaymentsAndStatements": "",
+            "FinancialHistory": "",
+            "CustomerRates": ""
+          }
+        }
+      },
+      "CustomerOrdersAndSubscriptionLayout": {
+        "components": {
+          "SideBarItem": {
+            "Text": {
+              "Subscriptions": "",
+              "SubscriptionsCount": ""
+            }
+          }
+        }
+      },
+      "CustomerSubscriptionLayout": {
+        "Text": {
+          "LinkSubscriptionOrder": "",
+          "LinkSubscriptionNonServiceOrder": ""
+        },
+        "components": {
+          "buttons": {
+            "BackButton": {
+              "Text": {
+                "BackToSubscriptionsList": ""
+              }
+            }
+          },
+          "SubscriptionActions": {
+            "Text": {
+              "HoldSubscription": "",
+              "ResumeSubscription": "",
+              "CloneSubscription": "",
+              "EditSubscription": ""
+            }
+          }
+        }
+      }
+    },
+    "TimePicker": {
+      "Text": {
+        "Anytime": "",
+        "AM": "",
+        "PM": "",
+        "Specific": ""
+      }
+    },
+    "modals": {
+      "NoAssignedTruckDriver": {
+        "Title": "",
+        "SubTitle": ""
+      },
+      "PublishRoute": {
+        "Title": "",
+        "SelectDate": "",
+        "Publish": "",
+        "Note": "",
+        "PublishNotice": ""
+      },
+      "UnPublishRoute": {
+        "Title": "",
+        "Proceed": "",
+        "ManuallyEdited": "",
+        "WillDeleted": ""
+      },
+      "Popup": {
+        "Title": "",
+        "Period": "",
+        "Customer": "",
+        "JobSite": "",
+        "LineOfBusiness": "",
+        "EquipmentSize": "",
+        "ServiceFrequency": "",
+        "AssignedDays": "",
+        "Services": ""
+      },
+      "WorkOrderDetails": {
+        "Title": "",
+        "MultiTitle": "",
+        "Date": "",
+        "Customer": "",
+        "JobSite": "",
+        "LineOfBusiness": "",
+        "EquipmentSize": "",
+        "ParentOrder": "",
+        "DailyRoute": "",
+        "DefaultDailyRoute": ""
+      },
+      "AddMultipleWO": {
+        "Title": "",
+        "SubTitle": "",
+        "Cancel": "",
+        "Continue": "",
+        "EquipmentSize": ""
+      },
+      "MapSettings": {
+        "Title": "",
+        "SubTitle": "",
+        "HomeYards": "",
+        "Landfills": ""
+      },
+      "WayPointsDetails": {
+        "Title": "",
+        "Address": "",
+        "HomeYard": "",
+        "Landfill": ""
+      },
+      "EditingRouteNotice": {
+        "Title": "",
+        "Body": "",
+        "MasterRoute": "",
+        "DailyRoute": "",
+        "System": ""
+      },
+      "RouteValidationModal": {
+        "MasterRouteValidationModal": {
+          "Text": {
+            "Title": "",
+            "ServiceItemsCannotBeAdded": "",
+            "ServiceDaysValidationMessage": "",
+            "BusinessLineValidationMessage": ""
+          }
+        },
+        "DailyRouteValidationModal": {
+          "Text": {
+            "Title": "",
+            "WorkOrdersCannotBeAdded": "",
+            "BusinessLineValidationMessage": ""
+          }
+        },
+        "UnableToEditWO": {
+          "Text": {
+            "Title": "",
+            "SubTitleMultiple": "",
+            "SubTitleSingle": ""
+          }
+        }
+      },
+      "CancellationReason": {
+        "Text": {
+          "Title": "",
+          "CancellationReason": "",
+          "Comment": "",
+          "other": "",
+          "userError": "",
+          "customerCanceled": ""
+        },
+        "Placeholders": {
+          "CancellationReason": "",
+          "Comment": ""
+        },
+        "Validation": {
+          "CancellationReason": "",
+          "Comment": ""
+        }
+      },
+      "BulkReschedule": {
+        "Text": {
+          "RescheduleModalTitle": "",
+          "RescheduleModalTitle_plural": "",
+          "RescheduleModalAlert": "",
+          "CurrentServiceDate": "",
+          "NewServiceDate": "",
+          "RescheduleOrders": "",
+          "Reschedule": ""
+        },
+        "Validation": {
+          "ServiceDateRequired": "",
+          "DateMustDiffer": ""
+        }
+      },
+      "WorkOrderUpdateStatus": {
+        "Text": {
+          "UpdateStatus": "",
+          "Title": "",
+          "Title_plural": "",
+          "StatusPlaceholder": "",
+          "StatusLabel": "",
+          "ReasonPlaceholder": "",
+          "ReasonLabel": "",
+          "CommentPlaceholder": "",
+          "CommentLabel": ""
+        },
+        "Validation": {
+          "Status": "",
+          "Reason": "",
+          "Comment": ""
+        }
+      },
+      "HandleRouteStatus": {
+        "Text": {
+          "Title": "",
+          "SubTitle": ""
+        }
+      },
+      "WeightTicket": {
+        "Text": {
+          "EditTicket": "",
+          "AddTicket": "",
+          "TicketNumber": "",
+          "FacilityName": "",
+          "ArrivalTime": "",
+          "DepartureTime": "",
+          "TimeOnLandfill": "",
+          "LoadValue": "",
+          "UploadMediaFile": "",
+          "UploadedMediaFile": ""
+        },
+        "Validation": {
+          "MustBePositive": "",
+          "Required": "",
+          "LoadValueIsRequired": "",
+          "LoadValueMustBePositive": "",
+          "PleaseSpecifyUnitsType": "",
+          "ErrorIncorrectExtension": "",
+          "ErrorManyFiles": "",
+          "MediaIsRequired": "",
+          "TicketNumberMustBeUnique": ""
+        }
+      }
+    }
+  },
+  "quickViews": {
+    "MasterRouteFiltersView": {
+      "Text": {
+        "Title": "",
+        "LineOfBusinessLabeL": "",
+        "LineOfBusinessPlaceholder": "",
+        "ServiceAreaLabel": "",
+        "ServiceAreaPlaceholder": "",
+        "MaterialTypePlaceholder": "",
+        "EquipmentSizeLabel": "",
+        "EquipmentSizePlaceholder": "",
+        "FrequencyLabel": "",
+        "FrequencyPlaceholder": "",
+        "UnassignedSwitch": "",
+        "Reset": "",
+        "Apply": "",
+        "ServiceDay": ""
+      }
+    },
+    "FiltersView": {
+      "Text": {
+        "Title": "",
+        "LineOfBusinessLabeL": "",
+        "LineOfBusinessPlaceholder": "",
+        "ServiceAreaLabel": "",
+        "ServiceAreaPlaceholder": "",
+        "StatusPlaceholder": "",
+        "AssignedDailyRouteId": "",
+        "AssignedDailyRouteIdPlaceholder": "",
+        "ResetAll": "",
+        "ApplyFilters": "",
+        "NoAssignedRoute": "",
+        "TruckType": "",
+        "TruckTypePlaceholder": ""
+      }
+    },
+    "MasterRouteDetailsView": {
+      "Text": {
+        "Back": "",
+        "FromDate": "",
+        "ServiceDays": "",
+        "Driver": "",
+        "EditRoute": "",
+        "Unpublish": "",
+        "Publish": ""
+      }
+    },
+    "MasterRouteView": {
+      "Text": {
+        "New": "",
+        "Edit": "",
+        "TabDetailsTitle": "",
+        "TabServicesTitle": "",
+        "ServiceDaysTitle": "",
+        "NextStepButton": ""
+      },
+      "Validation": {
+        "RouteNameRequired": "",
+        "RouteNameLengthAndUniqueness": "",
+        "ServiceDays": "",
+        "ServiceItems": ""
+      },
+      "DetailsTab": {
+        "Text": {
+          "RouteNameLabel": "",
+          "RouteNamePlaceholder": "",
+          "TruckIdLabel": "",
+          "TruckIdPlaceholder": "",
+          "DriverLabel": "",
+          "DriverPlaceholder": ""
+        }
+      },
+      "ServicesTab": {
+        "Text": {
+          "Title": ""
+        }
+      }
+    },
+    "DailyRouteForm": {
+      "Text": {
+        "New": "",
+        "Edit": "",
+        "NextStepButton": "",
+        "TabDetailsTitle": "",
+        "TabWorkOrdersTitle": ""
+      },
+      "DetailsTab": {
+        "Text": {
+          "RouteName": "",
+          "RouteNamePlaceholder": "",
+          "ScheduledPlaceholder": "",
+          "TruckId": "",
+          "TruckIdPlaceholder": "",
+          "DriverId": "",
+          "DriverIdPlaceholder": ""
+        },
+        "Validation": {
+          "RouteNameRequired": "",
+          "RouteNameLengthAndUniqueness": "",
+          "RouteName": "",
+          "TruckId": "",
+          "DriverId": ""
+        }
+      },
+      "WorkOrdersTab": {
+        "Text": {
+          "Title": ""
+        },
+        "Validation": {
+          "WorkOrders": ""
+        }
+      }
+    },
+    "MasterRouteProgress": {
+      "Text": {
+        "CreatingDailyRoutes": "",
+        "ShowDetails": "",
+        "HideDetails": "",
+        "From": ""
+      }
+    },
+    "RoutesList": {
+      "Text": {
+        "Title": "",
+        "Edited": ""
+      }
+    },
+    "DailyRouteDetails": {
+      "Text": {
+        "Driver": "",
+        "EditRoute": "",
+        "RouteNumber": "",
+        "Edited": "",
+        "BackToRoutesList": "",
+        "WorkOrderNumber": ""
+      }
+    },
+    "AddMultipleServiceItems": {
+      "Text": {
+        "Title": "",
+        "Subtitle": "",
+        "Cancel": "",
+        "Add": "",
+        "ServiceNumber": "",
+        "EquipmentSize": "",
+        "Frequency": "",
+        "AssignedDays": ""
+      }
+    },
+    "WorkOrderView": {
+      "Text": {
+        "WorkOrderNumber": "",
+        "TabDetailsTitle": "",
+        "TabJobSiteTitle": "",
+        "TabCommentsTitle": "",
+        "TabHistoryTitle": "",
+        "Cancel": "",
+        "Edit": ""
+      },
+      "JobSiteTab": {
+        "Text": {
+          "Note": "",
+          "JobSiteContact": ""
+        }
+      }
+    },
+    "WorkOrderEdit": {
+      "Text": {
+        "Title": "",
+        "DeleteMediaFile": "",
+        "AreYouSure": ""
+      },
+      "Placeholders": {
+        "DailyRoute": "",
+        "ScheduledOn": "",
+        "Status": "",
+        "PickedUpEquipmentNumber": "",
+        "DroppedEquipmentNumber": "",
+        "Weight": ""
+      },
+      "Validation": {
+        "ServiceDate": "",
+        "Status": ""
+      }
+    },
+    "DashboardDailyRoute": {
+      "Text": {
+        "EditRoute": "",
+        "RouteNumber": "",
+        "TabDetailsTitle": "",
+        "TabWorkOrdersTitle": "",
+        "TabHistoryTitle": ""
+      }
+    },
+    "DashboardDailyRouteEdit": {
+      "Text": {
+        "Title": "",
+        "RouteNumber": "",
+        "TabDetailsTitle": "",
+        "TabWorkOrdersTitle": "",
+        "ServiceAreasLabel": "",
+        "MaterialsLabel": "",
+        "DriverLabel": "",
+        "ClockInLabel": "",
+        "ClockOutLabel": "",
+        "TruckLabel": "",
+        "TicketLabel": "",
+        "AddTicket": "",
+        "ConfirmDeleteWeightTicket": "",
+        "ConfirmSubmit": ""
+      },
+      "Placeholders": {
+        "RouteName": "",
+        "DailyRoute": "",
+        "ScheduledOn": "",
+        "Status": "",
+        "Driver": "",
+        "PickedUpEquipmentNumber": "",
+        "DroppedEquipmentNumber": "",
+        "Weight": "",
+        "Truck": "",
+        "OdometerStart": "",
+        "OdometerEnd": ""
+      }
+    }
+  },
+  "helpers": {
+    "getCustomerNavigationTabs": {
+      "Text": {
+        "All Customers": "",
+        "Contractor": "",
+        "Residential": ""
+      }
+    },
+    "WeightUnit": {
+      "tons": "",
+      "yards": "",
+      "gallons": ""
+    }
+  }
+}

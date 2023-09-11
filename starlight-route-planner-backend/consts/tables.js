@@ -1,0 +1,17 @@
+export const TABLES = {
+  TENANTS: 'tenants',
+  BUSINESS_UNITS: 'business_units',
+  MASTER_ROUTES: 'master_routes',
+  SERVICE_ITEMS: 'service_items',
+  SERVICE_ITEM_MASTER_ROUTE: 'service_item_master_route',
+  WORK_ORDERS: 'work_orders',
+  JOB_SITES: 'job_sites',
+  DAILY_ROUTES: 'daily_routes',
+  COMMENTS: 'comments',
+  WORK_ORDERS_MEDIA: 'work_orders_media',
+  WEIGHT_TICKETS_MEDIA: 'weight_tickets_media',
+  WEIGHT_TICKETS: 'weight_tickets',
+  DAILY_ROUTES_HISTORICAL: 'daily_routes_historical',
+  WORK_ORDERS_HISTORICAL: 'work_orders_historical',
+  FREQUENCIES: 'frequencies',
+};

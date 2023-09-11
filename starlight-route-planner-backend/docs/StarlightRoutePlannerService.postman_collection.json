@@ -1,0 +1,1929 @@
+{
+	"info": {
+		"_postman_id": "03d0a213-9fb5-432e-b59a-fdbc9c78b098",
+		"name": "Starlight Route Planner Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "QUERIES",
+			"item": [
+				{
+					"name": "hauling",
+					"item": [
+						{
+							"name": "serviceItems",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ListHaulingServiceItems($businessUnitId: Int!, $filters: HaulingServiceItemFilters) {\n  haulingServiceItems(businessUnitId: $businessUnitId, filters: $filters) {\n    id\n    serviceFrequencyId\n    jobSite {\n        coordinates\n    }\n    jobSiteId\n    businessLineId\n    materialId\n    subscriptionId\n    businessUnitId\n    startDate\n    endDate\n    serviceAreaId\n    equipmentItemId\n    billableServiceId\n    billableServiceDescription\n    bestTimeToComeFrom\n    bestTimeToComeTo\n    serviceDaysOfWeek\n  }\n}",
+										"variables": "{\n    \"businessUnitId\": 40,\n    \"filters\": {\n        \"equipmentIds\": [4],\n        \"serviceDaysOfWeek\": [0,1,2,3,4,5,6],\n        \"businessLineId\": 2,\n        \"materialIds\": [10],\n        \"frequencyIds\": [1,2,3,4,5,6,7,108],\n        \"serviceAreaIds\": [1, 2, 3]\n    }\n}"
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "subscriptionOrder",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query HaulingSubscriptionOrder($id: Int!) {\n  haulingSubscriptionOrder(id: $id) {\n    id\n    status\n  }\n}",
+										"variables": "{\n  \"id\": 10217\n}"
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "equipmentItems",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ListHaulingEquipmentItems($businessLineId: Int!) {\n  haulingEquipmentItems(businessLineId: $businessLineId) {\n    id\n    active\n    businessLineId\n    customerOwned\n    description\n    emptyWeight\n    height\n    length\n    shortDescription\n    size\n    type\n    width\n  }\n}",
+										"variables": "{\n    \"businessLineId\": 2\n}"
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "materialItems",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ListHaulingMaterials($businessLineId: Int!) {\n  haulingMaterials(businessLineId: $businessLineId) {\n    id\n    active\n    businessLineId\n    description\n    manifested\n    misc\n    recycle\n    rolloff\n  }\n}",
+										"variables": "{\n    \"businessLineId\": 2\n}"
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "serviceAreas",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ListHaulingServiceAreas($businessUnitId: Int!, $businessLineIds: [Int!]!) {\n  haulingServiceAreas(businessUnitId: $businessUnitId, businessLineIds: $businessLineIds) {\n    id\n    active\n    businessLineId\n    businessUnitId\n    name\n    description\n  }\n}",
+										"variables": "{\n    \"businessUnitId\": 17,\n    \"businessLineIds\": [1, 2]\n}"
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "serviceAreasByIds",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query HaulingServiceAreasByIds {\n  haulingServiceAreasByIds(ids: [1, 2]) {\n        id\n        active\n        businessLineId\n        businessUnitId\n        name\n        description\n  }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "businessLines",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ListHaulingBusinessLines {\n  haulingBusinessLines {\n    id\n    active\n    name\n    description\n    type\n  }\n}",
+										"variables": "{\n}"
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "disposalSites",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ListHaulingDisposalSites {\n  haulingDisposalSites {\n    id\n    active\n    description\n    location {\n        type\n        coordinates\n    }\n    createdAt\n    updatedAt\n    address {\n        addressLine1\n        city\n        addressLine2\n        state\n        zip\n    }\n    type\n  }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3rdPartyHaulers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ListHauling3rdPartyHaulers {\n  hauling3rdPartyHaulers {\n    id\n    description\n    active\n  }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "trucks",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query HaulingTrucks {\n  haulingTrucks(businessUnitId: 2) {\n    id\n    name\n    type\n    truckTypeId\n    note\n    licensePlate\n    businessUnits\n    createdAt\n    updatedAt\n  }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "drivers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query HaulingDrivers {\n  haulingDrivers(businessUnitId: 2) {\n    id\n    name\n    email\n    truckId\n    truckName\n    businessUnits\n    workingWeekdays\n    createdAt\n    updatedAt\n  }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "billing",
+					"item": [
+						{
+							"name": "dailyRouteReport",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query GetDailyRouteReport {\n  dailyRouteReport(dailyRouteId: 1) {\n    pdfUrl\n  }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "masterRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetMasterRoute {\n  masterRoute(id: 54) {\n    id\n    published\n    serviceDaysList\n    assignedServiceDaysList\n    businessUnitId\n    name\n    color\n    status\n    publishDate\n    truckId\n    driverId\n    serviceItems {\n      id\n      haulingId\n      serviceFrequencyId\n      jobSiteId\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      billableServiceId\n      billableServiceDescription\n      businessLineId\n      materialId\n      subscriptionId\n      businessUnitId\n      startDate\n      equipmentItemId\n      serviceDaysOfWeek\n      serviceAreaId\n      endDate\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkMasterRouteItemsStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query CheckServiceItemsRouteStatus($ids: [Int!]!) {\n  checkServiceItemsRouteStatus(ids: $ids) {\n    available\n    updating\n    published\n  }\n}",
+								"variables": "{\n    \"ids\": [1372, 1588]\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkWorkOrdersRouteStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query CheckWorkOrdersRouteStatus($ids: [Int!]!) {\n  checkWorkOrdersRouteStatus(ids: $ids) {\n    available\n    updating\n  }\n}",
+								"variables": "{\n    \"ids\": [15329]\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "masterRoutes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetMasterRoutes($businessUnitId: Int!, $input: MasterRouteFilters!) {\n  masterRoutes(businessUnitId: $businessUnitId, input: $input) {\n    id\n    published\n    serviceDaysList\n    assignedServiceDaysList\n    businessUnitId\n    name\n    color\n    status\n    publishDate\n    truckId\n    driverId\n    numberOfStops\n    serviceItems {\n      id\n      haulingId\n      serviceFrequencyId\n      jobSiteId\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      billableServiceId\n      billableServiceDescription\n      businessLineId\n      materialId\n      subscriptionId\n      businessUnitId\n      startDate\n      equipmentItemId\n      serviceDaysOfWeek\n      serviceAreaId\n      endDate\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": "{\n    \"businessUnitId\": 17,\n    \"input\": {\n        \"businessLineTypes\": \"C\",\n        \"serviceDay\": 0,\n        \"published\": true\n    }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dailyRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetDailyRoute {\n  dailyRoute(id: 1068) {\n    id\n    status\n    name\n    serviceDate\n    businessUnitId\n    color\n    isEdited\n    parentRouteId\n    completionRate\n    businessLineType\n    completedAt\n    clockIn\n    clockOut\n    odometerStart\n    odometerEnd\n    unitOfMeasure\n    parentRoute {\n      id\n      name\n    }\n    weightTickets {\n      dailyRouteId\n      ticketNumber\n      loadValue\n      weightUnit\n      materialId\n      disposalSiteId\n      arrivalTime\n      departureTime\n      timeOnLandfill\n      media {\n        id\n        weightTicketId\n        url\n        timestamp\n        author\n        fileName\n      }\n    }\n    driverId\n    truckId\n    driverName\n    truckType\n    workOrders {\n      id\n      serviceDate\n      status\n      customerId\n      jobSiteId\n      businessLineId\n      materialId\n      equipmentItemId\n      billableServiceId\n      billableServiceDescription\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dailyRoutes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetDailyRoutes($dailyRouteFilters: DailyRouteFilters!) {\n  dailyRoutes(businessUnitId: 40, input: $dailyRouteFilters) {\n    id\n    status\n    parentRoute {\n      id\n      name\n    }\n    name\n    serviceDate\n    businessUnitId\n    color\n    isEdited\n    editingBy\n    businessLineType\n    parentRouteId\n    parentRoute {\n      id\n      name\n    }\n    workOrders {\n      id\n      serviceAreaId\n      serviceDate\n      status\n      customerId\n      jobSiteId\n      businessLineId\n      materialId\n      equipmentItemId\n      billableServiceId\n      billableServiceDescription\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    driverId\n    truckId\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": "{\n  \"dailyRouteFilters\": {\n    \"serviceDate\": \"2021-08-13\",\n    \"skip\": 0,\n    \"limit\": 9999\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dailyRoutesDashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query DailyRoutesForDashboard($dailyRouteForDashboardFilters: DailyRouteForDashboardFilters!) {\n  dailyRoutesDashboard(businessUnitId: 17, input: $dailyRouteForDashboardFilters, searchInput: \"DR1\") {\n    id\n    name\n    businessLineType\n    status \n    numberOfStops\n    completedAt\n    numberOfWos\n    driverName\n    truckId\n    truckType\n    ticket\n    completionRate\n    workOrders {\n      id\n      status\n      serviceDate\n      jobSite {\n        id\n        address {\n          addressLine1\n        }\n      }\n      dailyRoute {\n        id\n        name\n      }\n    }\n  }\n}",
+								"variables": "{\n  \"dailyRouteForDashboardFilters\": {\n    \"serviceDate\": \"2021-05-01\",\n    \"statuses\": [\"SCHEDULED\"]\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatingMasterRoutesList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetUpdatingMasterRoutesList {\n  updatingMasterRoutesList(businessUnitId: 17) {\n    id\n    status\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "masterRoutesCount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetMasterRoutesCount {\n  masterRoutesCount(businessUnitId: 17) {\n    count\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dailyRoutesCount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetDailyRoutesCount($businessUnitId: Int!, $serviceDate: String!) {\n  dailyRoutesCount(businessUnitId: $businessUnitId, serviceDate: $serviceDate) {\n    count\n  }\n}",
+								"variables": "{\n    \"businessUnitId\": 17,\n    \"serviceDate\": \"2021-04-21\"\n}\n"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availableDailyRouteColor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetAvailableDailyRouteColor {\n  availableDailyRouteColor {\n    color\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "serviceItemsAssignmentInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetServiceItemsAssignmentInfo {\n  serviceItemsAssignmentInfo {\n    serviceItemId\n    serviceDaysList\n    routeColors\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availableMasterRouteColor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetAvailableMasterRouteColor {\n  availableMasterRouteColor {\n    color\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "workOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetWorkOrders($workOrderFilters: WorkOrderFilters!) {\n  workOrders(businessUnitId: 40, input: $workOrderFilters, searchInput: \"\") {\n    id\n    workOrderId\n    serviceDate\n    status\n    signatureRequired\n    toRoll\n    alleyPlacement\n    poRequired\n    permitRequired\n    jobSiteNote\n    someoneOnSite\n    displayId\n    orderDisplayId\n    highPriority\n    assignedRoute\n    thirdPartyHaulerId\n    thirdPartyHaulerDescription\n    dailyRoute {\n      id\n      name\n    } \n    subscriptionId\n    customerId\n    jobSiteId\n    businessLineId\n    materialId\n    equipmentItemId\n    billableServiceId\n    billableServiceDescription\n    jobSite {\n      id\n      address {\n        addressLine1\n        addressLine2\n        fullAddress\n        city\n        state\n        zip\n      }\n      location\n      coordinates\n    }\n    bestTimeToComeFrom\n    bestTimeToComeTo\n    sequence\n    instructionsForDriver\n    cancellationReason\n    completedAt\n    pickedUpEquipment\n    droppedEquipment\n    weight\n    weightUnit\n    media {\n      id\n      url\n      timestamp\n    }\n  }\n}",
+								"variables": "{\n   \"workOrderFilters\": {\n    \"serviceDate\": \"2021-07-15\",\n    \"skip\": 0,\n    \"limit\": 9999,\n    \"sortBy\": \"status\",\n    \"sortOrder\": \"desc\",\n    \"thirdPartyHaulerIds\": [1,2,3,4,5,6,7,null]\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "workOrdersDailyRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetWorkOrdersDailyRoute($workOrderDailyRouteFilters: WorkOrderDailyRouteFilters!) {\n  workOrdersDailyRoute(businessUnitId: 40, input: $workOrderDailyRouteFilters) {\n    id\n    serviceDate\n    status\n    customerId\n    subscriptionId\n    jobSiteId\n    businessLineId\n    materialId\n    equipmentItemId\n    billableServiceId\n    billableServiceDescription\n    thirdPartyHaulerId\n    dailyRouteId\n    dailyRoute {\n      id\n      name\n    } \n    jobSite {\n      id\n      address {\n        addressLine1\n        addressLine2\n        fullAddress\n        city\n        state\n        zip\n      }\n      location\n      coordinates\n    }\n    bestTimeToComeFrom\n    bestTimeToComeTo\n    sequence\n    instructionsForDriver\n    cancellationReason\n    completedAt\n    pickedUpEquipment\n    droppedEquipment\n    weight\n    weightUnit\n    media {\n      id\n      url\n      timestamp\n    }\n  }\n}",
+								"variables": "{\n   \"workOrderDailyRouteFilters\": {\n    \"businessLineId\": 4,\n    \"serviceDate\": \"2021-06-30\"\n   }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "workOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query singleWorkOrder($id: ID!) {\n  workOrder(id: $id) {\n    id\n    serviceDate\n    status\n    customerId\n    jobSiteId\n    displayId\n    businessLineId\n    materialId\n    equipmentItemId\n    equipmentItemSize\n    billableServiceId\n    billableServiceDescription\n    thirdPartyHaulerId\n    thirdPartyHaulerDescription\n  }\n}",
+								"variables": "{\n    \"id\": 5211\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dailyRouteHistory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetDailyRouteHistory {\n  dailyRouteHistory(id: 951) {\n     id\n      originalId\n      eventType\n      entityType\n      timestamp\n      userId\n      userName\n      changes {\n        attribute: \n        actualChanges {\n          attribute\n          actionType\n          newValue\n          previousValue\n        }\n      }\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MUTATIONS",
+			"item": [
+				{
+					"name": "hauling",
+					"item": [
+						{
+							"name": "syncJobSitesFromHauling",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{lobby-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation SyncJobSitesFromHauling {\n  syncJobSitesFromHauling {\n    status\n    message\n  }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{route-planner-host}}/api/route-planner/graphql",
+									"host": [
+										"{{route-planner-host}}"
+									],
+									"path": [
+										"api",
+										"route-planner",
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "createMasterRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateMasterRoute($createMasterRoute: CreateMasterRouteInput!) {\n  createMasterRoute(input: $createMasterRoute) {\n    id\n    published\n    serviceDaysList\n    assignedServiceDaysList\n    businessUnitId\n    name\n    color\n    status\n    publishDate\n    truckId\n    driverId\n    serviceItems {\n      id\n      haulingId\n      serviceFrequencyId\n      jobSiteId\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      billableServiceId\n      billableServiceDescription\n      businessLineId\n      materialId\n      subscriptionId\n      businessUnitId\n      startDate\n      equipmentItemId\n      serviceDaysOfWeek\n      serviceAreaId\n      endDate\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": "{\n  \"createMasterRoute\": {\n  \"businessUnitId\": 17,\n  \"color\": \"#90ee90\",\n  \"serviceDaysList\": [0,3],\n  \"name\": \"nice rote name here\",\n  \"driverId\": null,\n  \"truckId\": null,\n  \"serviceItems\": [\n      {\n        \"id\": 2,\n        \"jobSiteId\": 21,\n        \"billableServiceId\": 1,\n        \"billableServiceDescription\": \"description\",\n        \"businessLineId\": 2,\n        \"businessUnitId\": 1,\n        \"materialId\": 1,\n        \"subscriptionId\": 1,\n        \"startDate\": \"2021-03-10\",\n        \"endDate\": null,\n        \"serviceAreaId\": 1,\n        \"equipmentItemId\": 1,\n        \"serviceFrequencyId\": 1,\n        \"serviceDaysOfWeek\": {\n          \"1\": {\n            \"route\": \"id 2 route 1\",\n            \"requiredByCustomer\": false\n          },\n          \"2\": {\n            \"route\": \"id 2 route 2\",\n            \"requiredByCustomer\": false\n          }\n        }\n      },\n      {\n        \"id\": 1,\n        \"jobSiteId\": 21,\n        \"billableServiceId\": 1,\n        \"billableServiceDescription\": \"description\",\n        \"businessLineId\": 2,\n        \"businessUnitId\": 1,\n        \"materialId\": 1,\n        \"subscriptionId\": 1,\n        \"startDate\": \"2021-03-10\",\n        \"endDate\": \"2021-05-01\",\n        \"serviceDaysOfWeek\": {\n          \"1\": {\n            \"route\": \"id 1 route 1\",\n            \"requiredByCustomer\": false\n          },\n          \"2\": {\n            \"route\": \"id 1 route 2\",\n            \"requiredByCustomer\": false\n          }\n        },\n        \"serviceAreaId\": 1,\n        \"equipmentItemId\": 1,\n        \"serviceFrequencyId\": 1\n      }\n    ]\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMasterRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateMasterRoute($updateMasterRoute: UpdateMasterRouteInput!) {\n  updateMasterRoute(input: $updateMasterRoute) {\n    id\n    published\n    serviceDaysList\n    assignedServiceDaysList\n    businessUnitId\n    name\n    color\n    status\n    publishDate\n    truckId\n    driverId\n    serviceItems {\n      id\n      haulingId\n      serviceFrequencyId\n      jobSiteId\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      billableServiceId\n      billableServiceDescription\n      businessLineId\n      materialId\n      subscriptionId\n      businessUnitId\n      startDate\n      equipmentItemId\n      serviceDaysOfWeek\n      serviceAreaId\n      endDate\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n  }   \n}",
+								"variables": "{\n  \"updateMasterRoute\": {\n    \"id\": 165,\n    \"truckId\": 1,\n    \"driverId\": 1,\n    \"name\": \"nice rote name changed\",\n    \"serviceDaysList\": [0,1],\n    \"serviceItems\": [\n      {\n        \"id\": 1,\n        \"jobSiteId\": 21,\n        \"billableServiceId\": 1,\n        \"billableServiceDescription\": \"description\",\n        \"businessLineId\": 4,\n        \"businessUnitId\": 1,\n        \"materialId\": 1,\n        \"subscriptionId\": 1,\n        \"startDate\": \"2021-03-10\",\n        \"endDate\": \"2021-05-01\",\n        \"serviceAreaId\": 1,\n        \"equipmentItemId\": 1,\n        \"serviceFrequencyId\": 1,\n        \"serviceDaysOfWeek\": {\n          \"0\": {\n            \"route\": \"route 1\",\n            \"requiredByCustomer\": false\n          },\n          \"2\": {\n            \"route\": \"route 1\",\n            \"requiredByCustomer\": false\n          }\n        }\n      },\n      {\n        \"id\": 2,\n        \"jobSiteId\": 21,\n        \"billableServiceId\": 1,\n        \"billableServiceDescription\": \"description\",\n        \"businessLineId\": 4,\n        \"businessUnitId\": 1,\n        \"materialId\": 1,\n        \"subscriptionId\": 1,\n        \"startDate\": \"2021-03-10\",\n        \"endDate\": \"2021-05-01\",\n        \"serviceAreaId\": 1,\n        \"equipmentItemId\": 1,\n        \"serviceFrequencyId\": 1,\n        \"serviceDaysOfWeek\": {\n          \"0\": {\n            \"route\": \"route 1\",\n            \"requiredByCustomer\": false\n          },\n          \"2\": {\n            \"route\": \"route 1\",\n            \"requiredByCustomer\": false\n          }\n        }\n      }\n    ]\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finishUpdateMasterRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation FinishUpdateMasterRoute($id: Int!) {\n  finishUpdateMasterRoute(id: $id)\n}",
+								"variables": "{\n  \"id\": 47\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishMasterRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation PublishMasterRoute {\n  publishMasterRoute(id: 78, publishDate: \"2021-04-10\") {\n    id\n    name\n    truckId\n    driverId\n    businessUnitId\n    color\n    status\n    published\n    publishDate\n    serviceDaysList\n    serviceItems {\n      id\n      serviceDaysOfWeek\n    }\n  }\n}",
+								"variables": "{\n  \"updateMasterRoute\": {\n    \"id\": 24,\n    \"truckId\": 99,\n    \"driverId\": 12,\n    \"name\": \"sfasf asf\",\n    \"serviceDaysList\": [5,6],\n    \"serviceItems\": [\n      {\n        \"id\": 1,\n        \"jobSiteId\": 1,\n        \"businessLineId\": 1,\n        \"businessUnitId\": 1,\n        \"materialId\": 1,\n        \"subscriptionId\": 1,\n        \"startDate\": \"2021-12-12\",\n        \"addressLine1\": \"address line 1\",\n        \"addressLine2\": \"address line 2\",\n        \"zip\": \"1231231\",\n        \"city\": \"Denver\",\n        \"state\": \"Colorado\",\n        \"serviceAreaId\": 1,\n        \"equipmentSizeId\": 1,\n        \"equipmentSizeName\": \"size name\",\n        \"location\": \"0101000020E6100000AFF089D0E33F5AC0A807605EDBDE4340\",\n        \"coordinates\": [-104.9982797,40.7410696],\n        \"serviceFrequencyId\": 1,\n        \"serviceDaysOfWeek\": {\n          \"0\": {\n            \"route\": \"route name\",\n            \"requiredByCustomer\": false\n          }\n        }\n      },\n      {\n        \"id\": 1,\n        \"jobSiteId\": 1,\n        \"businessLineId\": 1,\n        \"businessUnitId\": 1,\n        \"materialId\": 1,\n        \"subscriptionId\": 1,\n        \"startDate\": \"2021-12-12\",\n        \"addressLine1\": \"address line 1\",\n        \"addressLine2\": \"address line 2\",\n        \"zip\": \"1231231\",\n        \"city\": \"Denver\",\n        \"state\": \"Colorado\",\n        \"serviceAreaId\": 1,\n        \"equipmentSizeId\": 1,\n        \"equipmentSizeName\": \"size name\",\n        \"location\": \"0101000020E6100000AFF089D0E33F5AC0A807605EDBDE4340\",\n        \"coordinates\": [-104.9982797,40.7410696],\n        \"serviceFrequencyId\": 2,\n        \"serviceDaysOfWeek\": {\n          \"0\": {\n            \"route\": \"route name\",\n            \"requiredByCustomer\": false\n          },\n          \"1\": {\n            \"route\": \"route name\",\n            \"requiredByCustomer\": true\n          }\n        }\n      }\n    ]\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unpublishMasterRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UnpublishMasterRoute($id: Int!, $force: Boolean) {\n  unpublishMasterRoute(id: $id, force: $force) {\n    __typename\n    ... on UnpublishMasterRouteNotice {\n        dailyRoutesToDeleteCount\n        editedDailyRoutes {\n            id\n            serviceDate\n            status\n        }\n    }\n    ... on MasterRoute {\n        id\n        publishDate\n        published\n    }\n  }\n}",
+								"variables": "{\n    \"id\": 48,\n    \"force\": true\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createDailyRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateDailyRoute($createDailyRoute: CreateDailyRouteInput!) {\n  createDailyRoute(businessUnitId: 17, input: $createDailyRoute) {\n    id\n    status\n    name\n    serviceDate\n    businessUnitId\n    parentRouteId\n    driverId\n    driverName\n    truckId\n    truckType\n    color\n    workOrders {\n      id\n      serviceDate\n      status\n      assignedRoute\n      dailyRouteId\n      dailyRoute {\n        id\n        name\n      } \n      customerId\n      jobSiteId\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      businessLineId\n      materialId\n      equipmentItemId\n      subscriptionOrderId\n      billableServiceId\n      billableServiceDescription\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    isEdited\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": "{\n  \"createDailyRoute\": {\n    \"name\": \"daily route name \",\n    \"serviceDate\": \"2021-12-12\",\n    \"color\": \"#ffb6c1\",\n    \"workOrderIds\": [14393, 14394, 14395],\n    \"truckId\": \"1\",\n    \"driverId\": 1\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateComment($createComment: CreateCommentInput!) {\n  createComment(input: $createComment) {\n    id\n    workOrderId\n    eventType \n    authorId\n    authorName\n    authorRole\n    comment\n\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": "{\n  \"createComment\": {\n    \"workOrderId\": 12941,\n    \"eventType\": \"COMMENT\",\n    \"comment\": \"Second comment, on my way\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDailyRoute",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateDailyRoute($updateDailyRoute: UpdateDailyRouteInput!) {\n  updateDailyRoute(input: $updateDailyRoute) {\n    id\n    status\n    editingBy\n    name\n    serviceDate\n    businessUnitId\n    color\n    truckId\n    driverId\n    isEdited\n    parentRouteId\n    driverId\n    driverName\n    truckId\n    truckType\n    workOrders {\n      id\n      serviceDate\n      status\n      assignedRoute\n      dailyRouteId\n      dailyRoute {\n        id\n        name\n      } \n      customerId\n      jobSiteId\n      businessLineId\n      materialId\n      equipmentItemId\n      subscriptionOrderId\n      billableServiceId\n      billableServiceDescription\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": "{\n  \"updateDailyRoute\": {\n    \"id\": 200,\n    \"name\": \"daily route namesdfsdfsdf\",\n    \"workOrderIds\": [12232],\n    \"driverId\": 12,\n    \"truckId\": \"22\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enableDailyRouteEditMode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation EnableDailyRouteEditMode {\n  enableDailyRouteEditMode(id: 3) {\n    __typename\n    ... on DailyRoute {\n      id\n      status\n      editingBy\n      name\n      serviceDate\n      businessUnitId\n      color\n      isPt\n      isEdited\n      parentRouteId\n      workOrders {\n        id\n        serviceDate\n        status\n        assignedRoute\n        dailyRouteId\n        dailyRoute {\n          id\n          name\n        } \n        customerId\n        jobSiteId\n        businessLineId\n        materialId\n        equipmentItemId\n        subscriptionOrderId\n        billableServiceId\n        billableServiceDescription\n        jobSite {\n          id\n          address {\n            addressLine1\n            addressLine2\n            fullAddress\n            city\n            state\n            zip\n          }\n          location\n          coordinates\n        }\n        bestTimeToComeFrom\n        bestTimeToComeTo\n        sequence\n      }\n      driverId\n      truckId\n      createdAt\n      updatedAt\n    }\n    ... on EnableEditModeNotice {\n        currentlyEditingBy\n        message\n    } \n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enableMasterRouteEditMode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation EnableMasterRouteEditMode {\n  enableMasterRouteEditMode(id: 14) {\n    __typename\n    ... on MasterRoute {\n      id\n      isPt\n      published\n      serviceDaysList\n      assignedServiceDaysList\n      businessUnitId\n      name\n      color\n      status\n      editingBy\n      publishDate\n      truckId\n      driverId\n      serviceItems {\n        id\n        haulingId\n        serviceFrequencyId\n        jobSiteId\n        jobSite {\n          id\n          address {\n            addressLine1\n            addressLine2\n            fullAddress\n            city\n            state\n            zip\n          }\n          location\n          coordinates\n        }\n        billableServiceId\n        billableServiceDescription\n        businessLineId\n        materialId\n        subscriptionId\n        businessUnitId\n        startDate\n        equipmentItemId\n        serviceDaysOfWeek\n        serviceAreaId\n        endDate\n        bestTimeToComeFrom\n        bestTimeToComeTo\n        sequence\n      }\n    }\n    ... on EnableEditModeNotice {\n        currentlyEditingBy\n        message\n    } \n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "disableDailyRouteEditMode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DisableDailyRouteEditMode {\n  disableDailyRouteEditMode(id: 3) {\n    id\n    status\n    editingBy\n    name\n    serviceDate\n    businessUnitId\n    color\n    isPt\n    isEdited\n    parentRouteId\n    workOrders {\n      id\n      serviceDate\n      status\n      assignedRoute\n      dailyRouteId\n      dailyRoute {\n        id\n        name\n      } \n      customerId\n      jobSiteId\n      businessLineId\n      materialId\n      equipmentItemId\n      subscriptionOrderId\n      billableServiceId\n      billableServiceDescription\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n    driverId\n    truckId\n    createdAt\n    updatedAt\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "disableMasterRouteEditMode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DisableMasterRouteEditMode {\n  disableMasterRouteEditMode(id: 14) {\n    id\n    isPt\n    published\n    serviceDaysList\n    assignedServiceDaysList\n    businessUnitId\n    name\n    color\n    status\n    editingBy\n    publishDate\n    truckId\n    driverId\n    serviceItems {\n      id\n      haulingId\n      serviceFrequencyId\n      jobSiteId\n      jobSite {\n        id\n        address {\n          addressLine1\n          addressLine2\n          fullAddress\n          city\n          state\n          zip\n        }\n        location\n        coordinates\n      }\n      billableServiceId\n      billableServiceDescription\n      businessLineId\n      materialId\n      subscriptionId\n      businessUnitId\n      startDate\n      equipmentItemId\n      serviceDaysOfWeek\n      serviceAreaId\n      endDate\n      bestTimeToComeFrom\n      bestTimeToComeTo\n      sequence\n    }\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateWorkOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateWorkOrder($updateWorkOrder: UpdateWorkOrderInput!) {\n  updateWorkOrder(input: $updateWorkOrder) {\n    __typename\n    ...on ParentOrderInvoicedNotice {\n      message\n      parentOrderId\n    }\n    ...on WorkOrder {\n      dailyRoute {\n        id\n        name\n      }\n      id\n      businessLineId\n      subscriptionOrderId\n      pickedUpEquipment\n      droppedEquipment\n      status\n      weight\n      serviceDate\n      cancellationReason\n      cancellationComment\n      sequence\n    }\n  }   \n}",
+								"variables": "{\n  \"updateWorkOrder\": {\n    \"id\": 21425,\n    \"assignedRoute\": \"DRS003\",\n    \"pickedUpEquipment\": \"some text here\",\n    \"droppedEquipment\": \"one more text\",\n    \"status\": \"CANCELED\",\n    \"weight\": 199.00,\n    \"serviceDate\": \"2021-12-12\",\n    \"cancellationReason\": \"userError\",\n    \"cancellationComment\": \"test\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "workOrdersBulkStatusChange",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation WorkOrdersBulkStatusChange($bulkStatusInput: BulkStatusChangeWorkOrderInput!) {\n  workOrdersBulkStatusChange(input: $bulkStatusInput) {\n    valid\n    invalid\n  }   \n}",
+								"variables": "{\n  \"bulkStatusInput\": {\n    \"ids\": [15329],\n    \"status\": \"CANCELED\",\n    \"cancellationReason\": \"other\",\n    \"cancellationComment\": \"Cancelled because of reasons\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "workOrdersBulkReschedule",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation WorkOrdersBulkReschedule($bulkRescheduleInput: BulkRescheduleWorkOrderInput!) {\n  workOrdersBulkReschedule(input: $bulkRescheduleInput) {\n    valid\n    invalid\n  }   \n}",
+								"variables": "{\n  \"bulkRescheduleInput\": {\n    \"ids\": [15329],\n    \"serviceDate\": \"2021-05-11\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadWorkOrderMedia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "operations",
+									"value": "{\"query\":\"mutation UploadWorkOrderMedia($id: Int!, $input: Upload!){\\n  uploadWorkOrderMedia(id: $id, input: $input) {id workOrderId url timestamp author fileName}\\n}\", \"variables\": { \"id\": 22869, \"input\": null } }",
+									"type": "text"
+								},
+								{
+									"key": "map",
+									"value": "{\"0\": [\"variables.input\"]}",
+									"type": "text"
+								},
+								{
+									"key": "0",
+									"type": "file",
+									"src": "/Users/volodymyr_vovk/Documents/ELEKS_work/CRPT/starlight-route-planner-backend/docs/20200203192326_db_schema.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteWorkOrderMedia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteWorkOrderMedia($ids: [ID!]!) {\n  deleteWorkOrderMedia(ids: $ids)\n}",
+								"variables": "{\n  \"ids\": [\"2c206433-2f11-4386-b267-96dc79c12265\", \"e89b3f6c-1e73-4023-8d5f-e9afe41b5016\"]\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDailyRouteQuickViewInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateDailyRouteQuickView($updateDailyRouteQuickViewInfo: UpdateDailyRouteQuickViewInput!) {\n    updateDailyRouteQuickViewInfo(id: 3, input: $updateDailyRouteQuickViewInfo) {\n        id\n        assignedTruck {\n            id\n            name\n        }\n        clockIn\n        clockOut\n        odometerStart\n        odometerEnd\n        unitOfMeasure\n    }\n}",
+								"variables": "{\n    \"updateDailyRouteQuickViewInfo\": {\n        \"truckId\": 1,\n        \"clockIn\": \"8:30 am\",\n        \"clockOut\": \"5:30 pm\",\n        \"odometerStart\": 20,\n        \"unitOfMeasure\": \"mi\"\n    }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createWeightTicket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "operations",
+									"value": "{\"query\":\"mutation CreateWeightTicket($input: CreateWeightTicketInput!, $media: Upload){\\n  createWeightTicket(input: $input, media: $media) {id ticketNumber dailyRouteId media { id, url } ticketNumber loadValue weightUnit}\\n}\", \"variables\": { \"input\": { \"dailyRouteId\": 1072, \"ticketNumber\": 100500, \"loadValue\": 4.3, \"weightUnit\": \"tons\", \"materialId\": 10 }, \"media\": null } }",
+									"type": "text"
+								},
+								{
+									"key": "map",
+									"value": "{\"0\": [\"variables.media\"]}",
+									"type": "text"
+								},
+								{
+									"key": "0",
+									"type": "file",
+									"src": "/Users/volodymyr_vovk/Desktop/Screenshot 2021-09-20 at 17.16.02.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateWeightTicket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "operations",
+									"value": "{\"query\":\"mutation UpdateWeightTicket($id: Int!, $input: UpdateWeightTicketInput!, $media: Upload){\\n  updateWeightTicket(id: $id, input: $input, media: $media) {id ticketNumber  dailyRouteId, media { id, url } ticketNumber loadValue weightUnit}\\n}\", \"variables\": {\"id\":  66, \"input\": { \"ticketNumber\": 9999, \"loadValue\": 5.99, \"weightUnit\": \"yards\", \"materialId\": 2 }, \"media\": null } }",
+									"type": "text"
+								},
+								{
+									"key": "map",
+									"value": "{\"0\": [\"variables.media\"]}",
+									"type": "text"
+								},
+								{
+									"key": "0",
+									"type": "file",
+									"src": "/Users/volodymyr_vovk/Desktop/Screenshot 2021-09-20 at 17.16.02.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteWeightTicket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{lobby-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteWeightTicket($id: Int!) {\n  deleteWeightTicket(id: $id)\n}",
+								"variables": "{\n    \"id\": 63\n}"
+							}
+						},
+						"url": {
+							"raw": "{{route-planner-host}}/api/route-planner/graphql",
+							"host": [
+								"{{route-planner-host}}"
+							],
+							"path": [
+								"api",
+								"route-planner",
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

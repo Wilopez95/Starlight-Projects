@@ -1,0 +1,15 @@
+export const SERVICE_ITEM_AL_ENTITIES = [
+  'billableServiceDescription',
+  'billableServiceId',
+  'businessLineId',
+  'startDate',
+  'endDate',
+  'equipmentItemId',
+  'jobSite',
+  'materialId',
+  'serviceAreaId',
+  'subscriptionId',
+  'serviceDaysOfWeek',
+  'serviceFrequencyId',
+  'haulingId',
+];

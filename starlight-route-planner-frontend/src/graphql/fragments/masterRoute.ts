@@ -1,0 +1,19 @@
+export const MasterRouteFragment = `
+  id
+  status
+  name
+  publishDate
+  truckId
+  businessUnitId
+  driverId
+  published
+  serviceDaysList
+  assignedServiceDaysList
+  color
+  editingBy
+  editorId
+  businessLineType
+  violation
+  createdAt
+  updatedAt
+`;

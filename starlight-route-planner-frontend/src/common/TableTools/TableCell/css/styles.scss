@@ -1,0 +1,35 @@
+.cell {
+  text-align: left;
+  margin: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: capitalize;
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.link {
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: normal;
+  }
+}
+
+.noCapitalize {
+  text-transform: unset;
+}
+
+.full {
+  width: 100%;
+}
+
+.cellContainer {
+  height: var(--tableHeaderHeight, 'auto');
+}

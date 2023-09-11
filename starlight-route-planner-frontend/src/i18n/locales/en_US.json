@@ -1,0 +1,850 @@
+{
+  "Text": {
+    "WO": "WO#",
+    "AssignedRoute": "Assigned Route",
+    "3pHauler": "3rd Party Hauler",
+    "No3pHauler": "No 3rd Party Hauler",
+    "CompletedOn": "Completed On",
+    "Instructions": "Instructions",
+    "Comment": "Comment",
+    "Media": "Media",
+    "Status": "Status",
+    "JobSite": "Job Site",
+    "Ok": "OK",
+    "MediaFiles": "Media Files",
+    "Phone": "Phone",
+    "BestTimeToCome": "Best Time To Come",
+    "BestTimeToComeFrom": "Best Time To Come From",
+    "BestTimeToComeTo": "Best Time To Come To",
+    "Route": "Route",
+    "Truck": "Truck",
+    "Ticket": "Ticket",
+    "ConfirmChanges": "Confirm Changes",
+    "DailyRoute": "Daily Route",
+    "ScheduledOn": "Scheduled On",
+    "DriverName": "Driver Name",
+    "AssignedTruck": "Assigned Truck",
+    "InstructionsForDriver": "Instructions For Driver",
+    "PickedUpEquipmentNumber": "Picked Up Equip. #",
+    "DroppedEquipmentNumber": "Dropped Equip. #",
+    "Weight": "Weight",
+    "SaveChanges": "Save Changes",
+    "NoOptions": "No options",
+    "NeverMind": "Never Mind",
+    "ConfirmCancellation": "Confirm Cancellation",
+    "Continue": "Continue",
+    "Reset": "Reset",
+    "Select": "Select",
+    "Cancel": "Cancel",
+    "Available": "available",
+    "RoutesUpdatingStatus": "belong to routes in updating status",
+    "PublishedRoutes": "belong to already published routes",
+    "NoResultsFound": "No results found",
+    "Units": "Units",
+    "Material": "Material",
+    "ServiceArea": "Service Area",
+    "Driver": "Driver",
+    "ClockIn": "Clock In",
+    "ClockOut": "Clock Out",
+    "OdometerStart": "Odometer (Start), mi",
+    "OdometerEnd": "Odometer (End), mi",
+    "TicketNumber": "Ticket #",
+    "DailyRouteNumber": "Daily Route #",
+    "MasterRoute": "Master Route",
+    "ParentOrderNumber": "Parent Order #",
+    "EquipmentNumber": "Picked Up Equip. #",
+    "CancellationReason": "Cancellation Reason",
+    "Edit": "Edit",
+    "RollOff": "Roll-off",
+    "Commercial": "Commercial",
+    "Residential": "Residential",
+    "CommercialResidential": "Commercial/Residential",
+    "PortableToilets": "Portable Toilets",
+    "Number": "Number",
+    "Delete": "Delete",
+    "Subscription#": "Subscription #",
+    "Attachments": "Attachments",
+    "Details": "Details",
+    "FacilityName": "Facility Name",
+    "ArrivalTime": "Arrival Time",
+    "DepartureTime": "Departure Time",
+    "TimeOnLandfill": "Time on Landfill",
+    "LoadValue": "Load Value",
+    "Loading": "Loading",
+    "SomethingWrong": "Something went wrong. Please refresh and try again.",
+    "SaveRoute": "Save Route",
+    "HistoryTitle": "{{dateTime}} by {{user}}",
+    "From": "from",
+    "To": "to",
+    "Added": "added",
+    "Changed": "changed",
+    "Removed": "removed",
+    "Created": "created",
+    "ToRoll": "Ok To Roll",
+    "PermitRequired": "Permit Required",
+    "PoRequired": "PO Number Required",
+    "SignatureRequired": "Signature Required",
+    "HighPriority": "High Priority",
+    "SomeoneOnSite": "Someone on Site",
+    "AlleyPlacement": "Alley Placement",
+    "ThirdPartyHaulerDescription": "3rd Party Hauler",
+    "TruckId": "Assigned Truck",
+    "CompletedAt": "Completed On",
+    "ServiceDate": "Scheduled On",
+    "PickedUpEquipment": "Picked Up Equipment",
+    "DroppedEquipment": "Dropped Equipment",
+    "Name": "Name",
+    "DriverId": "Driver Id",
+    "TruckType": "Truck Type",
+    "TruckName": "Truck",
+    "WorkOrderIds": "Work Orders",
+    "WeightTicket": "Weight Ticket",
+    "WeightTickets": "Weight Tickets",
+    "RouteSheet": "Route Sheet",
+    "Download": "Download",
+    "IN_PROGRESS": "In Progress",
+    "EDITING": "Editing",
+    "CANCELED": "Canceled",
+    "COMPLETED": "Completed",
+    "SCHEDULED": "Scheduled",
+    "UNPUBLISHED": "Unpublished",
+    "PUBLISHED": "Published",
+    "BLOCKED": "Blocked/Not Out",
+    "UPDATING": "Updating",
+    "APPROVED": "Approved",
+    "FINALIZED": "Finalized",
+    "INVOICED": "Invoiced",
+    "RouteNameExists": "Route with name {{name}} already exists",
+    "Service": "Service"
+  },
+  "Errors": {},
+  "ValidationErrors": {
+    "RouteGeneric": "This route requires your attention",
+    "RouteInactiveTruck": "This truck is inactive",
+    "RouteInactiveDriver": "This driver is inactive",
+    "RouteNonUniqueTruck": "The same truck is assigned to several daily routes",
+    "RouteNonUniqueDriver": "The same driver is assigned to several daily routes"
+  },
+  "formats": {
+    "date": "{{date, isoDate}}",
+    "decimal": "{{number, decimal}}",
+    "uppercase": "{{text, uppercase}}"
+  },
+  "pages": {
+    "MasterRoutes": {
+      "components": {
+        "Text": {
+          "Title": "Master Routes",
+          "UpdateRoutes": "Update Routes",
+          "InputPlaceholder": "Search Service ID or Job Site"
+        }
+      }
+    },
+    "Dispatcher": {
+      "components": {
+        "Header": {
+          "Text": {
+            "Title": "Dispatcher",
+            "MasterRoutesGridButton": "Grid",
+            "CreateNewRouteButton": "Create New Route",
+            "CalendarLabel": "for"
+          }
+        },
+        "Tabs": {
+          "Text": {
+            "Dashboard": "Dashboard",
+            "DailyRoutes": "Daily Routes",
+            "MasterRoutes": "Master Routes",
+            "DriversTrucks": "Drivers & Trucks",
+            "WorkOrders": "Work Orders",
+            "MasterRouteInputPlaceholder": "Search Service ID or Job Site",
+            "DashboardInputPlaceholder": "Search Route, Truck or Driver",
+            "WorkOrderInputPlaceholder": "Search WO#, Route or Job Site",
+            "DailyRouteInputPlaceholder": "Search WO ID or Job Site"
+          }
+        },
+        "Map": {
+          "Text": {
+            "UnassignedServicesCount": "Unassigned Services {{count}} / {{outOfCount}}",
+            "UnassignedWorkOrdersCount": "Unassigned Work Orders {{count}} / {{outOfCount}}"
+          }
+        },
+        "NothingToShowSidebar": {
+          "Text": {
+            "Description": "Nothing are matching the criteria of filtering. Please try again."
+          }
+        },
+        "NothingToShowMapLabel": {
+          "Text": {
+            "NoSearchResults": "No search results"
+          }
+        },
+        "WorkOrders": {
+          "Table": {
+            "Text": {
+              "LoadMore": "Loading Work Orders"
+            }
+          },
+          "QuickViews": {
+            "CommentSection": {
+              "Text": {
+                "InputSection": "Input Section",
+                "AddComment": "Add Comment",
+                "PlaceHolder": "Type a new message here"
+              },
+              "Validation": {
+                "CommentRequired": "Comment message is required"
+              }
+            }
+          }
+        },
+        "MasterRoutesGrid": {
+          "Table": {
+            "Text": {
+              "LoadMore": "Loading Master Routes"
+            },
+            "Headers": {
+              "Text": {
+                "Customer": "Customer",
+                "SubscriptionId": "Subscription ID",
+                "JobSite": "Job Site",
+                "Service": "Service",
+                "ServiceFrequency": "Service Frequency",
+                "Material": "Material",
+                "EquipmentSize": "Equipment Size",
+                "CurrentRoute": "Current Route",
+                "NewRoute": "New Route",
+                "CurrentSequence": "Current Sequence #",
+                "NewSequence": "New Sequence #",
+                "CurrentServiceDay": "Current Service Day",
+                "NewServiceDay": "New Service Day"
+              }
+            },
+            "Errors": {
+              "Text": {
+                "ErrorSequenceTooLong": "Sequence exceeds maximum sequence for the route",
+                "ErrorNonPositiveSequence": "Sequence has to be a positive number"
+              }
+            }
+          }
+        },
+        "Dashboard": {
+          "Table": {
+            "Text": {
+              "RouteType": "Route Type",
+              "NumberOfStops": "# of stops",
+              "NumberOfWOs": "# of WOs",
+              "DriverAssigned": "Driver Assigned",
+              "TruckNumber": "Truck #",
+              "TruckType": "Truck Type",
+              "CompletionRate": "Completion Rate",
+              "LoadMore": "Loading Daily Routes"
+            }
+          }
+        }
+      }
+    },
+    "Login": {
+      "Text": {
+        "Login": "Log in"
+      }
+    },
+    "SystemConfiguration": {
+      "components": {
+        "NavigationPanel": {
+          "NavigationPanel": {
+            "CommonText": {
+              "Billable Items": "Billable Items",
+              "Materials": "Materials",
+              "Material Profiles": "Material Profiles",
+              "Equipment": "Equipment"
+            },
+            "Text": {
+              "Company": "Company",
+              "LinesOfBusiness": "Lines of Business",
+              "Users And Groups": "Users And Groups",
+              "Company Profile": "Company Profile",
+              "Business Unit": "Business Unit",
+              "Lines of Business": "Lines of Business",
+              "Business Units": "Business Units",
+              "Company Settings": "Company Settings",
+              "Customer Groups": "Customer Groups",
+              "Brokers": "Brokers",
+              "3rd Party Haulers": "3rd Party Haulers",
+              "Disposal Sites": "Disposal Sites",
+              "Tax Districts": "Tax Districts",
+              "Roll-Off Container": "Roll-Off Container",
+              "Commercial": "Commercial",
+              "Residential": "Residential",
+              "Portable Toilet": "Portable Toilet",
+              "Test": "Test"
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "PageHeader": {
+      "Text": {
+        "Hi": "Hi",
+        "LogOut": "Log Out",
+        "ClockIn": "Clock In",
+        "ClockOut": "Clock Out",
+        "TitleClockOut": "Clock Out",
+        "SubTitleClockOut": "Clock Out",
+        "CancelButton": "Stay Clocked In",
+        "SubmitButton": "Clock Out",
+        "Title": "Are you leaving?",
+        "SubTitle": "While you leaving, would you like to clock out also?",
+        "GlobalSystemConfiguration": "Global System Configuration",
+        "LangPlaceholder": "select language"
+      },
+      "Form": {},
+      "Errors": {},
+      "ValidationErrors": {}
+    },
+    "PageLayouts": {
+      "BusinessUnitLayout": {
+        "Header": {
+          "Text": {
+            "SearchPlaceholder": "Search customers and job sites",
+            "Orders": "Orders",
+            "WorkOrders": "Work Orders",
+            "Invoice": "Invoice",
+            "Customer": "Customer",
+            "JobSite": "Job Site"
+          }
+        },
+        "NavigationPanel": {
+          "Text": {
+            "OrdersAndSubscriptions": "Orders & Subscriptions",
+            "Customers": "Customers",
+            "Billing": "Billing",
+            "Orders": "Orders",
+            "OnlyMyOrders": "Only My Orders",
+            "Subscriptions": "Subscriptions",
+            "MyRecentSubscriptions": "My Recent Subscriptions",
+            "AllCustomers": "All customers",
+            "Invoices": "Invoices",
+            "DeferredPayments": "Deferred Payments",
+            "AccountsReceivable": "Accounts Receivable",
+            "PaymentsPayouts": "Payments & Payouts",
+            "BatchStatements": "Batch Statements",
+            "CreditCardSettlements": "Credit Card Settlements",
+            "Reports": "Reports",
+            "Dispatcher": "Dispatcher",
+            "CreateNew": "Create New",
+            "SystemReports": "System Reports"
+          }
+        }
+      },
+      "CustomerJobSiteLayout": {
+        "Text": {
+          "SearchJobSite": "Search Job Site",
+          "CustomerJobSiteDetails": "Customer Job Site Details",
+          "CreateProject": "Create Project",
+          "NoSearchResults": "No search results"
+        },
+        "Errors": {
+          "NotFound": "Looks like there are no Job Sites here. Please link a Job Site to this customer"
+        },
+        "CustomerJobSiteNavigation": {
+          "Text": {
+            "OpenOrders": "Open Orders",
+            "InvoicedOrders": "Invoiced Orders",
+            "Contacts": "Contacts",
+            "CreditCards": "Credit Cards",
+            "Invoices": "Invoices",
+            "JobSiteRates": "Job Site Rates"
+          }
+        },
+        "components": {
+          "ProjectFilter": {
+            "Text": {
+              "AllOrders": "All Orders"
+            }
+          },
+          "SideBar": {
+            "Text": {
+              "LinkJobSite": "Link Job Site",
+              "ShowInactive": "Show Inactive"
+            }
+          }
+        }
+      },
+      "CustomerLayout": {
+        "CustomerNavigation": {
+          "Text": {
+            "Profile": "Profile",
+            "OrdersAndSubscriptions": "Orders & Subscriptions",
+            "JobSites": "Job Sites",
+            "Contacts": "Contacts",
+            "CreditCards": "Credit Cards",
+            "Invoices": "Invoices",
+            "PaymentsAndStatements": "Payments & Statements",
+            "FinancialHistory": "Financial History",
+            "CustomerRates": "Customer Rates"
+          }
+        }
+      },
+      "CustomerOrdersAndSubscriptionLayout": {
+        "components": {
+          "SideBarItem": {
+            "Text": {
+              "Subscriptions": "Subscriptions",
+              "SubscriptionsCount": "{{count}} Subscriptions"
+            }
+          }
+        }
+      },
+      "CustomerSubscriptionLayout": {
+        "Text": {
+          "LinkSubscriptionOrder": "Link Subscription Order",
+          "LinkSubscriptionNonServiceOrder": "Link Non-Service Order"
+        },
+        "components": {
+          "buttons": {
+            "BackButton": {
+              "Text": {
+                "BackToSubscriptionsList": "Back to Subscriptions List"
+              }
+            }
+          },
+          "SubscriptionActions": {
+            "Text": {
+              "HoldSubscription": "Hold Subscription",
+              "ResumeSubscription": "Resume Subscription",
+              "CloneSubscription": "Clone Subscription",
+              "EditSubscription": "Edit Subscription"
+            }
+          }
+        }
+      }
+    },
+    "TimePicker": {
+      "Text": {
+        "Anytime": "Anytime",
+        "AM": "AM",
+        "PM": "PM",
+        "Specific": "Specific"
+      }
+    },
+    "modals": {
+      "NoAssignedTruckDriver": {
+        "Title": "No {{type}} Assigned to the Route",
+        "SubTitle": "To get a route published please make sure there is a {{type}} has been assigned to it."
+      },
+      "PublishRoute": {
+        "Title": "Publish Route",
+        "SelectDate": "Select Starting Date",
+        "Publish": "Publish",
+        "Note": "Note: ",
+        "PublishNotice": "The daily routes will be generated on the night before the starting date"
+      },
+      "UnPublishRoute": {
+        "Title": "Unpublish",
+        "Proceed": "Proceed",
+        "ManuallyEdited": "<0>{{editedDailyRoutesCount}} Daily Routes</0> have been manually edited:",
+        "WillDeleted": "Please, be informed that <2>{{dailyRoutesToDeleteCount}} daily routes</2> generated from this master route will be deleted."
+      },
+      "Popup": {
+        "Title": "Subscription #{{id}}",
+        "Period": "Period",
+        "Customer": "Customer",
+        "JobSite": "Job Site",
+        "LineOfBusiness": "Line of Business",
+        "EquipmentSize": "Equipment Size",
+        "ServiceFrequency": "Service Frequency",
+        "AssignedDays": "Assigned Days",
+        "Services": "Services • {{services}}"
+      },
+      "WorkOrderDetails": {
+        "Title": "Work Order #{{workOrderNumber}}",
+        "MultiTitle": "Work Orders • {{count}}",
+        "Date": "Date",
+        "Customer": "Customer",
+        "JobSite": "Job Site",
+        "LineOfBusiness": "Line of Business",
+        "EquipmentSize": "Equipment Size",
+        "ParentOrder": "Parent Order #",
+        "DailyRoute": "Daily Route",
+        "DefaultDailyRoute": "Not assigned"
+      },
+      "AddMultipleWO": {
+        "Title": "Add Multiple WOs to the Route",
+        "SubTitle": "Choose work order(s) to add to the route:",
+        "Cancel": "Cancel",
+        "Continue": "Continue",
+        "EquipmentSize": "Equipment Size"
+      },
+      "MapSettings": {
+        "Title": "Map Settings",
+        "SubTitle": "Select Items to Show:",
+        "HomeYards": "Home Yards",
+        "Landfills": "Landfills"
+      },
+      "WayPointsDetails": {
+        "Title": "{{wayPointType}} Point",
+        "Address": "Address",
+        "HomeYard": "Home Yard",
+        "Landfill": "Landfill"
+      },
+      "EditingRouteNotice": {
+        "Title": "Route Updates Are In Progress",
+        "Body": "{{routeName}} {{routeTypeText}} is in the process of update by <4>{{editingByText}}</4>. Please try again when the process is completed.",
+        "MasterRoute": "Master Route",
+        "DailyRoute": "Daily Route",
+        "System": "system"
+      },
+      "RouteValidationModal": {
+        "MasterRouteValidationModal": {
+          "Text": {
+            "Title": "Unable to Add to {{routeName}} Master Route",
+            "ServiceItemsCannotBeAdded": "The following service items can not be added:",
+            "ServiceDaysValidationMessage": "Subscription’s service days are required by the customer and do not fit to the service days of the selected master route.",
+            "BusinessLineValidationMessage": "The Master Route contains service items of different line of business."
+          }
+        },
+        "DailyRouteValidationModal": {
+          "Text": {
+            "Title": "Unable to Add to {{routeName}} Daily Route",
+            "WorkOrdersCannotBeAdded": "The following work orders can not be added:",
+            "BusinessLineValidationMessage": "The Daily Route contains work orders of different line of business."
+          }
+        },
+        "UnableToEditWO": {
+          "Text": {
+            "Title": "Unable to Edit",
+            "SubTitleMultiple": "The following orders can’t be updated as their parent orders are already invoiced:",
+            "SubTitleSingle": "The order #{{id}} is invoiced. Any edits of its work order are not allowed."
+          }
+        }
+      },
+      "CancellationReason": {
+        "Text": {
+          "Title": "Cancel Order",
+          "CancellationReason": "Cancellation Reason*",
+          "Comment": "Comment*",
+          "other": "Other",
+          "userError": "User Error",
+          "customerCanceled": "Customer Canceled"
+        },
+        "Placeholders": {
+          "CancellationReason": "Select Cancellation Reason",
+          "Comment": "Please Write a Comment"
+        },
+        "Validation": {
+          "CancellationReason": "Cancellation Reason is Required",
+          "Comment": "Cancellation Comment is Required"
+        }
+      },
+      "BulkReschedule": {
+        "Text": {
+          "RescheduleModalTitle": "Reschedule {{count}} Work Order",
+          "RescheduleModalTitle_plural": "Reschedule {{count}} Work Orders",
+          "RescheduleModalAlert": "Rescheduled Work Orders will be removed from the assigned Daily Routes",
+          "CurrentServiceDate": "Current Service Date",
+          "NewServiceDate": "New Service Date",
+          "RescheduleOrders": "Reschedule Orders",
+          "Reschedule": "Reschedule"
+        },
+        "Validation": {
+          "ServiceDateRequired": "Service date is required",
+          "DateMustDiffer": "Dates must be different"
+        }
+      },
+      "WorkOrderUpdateStatus": {
+        "Text": {
+          "UpdateStatus": "Update Status",
+          "Title": "Update Status for {{count}} Work Order",
+          "Title_plural": "Update Status for {{count}} Work Orders",
+          "StatusPlaceholder": "Select status",
+          "StatusLabel": "Status",
+          "ReasonPlaceholder": "Select reason",
+          "ReasonLabel": "Cancellation Reason*",
+          "CommentPlaceholder": "Enter cancellation reason",
+          "CommentLabel": "Comment*"
+        },
+        "Validation": {
+          "Status": "Status is required",
+          "Reason": "Reason is required",
+          "Comment": "Comment is required"
+        }
+      },
+      "HandleRouteStatus": {
+        "Text": {
+          "Title": "Route Updates Are In Progress",
+          "SubTitle": "You can't move this item to {{routeName}}. This route is in status {{routeStatus}} in which it can't be edited"
+        }
+      },
+      "WeightTicket": {
+        "Text": {
+          "EditTicket": "Edit Ticket",
+          "AddTicket": "Add Ticket",
+          "TicketNumber": "Ticket Number*",
+          "FacilityName": "Facility Name",
+          "ArrivalTime": "Arrival Time",
+          "DepartureTime": "Departure Time",
+          "TimeOnLandfill": "Time on Landfill",
+          "LoadValue": "Load Value*",
+          "UploadMediaFile": "Upload media file",
+          "UploadedMediaFile": "uploaded"
+        },
+        "Validation": {
+          "MustBePositive": "Ticket number must be positive",
+          "Required": "Ticket number is required",
+          "LoadValueIsRequired": "Load value is require",
+          "LoadValueMustBePositive": "Load value must be positive",
+          "PleaseSpecifyUnitsType": "Please, specify units type",
+          "ErrorIncorrectExtension": "Error while upload, try different file extension.",
+          "ErrorManyFiles": "You should attach only one file.",
+          "MediaIsRequired": "Please, attach weight ticket photo",
+          "TicketNumberMustBeUnique": "The weight ticket with this ID is already attached"
+        }
+      }
+    }
+  },
+  "quickViews": {
+    "MasterRouteFiltersView": {
+      "Text": {
+        "Title": "Filters",
+        "LineOfBusinessLabeL": "Line of Business",
+        "Route": "Route",
+        "RoutePlaceholder": "Select Route",
+        "LineOfBusinessPlaceholder": "Select Line of Business",
+        "ServiceAreaLabel": "Service Area",
+        "ServiceAreaPlaceholder": "Select Service Area",
+        "MaterialTypePlaceholder": "Select Type of Material",
+        "EquipmentSizeLabel": "Equipment size",
+        "EquipmentSizePlaceholder": "Select equipment size",
+        "FrequencyLabel": "Frequency",
+        "FrequencyPlaceholder": "Select Frequency",
+        "UnassignedSwitch": "Show unassigned Job Sites only",
+        "Reset": "Reset All",
+        "Apply": "Apply Filters",
+        "ServiceDay": "Service Day"
+      }
+    },
+    "FiltersView": {
+      "Text": {
+        "Title": "Filters",
+        "LineOfBusinessLabeL": "Line of Business Type",
+        "LineOfBusinessPlaceholder": "Select Line of Business",
+        "ServiceAreaLabel": "Service Areas",
+        "ServiceAreaPlaceholder": "Select Service Areas",
+        "StatusPlaceholder": "Select Status",
+        "AssignedDailyRouteId": "Assigned Daily Route ID",
+        "AssignedDailyRouteIdPlaceholder": "Select daily route",
+        "ResetAll": "Reset All",
+        "ApplyFilters": "Apply Filters",
+        "NoAssignedRoute": "No daily route",
+        "TruckType": "Truck Type",
+        "TruckTypePlaceholder": "Select Truck Type"
+      }
+    },
+    "MasterRouteDetailsView": {
+      "Text": {
+        "Back": "Back to Routes List",
+        "FromDate": "FROM {{date}}",
+        "ServiceDays": "Service Days",
+        "Driver": "Driver",
+        "EditRoute": "Edit Route",
+        "Unpublish": "Unpublish Route",
+        "Publish": "Publish Route"
+      }
+    },
+    "MasterRouteView": {
+      "Text": {
+        "New": "New Master Route",
+        "Edit": "Edit {{name}}",
+        "TabDetailsTitle": "Details",
+        "TabServicesTitle": "Services • {{servicesCount}}",
+        "ServiceDaysTitle": "Service Day*",
+        "NextStepButton": "Services →"
+      },
+      "Validation": {
+        "RouteNameRequired": "Please enter route name",
+        "RouteNameLengthAndUniqueness": "The route name should be unique and not longer than 30 symbols",
+        "ServiceDays": "Please select at least 1 service day",
+        "ServiceItems": "Minimum 1 service is required"
+      },
+      "DetailsTab": {
+        "Text": {
+          "RouteNameLabel": "Route Name*",
+          "RouteNamePlaceholder": "Enter Route Name",
+          "TruckIdLabel": "Truck ID",
+          "TruckIdPlaceholder": "Select Truck ID",
+          "DriverLabel": "Driver",
+          "DriverPlaceholder": "Select Driver"
+        }
+      },
+      "ServicesTab": {
+        "Text": {
+          "Title": "+ Drag & drop here a job site"
+        }
+      }
+    },
+    "DailyRouteForm": {
+      "Text": {
+        "New": "New Daily Route",
+        "Edit": "Edit {{name}}",
+        "NextStepButton": "Work Orders →",
+        "TabDetailsTitle": "Details",
+        "TabWorkOrdersTitle": "Work Orders • {{workOrdersCount}}"
+      },
+      "DetailsTab": {
+        "Text": {
+          "RouteName": "Route Name*",
+          "RouteNamePlaceholder": "Enter Route Name",
+          "ScheduledPlaceholder": "Enter scheduled date",
+          "TruckId": "Truck ID*",
+          "TruckIdPlaceholder": "Select Truck ID",
+          "DriverId": "Driver*",
+          "DriverIdPlaceholder": "Select Driver"
+        },
+        "Validation": {
+          "RouteNameRequired": "Please enter route number",
+          "RouteNameLengthAndUniqueness": "The route name should be unique and not longer than 30 symbols",
+          "RouteName": "Please enter route number",
+          "TruckId": "Please select Truck ID",
+          "DriverId": "Please select Driver"
+        }
+      },
+      "WorkOrdersTab": {
+        "Text": {
+          "Title": "+ Drag & drop here"
+        },
+        "Validation": {
+          "WorkOrders": "Minimum 1 work order is required"
+        }
+      }
+    },
+    "MasterRouteProgress": {
+      "Text": {
+        "CreatingDailyRoutes": "Creating daily routes",
+        "ShowDetails": "Show details",
+        "HideDetails": "Hide details",
+        "From": "From "
+      }
+    },
+    "RoutesList": {
+      "Text": {
+        "Title": "Routes",
+        "Edited": "Edited"
+      }
+    },
+    "DailyRouteDetails": {
+      "Text": {
+        "Driver": "Driver",
+        "EditRoute": "Edit Route",
+        "RouteNumber": "Route #",
+        "Edited": "Edited",
+        "BackToRoutesList": "Back to Routes List",
+        "WorkOrderNumber": "WO#"
+      }
+    },
+    "AddMultipleServiceItems": {
+      "Text": {
+        "Title": "Add Multiple Services to the Route",
+        "Subtitle": "Choose service(s) to add to the route:",
+        "Cancel": "Cancel",
+        "Add": "Add",
+        "ServiceNumber": "Service #",
+        "EquipmentSize": "Equipment Size",
+        "Frequency": "Frequency",
+        "AssignedDays": "Assigned Days"
+      }
+    },
+    "WorkOrderView": {
+      "Text": {
+        "WorkOrderNumber": "Work Order #",
+        "TabDetailsTitle": "Details",
+        "TabJobSiteTitle": "Job Site",
+        "TabCommentsTitle": "Comments",
+        "TabHistoryTitle": "History",
+        "Cancel": "Cancel",
+        "Edit": "Edit Work Order"
+      },
+      "JobSiteTab": {
+        "Text": {
+          "Note": "Job Site Pop-up Note",
+          "JobSiteContact": "Job Site Contact"
+        }
+      }
+    },
+    "WorkOrderEdit": {
+      "Text": {
+        "Title": "Edit Work Order #",
+        "DeleteMediaFile": "Delete Media File",
+        "AreYouSure": "Are you sure you want to delete this media file?"
+      },
+      "Placeholders": {
+        "DailyRoute": "Select Daily Route",
+        "ScheduledOn": "Select Service Date",
+        "Status": "Select Status",
+        "PickedUpEquipmentNumber": "Enter Picked Up Equip. #",
+        "DroppedEquipmentNumber": "Enter Dropped Equip. #",
+        "Weight": "Enter Weight"
+      },
+      "Validation": {
+        "ServiceDate": "Please select service date",
+        "Status": "Please select status"
+      }
+    },
+    "DashboardDailyRoute": {
+      "Text": {
+        "EditRoute": "Edit Route",
+        "RouteNumber": "Route #",
+        "TabDetailsTitle": "Details",
+        "TabWorkOrdersTitle": "Work Orders • {{workOrdersCount}}",
+        "TabHistoryTitle": "History"
+      }
+    },
+    "DashboardDailyRouteEdit": {
+      "Text": {
+        "Title": "Edit Route #",
+        "RouteNumber": "Route #",
+        "TabDetailsTitle": "Details",
+        "TabWorkOrdersTitle": "Work Orders • {{workOrdersCount}}",
+        "ServiceAreasLabel": "Service Areas",
+        "MaterialsLabel": "Materials",
+        "DriverLabel": "Driver",
+        "ClockInLabel": "Clock-In",
+        "ClockOutLabel": "Clock-Out",
+        "TruckLabel": "Truck",
+        "TicketLabel": "Ticket #",
+        "AddTicket": "Add Ticket",
+        "ConfirmDeleteWeightTicket": "Delete Weight Ticket",
+        "ConfirmSubmit": "Are you sure you want to delete this weight ticket?"
+      },
+      "Placeholders": {
+        "RouteName": "Route Name",
+        "DailyRoute": "Select Daily Route",
+        "ScheduledOn": "Select Service Date",
+        "Status": "Select Status",
+        "Driver": "Select Driver",
+        "PickedUpEquipmentNumber": "Enter Picked Up Equip. #",
+        "DroppedEquipmentNumber": "Enter Dropped Equip. #",
+        "Weight": "Enter Weight",
+        "Truck": "Select Truck",
+        "OdometerStart": "Enter Odometer Start",
+        "OdometerEnd": "Enter Odometer End"
+      }
+    }
+  },
+  "helpers": {
+    "getCustomerNavigationTabs": {
+      "Text": {
+        "All Customers": "All Customers",
+        "Contractor": "Contractor",
+        "Residential": "Residential"
+      }
+    },
+    "WeightUnit": {
+      "tons": "Tons",
+      "yards": "Yards",
+      "gallons": "Gallons"
+    }
+  }
+}

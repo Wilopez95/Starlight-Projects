@@ -1,0 +1,41 @@
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortableContainer {
+  &.right {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
+
+  & svg {
+    margin-left: 10px;
+
+    &.right {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+  }
+}
+
+.arrow {
+  width: 10px !important;
+  transition: transform 300ms ease, opacity 300ms ease;
+
+  & path {
+    fill: var(--caption-dark) !important;
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.sortAsc {
+  transform: rotate(180deg);
+}
+
+.sortDesc {
+  transform: rotate(0deg);
+}

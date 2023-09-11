@@ -1,0 +1,121 @@
+{
+  "name": "@starlightpro/recycling",
+  "version": "0.8.32",
+  "main": "./sdk.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Starlightpro/starlight-recycling-frontend.git",
+    "directory": "packages/recycling"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "peerDependencies": {
+    "@starlightpro/common": "^0.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "resolutions": {
+    "date-fns": "2.29.3"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.6.0",
+    "@mapbox/mapbox-sdk": "^0.11.0",
+    "@types/autosuggest-highlight": "^3.1.0",
+    "autosuggest-highlight": "^3.1.1",
+    "babel-loader": "8.1.0",
+    "browser-image-compression": "^1.0.17",
+    "classnames": "^2.3.1",
+    "convert-units": "^3.0.0-beta.2",
+    "date-fns": "2.29.3",
+    "geojson": "^0.5.0",
+    "html-webpack-plugin": "4.0.0",
+    "mapbox-gl": "^1.11.1",
+    "popmotion": "^8.7.3",
+    "print-js": "^1.6.0",
+    "qrcode.react": "^1.0.1",
+    "validate": "^5.1.0",
+    "webpack-cli": "3.0.4"
+  },
+  "scripts": {
+    "precommit": "yarn prettier:check && lint-staged && yarn lint:tsc",
+    "start": "PORT=8000 react-app-rewired start --scripts-version react-scripts",
+    "start-cross": "cross-env PORT=8000 react-app-rewired start --scripts-version react-scripts",
+    "build": "yarn build:app && yarn build:lib",
+    "build:app": "react-app-rewired build --scripts-version react-scripts",
+    "build:lib": "tsc -p sdk.tsconfig.json",
+    "watch:lib": "tsc -p sdk.tsconfig.json --watch",
+    "test": "react-app-rewired test --passWithNoTests --scripts-version react-scripts",
+    "eject": "react-scripts eject",
+    "lint": "yarn lint:eslint && yarn lint:tsc",
+    "lint:eslint": "eslint --ext js,ts,tsx src",
+    "lint:tsc": "tsc -p tsconfig.json --noEmit",
+    "prettier": "prettier --write",
+    "prettier:check": "prettier -c ./src",
+    "schema:generate": "gql-gen --config codegen.yml && yarn schema:prettify",
+    "schema:prettify": "eslint --fix src/graphql/api.tsx && prettier --single-quote --write src/graphql/api.tsx",
+    "cypress:open": "cypress open",
+    "test:unit": "yarn cypress run —- —-spec 'cypress/component/*.spec.tsx'",
+    "i18nSync:pull": "yarn workspace @starlightpro/i18nSync sync --pull",
+    "i18nSync:push": "yarn workspace @starlightpro/i18nSync sync --push"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "eslint --ext js,ts,tsx --fix",
+      "prettier --write",
+      "cross-env NODE_ENV=test jest --bail --findRelatedTests"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "../common/.eslintrc"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.8.1",
+    "@cypress/react": "^5.12.5",
+    "@cypress/webpack-dev-server": "^1.3.1",
+    "@graphql-codegen/cli": "^1.17.8",
+    "@graphql-codegen/schema-ast": "^1.18.3",
+    "@graphql-codegen/typescript": "^1.17.9",
+    "@graphql-codegen/typescript-operations": "^1.17.8",
+    "@graphql-codegen/typescript-react-apollo": "^2.0.6",
+    "@graphql-codegen/typescript-resolvers": "^1.17.9",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/faker": "^5.5.6",
+    "@types/jest": "^24.0.0",
+    "@types/qrcode.react": "^1.0.2",
+    "axios": "^0.21.1",
+    "copy-webpack-plugin": "^6.0.0",
+    "cross-env": "^7.0.2",
+    "currency.js": "^2.0.3",
+    "cypress": "^7.7.0",
+    "cypress-react-unit-test": "^4.17.2",
+    "cypress-wait-until": "^1.7.1",
+    "dotenv": "^10.0.0",
+    "faker": "^5.5.3",
+    "form-data": "^4.0.0",
+    "http-proxy-middleware": "^1.0.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.1.1",
+    "react": "^16.13.1",
+    "react-app-rewired": "^2.1.8",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^4.0.3",
+    "ts-node": "^9.1.1",
+    "yargs": "^16.2.0"
+  }
+}

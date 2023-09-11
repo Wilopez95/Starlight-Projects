@@ -1,0 +1,1 @@
+export { TaxesInfoButton } from './TaxesInfoButton';

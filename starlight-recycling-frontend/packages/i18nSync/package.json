@@ -1,0 +1,17 @@
+{
+  "name": "@starlightpro/i18nSync",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo 'tests are not implemented yet'",
+    "schema:generate": "echo 'no need to generate schema for this package'",
+    "precommit": "echo 'no need to tun precomit hook'",
+    "lint": "echo 'no need to tun linter'",
+    "sync": "ts-node --project ./tsconfig.json ./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.7",
+    "node-fetch": "^2.6.1"
+  }
+}

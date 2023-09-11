@@ -1,0 +1,1 @@
+export { ToPaymentButton } from './ToPaymentButton';

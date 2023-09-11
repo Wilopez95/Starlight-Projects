@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src", "lib", "../common", "**/*.*"],
+  "exclude": ["src/service/printnode"],
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/@types", "src/cypress/@types"],
+    "module": "esnext",
+    "isolatedModules": true,
+    "allowJs": true,
+    "types": ["cypress", "node"],
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react"
+  }
+}

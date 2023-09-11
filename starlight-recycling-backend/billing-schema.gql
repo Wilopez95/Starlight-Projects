@@ -1,0 +1,1001 @@
+directive @authorized(permissions: [String!] = []) on FIELD_DEFINITION
+
+type Query {
+  order(id: ID!): Order
+  orders(offset: Int = 0, limit: Int = 25): [Order!]!
+  invoice(id: ID!): Invoice
+  invoicesCount(businessUnitId: ID, customerId: ID, jobSiteId: ID, subscriptionId: ID, filters: InvoiceFilters, query: String): Int!
+  invoices(customerId: ID, businessUnitId: ID, subscriptionId: ID, jobSiteId: ID, filters: InvoiceFilters, query: String, offset: Int = 0, limit: Int = 25, sortBy: InvoiceSorting = ID, sortOrder: SortOrder = ASC): [Invoice!]!
+  invoiceBySubOrderId(orderId: ID!): Invoice
+  payment(id: ID!): Payment
+  payments(customerId: ID, filters: PaymentFilters, query: String, businessUnitId: ID, offset: Int = 0, limit: Int = 25, sortBy: PaymentSorting = DATE, sortOrder: SortOrder = DESC): [Payment]
+  unconfirmedPayments(settlementId: ID!): [Payment!]!
+  deferredPayments(customerId: ID, businessUnitId: ID, offset: Int = 0, limit: Int = 25, failedOnly: Boolean = false, sortBy: DeferredPaymentSorting = DEFERRED_UNTIL, sortOrder: SortOrder = DESC): [Payment]
+  prepaidPayment(orderId: ID!): Payment
+  nonInvoicedOrdersTotals(customerId: ID!): NonInvoicedOrdersTotals
+  customerBalances(customerId: ID!): Balances
+  payout(id: ID!): Payout
+  payouts(customerId: ID, businessUnitId: ID, offset: Int = 0, limit: Int = 25, filters: PayoutFilters, query: String, sortBy: PayoutSorting = DATE, sortOrder: SortOrder = DESC): [Payout!]!
+  settlements(offset: Int = 0, limit: Int = 25, businessUnitId: ID!, from: String, to: String, sortBy: SettlementsSorting = DATE, sortOrder: SortOrder = DESC): [Settlement!]!
+  settlement(id: ID!): Settlement
+  settlementTransactions(settlementId: ID!, offset: Int = 0, limit: Int = 25): [SettlementTransaction!]
+  settlementsCount(businessUnitId: ID!): Int!
+  statements(businessUnitId: ID, customerId: ID, offset: Int = 0, limit: Int = 25, sortBy: StatementSorting = ID, sortOrder: SortOrder = DESC): [Statement!]!
+  statement(id: ID!): Statement
+  newStatementEndDate(customerId: ID!): String!
+  creditCard(id: ID!): CreditCardExtended
+  creditCards(customerId: ID, activeOnly: Boolean = false, jobSiteId: ID, relevantOnly: Boolean = false, offset: Int = 0, limit: Int = 25, isAutopay: Boolean, sortBy: CcSorting = ID, sortOrder: SortOrder = DESC): [CreditCardExtended]
+  financeCharge(id: ID!): FinanceCharge
+  financeCharges(businessUnitId: ID, customerId: ID, filters: FinanceChargeFilters, query: String, offset: Int = 0, limit: Int = 25, sortBy: FinanceChargesSorting = ID, sortOrder: SortOrder = DESC): [FinanceCharge!]!
+  bankDeposit(id: ID!): BankDeposit
+  bankDeposits(businessUnitId: ID, offset: Int = 0, limit: Int = 25, sortBy: DepositSorting = DATE, sortOrder: SortOrder = ASC): [BankDeposit]
+  batchStatements(businessUnitId: ID, offset: Int = 0, limit: Int = 25, sortBy: BatchStatementSorting = ID, sortOrder: SortOrder = DESC): [BatchStatement!]!
+  batchStatement(id: ID!): BatchStatement
+  generationJobStatus(id: ID!): GenerationJob
+  invoiceGenerationJob(id: ID!): InvoiceGenerationJobResult
+  statementGenerationJob(id: ID!): StatementGenerationJobResult
+  finChargeGenerationJob(id: ID!): FinChargeGenerationJobResult
+  settlementGenerationJob(id: ID!): SettlementGenerationJobResult
+  customersLastStatementBalance(ids: [ID!]!): [CustomerLastStatementBalance!]!
+}
+
+type Mutation {
+  applyPayment(paymentId: ID!, applications: [PaymentApplicationInput!]!): Payment!
+  reversePayment(paymentId: ID!, reverseData: ReverseDataInput!): Payment!
+  createUnappliedPayment(customerId: ID!, data: UnappliedPaymentInput!): Payment!
+  createPayout(customerId: ID!, data: PayoutInput!): Payout!
+  refundUnappliedPayment(paymentId: ID!, amount: Float!): Payment!
+  chargeDeferredPayment(paymentId: ID!): Payment!
+  chargeDeferredPayments(paymentIds: [ID!]!): [Payment!]!
+  refundPrepaidOrder(orderId: ID!, amount: Float!, refundType: RefundType!, refundedPaymentId: ID!, checkNumber: String): Float!
+  requestSettlement(date: String!, businessUnitId: ID!, merchantId: ID!, mid: String!): ID!
+  deleteSettlements(ids: [ID!]!): Boolean
+  sendInvoices(invoiceIds: [Int!]!, attachMedia: InvoiceMailing, sendToCustomerInvoiceEmails: Boolean, customerEmails: [String!]!): Boolean
+  ordersPutOnAccount(orderIds: [Int!]!, overrideCreditLimit: Boolean): Boolean
+  writeOffInvoices(invoiceIds: [ID!]!, customerId: ID!, note: String!): Payment!
+  createStatement(businessUnitId: ID!, customerId: ID!, statementDate: String!, endDate: String!): ID!
+  deleteStatement(id: ID!): Boolean
+  sendStatements(ids: [ID!]!, emails: [String!]): Boolean
+  addCreditCard(customerId: ID!, data: AddCreditCardInput): CreditCardExtended
+  updateCreditCard(id: ID!, data: EditCreditCardInput): CreditCardExtended
+  deleteCreditCard(id: ID!): Boolean
+  editCreditMemo(id: ID!, data: EditCreditMemoInput): Payment
+  deleteCreditMemo(id: ID!): Boolean
+  newMultiOrderPayment(customerId: ID!, data: NewMultiOrderPayment): Payment
+  createFinanceCharge(data: [FinanceChargeInput!]!): ID!
+  sendFinanceCharges(ids: [ID!]!, emails: [String!]): Boolean
+  lockBankDeposit(businessUnitId: ID!, date: String!): BankDeposit
+  unlockBankDeposit(id: ID!, businessUnitId: ID!): Boolean
+  deleteBankDeposit(id: ID!): Boolean
+  createBatchStatement(businessUnitId: ID!, customerIds: [ID!]!, statementDate: String!, endDate: String!): ID
+  sendBatchStatements(ids: [ID!]!): Boolean
+}
+
+type Address {
+  addressLine1: String!
+  addressLine2: String
+  zip: String
+  city: String
+  state: String
+}
+
+input CreditCardInput {
+  active: Boolean!
+  cardNickname: String
+  addressLine1: String!
+  addressLine2: String
+  city: String!
+  state: String!
+  zip: String!
+  nameOnCard: String!
+  expirationDate: String!
+  cardNumber: String!
+  cvv: String!
+}
+
+enum AprType {
+  STANDARD
+  CUSTOM
+}
+
+enum BillingCycle {
+  DAILY
+  WEEKLY
+  MONTHLY
+  TWENTY_EIGHT_DAYS
+  QUATERLY
+  YEARLY
+}
+
+enum BillingType {
+  inAdvance
+  arrears
+}
+
+enum InvoiceConstruction {
+  BY_ORDER
+  BY_ADDRESS
+  BY_CUSTOMER
+}
+
+enum PaymentMethod {
+  CASH
+  CHECK
+  CREDIT_CARD
+  ON_ACCOUNT
+  MIXED
+}
+
+enum PaymentStatus {
+  FAILED
+  AUTHORIZED
+  CAPTURED
+  VOIDED
+  DEFERRED
+}
+
+enum PaymentInvoicedStatus {
+  APPLIED
+  REVERSED
+  UNAPPLIED
+}
+
+enum PaymentTerms {
+  COD
+  NET_15_DAYS
+  NET_30_DAYS
+  NET_60_DAYS
+}
+
+enum PaymentType {
+  CASH
+  CHECK
+  CREDIT_CARD
+  CREDIT_MEMO
+  REFUND_ON_ACCOUNT
+  WRITE_OFF
+}
+
+enum InvoiceType {
+  ORDERS
+  FINANCE_CHARGES
+  SUBSCRIPTIONS
+}
+
+enum InvoiceSorting {
+  ID
+  BALANCE
+  CREATED_AT
+  DUE_DATE
+  TOTAL
+  CUSTOMER_NAME
+  CUSTOMER_TYPE
+  STATUS
+}
+
+enum EmailEvent {
+  PENDING
+  SENT
+  DELIVERED
+  FAILED_TO_SEND
+  FAILED_TO_DELIVER
+}
+
+enum PaymentGateway {
+  CARDCONNECT
+  FLUIDPAY
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+enum RefundType {
+  CHECK
+  CREDIT_CARD
+  ON_ACCOUNT
+}
+
+enum InvoiceMailing {
+  ATTACH_TICKET
+  ATTACH_ALL_MEDIA
+}
+
+enum PaymentSorting {
+  DATE
+  PAYMENT_ID
+  PAYMENT_FORM
+  STATUS
+  UNAPPLIED
+  AMOUNT
+  CUSTOMER
+  DEPOSIT_DATE
+}
+
+enum PayoutSorting {
+  DATE
+  PAYOUT_ID
+  CUSTOMER
+  PAYMENT_FORM
+  AMOUNT
+}
+
+enum DeferredPaymentSorting {
+  ID
+  STATUS
+  DATE
+  AMOUNT
+  CUSTOMER
+  DEFERRED_UNTIL
+}
+
+enum StatementSorting {
+  ID
+  BALANCE
+  CREATED_AT
+  END_DATE
+  INVOICES_COUNT
+  STATEMENT_DATE
+}
+
+enum BankDepositType {
+  CASH_CHECK
+  CREDIT_CARD
+  REVERSAL
+}
+
+enum BankDepositStatus {
+  LOCKED
+  UNLOCKED
+}
+
+enum GenerationJobStatus {
+  PENDING
+  FINISHED
+  FAILED
+}
+
+enum InvoiceStatus {
+  OPEN
+  CLOSED
+  OVERDUE
+  WRITE_OFF
+}
+
+enum CustomerType {
+  PREPAID
+  ON_ACCOUNT
+}
+
+enum InvoiceAge {
+  CURRENT
+  OVERDUE_31_DAYS
+  OVERDUE_61_DAYS
+  OVERDUE_91_DAYS
+}
+
+enum DepositSorting {
+  ID
+  DATE
+  DEPOSIT_TYPE
+  MERCHANT_ID
+  COUNT
+  SYNC_WITH_QB
+  STATUS
+  TOTAL
+}
+
+enum BatchStatementSorting {
+  ID
+  STATEMENT_DATE
+  END_DATE
+  COUNT
+  TOTAL
+}
+
+enum SettlementsSorting {
+  DATE
+  PROCESSOR
+  COUNT
+  AMOUNT
+  FEES
+  ADJUSTMENT
+  NET
+  MERCHANT_ID
+}
+
+enum CcSorting {
+  ID
+  STATUS
+  CARD_NICKNAME
+  CARD_TYPE
+  EXPIRATION_DATE
+  PAYMENT_GATEWAY
+  CARD_NUMBER
+}
+
+enum FinanceChargesSorting {
+  ID
+  STATUS
+  CREATED_AT
+  TOTAL
+  REMAINING_BALANCE
+  CUSTOMER
+  CUSTOMER_TYPE
+}
+
+type Customer {
+  id: ID!
+  businessUnitId: ID!
+  businessName: String
+  firstName: String
+  lastName: String
+  name: String!
+  status: String!
+  invoiceConstruction: InvoiceConstruction!
+  onAccount: Boolean!
+  creditLimit: Float
+  billingCycle: BillingCycle
+  paymentTerms: PaymentTerms
+  addFinanceCharges: Boolean!
+  aprType: AprType
+  financeCharge: Float
+  balance: Float!
+  mailingAddress: Address!
+  billingAddress: Address!
+  cardConnectId: ID
+  fluidPayId: ID
+  sendInvoicesByPost: Boolean!
+  sendInvoicesByEmail: Boolean!
+  attachMediaPref: Boolean!
+  attachTicketPref: Boolean!
+  invoiceEmails: [String!]
+  statementEmails: [String!]
+  notificationEmails: [String!]
+  creditCards(offset: Int = 0, limit: Int = 25): [CreditCard]!
+  invoices(jobSiteId: ID, offset: Int = 0, limit: Int = 25, from: String, to: String, sortBy: InvoiceSorting = ID, sortOrder: SortOrder = ASC): [Invoice]!
+  invoicesCount: Int!
+  payments(offset: Int = 0, limit: Int = 25): [Payment]!
+}
+
+type NonInvoicedOrdersTotals {
+  prepaidTotal: Float!
+  prepaidOnAccount: Float!
+  total: Float!
+}
+
+type Balances {
+  availableCredit: Float!
+  balance: Float!
+  creditLimit: Float!
+  nonInvoicedTotal: Float!
+  prepaidOnAccount: Float!
+  prepaidDeposits: Float!
+  paymentDue: Float!
+}
+
+type CustomerLastStatementBalance {
+  id: ID!
+  statementBalance: Float
+}
+
+type CreditCard {
+  id: ID!
+  active: Boolean!
+  cardNickname: String
+  cardType: String!
+  cardNumberLastDigits: String!
+  ccAccountId: ID!
+  ccAccountToken: String!
+  paymentGateway: PaymentGateway
+  merchantId: ID!
+  customer: Customer!
+  payments(offset: Int = 0, limit: Int = 25): [Payment!]!
+  spUsed: Boolean
+}
+
+type CreditCardExtended {
+  id: ID!
+  active: Boolean!
+  cardNickname: String
+  cardType: String!
+  cardNumberLastDigits: String!
+  ccAccountId: ID!
+  ccAccountToken: String!
+  paymentGateway: PaymentGateway
+  merchantId: ID!
+  customer: Customer!
+  payments: [Payment!]!
+  jobSites: [JobSite!]
+  nameOnCard: String
+  expirationDate: String
+  addressLine1: String
+  addressLine2: String
+  city: String
+  state: String
+  zip: String
+  expDate: String
+  expiredLabel: Boolean
+  isAutopay: Boolean
+  spUsed: Boolean
+}
+
+input AddCreditCardInput {
+  active: Boolean!
+  cardNickname: String
+  addressLine1: String!
+  addressLine2: String
+  city: String!
+  state: String!
+  zip: String!
+  nameOnCard: String!
+  expirationDate: String!
+  cardNumber: String!
+  cvv: String!
+  jobSites: [ID]
+}
+
+input EditCreditCardInput {
+  active: Boolean!
+  cardNickname: String
+  addressLine1: String!
+  addressLine2: String
+  city: String!
+  state: String!
+  zip: String!
+  nameOnCard: String!
+  expirationDate: String!
+  jobSites: [ID]
+}
+
+type JobSite {
+  id: ID!
+  addressLine1: String!
+  addressLine2: String
+  city: String!
+  state: String!
+  zip: String!
+}
+
+type Order {
+  id: ID!
+  paymentMethod: PaymentMethod!
+  grandTotal: Float!
+  beforeTaxesTotal: Float!
+  capturedTotal: Float!
+  refundedTotal: Float!
+  serviceDate: String!
+  invoiceNotes: String
+  woNumber: Int
+  ticketUrl: String
+  lineItems: [OrderLineItem!]!
+  invoice: Invoice
+  payments: [Payment]!
+  jobSite: JobSite!
+  customer: Customer!
+  businessUnit: BusinessUnit
+}
+
+type PaymentRelatedOrder {
+  id: ID!
+  serviceDate: String!
+  grandTotal: Float!
+  beforeTaxesTotal: Float!
+  capturedTotal: Float!
+  refundedTotal: Float!
+  jobSite: JobSite!
+  assignedAmount: Float!
+  receiptPreviewUrl: String
+  receiptPdfUrl: String
+}
+
+type OrderLineItem {
+  id: ID!
+  description: String!
+  price: Float!
+  quantity: Int!
+  total: Float!
+  isService: Boolean!
+  billableServiceHistoricalId: Int
+  billableLineItemHistoricalId: Int
+  order: Order!
+}
+
+type Payment {
+  id: ID!
+  originalPaymentId: ID
+  status: PaymentStatus!
+  invoicedStatus: PaymentInvoicedStatus
+  date: String!
+  paymentType: PaymentType!
+  amount: Float!
+  sendReceipt: Boolean!
+  checkNumber: String
+  isAch: Boolean!
+  memoNote: String
+  billableItemType: String
+  billableItemId: ID
+  writeOffNote: String
+  deferredUntil: String
+  prevBalance: Float!
+  newBalance: Float
+  appliedAmount: Float!
+  unappliedAmount: Float
+  paidOutAmount: Float!
+  refundedAmount: Float!
+  refundedOnAccountAmount: Float!
+  receiptPreviewUrl: String
+  receiptPdfUrl: String
+  bankDepositDate: String
+  customer: Customer!
+  orders: [PaymentRelatedOrder!]!
+  creditCard: CreditCard
+  invoices: [AppliedInvoice!]!
+  reverseData: ReverseData
+  refundData: [RefundData]
+  isEditable: Boolean!
+  isPrepay: Boolean!
+}
+
+input PaymentFilters {
+  filterByCreatedFrom: String
+  filterByCreatedTo: String
+  filterByInvoicedStatus: [PaymentInvoicedStatus!]
+  filterByType: [PaymentType!]
+  filterByAmountFrom: Float
+  filterByAmountTo: Float
+  filterByUnappliedFrom: Float
+  filterByUnappliedTo: Float
+  filterByUser: [ID!]
+}
+
+type ReverseData {
+  id: ID!
+  date: String!
+  note: String
+  type: String!
+  amount: Float!
+}
+
+type RefundData {
+  id: ID!
+  type: RefundType!
+  amount: Float!
+}
+
+input PaymentApplicationInput {
+  invoiceId: ID!
+  amount: Float!
+}
+
+type PaidOutPayment {
+  id: ID!
+  status: PaymentStatus!
+  invoicedStatus: PaymentInvoicedStatus
+  date: String!
+  paymentType: PaymentType!
+  amount: Float!
+  sendReceipt: Boolean!
+  checkNumber: String
+  isAch: Boolean!
+  prevBalance: Float!
+  newBalance: Float
+  appliedAmount: Float!
+  unappliedAmount: Float
+  paidOutAmount: Float!
+  refundedAmount: Float!
+  refundedOnAccountAmount: Float!
+}
+
+input ReverseDataInput {
+  date: String!
+  note: String
+  type: String!
+  amount: Float!
+}
+
+input UnappliedPaymentInput {
+  paymentType: PaymentType!
+  date: String
+  amount: Float!
+  creditCardId: ID
+  newCreditCard: CreditCardInput
+  checkNumber: String
+  isAch: Boolean
+  sendReceipt: Boolean
+  memoNote: String
+  billableItemType: String
+  billableItemId: ID
+  applications: [PaymentApplicationInput!]
+}
+
+input EditCreditMemoInput {
+  memoNote: String
+  billableItemType: String
+  billableItemId: ID
+  amount: Float!
+  date: String!
+}
+
+input NewMultiOrderPayment {
+  orderIds: [ID!]!
+  creditCardId: ID
+  newCreditCard: CreditCardInput
+  paymentType: PaymentType!
+  date: String
+  checkNumber: String
+  isAch: Boolean
+  sendReceipt: Boolean
+  deferredUntil: String
+}
+
+union InvoicedEntity = Order | Subscription
+
+type Invoice {
+  id: ID!
+  dueDate: String
+  createdAt: String!
+  csrName: String!
+  csrEmail: String!
+  fine: Float
+  total: Float!
+  balance: Float!
+  pdfUrl: String
+  previewUrl: String
+  type: InvoiceType!
+  businessLines: [BusinessLine]
+  orders: [Order!]
+  invoicedEntity: [InvoicedEntity!]
+  customer: Customer!
+  payments: [Payment!]!
+  emails: [InvoiceEmail!]!
+  writeOff: Boolean!
+  businessUnit: BusinessUnit
+  financeChargeId: Int
+}
+
+input InvoiceFilters {
+  canWriteOff: Boolean
+  filterByType: [InvoiceType!]
+  filterByStatus: [InvoiceStatus!]
+  filterByCustomer: [CustomerType!]
+  filterByAge: [InvoiceAge!]
+  filterByDueDateFrom: String
+  filterByDueDateTo: String
+  filterByCreatedFrom: String
+  filterByCreatedTo: String
+  filterByAmountFrom: Float
+  filterByAmountTo: Float
+  filterByBalanceFrom: Float
+  filterByBalanceTo: Float
+  filterByUser: [ID!]
+  filterBusinessLineIds: [ID!]
+}
+
+type AppliedInvoice {
+  id: ID!
+  dueDate: String
+  createdAt: String!
+  total: Float!
+  balance: Float!
+  type: InvoiceType!
+  pdfUrl: String
+  previewUrl: String
+  amount: Float!
+  prevBalance: Float!
+  writeOff: Boolean!
+}
+
+type InvoiceEmail {
+  id: ID!
+  createdAt: String!
+  receiver: String
+  status: EmailEvent!
+}
+
+type Payout {
+  id: ID!
+  date: String!
+  paymentType: PaymentType!
+  checkNumber: String
+  isAch: Boolean!
+  amount: Float!
+  prevBalance: Float!
+  newBalance: Float
+  customer: Customer!
+  creditCard: CreditCard
+  payments: [PaidOutPayment!]!
+}
+
+input PayoutFilters {
+  filterByCreatedFrom: String
+  filterByCreatedTo: String
+  filterByType: [PaymentType!]
+  filterByAmountFrom: Float
+  filterByAmountTo: Float
+  filterByUser: [ID!]
+}
+
+input PayoutInput {
+  paymentType: PaymentType!
+  date: String
+  creditCardId: ID
+  newCreditCard: CreditCardInput
+  checkNumber: String
+  isAch: Boolean
+  paymentIds: [ID!]!
+}
+
+type Settlement {
+  id: ID!
+  date: String!
+  paymentGateway: PaymentGateway!
+  fees: Float!
+  amount: Float!
+  adjustments: Float!
+  count: Int!
+  pdfUrl: String
+  net: Float!
+  mid: String!
+}
+
+type SettlementTransaction {
+  id: ID!
+  settlement: Settlement!
+  payment: Payment
+  amount: Float!
+  fee: Float!
+  adjustment: Float!
+  transactionNote: String
+  spUsed: Boolean
+}
+
+type Statement {
+  id: ID!
+  createdAt: String!
+  statementDate: String!
+  endDate: String!
+  invoicesCount: Int!
+  invoicesTotal: Float!
+  paymentsTotal: Float!
+  balance: Float!
+  pdfUrl: String
+  prevPdfUrl: String
+  exagoPath: String!
+  prevBalance: Float!
+  customer: Customer!
+  emails: [StatementEmail]
+  financeChargeExists: Boolean
+}
+
+type StatementEmail {
+  id: ID!
+  createdAt: String!
+  receiver: String
+  status: EmailEvent!
+}
+
+type FinanceCharge {
+  id: ID!
+  createdAt: String!
+  total: Float!
+  balance: Float!
+  pdfUrl: String
+  exagoPath: String!
+  customer: Customer!
+  invoice: Invoice!
+  invoices: [Invoice!]!
+  statement: Statement!
+  payments: [Payment]
+  emails: [FinanceChargeEmail]
+}
+
+input FinanceChargeFilters {
+  filterByStatus: [InvoiceStatus!]
+  filterByCustomer: [CustomerType!]
+  filterByCreatedFrom: String
+  filterByCreatedTo: String
+  filterByAmountFrom: Float
+  filterByAmountTo: Float
+  filterByBalanceFrom: Float
+  filterByBalanceTo: Float
+  filterByUser: [ID!]
+}
+
+input FinanceChargeInput {
+  businessUnitId: ID
+  customerId: ID!
+  financeChargeApr: Float!
+  financeChargeInvoices: [FinanceChargeInvoiceInput!]!
+}
+
+input FinanceChargeInvoiceInput {
+  statementId: ID!
+  invoiceId: ID!
+  fine: Float!
+}
+
+type FinanceChargeResult {
+  customersCount: Int!
+  invoicesCount: Int!
+  invoicesTotal: Float!
+}
+
+type FinanceChargeEmail {
+  id: ID!
+  createdAt: String!
+  receiver: String
+  status: EmailEvent!
+}
+
+type BusinessUnit {
+  id: ID!
+  active: Boolean!
+  timeZoneName: String
+  nameLine1: String!
+  type: String!
+  createdAt: String!
+}
+
+type BankDeposit {
+  id: ID!
+  businessUnit: BusinessUnit!
+  adjustments: Float!
+  merchantId: String
+  date: String!
+  depositType: BankDepositType!
+  status: BankDepositStatus!
+  synced: Boolean!
+  total: Float!
+  pdfUrl: String
+  count: Int!
+  payments: [Payment!]!
+}
+
+type BatchStatement {
+  id: ID!
+  createdAt: String!
+  statementDate: String!
+  endDate: String!
+  count: Int!
+  total: Float!
+  businessUnit: BusinessUnit!
+  statements: [Statement!]!
+}
+
+type GenerationJob {
+  id: ID!
+  status: GenerationJobStatus
+  count: Int!
+  expectedCount: Int!
+  failedCount: Int!
+  startTime: String
+  endTime: String
+  durationInSec: Int
+}
+
+type InvoiceGenerationJobResult {
+  id: ID!
+  count: Int!
+  expectedCount: Int!
+  failedCount: Int!
+  status: GenerationJobStatus!
+  startTime: String
+  endTime: String
+  durationInSec: Int
+  processedOrders: Int!
+  processedSubscriptions: Int!
+  customersIncluded: Int!
+  generatedInvoices: Int!
+  invoicesTotal: Float!
+}
+
+type StatementGenerationJobResult {
+  id: ID!
+  count: Int!
+  expectedCount: Int!
+  failedCount: Int!
+  status: GenerationJobStatus!
+  invoicesTotal: Float!
+  paymentsTotal: Float!
+  invoicesCount: Int!
+  total: Float!
+  statementIds: [ID!]!
+  batchStatementId: ID!
+}
+
+type FinChargeGenerationJobResult {
+  id: ID!
+  count: Int!
+  expectedCount: Int!
+  failedCount: Int!
+  status: GenerationJobStatus!
+  invoicesTotal: Float!
+  invoicesCount: Int!
+  customersCount: Int!
+  financeChargeIds: [ID!]!
+}
+
+type SettlementGenerationJobResult {
+  id: ID!
+  count: Int!
+  expectedCount: Int!
+  failedCount: Int!
+  status: GenerationJobStatus!
+  settlementId: ID!
+}
+
+type BusinessLine {
+  id: ID!
+  active: Boolean!
+  name: String!
+  description: String
+  shortName: String
+  type: String!
+  createdAt: String
+}
+
+type Subscription {
+  id: ID!
+  anniversaryBilling: Boolean!
+  billingCycle: String!
+  billingType: BillingType!
+  businessLineId: ID!
+  endDate: String
+  nextBillingPeriodFrom: String
+  nextBillingPeriodTo: String
+  totalPriceForSubscription: Float
+  startDate: String!
+  serviceItems: [ServiceItem!]!
+  nonServiceOrder: [SubscriptionOrder!]
+}
+
+type ServiceItem {
+  serviceItemId: ID!
+  serviceName: String!
+  lineItems: [LineItem!]
+  serviceItems: [ServiceItemInfo!]!
+}
+
+type LineItem {
+  id: ID!
+  price: Float!
+  quantity: Int!
+  totalPrice: Float!
+  periodTo: String
+  periodSince: String
+  serviceName: String!
+  totalDay: Int!
+  usageDay: Int!
+}
+
+type ServiceItemInfo {
+  id: ID!
+  totalPrice: Int!
+  totalDay: Int!
+  usageDay: Int!
+  price: Float!
+  quantity: Int!
+  periodTo: String
+  periodSince: String
+  subscriptionOrders: [SubscriptionOrder!]
+}
+
+type SubOrderLineItem {
+  id: ID!
+  price: Float!
+  quantity: Int!
+  serviceName: String!
+}
+
+type SubscriptionOrder {
+  id: ID
+  serviceDate: String!
+  sequenceId: String
+  price: Float
+  quantity: Int
+  serviceName: String!
+  grandTotal: Float
+  subOrderLineItems: [SubOrderLineItem!]
+}

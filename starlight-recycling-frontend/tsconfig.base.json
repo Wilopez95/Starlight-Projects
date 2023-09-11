@@ -1,0 +1,25 @@
+{
+  "include": ["packages/*/src"],
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "exclude": [
+    "packages/*/dist",
+    "node_modules",
+    "dist",
+    "node_modules/ra-core/esm/controller/field/index.d.ts"
+  ]
+}

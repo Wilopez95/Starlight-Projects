@@ -1,0 +1,9 @@
+overwrite: true
+schema: billing-schema.gql
+documents: 'src/services/billing/graphql/*.{js,ts}'
+generates:
+  src/services/billing/graphql/graphql.ts:
+    plugins:
+      - typescript-operations
+      - typescript-graphql-request
+      - codegen-plugins/dist/codegen-plugins/type-graphql/index.js

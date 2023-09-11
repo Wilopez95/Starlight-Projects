@@ -1,0 +1,48 @@
+{
+  "name": "starlight-recycling-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "husky": "^4.2.5"
+  },
+  "scripts": {
+    "start": "concurrently --kill-others -n recycling,common \"yarn start:recycling\" \"yarn start:common\"",
+    "start-cross": "concurrently --kill-others -n recycling,common \"yarn start-cross:recycling\" \"yarn start:common\"",
+    "start:common": "yarn workspace @starlightpro/common watch",
+    "start:recycling": "yarn workspace @starlightpro/recycling start",
+    "start-cross:recycling": "yarn workspace @starlightpro/recycling start-cross",
+    "precommit": "yarn workspaces run precommit",
+    "schema:generate": "yarn workspaces run schema:generate",
+    "schema:generate:recycling": "yarn workspace @starlightpro/recycling schema:generate",
+    "test:recycling:ui": "yarn workspace @starlightpro/recycling cypress:open",
+    "test:recycling:component": "yarn workspace @starlightpro/recycling cypress open:ct",
+    "test": "CI=true yarn workspaces run test",
+    "build": "CI=true yarn build:common && yarn build:recycling",
+    "build:common": "yarn workspace @starlightpro/common build",
+    "build:recycling": "yarn workspace @starlightpro/recycling build",
+    "lint": "yarn workspaces run lint",
+    "tools": "yarn workspace admin compose:up",
+    "skip": "cd .",
+    "build:redirect": "yarn workspace @starlightpro/recycling build:redirect"
+  },
+    "resolutions": {
+    "date-fns": "2.29.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "semi": "error"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit"
+    }
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}

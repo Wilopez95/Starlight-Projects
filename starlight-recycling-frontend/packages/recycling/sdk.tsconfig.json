@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "src/service/printnode"],
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "target": "ES5",
+    "module": "CommonJS",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./",
+    "noEmit": false
+  }
+}

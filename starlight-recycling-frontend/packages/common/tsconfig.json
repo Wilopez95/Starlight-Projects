@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "exclude": ["node_modules", "dist"],
+  "include": ["src"],
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "target": "ES5",
+    "module": "CommonJS",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./",
+    "noEmit": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "extends": ["react-app"],
+  "plugins": ["eslint-plugin-json"],
+  "rules": {
+    "semi": "error",
+    "comma-dangle": ["error", "always-multiline"],
+    "curly": 2,
+    "newline-before-return": 2,
+    "no-console": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "vars": "all", "args": "after-used", "varsIgnorePattern": "^_" }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "if" }
+    ],
+    "import/no-anonymous-default-export": 0
+  }
+}

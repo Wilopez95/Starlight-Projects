@@ -1,0 +1,36 @@
+# need to change in case of the different client or
+# create another route for this
+overwrite: true
+schema:
+  - 'http://localhost:3003/api/graphql'
+  - './src/graphql/**/*.schema.ts'
+  - '../common/src/graphql/**/*.schema.ts'
+  # https://graphql-code-generator.com/docs/integrations/apollo-local-state
+  # - my-client-schema.graphql
+documents:
+  [
+    'src/graphql/**/*.{tsx,ts}',
+    '../common/src/graphql/queries/**/*.{tsx,ts}',
+    'src/views/**/*.{tsx,ts}',
+    'src/components/**/*.{tsx,ts}',
+    'src/hooks/**/*.{tsx,ts}',
+  ]
+generates:
+  src/graphql/api.tsx:
+    config:
+      noNamespaces: true
+      contextType: ../graphql/context#GraphQLClientContext
+      apolloReactCommonImportFrom: '@apollo/client'
+      apolloReactHooksImportFrom: '@apollo/client'
+      withHooks: true
+      withRefetchFn: true
+      withComponent: false
+      withHOC: false
+      scalars:
+        Function: 'Function'
+        AsyncFunction: '() => Promise<any>'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - typescript-resolvers

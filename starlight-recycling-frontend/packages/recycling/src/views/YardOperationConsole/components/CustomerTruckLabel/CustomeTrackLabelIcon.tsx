@@ -1,0 +1,25 @@
+import React, { FC } from 'react';
+import { Trans } from '../../../../i18n';
+import { Tooltip } from '@material-ui/core';
+import { createSvgIcon } from '@material-ui/core/utils';
+
+interface CustomeTrackLabelIconProps {
+  isActive?: boolean;
+  className?: string;
+}
+
+const TrackIcon = createSvgIcon(
+  <path d="M17.9963 3.10473C17.9143 1.37786 16.4893 0.00280811 14.7426 0.000711817L11.3895 0V1.30334L14.7426 1.30362L14.8617 1.30719C15.8856 1.36872 16.697 2.21858 16.697 3.25799L16.697 6.40635H17.9997L18 3.25799L17.9963 3.10473ZM0 11.3891H1.30268L1.30296 14.7427C1.30296 15.7821 2.11437 16.632 3.13834 16.6935L3.2574 16.6971L6.40661 16.6971V17.9997L3.2574 18C1.51065 17.9979 0.0857003 16.6229 0.00372216 14.896L0 14.7427V11.3891ZM17.9997 11.3891L18 14.7427C17.9979 16.4894 16.6228 17.9143 14.8959 17.9963L14.7426 18L11.3895 17.9997V16.6971L14.7426 16.6971C15.782 16.6971 16.6319 15.8857 16.6935 14.8618L16.697 14.7427L16.697 11.3891H17.9997ZM6.40661 0V1.30334L3.2574 1.30362C2.21796 1.30362 1.36806 2.11499 1.30653 3.13893L1.30296 3.25799L1.30268 6.40635H0V3.25799C0.00209637 1.5113 1.3772 0.0864087 3.10414 0.00443383L3.2574 0.000711817L6.40661 0ZM12.9929 4L14 5.00714L10.0071 9L14 12.9929L12.9929 14L9 10.0071L5.00714 14L4 12.9929L7.99286 9L4 5.00714L5.00714 4L9 7.99286L12.9929 4Z"></path>,
+  'TrackIcon',
+);
+
+export const CustomeTrackLabelIcon: FC<CustomeTrackLabelIconProps> = ({ isActive, className }) => (
+  <Tooltip
+    className={className}
+    title={isActive ? '' : <Trans>Truck and/or Can tare weight is absent</Trans>}
+  >
+    <TrackIcon color={isActive ? 'primary' : 'disabled'} />
+  </Tooltip>
+);
+
+export default CustomeTrackLabelIcon;

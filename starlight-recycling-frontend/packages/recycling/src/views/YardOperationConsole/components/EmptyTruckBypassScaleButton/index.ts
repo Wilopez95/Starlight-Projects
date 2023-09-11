@@ -1,0 +1,1 @@
+export { EmptyTruckBypassScaleButton } from './EmptyTruckBypassScaleButton';

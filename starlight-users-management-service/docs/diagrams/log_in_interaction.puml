@@ -1,0 +1,50 @@
+@startuml log_in_interaction
+|User Agent|
+start
+:Send log-in request;
+|Core|
+:Construct resource name
+and redirect URI;
+:Request UMS redirect URI from UMS;
+:Redirect UA to UMS;
+|UMS|
+:Generate state and code params;
+if (session exists?) then (yes)
+  if (refresh token present?) then (yes)
+    :Try to obtain a new ID token from Cognito;
+  else (no or invalid)
+    :Remove session cookie;
+    :Remove refresh token;
+    stop
+  endif
+  :Store state and code;
+else (no)
+  :Store state, code and redirect URI;
+  :Redirect UA to OIDC (Cognito);
+  |Cognito|
+  :Request user credentials;
+  |User Agent|
+  :Ask user to enter credentials;
+  |Cognito|
+  :Redirect to callback URI with code and state;
+  |UMS|
+  :Obtain new ID token with code;
+  :Load redirect URI from Core
+  and previously generated code;
+  :Generate new state;
+  :Store new state and code;
+endif
+
+:Redirect UA to redirect URI with code and state;
+|User Agent|
+:Send code to Core;
+|Core|
+:Exchange code for resource token;
+|UMS|
+:Verify code and issue new resource token;
+|Core|
+:Store token in cookie;
+|User Agent|
+:Access resources with token;
+end
+@enduml

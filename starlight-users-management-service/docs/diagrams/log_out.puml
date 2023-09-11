@@ -1,0 +1,39 @@
+@startuml log_out
+
+title Example Log-out Flow for Core and Recycling
+
+autonumber
+
+actor User as u
+participant "User Agent (browser)" as ua
+participant Core as core
+participant UMS as ums
+participant Cognito as oidc
+
+u -> ua: Clicks Log-out
+
+group Log-out initialization
+  ua -> core: POST /logout
+  core -> ums: POST /auth/logout?redirectUri={core-uri}
+  ums --> core: 200 redirectTo: https://{ums-host}/auth/perform-logout
+
+  core --> ua: 200 redirectTo: https://{ums-host}/auth/perform-logout
+
+  note left: UA navigates to UMS URL
+  ua -> ums: navigation: GET //auth/perform-logout
+end
+
+alt No active session exists
+  ums --> ua: redirects to URI from step 3
+else Found an active session
+  ums --> ua: Redirects to OIDC
+
+  ua -> oidc: navigation: GET /logout
+  oidc --> ua: Redirects to callback URI
+  ua -> ums: navigation: GET /auth/logoutcb
+
+  ums --> ua: Redirects to URI from step 3 and clears session cookie
+end
+ua -> core: navigation: GET /
+ua --> u: Displays log-in page
+@enduml

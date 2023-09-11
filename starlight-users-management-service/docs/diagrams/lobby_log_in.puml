@@ -1,0 +1,91 @@
+@startuml lobby_log_in
+
+title Example Log-in Flow for Core
+autonumber
+
+actor User as u
+participant "User Agent (browser)" as ua
+participant Core as core
+participant UMS as ums
+participant Cognito as oidc
+
+u -> ua: Clicks log in
+
+==Authentication start==
+group Log-in initialization
+  ua -> core: POST /login
+  core -> ums: POST /auth/login?resource=srn:{tenant}:global:lobby&redirectUri={core-uri}
+  ums --> core: 200 redirectTo: https://{ums-host}/auth/perform-login
+
+  note left
+  An intermediary URL is necessary
+  so that UMS can receive and set cookies.
+  end note
+
+  core --> ua: 200 redirectTo: https://{ums-host}/auth/perform-login
+
+  note left: UA navigates to UMS URL
+  ua -> ums: navigation: GET /auth/perform-login
+end
+
+group OAuth2 auth code flow
+  ums --> ua: Generates state param and redirects to OIDC
+  ua -> oidc: navigation: GET /authorize
+  u -> oidc: Enters credentials
+
+  oidc --> ua: Redirects to callback URI
+  ua -> ums: navigation: GET /auth/logincb?code={cognito_auth_code}&state={state}
+
+  ums -> oidc: Exchanges auth code for ID token
+  oidc --> ums: ID token and refresh token
+end
+==Authentication end==
+
+==Authorization start==
+ums --> ua: Redirects to URI from step 3 with code and state
+
+note right
+UMS also sets a session cookie used for log-in
+to other resources.
+end note
+
+ua -> core: navigation: GET /{core-uri}?code={authCode}&state={state}
+core -> ums: Exchanges code for resource token for srn:{tenant}:global:lobby
+ums --> core: Resource token
+core --> ua: Saves resource token in a cookie
+ua -> core: GET /business-units
+core --> ua: BUs user can access based on resource token
+==Authorization end==
+
+u -> ua: Selects resource
+
+note right
+Resource can be a business unit,
+recycling facility or global configuration.
+end note
+
+group Log-in initialization
+  ua -> core: POST /login
+  core -> ums: POST /login?resource=srn:{tenant}:business-unit:{bu-id}&redirectUri={core-uri}
+  ums --> core: 200 redirectTo: https://{ums-host}/auth/perform-login
+
+  core --> ua: 200 redirectTo: https://{ums-host}/auth/perform-login
+
+  note left: UA navigates to UMS URL
+  ua -> ums: navigation: GET /auth/perform-login
+end
+
+ums -> oidc: Exchange refresh token for new ID token
+
+note left
+This is necessary to ensure user has not logged out.
+end note
+
+oidc --> ums: ID token and new refresh token
+ums --> ua: Redirects to URI from step 23 with code and state
+ua -> core: Code and state
+core -> ums: Exchanges code for resource token for srn:{tenant}:business-unit:{bu-id}
+ums --> core: Resource token
+core --> ua: Saves resource token in a cookie
+ua --> u: Displays business-unit-specific information
+@enduml

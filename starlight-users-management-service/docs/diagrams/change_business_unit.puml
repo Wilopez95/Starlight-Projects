@@ -1,0 +1,60 @@
+@startuml change_business_unit
+
+title Changing Business Unit Example for Core\n//(also applies to recycling log-in)//
+
+autonumber
+
+actor User as u
+participant "User Agent (browser)" as ua
+participant Core as core
+participant UMS as ums
+participant Cognito as oidc
+
+u -> ua: Selects resource
+
+note right
+Resource can be a business unit,
+recycling facility or global configuration.
+end note
+
+group Login initialization
+  ua -> core: POST /login
+  core -> ums: POST /login?resource=srn:{tenant}:business-unit:{bu-id}&redirectUri={core-uri}
+  ums --> core: 200 redirectTo: https://{ums-host}/auth/perform-login
+
+  core --> ua: 200 redirectTo: https://{ums-host}/auth/perform-login
+
+  note left: UA navigates to UMS URL
+  ua -> ums: navigation: GET /auth/perform-login
+end
+
+alt Active session exists and refresh token is present
+  ums -> oidc: Exchange refresh token for new ID token
+
+  note left
+  This is necessary to ensure user has not logged out.
+  end note
+
+  oidc --> ums: ID token and new refresh token
+
+else No session cookie found
+  ums --> ua: Generates state param and redirects to OIDC
+  note left: What follows is OAuth2 auth code flow.
+
+  ua -> oidc: navigation: GET /authorize
+  u -> oidc: Enters credentials
+
+  oidc --> ua: Redirects to callback URI
+  ua -> ums: Sends auth code and state
+
+  ums -> oidc: Exchanges auth code for ID token
+  oidc --> ums: ID token and refresh token
+end
+
+ums --> ua: Redirects to URI from step 3 with code and state
+ua -> core: Code and state
+core -> ums: Exchanges code for resource token for srn:{tenant}:business-unit:{bu-id}
+ums --> core: Resource token
+core --> ua: Saves resource token in a cookie
+ua --> u: Displays business-unit-specific information
+@enduml

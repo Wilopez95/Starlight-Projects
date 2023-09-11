@@ -1,0 +1,15 @@
+type RC = Record<string, string>;
+
+const mapping: RC = {
+  rss: 'Occupied RAM',
+  heapTotal: 'Total Size of the Heap',
+  heapUsed: 'Heap actually Used',
+  external: 'External C++ objects',
+  arrayBuffers: 'ArrayBuffers, SharedArrayBuffers, Buffers',
+};
+
+export default (): RC =>
+  Object.entries(process.memoryUsage()).reduce((res: RC, [key, value]) => {
+    res[mapping[key]] = `${Math.round((value / 1024 / 1024) * 100) / 100} MB`;
+    return res;
+  }, {});
